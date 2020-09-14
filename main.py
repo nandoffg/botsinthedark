@@ -1,4 +1,4 @@
-# Bots in the Dark v.0.1
+# Bots in the Dark v.1.0
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -17,13 +17,8 @@ client = discord.Client()
 bot = commands.Bot(command_prefix='=')
 bot.remove_command("help")
 
-USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
-MOBILE_USER_AGENT = "Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) " \
-                    "Chrome/59.0.3071.125 Mobile Safari/537.36 "
-
 # INSERT BOT TOKE HERE IN QUOTES VVVVVVVVVVVVVV
 token = "NzU0Nzg2OTUyNjc4NjA0OTYy.X150IA.gykEs6J5I5CsOHI6Ix-5ehgzt4c"
-
 
 # print("Trying database connection...")
 # bot.password = "bTqZ1Rr01Y9v2mOh"
