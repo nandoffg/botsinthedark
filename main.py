@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.2
+# Bots in the Dark v.1.3
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -121,12 +121,15 @@ async def generate(ctx, option):
         demon_names = ["Korvaeth", "Sevraxis", "Argaz", "Zalvroxos", "Kethtera", "Arkeveron", "Ixis", "Kyronax", "Voldranai", "Esketra", "Ardranax",
                        "Kylastra", "Oryxus", "Ahazu", "Tyraxis", "Azarax", "Vaskari"]
 
+        total = len(demon_names) * 4 * len(demon_desires) * len(demon_features)
+
         phrase = "You see **" + random.choice(demon_types).lower() + "** that has **" + random.choice(demon_features).lower() + \
                  "**. Their demon desire is **" + random.choice(demon_desires).lower() + "**. Their name is **" + \
                  random.choice(demon_names).capitalize() + "**."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "ghost":
@@ -138,11 +141,14 @@ async def generate(ctx, option):
                              "Mist", "Fog", "Rushing wind", "Intense visual echoes", "Intense magnetism", "Disturbing shadows", "Thunderous sounds",
                              "Freezing fog", "Storm winds", "Pitch darkness", "Lightning", "Clutching shadows", "Voices in your head"]
 
+        total = len(ghost_traits) * len(ghost_more_traits)
+
         phrase = "Add these characteristics on top of another person's: \nYou feel a **" + random.choice(ghost_traits).lower() + \
                  "** aura emanating from them." + "\nAround them you also see the effects of **" + random.choice(ghost_more_traits).lower() + "**."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "fgod":
@@ -189,11 +195,12 @@ async def generate(ctx, option):
                           "Sacrifice: Progressively overdosed with mind-expanding drugs.",
                           "Sacrifice: Ritually bled upon the sacred altar.",
                           "Sacrifice: Pitted against an anointed champion in death arena."]
-
+        total = len(gods) * len(cult_practices)
         phrase = "This is the Forgotten God: **" + random.choice(gods) + "**.\nTheir cult's practices are " + random.choice(cult_practices)
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random Forgotten God.')
         embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "horror":
@@ -207,6 +214,7 @@ async def generate(ctx, option):
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(len(horrors)), inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "bargain":
@@ -232,6 +240,7 @@ async def generate(ctx, option):
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name="Generating random Devil's Bargain")
         embed.add_field(name="Offer: **+1d** on roll in exchange for: ", value=random.choice(bargains), inline=False)
+        embed.add_field(name="Random seeds:", value=str(len(bargains)), inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "score":
@@ -262,12 +271,14 @@ async def generate(ctx, option):
                    "Leviathan Hunters", "Sailors", "Dockers", "Gondoliers", "Cabbies", "Rail Jacks", "The Brigade", "The Church of Ecstasy",
                    "The Weeping Lady", "The Forgotten Gods", "Path of Echoes", "Reconciled", "Skovlander Refugees", "Deathlands", "Scavengers"]
 
+        total = len(client_target) * len(work) * len(twist) * len(connection) * len(faction) * len(client_target)
         phrase = "**" + random.choice(client_target).capitalize() + "** wants someone to do a/an **" + random.choice(work).lower() + "** job over **" \
                  + random.choice(client_target).lower() + "**. But **" + random.choice(twist).lower() + "** and/or is connected to a **" + \
                  random.choice(connection).lower() + "** and/or **" + random.choice(faction) + "**."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "people":
@@ -300,7 +311,7 @@ async def generate(ctx, option):
                                             " with insects on them before rapidly decomposing", "has mollusk chitin",
                       "has arms that have an extra elbow like "
                       "Steve Erickson’s Forkul Assail"]
-        type_of_street = ["man", "man", "woman", "woman", "man", "man", "woman", "woman", "ambiguous", "concealed"]
+        type_of_person = ["man", "man", "woman", "woman", "man", "man", "woman", "woman", "ambiguous gender person", "concealed gender person"]
         goals = ["Wealth", "Power", "Authority", "Prestige", "Fame", "Control", "Knowledge", "Pleasure", "Revenge", "Freedom",
                  "Achievement", "Happiness", "Infamy", "Fear", "Respect", "Love", "Change", "Chaos", "Destruction", "Justice", "Cooperation"]
         preferred_methods = ["Violence", "Threats", "Negotiation", "Study", "Manipulation", "Strategy", "Theft", "Arcane methods", "Commerce",
@@ -365,7 +376,8 @@ async def generate(ctx, option):
         aliases = ["Bell", "Birch", "Bricks", "Bug", "Chime", "Coil", "Cricket", "Cross", "Crow", "Echo", "Flint", "Frog", "Frost", "Grip", "Gunner",
                    "Hammer", "Hook", "Junker", "Mist", "Moon", "Nail", "Needle", "Ogre", "Pool", "Ring", "Ruby", "Silver", "Skinner", "Song", "Spur",
                    "Tackle", "Thistle", "Thorn", "Tick-Tock", "Twelves", "Vixen", "Whip", "Wicker"]
-
+        total = len(looks) * (len(name_f)+len(names_m)) * len(fam_names) * len(aliases) * len(heritage) * (len(prof_rare) + len(prof_comm)) * \
+                len(goals) * len(preferred_methods) * len(interests) * len(quirks) * 4 * len(demo_trait) * len(style) * len(style) * len(traits)
         clothing = []
         prof = ""
         x = 0
@@ -385,7 +397,7 @@ async def generate(ctx, option):
         if herit == 'tycherosi':
             demonic = 'This person ' + random.choice(demo_trait) + '.'
 
-        gender = random.choice(type_of_street).lower()
+        gender = random.choice(type_of_person).lower()
         if gender == 'man':
             name = random.choice(names_m).capitalize()
         elif gender == 'woman':
@@ -394,7 +406,7 @@ async def generate(ctx, option):
             name = random.choice(name_f + names_m).capitalize()
 
         phrase = name + ' **"' + random.choice(aliases).capitalize() + '"** ' + random.choice(fam_names).capitalize() + \
-                 " is a **" + random.choice(looks).lower() + " " + herit + " " + gender + \
+                 " is a **" + random.choice(traits) + "**, **" + random.choice(looks).lower() + "**, **" + herit + " " + gender + \
                  "**. That is a **" + prof + "** that yearns for **" + random.choice(goals).lower() + "** through **" + \
                  random.choice(preferred_methods).lower() + "**. They come in **" + clothing[0] + "** and **" + clothing[1] + \
                  "** and are interested in **" + random.choice(interests).lower() + "**. \n" + random.choice(quirks) + ". \n" + demonic
@@ -402,6 +414,7 @@ async def generate(ctx, option):
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "building":
@@ -433,6 +446,7 @@ async def generate(ctx, option):
                  "Curtains", "Vases", "Flowers", "Instruments", "Music Sheets", "an Exam Chair", "Medical Tools", "a Burner", "Vials", "Beakers",
                  "a Workbench", "Tools", "Rags", "Weapons", "Ammunition"]
         phrase = ""
+        total = len(material) * len(details) * (len(use_com)+len(use_rare)) * len(more_details) * len(items) * len(items) * len(items) * len(items)
         picked_items = []
         x = 0
         if random.choice(range(1, 6)) == 1:
@@ -459,6 +473,7 @@ async def generate(ctx, option):
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
 
 
