@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.3
+# Bots in the Dark v.1.4
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -470,6 +470,36 @@ async def generate(ctx, option):
                      picked_items[0] + "**, **" + picked_items[1] + "**, **" + picked_items[2] + "** and **" + \
                      picked_items[3] + "**."
 
+        embed = discord.Embed(colour=discord.Colour.dark_red())
+        embed.set_author(name='Generating random ' + opt)
+        embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
+        await ctx.send(embed=embed)
+
+    elif opt == "food":
+        preparations = ['baked', 'broiled', 'fried', 'microwaved', 'roasted', 'smoked', 'blanched', 'braised', 'coddled', 'infused',
+        'pressure cooked', 'simmered', 'poached', 'steamed', 'steeped', 'stewed', 'grilled', 'barbecued', 'deep fried', 'pan fried', 'stir fried',
+        'hot salt fried', 'seared', 'brined', 'dried', 'fermented', 'marinated', 'pickled', 'salted']
+        ingredients = ["eel", "mushrooms", "centipedes", "slugs", "grubs", "worms", "rat meat", "canal weed", "watermoss", "algae",
+                       "rice", "wheat", "barley", "rye", "corn", "chicken meat", "goat meat", "goat milk", "goat cheese", "dolphin meat",
+                       "devilfish meat", "squid meat", "mussels", "crab meat", "caviar", "grapes", "clam meat"]
+        total = len(preparations) * len(preparations) * len(ingredients) * len(ingredients)
+        phrase = random.choice(preparations).capitalize() + " " + random.choice(ingredients).lower() + " with " +
+        random.choice(preparations).lower() + " " + random.choice(ingredients).lower() + "."
+        embed = discord.Embed(colour=discord.Colour.dark_red())
+        embed.set_author(name='Generating random ' + opt)
+        embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
+        await ctx.send(embed=embed)
+
+    elif opt == "drink":
+        ingredients = ["mushrooms", "mushroom cap", "mushroom stem", "canal weed", "watermoss", "algae", "rice", "wheat", "barley", "rye", "corn",
+                       "goat milk", "mussels", "grapes"]
+        drinks = ('soft drink', 'tea', 'beer', 'wine',
+                      'spirits', 'infusion', 'fermentation', 'distillation', 'mixing')
+        total = len(drinks) * len(ingredients)
+        phrase = random.choice(ingredients).capitalize() + " " + random.choice(drinks).lower() + " with " +
+        random.choice(ingredients).lower() + " " + random.choice(drinks).lower() + "."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
