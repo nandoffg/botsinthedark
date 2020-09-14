@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.0
+# Bots in the Dark v.1.1
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -464,9 +464,9 @@ async def info(ctx):
     embed = discord.Embed(colour=discord.Colour.darker_grey())
     embed.set_author(name='Bots in the Dark Info')
     embed.add_field(name='=info or =i', value='This is the Bots in the Dark Discord bot created by Fernando Gomes to be used for Blades in the'
-                                              'Dark RPG system. With it you can make Blades rolls, resistance rolls, generate random streets,'
-                                              'building, demons, ghosts, scores, bargains, etc.'
-                                              'It can also make generic dice rolls for other purposes.',
+                                              ' Dark RPG system. With it you can make Blades rolls, resistance rolls, generate random streets,'
+                                              ' buildings, demons, ghosts, scores, bargains, etc.'
+                                              ' It can also make generic dice rolls for other purposes.',
                     inline=False)
     await ctx.send(embed=embed)
 
