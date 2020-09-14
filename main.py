@@ -20,6 +20,7 @@ bot.remove_command("help")
 # INSERT BOT TOKE HERE IN QUOTES VVVVVVVVVVVVVV
 token = "NzU0Nzg2OTUyNjc4NjA0OTYy.X150IA.gykEs6J5I5CsOHI6Ix-5ehgzt4c"
 
+
 # print("Trying database connection...")
 # bot.password = "bTqZ1Rr01Y9v2mOh"
 # db_client = pymongo.MongoClient("mongodb+srv://aria-bot:" + bot.password +
@@ -42,6 +43,24 @@ async def on_ready():
     dm_c = await bot.owner.create_dm()
     await dm_c.send("Bot restarted.")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name='=help'))
+
+
+@bot.event
+async def on_message(message):
+    if not message.author.bot and isinstance(message.channel, discord.channel.DMChannel):
+        embed = discord.Embed(colour=discord.Colour.darker_grey())
+        embed.set_author(name='Hello there scoundrel!')
+        embed.add_field(name="Bots in the Dark", value="\nI'm a bot with several useful functions.\nType `=h` or `=help` for more information on the "
+                                                       "commands. If you want to add me to your Discord server, go [here]"
+                                                       "(https://discord.com/oauth2/authorize?client_id=754786952678604962&scope=bot&permissions"
+                                                       "=511040) to invite me. "
+                                                       "\n\nI'm able to roll dice, spill out Blades rolls results, generate random fictional things "
+                                                       "for your game, such as streets, buildings, "
+                                                       "demons, scores, people and many others."
+                                                       "\nIf you want to back this bot, go [here](www.patreon.com/fernandogomes).", inline=False)
+        await message.channel.send(embed=embed)
+    else:
+        await bot.process_commands(message)
 
 
 @bot.command(name='generate', aliases=["g"])
@@ -442,7 +461,7 @@ async def generate(ctx, option):
 
 @bot.command(name="info", aliases=["i"])
 async def info(ctx):
-    embed = discord.Embed(colour=discord.Colour.purple())
+    embed = discord.Embed(colour=discord.Colour.darker_grey())
     embed.set_author(name='Bots in the Dark Info')
     embed.add_field(name='=info or =i', value='This is the Bots in the Dark Discord bot created by Fernando Gomes to be used for Blades in the'
                                               'Dark RPG system. With it you can make Blades rolls, resistance rolls, generate random streets,'
@@ -597,7 +616,7 @@ async def roll(ctx, dice):
 @bot.command(pass_context=True, aliases=["h"])
 async def help(ctx, *command_helper):
     if len(command_helper) == 0:
-        embed = discord.Embed(colour=discord.Colour.purple())
+        embed = discord.Embed(colour=discord.Colour.darker_grey())
         embed.set_author(name='HELP')
         embed.add_field(name='=help or =h', value='Shows this message. Type in `=help command` or `=h command` for help on that command.',
                         inline=False)
@@ -611,7 +630,7 @@ async def help(ctx, *command_helper):
         await ctx.send(embed=embed)
 
     elif command_helper[0].lower() == "blade" or command_helper[0].lower() == "b":
-        embed = discord.Embed(colour=discord.Colour.purple())
+        embed = discord.Embed(colour=discord.Colour.darker_grey())
         embed.set_author(name='HELP')
         embed.add_field(name='=blade or =b', value='''\nUsage: `=b <argument>`\n
                                                 ''', inline=False)
@@ -629,7 +648,7 @@ async def help(ctx, *command_helper):
         await ctx.send(embed=embed)
 
     elif command_helper[0].lower() == "generate" or command_helper[0].lower() == "g":
-        embed = discord.Embed(colour=discord.Colour.purple())
+        embed = discord.Embed(colour=discord.Colour.darker_grey())
         embed.set_author(name='HELP')
         embed.add_field(name='=generate or =g', value='''\nUsage: `=g <argument>`\n
                                                 ''', inline=False)
@@ -650,7 +669,7 @@ async def help(ctx, *command_helper):
         await ctx.send(embed=embed)
 
     elif command_helper[0].lower() == "roll" or command_helper[0].lower() == "r":
-        embed = discord.Embed(colour=discord.Colour.purple())
+        embed = discord.Embed(colour=discord.Colour.darker_grey())
         embed.set_author(name='HELP')
         embed.add_field(name='=roll or =r', value='''\nUsage: `=r <argument>`\n
                                                 ''', inline=False)
@@ -667,7 +686,7 @@ async def help(ctx, *command_helper):
         await ctx.send(embed=embed)
 
     elif command_helper[0].lower() == "info" or command_helper[0].lower() == "i":
-        embed = discord.Embed(colour=discord.Colour.purple())
+        embed = discord.Embed(colour=discord.Colour.darker_grey())
         embed.set_author(name='HELP')
         embed.add_field(name='=info or =i', value='Displays information regarding this bot.',
                         inline=False)
