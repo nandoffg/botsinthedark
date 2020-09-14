@@ -477,7 +477,7 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "food":
-        preparations = ['baked', 'broiled', 'fried', 'microwaved', 'roasted', 'smoked', 'blanched', 'braised', 'coddled', 'infused',
+        preparations = ['baked', 'broiled', 'fried', 'roasted', 'smoked', 'blanched', 'braised', 'coddled', 'infused',
         'pressure cooked', 'simmered', 'poached', 'steamed', 'steeped', 'stewed', 'grilled', 'barbecued', 'deep fried', 'pan fried', 'stir fried',
         'hot salt fried', 'seared', 'brined', 'dried', 'fermented', 'marinated', 'pickled', 'salted']
         ingredients = ["eel", "mushrooms", "centipedes", "slugs", "grubs", "worms", "rat meat", "canal weed", "watermoss", "algae",
