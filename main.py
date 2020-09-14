@@ -699,7 +699,8 @@ async def help(ctx, *command_helper):
         embed.set_author(name='HELP')
         embed.add_field(name='=generate or =g', value='''\nUsage: `=g <argument>`\n
                                                 ''', inline=False)
-        embed.add_field(name='<argument>', value='\nValid arguments are: street, building, people, demon, ghost, horror, fgod, score, bargain.',
+        embed.add_field(name='<argument>', value='\nValid arguments are: street, building, people, demon, ghost, horror, fgod, score, bargain,'
+                                                 'food, drink.',
                         inline=False)
         embed.add_field(name='Examples:', value='''`=generate street`
                                                     Generates a random street with several description details.
