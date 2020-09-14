@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.1
+# Bots in the Dark v.1.2
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -99,9 +99,12 @@ async def generate(ctx, option):
                  + random.choice(sounds) + "** noises and smell of **" + random.choice(smells) + "**. It's mostly used for **" + \
                  random.choice(use) + "**, with " + random.choice(details) + " and " + random.choice(props).lower() + " in it."
 
+        total = len(mood)*len(sights)*len(sounds)*len(smells)*len(use)*len(type_of_street)*len(details)*len(props)
+
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "demon":
