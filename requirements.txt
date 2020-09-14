@@ -11,4 +11,3 @@ requests
 discord
 pymongo
 datetime
-random
