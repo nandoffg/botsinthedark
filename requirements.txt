@@ -1,5 +1,4 @@
 git+https://github.com/Rapptz/discord.py
-python==3.7
 PyNaCl==1.4.0
 pandas
 discord.py
