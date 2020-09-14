@@ -484,7 +484,7 @@ async def generate(ctx, option):
                        "rice", "wheat", "barley", "rye", "corn", "chicken meat", "goat meat", "goat milk", "goat cheese", "dolphin meat",
                        "devilfish meat", "squid meat", "mussels", "crab meat", "caviar", "grapes", "clam meat"]
         total = len(preparations) * len(preparations) * len(ingredients) * len(ingredients)
-        phrase = random.choice(preparations).capitalize() + " " + random.choice(ingredients).lower() + " with " +
+        phrase = random.choice(preparations).capitalize() + " " + random.choice(ingredients).lower() + " with " +\
         random.choice(preparations).lower() + " " + random.choice(ingredients).lower() + "."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
@@ -498,8 +498,7 @@ async def generate(ctx, option):
         drinks = ('soft drink', 'tea', 'beer', 'wine',
                       'spirits', 'infusion', 'fermentation', 'distillation', 'mixing')
         total = len(drinks) * len(ingredients)
-        phrase = random.choice(ingredients).capitalize() + " " + random.choice(drinks).lower() + " with " +
-        random.choice(ingredients).lower() + " " + random.choice(drinks).lower() + "."
+        phrase = random.choice(ingredients).capitalize() + " " + random.choice(drinks).lower() + "."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
