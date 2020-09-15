@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.5.3
+# Bots in the Dark v.1.6
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -507,37 +507,244 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "weather":
-        conditions_doskvol = ["**Clear** - Normal dreary conditions for the shattered darkness of Duskvol, some light escaping hooded lanterns as "
-                              "people wander under the emerald green glow of the electroplasmic street lamps.",
-                              "**Rain** - Coldwater sprinkling from inky black and radiant lightning-filled clouds. Vision somewhat limited so be "
-                              "sure to watch your step to avoid puddles and mud across the cobblestone streets.",
-                              "**Heavy Rain** - Heavy sheets of rain tasting of the Ink if coming in from the channel. Beware getting drenched for "
-                              "some seem to hear a Siren's call luring them towards the Void.",
-                              "**Overcast** - The fog hangs higher than Blind Hour yet doesn't leave even with a strong breeze. You feel as if "
-                              "those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble.",
-                              "**Windy** - Most prevalent during Kalivet and Suran as the winds blow through the streets and buildings, "
-                              "shifting echoes of buildings past. Danger within the Ghost Field as these echoes can change as you traverse though- "
-                              "possibly blocking your path or adding a building long gone.",
-                              "**Fog** - The dense fog of Blind Hour remains and weighs heavy upon all those who walk within it. Those with mental "
-                              "harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers. Sapping "
-                              "essence from the living.",
-                              "**Stormy** - Thunder, and lightning of varying shattered colors rolls across the sky as if volleys of sparkcraft "
-                              "cannons of Unity aerial warfare. If it arrives from the Deathlands special caution is needed as some horrors ride "
-                              "the storm. 'Storm Eel' is normally a dish served after such storms.",
-                              "**Supernatural Storm** - Will appear as a normal storm yet you may experience weird attunes or suffer unexpected "
-                              "consequences from attuning without extra protection.  Some find that they get swallowed by unnatural fog or hear "
-                              "voices in their minds. Use caution always.",
-                              "**Snow** - Common during the winter months of Mendar and Elisar bringing an eerie stillness and quiet to the "
-                              "bustling cityscape, brightening the city to a higher light level. Less crime is committed though more are found "
-                              "frozen if the heaters fail. Manna from the heavens though laden with ash and smog from the factories- city officials "
-                              "recommend not using it as drinking water as it is not 'cleansed'.",
-                              "**Driving Snow** - Massive drifts form quickly and cause even the tallest Drafthorn cannot pull carriages through "
-                              "its cold fleece. Most underworld crimes move into the catacombs for easier travel though you may find ghosts and "
-                              "lost horrors among the labyrinths. If exposed to the elements and not properly dressed begin a clock for hypothermia "
-                              "or related condition depending on the table's fiction.",
-                              "**Hail** - Usually seen during the stormy months of Ulsivet and Volnivet hail can come as a torrent or merely as "
-                              "popped rice tossed in the air and allowed to drift downwards. Some say if you find one that is shaped like a star "
-                              "you will have good luck, though those who find them soon vanish - demonic/occult/unknown reasons."]
+
+        clear = [("Normal dreary conditions", "the shattered darkness of Duskvol", "light escaping hooded lanterns", "people wander",
+                  "the emerald green glow of the electroplasmic street lamps"),
+
+                 ("Normal and dark veiled weather", "the oily, reeking streets of Doskvol", "fumes rise up to the sky",
+                  "bluecoated ill intended men stroll the cobblestones in the dark", "dogs barks in the distance"),
+
+                 ("The same stale air is as good as it gets", "the good ol' Duskwallen neighbourhoods", "electrical sparks are heard",
+                  "sparkwrights fiddle with their equipment in the corner", "a fresh, nightly breeze coming from the sea"),
+
+                 ("Cool, salty air breezes through", "Duskwall denizens to relish", "dark well known birds drift the skies",
+                  "scoundrels flee from an alley", "the morbid, enchanted sounds of bells ringing across the block"),
+
+                 ("Lust, red-colored atmosphere", "all carnal, rousing craving bastards on North Hook",
+                  "perfume scent and covert laughter", "lavish people trade secrets and fondness",
+                  "the influence of illgotten, psychedelic, alchemical compounds"),
+
+                 ("Smog and ash fall as embers of Coalridge", "upon the already littered streets in Crow's Foot", "people scour their doorsteps",
+                  "they prepare for another night shift", "the danger of famine and disease in these trying times"),
+
+                 ("Shattered darkness of varying shadows and ink looms above", "the Sun is no more", "a man stabs another in the back",
+                  "horror screams are heard in a parlour", "the stinky, gooey, formless Avatar of a fogotten god's itself"),
+
+                 ("Electrified barriers whine as echoes scream and burn", "ghosts haunt this damned lands", "people close their shutters in fear",
+                  "a smell of ozone and ash come with the wind", "the black void sky above everybody's heads"),
+
+                 ("Radiant generators hum within the bleakness of the shattered hours", "the city must survive",
+                  "rivers of electroplasm flow through underground pipes",
+                  "bodies and souls burn in the Crematorium", "ringing bells and chants of old")]
+
+        rainy = [("Coldwater sprinkling", "inky black and radiant lightning-filled clouds", "Vision somewhat limited",
+                  "be sure to watch your step", "avoid puddles and mud across the cobblestone streets"),
+
+                 ("Tears as from the Weeping Lady herself crowd the skies", "oceanic breeze blown clouds",
+                  "Paths are slippery, specially with all the grease and oil",
+                  "be sure to bring out your muckboots", "help you out on the job dead ahead"),
+
+                 ('"Ink Rain" covering everything in fine obsidian wetness, permeating the darkness like a stain',
+                  "the black, voidy, encircling atmosphere,", "Mist hangs in the air", "use caution", "avoid sinkholes"),
+
+                 ("Fine mist of whirling echoes as the ghost field shifts", "a dark and cloudy dome from above",
+                  "Deluge of water", "can be treacherous", "ignore reflective puddles that act as spirit wells"),
+
+                 ("Glowing as if filled with electroplasm itself though only radiant pollen trapped in the water pours down",
+                  "above", "Electrified precipitation",
+                  "dangerous without careful care", "halt before touching glistening dew")]
+
+        heavy_rain = [("Heavy sheets of rain tasting of the Ink if coming in from the channel",
+                       "Beware getting drenched for some seem to hear a Siren's call luring them towards the Void."),
+
+                      ("Pounding droplets in their own small oceans exploding with Voidal anguish...if you listen close enough",
+                       "Don't go down sloped streets for that you might end up in a brand new channel that just formed"),
+
+                      ("Damp and musk heavy as if the earth itself is attempting to cleanse generations of darkness from it's very soul,",
+                       "There are forgotten evils that will cling to drops of blood and grains of dirt, no rain will wash those"),
+
+                      ("Shedding around unseen objects long lost in the ghost field though remembered by echoes",
+                       "The feeling of pale and frigid air makes the hair on the back of your neck stand up, as if some evil is to come"),
+
+                      ("Drowning air of salt heavy water descends like miasma",
+                       "Pull up your collar and check your pockets, if a cold doesn't kill you, a blade might")]
+
+        overcast = [("Shattered clouds hiding signs of the sister moons as if to avert their eyes from skullduggery below",
+                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble."),
+
+                    ("The fog hangs higher than Blind Hour yet doesn't leave even with a strong breeze",
+                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble."),
+
+                    ("Clouds like petrified leaves dancing across unseen glass above, the sound of rustling stone heard in the wind,",
+                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble."),
+
+                    ("Dark as a hooded lantern preventing light from escaping and making the city known to whatever lies beyond the Barriers",
+                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble."),
+
+                    ("Hazy like wheat laden brew left to seep in a barrel, the smell of fermentation thick as refined demon blood",
+                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble.")]
+
+        windy = [("Most prevalent during Kalivet and Suran as the winds blow through the streets and buildings shifting echoes of buildings past",
+                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
+                  " building long gone."),
+
+                 ("Howling of nature and horrors angrily lash at all within its path seeking vengeance of something long forgotten",
+                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
+                  " building long gone."),
+
+                 ("Smells of sulfur and minerals burning acidic escape Coalridge, the factories adding pollutants to the very wind,",
+                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
+                  " building long gone."),
+
+                 ("Nectar laden winds blowing in from beyond the Barriers towards the Deathlands, luring many with its caressing touch",
+                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
+                  " building long gone."),
+
+                 ("Shifting like a serpent upon the Mirror, cold and calculating as it hunts for unsuspecting prey",
+                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
+                  " building long gone.")]
+
+        fog = [("The dense fog of Blind Hour remains and weighs heavy upon all those who walk within it",
+                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
+                "sapping essence from the living."),
+
+               ("Some say you can cut it with a sword it is so thick, though occasionally it bleeds before enveloping you",
+                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
+                "sapping essence from the living."),
+
+               ("\"Devil's Maw\" appearing normal but psyconauts tell tales of unseen spectacles and horrors lost in it",
+                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
+                "sapping essence from the living."),
+
+               ("Rich smelling like iron and wet, coated in blood-like condensation",
+                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
+                "sapping essence from the living."),
+
+               ("Sparkcraft devices randomly turn on or bulbs burn out from being overloaded from the charged ions of the fog",
+                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
+                "sapping essence from the living.")]
+
+        stormy = [("Thunder, and lightning of varying shattered colors rolls across the sky as if volleys of sparkcraft cannons of Unity aerial "
+                   "warfare", "If it arrives from the Deathlands special caution is needed as some horrors ride the storm",
+                   "Storm Eel' is normally a dish served after such storms"),
+
+                  ("One of Spiregarden's famous compositions was inspired by a storm on Arenvorn, sounds of cawing crows like thunder",
+                   "If it arrives from the Deathlands special caution is needed as some horrors ride the storm.",
+                   "Storm Eel' is normally a dish served after such storms"),
+
+                  ("Gnashing echoes trapped before being pulled apart, their screams showering essence below",
+                   "If it arrives from the Deathlands special caution is needed as some horrors ride the storm.",
+                   "Storm Eel' is normally a dish served after such storms"),
+
+                  ("Thunder like shattering glass, the separation of the Mirror touchable by those who don't see their reflection",
+                   "If it arrives from the Deathlands special caution is needed as some horrors ride the storm.",
+                   "Storm Eel' is normally a dish served after such storms"),]
+
+        super_storm = [("Will appear as a normal storm yet you may experience weird attunes or suffer unexpected consequences from attuning without "
+                        "extra protection", "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
+
+                       ("Thousands of echoes both horror and nature alike trapped in a cyclone of swirling lightning and rain",
+                        "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
+
+                       ("Black lightning like tendrils leaving pools of star filled ink upon the ground it strikes. Causing temporary ghost doors",
+                        "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
+
+                       ("The ghost field melds into the material, you may be walking long forgotten streets and unable to leave",
+                        "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
+
+                       ("'Hollow Storms' caused by horror filled effluvia that can hollow someone weak minded if not protected",
+                        "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always.")]
+
+        snow = [("Common during the winter months of Mendar and Elisar bringing an eerie stillness and quiet to the bustling cityscape, "
+                 "brightening the city to a higher light level frozen if the heaters fail.",
+                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
+                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'"),
+
+                ("Ivory cold flakes of something surreal and silent, making you uneasy.",
+                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
+                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'"),
+
+                ("Blessing from the Weeping Lady to cleanse the darkness.",
+                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
+                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'"),
+
+                ("Flesh like horrors hide within the drifts- stay away from colored snow!",
+                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
+                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'"),
+
+                ("Icicles like webs of roots spread underneath  reaching for something unseen",
+                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
+                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'")]
+
+        driving_snow = [("Massive drifts form quickly and cause even the tallest Drafthorn cannot pull carriages through its cold fleece",
+                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
+                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                                           "depending on the table's fiction"),
+
+                        ("Drifts of snow black as the Ink, shifting as if alive and if you look long enough you see star-like eyes staring back",
+                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                                           "depending on the table's fiction"),
+
+                        ("You feel your spirit slowly, numbingly loosen from you as you are hollowed by the cold",
+                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                                           "depending on the table's fiction"),
+
+                        ("Fractured ice follow you as if a frozen glacier, slowing consuming all essence it overtakes",
+                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                                           "depending on the table's fiction"),
+
+                        ("Soft and fluffy like the finest fleece, insulating from horrors and echoes",
+                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                                           "depending on the table's fiction")]
+
+        hail = [("Usually seen during the stormy months of Ulsivet and Volnivet hail can come as a torrent or merely as popped rice tossed in the "
+                 "air and allowed to drift downwards",
+                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
+                 "unknown reasons."),
+
+                ("Shattered stars fall as if cinders of hail",
+                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
+                 "unknown reasons."),
+
+                ("Wailing ice, most have a face from a horror frozen within",
+                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
+                 "unknown reasons."),
+
+                ("Metallic quicksilver, like droplets from a celestial psychonaut",
+                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
+                 "unknown reasons."),
+
+                ("Shards of demonic power but they come with a price",
+                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
+                 "unknown reasons.")]
+
+        conditions_doskvol = [
+            "**Clear** - " + random.choice(clear)[0] + " for " + random.choice(clear)[1] + ", some " +
+            random.choice(clear)[2] + " as " + random.choice(clear)[3] + " under " + random.choice(clear)[4] + ".",
+
+            "**Rain** - " + random.choice(rainy)[0] + " from " + random.choice(rainy)[1] + ". " + random.choice(rainy)[2]
+            + " so " + random.choice(rainy)[3] + " to " + random.choice(rainy)[4] + ".",
+
+            "**Heavy Rain** - " + random.choice(heavy_rain)[0] + ". " + random.choice(heavy_rain)[1] + ".",
+
+            "**Overcast** - " + random.choice(overcast)[0] + ". " + random.choice(overcast)[1] + ".",
+
+            "**Windy** - " + random.choice(windy)[0] + ". " + random.choice(windy)[1] + ".",
+
+            "**Fog** - " + random.choice(fog)[0] + ". " + random.choice(fog)[1] + ".",
+
+            "**Stormy** -" + random.choice(stormy)[0] + ". " + random.choice(stormy)[1] + ".",
+
+            "**Supernatural Storm** - " + random.choice(super_storm)[0] + ". " + random.choice(super_storm)[1] + ".",
+
+            "**Snow** - . " + random.choice(snow)[0] + " " + random.choice(snow)[1] + ". " + random.choice(snow)[2] + ".",
+
+            "**Driving Snow** - " + random.choice(driving_snow)[0] + ". " + random.choice(driving_snow)[1] + ". " +
+            random.choice(driving_snow)[2] + ".",
+
+            "**Hail** - " + random.choice(hail)[0] + ". " + random.choice(hail)[1] + "."
+            ]
+
         images = ["https://cdn.discordapp.com/attachments/755162850267234424/755447848815951932/Clear_white.png",
                   "https://cdn.discordapp.com/attachments/755162850267234424/755450053233082429/Rain_white.png",
                   "https://cdn.discordapp.com/attachments/755162850267234424/755450007829872705/Heavy_Rain_white.png",
@@ -550,14 +757,19 @@ async def generate(ctx, option):
                   "https://cdn.discordapp.com/attachments/755162850267234424/755449961264709682/Driving_Snow_white.png",
                   "https://cdn.discordapp.com/attachments/755162850267234424/755450005741109408/Hail_white.png"]
 
+        totals = (len(clear) * len(clear[0])) + (len(rainy) * len(rainy[0])) + (len(heavy_rain) * len(heavy_rain[0])) + \
+                 (len(overcast) * len(overcast[0])) + (len(windy) * len(windy[0])) + (len(fog) * len(fog[0])) + (len(stormy) * len(stormy[0])) + \
+                 (len(super_storm) * len(super_storm[0])) + (len(snow) * len(snow[0])) + \
+                 (len(driving_snow) * len(driving_snow[0])) + (len(hail) * len(hail[0]))
+
         phrase = random.choice(conditions_doskvol)
         image = images[conditions_doskvol.index(phrase)]
         embed = discord.Embed(colour=discord.Colour.dark_blue())
         embed.set_thumbnail(url=image)
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Weather forecast", value=phrase, inline=False)
-        embed.add_field(name="Random seeds:", value=str(len(conditions_doskvol)) + "\n\nSpecial thanks to Mistletoe_kiss of Voidal Space LLC for the "
-                                                                                   "amazing ideas, texts, images and patience! ;)", inline=False)
+        embed.add_field(name="Random seeds:", value=str(totals) + "\n\nSpecial thanks to Mistletoe_kiss of Voidal Space LLC for the "
+                                                                  "amazing ideas, texts, images and patience! ;)", inline=False)
         await ctx.send(embed=embed)
 
 
@@ -662,8 +874,6 @@ async def blade(ctx, number):
                 result.append(rolled)
             results = ""
             resu = min(result)
-            print(result)
-            print(results)
             if resu == 6:
                 results = "Full Success!"
                 consequence = "You do the thing with no consequences."
