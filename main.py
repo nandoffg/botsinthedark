@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.5.2
+# Bots in the Dark v.1.5.3
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
