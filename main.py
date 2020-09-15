@@ -99,7 +99,7 @@ async def generate(ctx, option):
                  + random.choice(sounds) + "** noises and smell of **" + random.choice(smells) + "**. It's mostly used for **" + \
                  random.choice(use) + "**, with " + random.choice(details) + " and " + random.choice(props).lower() + " in it."
 
-        total = len(mood)*len(sights)*len(sounds)*len(smells)*len(use)*len(type_of_street)*len(details)*len(props)
+        total = len(mood) * len(sights) * len(sounds) * len(smells) * len(use) * len(type_of_street) * len(details) * len(props)
 
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
@@ -376,7 +376,7 @@ async def generate(ctx, option):
         aliases = ["Bell", "Birch", "Bricks", "Bug", "Chime", "Coil", "Cricket", "Cross", "Crow", "Echo", "Flint", "Frog", "Frost", "Grip", "Gunner",
                    "Hammer", "Hook", "Junker", "Mist", "Moon", "Nail", "Needle", "Ogre", "Pool", "Ring", "Ruby", "Silver", "Skinner", "Song", "Spur",
                    "Tackle", "Thistle", "Thorn", "Tick-Tock", "Twelves", "Vixen", "Whip", "Wicker"]
-        total = len(looks) * (len(name_f)+len(names_m)) * len(fam_names) * len(aliases) * len(heritage) * (len(prof_rare) + len(prof_comm)) * \
+        total = len(looks) * (len(name_f) + len(names_m)) * len(fam_names) * len(aliases) * len(heritage) * (len(prof_rare) + len(prof_comm)) * \
                 len(goals) * len(preferred_methods) * len(interests) * len(quirks) * 4 * len(demo_trait) * len(style) * len(style) * len(traits)
         clothing = []
         prof = ""
@@ -446,7 +446,7 @@ async def generate(ctx, option):
                  "Curtains", "Vases", "Flowers", "Instruments", "Music Sheets", "an Exam Chair", "Medical Tools", "a Burner", "Vials", "Beakers",
                  "a Workbench", "Tools", "Rags", "Weapons", "Ammunition"]
         phrase = ""
-        total = len(material) * len(details) * (len(use_com)+len(use_rare)) * len(more_details) * len(items) * len(items) * len(items) * len(items)
+        total = len(material) * len(details) * (len(use_com) + len(use_rare)) * len(more_details) * len(items) * len(items) * len(items) * len(items)
         picked_items = []
         x = 0
         if random.choice(range(1, 6)) == 1:
@@ -478,14 +478,15 @@ async def generate(ctx, option):
 
     elif opt == "food":
         preparations = ['baked', 'broiled', 'fried', 'roasted', 'smoked', 'blanched', 'braised', 'coddled', 'infused',
-        'pressure cooked', 'simmered', 'poached', 'steamed', 'steeped', 'stewed', 'grilled', 'barbecued', 'deep fried', 'pan fried', 'stir fried',
-        'hot salt fried', 'seared', 'brined', 'dried', 'fermented', 'marinated', 'pickled', 'salted']
+                        'pressure cooked', 'simmered', 'poached', 'steamed', 'steeped', 'stewed', 'grilled', 'barbecued', 'deep fried', 'pan fried',
+                        'stir fried',
+                        'hot salt fried', 'seared', 'brined', 'dried', 'fermented', 'marinated', 'pickled', 'salted']
         ingredients = ["eel", "mushrooms", "centipedes", "slugs", "grubs", "worms", "rat meat", "canal weed", "watermoss", "algae",
                        "rice", "wheat", "barley", "rye", "corn", "chicken meat", "goat meat", "goat milk", "goat cheese", "dolphin meat",
                        "devilfish meat", "squid meat", "mussels", "crab meat", "caviar", "grapes", "clam meat"]
         total = len(preparations) * len(preparations) * len(ingredients) * len(ingredients)
-        phrase = random.choice(preparations).capitalize() + " " + random.choice(ingredients).lower() + " with " +\
-        random.choice(preparations).lower() + " " + random.choice(ingredients).lower() + "."
+        phrase = random.choice(preparations).capitalize() + " " + random.choice(ingredients).lower() + " with " + \
+                 random.choice(preparations).lower() + " " + random.choice(ingredients).lower() + "."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
@@ -496,7 +497,7 @@ async def generate(ctx, option):
         ingredients = ["mushrooms", "mushroom cap", "mushroom stem", "canal weed", "watermoss", "algae", "rice", "wheat", "barley", "rye", "corn",
                        "goat milk", "mussels", "grapes"]
         drinks = ('soft drink', 'tea', 'beer', 'wine',
-                      'spirits', 'infusion', 'fermentation', 'distillation', 'mixing')
+                  'spirits', 'infusion', 'fermentation', 'distillation', 'mixing')
         total = len(drinks) * len(ingredients)
         phrase = random.choice(ingredients).capitalize() + " " + random.choice(drinks).lower() + "."
         embed = discord.Embed(colour=discord.Colour.dark_red())
@@ -504,6 +505,48 @@ async def generate(ctx, option):
         embed.add_field(name="Characteristics", value=phrase, inline=False)
         embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
+
+    elif opt == "weather":
+        conditions_doskvol = ["**Clear** - Normal dreary conditions for the shattered darkness of Duskvol, some light escaping hooded lanterns as "
+                              "people wander under the emerald green glow of the electroplasmic street lamps.",
+                              "**Rain** - Coldwater sprinkling from inky black and radiant lightning-filled clouds. Vision somewhat limited so be "
+                              "sure to watch your step to avoid puddles and mud across the cobblestone streets.",
+                              "**Heavy Rain** - Heavy sheets of rain tasting of the Ink if coming in from the channel. Beware getting drenched for "
+                              "some seem to hear a Siren's call luring them towards the Void.",
+                              "**Overcast** - The fog hangs higher than Blind Hour yet doesn't leave even with a strong breeze. You feel as if "
+                              "those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble.",
+                              "**Windy** - Most prevalent during Kalivet and Suran as the winds blow through the streets and buildings, "
+                              "shifting echoes of buildings past. Danger within the Ghost Field as these echoes can change as you traverse though- "
+                              "possibly blocking your path or adding a building long gone.",
+                              "**Fog** - The dense fog of Blind Hour remains and weighs heavy upon all those who walk within it. Those with mental "
+                              "harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers. Sapping "
+                              "essence from the living.",
+                              "**Stormy** - Thunder, and lightning of varying shattered colors rolls across the sky as if volleys of sparkcraft "
+                              "cannons of Unity aerial warfare. If it arrives from the Deathlands special caution is needed as some horrors ride "
+                              "the storm. 'Storm Eel' is normally a dish served after such storms.",
+                              "**Supernatural Storm** - Will appear as a normal storm yet you may experience weird attunes or suffer unexpected "
+                              "consequences from attuning without extra protection.  Some find that they get swallowed by unnatural fog or hear "
+                              "voices in their minds. Use caution always.",
+                              "**Snow** - Common during the winter months of Mendar and Elisar bringing an eerie stillness and quiet to the "
+                              "bustling cityscape, brightening the city to a higher light level. Less crime is committed though more are found "
+                              "frozen if the heaters fail. Manna from the heavens though laden with ash and smog from the factories- city officials "
+                              "recommend not using it as drinking water as it is not 'cleansed'.",
+                              "**Driving Snow** - Massive drifts form quickly and cause even the tallest Drafthorn cannot pull carriages through "
+                              "its cold fleece. Most underworld crimes move into the catacombs for easier travel though you may find ghosts and "
+                              "lost horrors among the labyrinths. If exposed to the elements and not properly dressed begin a clock for hypothermia "
+                              "or related condition depending on the table's fiction.",
+                              "**Hail** - Usually seen during the stormy months of Ulsivet and Volnivet hail can come as a torrent or merely as "
+                              "popped rice tossed in the air and allowed to drift downwards. Some say if you find one that is shaped like a star "
+                              "you will have good luck, though those who find them soon vanish- reasons unknown."]
+        images = ["/images/Clear.png", "/images/Rain.png", "/images/Heavy_Rain.png", "/images/Overcast.png", "/images/Windy.png", "/images/Fog.png",
+                  "/images/Stormy.png", "/images/Thick_Fog.png", "/images/Snow.png", "/images/Driving_Snow.png", "/images/Hail.png"]
+
+        phrase = random.choice(conditions_doskvol)
+        image = images[conditions_doskvol.index(phrase)]
+        embed = discord.Embed(colour=discord.Colour.dark_blue(), image=image)
+        embed.set_author(name='Generating random ' + opt)
+        embed.add_field(name="Weather forecast", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(len(conditions_doskvol)), inline=False)
 
 
 @bot.command(name="info", aliases=["i"])
@@ -700,7 +743,7 @@ async def help(ctx, *command_helper):
         embed.add_field(name='=generate or =g', value='''\nUsage: `=g <argument>`\n
                                                 ''', inline=False)
         embed.add_field(name='<argument>', value='\nValid arguments are: street, building, people, demon, ghost, horror, fgod, score, bargain,'
-                                                 'food, drink.',
+                                                 'food, drink, weather.',
                         inline=False)
         embed.add_field(name='Examples:', value='''`=generate street`
                                                     Generates a random street with several description details.
