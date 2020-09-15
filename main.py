@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.4
+# Bots in the Dark v.1.5
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -547,6 +547,7 @@ async def generate(ctx, option):
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Weather forecast", value=phrase, inline=False)
         embed.add_field(name="Random seeds:", value=str(len(conditions_doskvol)), inline=False)
+        await ctx.send(embed=embed)
 
 
 @bot.command(name="info", aliases=["i"])
