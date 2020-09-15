@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.5
+# Bots in the Dark v.1.5.2
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -537,16 +537,27 @@ async def generate(ctx, option):
                               "or related condition depending on the table's fiction.",
                               "**Hail** - Usually seen during the stormy months of Ulsivet and Volnivet hail can come as a torrent or merely as "
                               "popped rice tossed in the air and allowed to drift downwards. Some say if you find one that is shaped like a star "
-                              "you will have good luck, though those who find them soon vanish- reasons unknown."]
-        images = ["/images/Clear.png", "/images/Rain.png", "/images/Heavy_Rain.png", "/images/Overcast.png", "/images/Windy.png", "/images/Fog.png",
-                  "/images/Stormy.png", "/images/Thick_Fog.png", "/images/Snow.png", "/images/Driving_Snow.png", "/images/Hail.png"]
+                              "you will have good luck, though those who find them soon vanish - demonic/occult/unknown reasons."]
+        images = ["https://cdn.discordapp.com/attachments/755162850267234424/755447848815951932/Clear_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755450053233082429/Rain_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755450007829872705/Heavy_Rain_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755450009842876536/Overcast_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755450088041742476/Wind_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755449964515164231/Fog_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755450057058156655/Storm_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755450085579423845/Thick_Fog_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755450055086964896/Snow_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755449961264709682/Driving_Snow_white.png",
+                  "https://cdn.discordapp.com/attachments/755162850267234424/755450005741109408/Hail_white.png"]
 
         phrase = random.choice(conditions_doskvol)
         image = images[conditions_doskvol.index(phrase)]
-        embed = discord.Embed(colour=discord.Colour.dark_blue(), image=image)
+        embed = discord.Embed(colour=discord.Colour.dark_blue())
+        embed.set_thumbnail(url=image)
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Weather forecast", value=phrase, inline=False)
-        embed.add_field(name="Random seeds:", value=str(len(conditions_doskvol)), inline=False)
+        embed.add_field(name="Random seeds:", value=str(len(conditions_doskvol)) + "\n\nSpecial thanks to Mistletoe_kiss of Voidal Space LLC for the "
+                                                                                   "amazing ideas, texts, images and patience! ;)", inline=False)
         await ctx.send(embed=embed)
 
 
