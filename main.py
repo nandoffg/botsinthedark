@@ -682,19 +682,27 @@ async def generate(ctx, option):
                                            "depending on the table's fiction"),
 
                         ("Drifts of snow black as the Ink, shifting as if alive and if you look long enough you see star-like eyes staring back",
-                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
+                         "the labyrinths",
+                         "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
                                            "depending on the table's fiction"),
 
                         ("You feel your spirit slowly, numbingly loosen from you as you are hollowed by the cold",
-                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
+                         "the labyrinths",
+                         "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
                                            "depending on the table's fiction"),
 
                         ("Fractured ice follow you as if a frozen glacier, slowing consuming all essence it overtakes",
-                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
+                         "the labyrinths",
+                         "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
                                            "depending on the table's fiction"),
 
                         ("Soft and fluffy like the finest fleece, insulating from horrors and echoes",
-                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
+                         "the labyrinths",
+                         "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
                                            "depending on the table's fiction")]
 
         hail = [("Usually seen during the stormy months of Ulsivet and Volnivet hail can come as a torrent or merely as popped rice tossed in the "
