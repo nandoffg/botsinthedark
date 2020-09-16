@@ -789,8 +789,9 @@ async def info(ctx):
                                               'in the Dark RPG system.\nWith it you can make Blades rolls, resistance rolls, generate random streets,'
                                               ' buildings, demons, ghosts, scores, bargains, etc.'
                                               '\nIt can also make generic dice rolls for other purposes.'
-                                              '\n\nIf you like it and want to support this work, head to [here](patreon.com/fernandogomes)'
-                                              ' and make a donation. Thank you very much.',
+                                              '\n\nIf you like this Bot and want to support this work and further development,'
+                                              ' head to [my Patreon page](www.patreon.com/fernandogomes)'
+                                              ' and make a donation. Thank you very much for doing so.',
                     inline=False)
     await ctx.send(embed=embed)
 
