@@ -785,10 +785,12 @@ async def generate(ctx, option):
 async def info(ctx):
     embed = discord.Embed(colour=discord.Colour.darker_grey())
     embed.set_author(name='Bots in the Dark Info')
-    embed.add_field(name='=info or =i', value='This is the Bots in the Dark Discord bot created by Fernando Gomes to be used for Blades in the'
-                                              ' Dark RPG system. With it you can make Blades rolls, resistance rolls, generate random streets,'
+    embed.add_field(name='=info or =i', value='This is the **Bots in the Dark** Discord bot created by **Fernando Gomes** to be used for Blades '
+                                              'in the Dark RPG system.\nWith it you can make Blades rolls, resistance rolls, generate random streets,'
                                               ' buildings, demons, ghosts, scores, bargains, etc.'
-                                              ' It can also make generic dice rolls for other purposes.',
+                                              '\nIt can also make generic dice rolls for other purposes.'
+                                              '\n\nIf you like it and want to support this work, head to [here](patreon.com/fernandogomes)'
+                                              ' and make a donation. Thank you very much.',
                     inline=False)
     await ctx.send(embed=embed)
 
