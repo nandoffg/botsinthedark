@@ -570,90 +570,90 @@ async def generate(ctx, option):
                        "Pull up your collar and check your pockets, if a cold doesn't kill you, a blade might")]
 
         overcast = [("Shattered clouds hiding signs of the sister moons as if to avert their eyes from skullduggery below",
-                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble."),
+                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble"),
 
                     ("The fog hangs higher than Blind Hour yet doesn't leave even with a strong breeze",
-                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble."),
+                     "The smog lays heavy today as if wanting to prevent healthy breathing"),
 
                     ("Clouds like petrified leaves dancing across unseen glass above, the sound of rustling stone heard in the wind,",
-                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble."),
+                     "The barrier between the physical and ghost field feels flipped or reversed somehow"),
 
                     ("Dark as a hooded lantern preventing light from escaping and making the city known to whatever lies beyond the Barriers",
-                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble."),
+                     "The shattered sky appear hooded by something massive yet moving as stars blink in and out"),
 
                     ("Hazy like wheat laden brew left to seep in a barrel, the smell of fermentation thick as refined demon blood",
-                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble.")]
+                     "Smoke and ash with pockets of falling embers cause fires due to Coalridge production")]
 
         windy = [("Most prevalent during Kalivet and Suran as the winds blow through the streets and buildings shifting echoes of buildings past",
                   "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
-                  " building long gone."),
+                  " building long gone"),
 
                  ("Howling of nature and horrors angrily lash at all within its path seeking vengeance of something long forgotten",
-                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
-                  " building long gone."),
+                  "Currents within the Ghost Field shift and ebb against physical barriers, manipulating their echoes wearing them down over time"),
 
                  ("Smells of sulfur and minerals burning acidic escape Coalridge, the factories adding pollutants to the very wind,",
-                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
-                  " building long gone."),
+                  "Howling winds like horrors racing about an unseen track"),
 
                  ("Nectar laden winds blowing in from beyond the Barriers towards the Deathlands, luring many with its caressing touch",
-                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
-                  " building long gone."),
+                  "Cold breeze coming in from beyond the bay"),
 
                  ("Shifting like a serpent upon the Mirror, cold and calculating as it hunts for unsuspecting prey",
-                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
-                  " building long gone.")]
+                  "Glowing pockets of wind carrying pollen from radiant flora of the Deathlands. Only a few deaths have been accounted to Glow Lung "
+                  "in recent years")]
 
         fog = [("The dense fog of Blind Hour remains and weighs heavy upon all those who walk within it",
                 "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
-                "sapping essence from the living."),
+                "sapping essence from the living"),
 
                ("Some say you can cut it with a sword it is so thick, though occasionally it bleeds before enveloping you",
-                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
-                "sapping essence from the living."),
+                "Siren’s Eternal Blind Hour although rare it can make civilians hear songs of the demons within the Ink. Begin a clock (4 seg) "
+                "demonic influence"),
 
                ("\"Devil's Maw\" appearing normal but psyconauts tell tales of unseen spectacles and horrors lost in it",
-                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
-                "sapping essence from the living."),
+                "Industrial smog or natural disaster causes the very air to be inhospitable.  Filtering masks needed for travel"),
 
                ("Rich smelling like iron and wet, coated in blood-like condensation",
-                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
-                "sapping essence from the living."),
+                "Precipitation from the Void sea storms causes drastic changes in heat and feel of the fog"),
 
                ("Sparkcraft devices randomly turn on or bulbs burn out from being overloaded from the charged ions of the fog",
-                "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
-                "sapping essence from the living.")]
+                "Charged fog from passing through the barriers cause some sparkcraft devices to malfunction. “Maintain your equipment for it will "
+                "help maintain you.” -Sparkwright phrase")]
 
         stormy = [("Thunder, and lightning of varying shattered colors rolls across the sky as if volleys of sparkcraft cannons of Unity aerial "
                    "warfare", "If it arrives from the Deathlands special caution is needed as some horrors ride the storm",
                    "Storm Eel' is normally a dish served after such storms"),
 
                   ("One of Spiregarden's famous compositions was inspired by a storm on Arenvorn, sounds of cawing crows like thunder",
-                   "If it arrives from the Deathlands special caution is needed as some horrors ride the storm.",
-                   "Storm Eel' is normally a dish served after such storms"),
+                   "Alchemicals gain potency when crafted in the eye of a storm",
+                   "There is some relief in sipping tea and cookies in a stormy Honor Hour"),
 
                   ("Gnashing echoes trapped before being pulled apart, their screams showering essence below",
-                   "If it arrives from the Deathlands special caution is needed as some horrors ride the storm.",
-                   "Storm Eel' is normally a dish served after such storms"),
+                   "Some adventurous psychonauts attempt dimensional travel during storms, what they find is unknown for rarely do they return",
+                   "Depending on the season, you can collect dripping water from marquees and use it to spice up some food"),
 
                   ("Thunder like shattering glass, the separation of the Mirror touchable by those who don't see their reflection",
-                   "If it arrives from the Deathlands special caution is needed as some horrors ride the storm.",
-                   "Storm Eel' is normally a dish served after such storms"),]
+                   "Kaleidoscope of shifting colored cloud like lenses placed upon the very breath of the sky. Psychedelic storm",
+                   "In the deathlands, the miasma is washed down into the soil. Some say this miasma is living essence dust that feed the "
+                   "strange flora there"), ]
 
         super_storm = [("Will appear as a normal storm yet you may experience weird attunes or suffer unexpected consequences from attuning without "
                         "extra protection", "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
 
                        ("Thousands of echoes both horror and nature alike trapped in a cyclone of swirling lightning and rain",
-                        "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
+                        "Hordes of ghosts seem to ride the storm inland from the sea. Watch yourself for the storm has a vengeance and it will seek "
+                        "any essence to exact it"),
 
                        ("Black lightning like tendrils leaving pools of star filled ink upon the ground it strikes. Causing temporary ghost doors",
-                        "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
+                        "Aspects of sky leviathans appear above during the storm causing star laden ink to fall below. Those marked quickly find "
+                        "misfortune"),
 
                        ("The ghost field melds into the material, you may be walking long forgotten streets and unable to leave",
-                        "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
+                        "Blood storm of red oxide and red rain like viscous fluids fall. Many blame the Path of Echoes for ill gotten rituals gone "
+                        "wrong *or very right*"),
 
                        ("'Hollow Storms' caused by horror filled effluvia that can hollow someone weak minded if not protected",
-                        "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always.")]
+                        "Devil Bargains seem to gain potency and consequences as the sky is filled with the gods long forgotten. Battling for "
+                        "shattered sky and souls")]
 
         snow = [("Common during the winter months of Mendar and Elisar bringing an eerie stillness and quiet to the bustling cityscape, "
                  "brightening the city to a higher light level frozen if the heaters fail.",
@@ -661,49 +661,49 @@ async def generate(ctx, option):
                                                                   "officials recommend not using it as drinking water as it is not 'cleansed'"),
 
                 ("Ivory cold flakes of something surreal and silent, making you uneasy.",
-                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
-                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'"),
+                 "The wealthy wear specialized darkened goggles to shade their sensitive eyes from the brightness of the cold snow",
+                 "Under snowfall, Doskvol coal consumption on households increases dramatically for extra heat. The poor whose can't afford "
+                 "stick with the publicly available steam radiators, which can faulter on occasion"),
 
                 ("Blessing from the Weeping Lady to cleanse the darkness.",
-                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
-                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'"),
+                 "Horrors of ice and cold seem to hide within the frozen tundra  and snow drifts of the Deathlands.",
+                 "Silver Nails take special precautions during the Winter months"),
 
                 ("Flesh like horrors hide within the drifts- stay away from colored snow!",
-                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
-                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'"),
+                 "House fires are more common due to civilians trying to stay warm in these cold and dark times.",
+                 "Some unfortunate are discovered by the Weeping Lady as they shelter those not yet frozen"),
 
                 ("Icicles like webs of roots spread underneath  reaching for something unseen",
-                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
-                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'")]
+                 "Street urchins dared to trespass upon the Mire of Dunslough quickly race down the steep snowed banks of the quarry on sheets of "
+                 "oiled or waxed rails.",
+                 "Underground bidding and wins are usually disguised in the newspapers the following day, along with incurred injuries")]
 
         driving_snow = [("Massive drifts form quickly and cause even the tallest Drafthorn cannot pull carriages through its cold fleece",
                          "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
-                         "the labyrinths", "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
+                         "the labyrinths", "If exposed to the elements and not properly dressed begin a 4 seg clock for hypothermia "
                                            "depending on the table's fiction"),
 
                         ("Drifts of snow black as the Ink, shifting as if alive and if you look long enough you see star-like eyes staring back",
-                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
-                         "the labyrinths",
-                         "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
-                                           "depending on the table's fiction"),
+                         "Some snow creations of children are seen wandering about in the blizzards,  aspects of echoes trapped by them before "
+                         "fading completely. Though some grow stronger with the makeshift ‘hulls’ hunting unsuspecting civilians",
+                         "If exposed to the elements and not dressed for the conditions begin a 4 seg clock for frostbite "
+                         "depending on the table's fiction"),
 
                         ("You feel your spirit slowly, numbingly loosen from you as you are hollowed by the cold",
-                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
-                         "the labyrinths",
-                         "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
-                                           "depending on the table's fiction"),
+                         "Blizzard conditions bringing the city almost to a stop, though the Underworld continues beneath in the catacombs",
+                         "Your mind and body seems more numb, making it difficult to tell if that is simply your spirit being more solid or another "
+                         "presence pressing in"),
 
                         ("Fractured ice follow you as if a frozen glacier, slowing consuming all essence it overtakes",
-                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
-                         "the labyrinths",
-                         "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
-                                           "depending on the table's fiction"),
+                         "Workers are found to abuse modified Bloodneedle to stay warm within in heated factories. Some manufacturers even provide "
+                         "it as part of worker benefits to maintain production on even the coldest of days",
+                         "Traveling via foot or carriage is near impossible. You have to travel via other means"),
 
                         ("Soft and fluffy like the finest fleece, insulating from horrors and echoes",
-                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
-                         "the labyrinths",
-                         "If exposed to the elements and not properly dressed begin a clock for hypothermia or related condition "
-                                           "depending on the table's fiction")]
+                         "Power and water lines flicker on and off in the storm. Most well to do have generators to maintain warmth and power while "
+                         "the poor are thrown into darkness, at the mercy of the storm",
+                         "You need to stay warm at all times, otherwise you may begin to feel sluggish. If cold take a lvl 1 harm ‘numbness’ unless "
+                         "resisted. Actions requiring fine skills may have reduced effect unless you are prepared")]
 
         hail = [("Usually seen during the stormy months of Ulsivet and Volnivet hail can come as a torrent or merely as popped rice tossed in the "
                  "air and allowed to drift downwards",
@@ -711,20 +711,16 @@ async def generate(ctx, option):
                  "unknown reasons."),
 
                 ("Shattered stars fall as if cinders of hail",
-                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
-                 "unknown reasons."),
+                 "Some glowing horrors are trapped in the ice, the wealthy dipping them in alchemical preservatives and decorating with them as glowing orbs like twinkle lights until they slowly die out"),
 
                 ("Wailing ice, most have a face from a horror frozen within",
-                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
-                 "unknown reasons."),
+                 "Ice so polished it seems almost reflective showing a small aspect of the ghost field *viewable from both sides*"),
 
                 ("Metallic quicksilver, like droplets from a celestial psychonaut",
-                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
-                 "unknown reasons."),
+                 "Varying shapes and sizes that cause damage to property. The citizenry repairing after each hail storm"),
 
                 ("Shards of demonic power but they come with a price",
-                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
-                 "unknown reasons.")]
+                 "'Demon Hail', black as coal yet void of anything keeping it's shape. Warned against by sermons of the Church for special handling is needed in the removal and cleansing the area it infected")]
 
         conditions_doskvol = [
             "**Clear** - " + random.choice(clear)[0] + " for " + random.choice(clear)[1] + ", some " +
@@ -751,7 +747,7 @@ async def generate(ctx, option):
             random.choice(driving_snow)[2] + ".",
 
             "**Hail** - " + random.choice(hail)[0] + ". " + random.choice(hail)[1] + "."
-            ]
+        ]
 
         images = ["https://cdn.discordapp.com/attachments/755162850267234424/755447848815951932/Clear_white.png",
                   "https://cdn.discordapp.com/attachments/755162850267234424/755450053233082429/Rain_white.png",
@@ -779,6 +775,261 @@ async def generate(ctx, option):
         embed.add_field(name="Random seeds:", value=str(totals) + "\n\nSpecial thanks to Mistletoe_kiss of Voidal Space LLC for the "
                                                                   "amazing ideas, texts, images and patience! ;)", inline=False)
         await ctx.send(embed=embed)
+
+
+@bot.command(name="faction", aliases=["f"])
+async def faction(ctx, gang):
+    name = gang.lower()
+    faction_sheets = {
+        'red sashes': ("The Red Sashes", "II", "*Originally a school of ancient Iruvian sword arts, since expanded into criminal endeavors.*",
+                       "HQ in their sword-fighting school/temple. Operates a handful of high-end drug dens across Crow’s Foot and the Docks.",
+                       "**Mylera Klev** (leader, *shrewd*, *ruthless*, *educated*, *art collector*)",
+                       "Small contingent of master sword-fighters. Master alchemist; many potent potions and essences.",
+                       "Several members of the Red Sashes are the sons and daughters of Iruvian nobility and diplomats in Doskvol. They train in "
+                       "swordplay at the school and sometimes participate in gang activities. Their families are powerful and will commit "
+                       "significant resources to punishing anyone who harms their children.",
+                       "Iruvian Consulate, The Path of Echoes, Dockers, Cabbies, Inspectors.", "The Lampblacks, Bluecoats, Gondoliers.",
+                       "The Red Sashes and the Lampblacks are at war over turf and vengeance for deaths on both sides. Mylera is recruiting every "
+                       "free blade in the district for extra muscle and doesn’t take no for an answer. You’re either with them or against them. The "
+                       "Red Sashes are very well-connected, with former sword students placed at the Iruvian Consulate, in the Path of Echoes, "
+                       "and among the Inspectors.",
+                       "Destroy the Lampblacks - 8 part clock;\nBecome ward boss of Crow' Foot - 8 part clock"),
+
+        'billhooks': ("The Billhooks", "II", "*A tough gang of thugs who prefer hatchets, meat hooks, and pole arms.*",
+                      "A butcher shop (HQ), stockyard, and slaughterhouse. Animal fighting pits and gambling dens. Several terrified merchants "
+                      "and businesses, which they extort.",
+                      "**Tarvul** (leader, serving life in prison, *savage*, *arrogant*, *family man*).\n**Erin** (captain, Tarvul’s sister, "
+                      "*confident*, *deadly*, *ambitious*). "
+                      "\n**Coran** (thug, Tarvul’s son, *fierce*, *loyal*, *quiet*).",
+                      "A large gang of bloodthirsty butchers. A pack of death-dogs.",
+                      "The Billhooks have a bloody reputation, often leaving the butchered corpses of their victims strewn about in a grisly "
+                      "display. Many wonder why the Bluecoats turn a blind eye to their savagery.",
+                      "The Bluecoats, Ministry of Preservation.", "Ulf Ironborn, The Lost, Citizenry of Crow’s Foot and the Docks.",
+                      "Erin and Coran both want to take control of the Billhooks gang, either when Tarvul gets too old (which will be soon) or "
+                      "by taking the position by force. There is no love lost between Erin and Corran and they’ll have no qualms about fighting "
+                      "a family member for leadership. Meanwhile, the rest of the gang wants to continue their reign of terror to pressure a "
+                      "magistrate to pardon Tarvul and other gang members and release them from Ironhook.",
+                      "Terrorize magistrates to pardon members in prison - 8 part clock"),
+        'bluecoats': ("Bluecoats", "III", "*The City Watch of Duskwall. Known as the meanest gang in the city. Corrupt, violent, and cruel*.",
+                      "The Bluecoats claim the whole city as their turf, but find their influence severely limited in Whitecrown, "
+                      "where the Imperial Military garrison holds sway under command of the Lord Governor.",
+                      "**Commander Clelland** (chief commissioner of the City Watch, *corrupt*, *cruel*, *arrogant*).\n**Captain Michter** ("
+                      "chief instructor, *ambitious*, *fierce*, *confident*). "
+                      "\n**Captain Vale** (quartermaster, *loyal*, *insightful*, *quiet*)",
+                      "Many large gangs of vicious thugs in uniform. Armored coaches and canal patrol boats. Public punishment sites ("
+                      "pillories, stocks, hanging cages)",
+                      "The Bluecoats are divided into companies by district, and they have fierce rivalries, encouraged by their "
+                      "superiors—often good-natured, but sometimes violent",
+                      "The City Council, The Billhooks, The Crows, Ironhook Prison, Lord Scurlock, The Unseen",
+                      "Imperial Military, many criminal organizations",
+                      "The Bluecoats have become jealous of the elite hardware and vehicles used by the Imperial Military. They want to refit "
+                      "their watch-guards in heavy armor and weapons, to better strike fear into those they prey upon",
+                      "Procure bigger budget, military arms & equipment - 8 part clock"),
+        'church of ecstasy': ("The Church of Ecstasy", "IV",
+                              '*The “state religion” honors the life of the body and abhors the corrupted spirit world. Essentially a secret society.*',
+                              "The Sanctorium grand cathedral in Brightstone. Many other smaller temples across the city.",
+                              "**Elder Rowan** (leader, *devout*, *resolute*, *visionary*).\n**Preceptor Dunvil** (arcane researcher, *unorthodox*, "
+                              "*obsessive*, enigmatic*)",
+                              "A large treasury of tithes from citizens. Extensive arcane and occult libraries, workspaces, and artifacts. Many cohorts "
+                              "of acolytes and hollows who enforce the will of the Church’s leadership.",
+                              "Zealous believers volunteer to be hollowed to “become purified.” This was once common among the ancient cult of the Empty "
+                              "Vessel, which preceded the Church",
+                              "City Council, Leviathan Hunters, Spirit Wardens", "The Path of Echoes, The Reconciled",
+                              "The purest beings (according to secret teachings of the Church), are those entirely without spirits: the demons. Demons "
+                              "are immortal, but never fade into madness or lustful hungers as rogue human spirits and vampires do. They are perfect; and "
+                              "the most devout of the Church seek to become as they are, to unlock the secret of ascension. Many dark experiments and "
+                              "rituals with hulls, hollows, vampires—and the rare demon—are conducted in the labyrinthine dungeons below the Church’s "
+                              "chief cathedral in Brightstone",
+                              "Unlock the secret of ascension - 12 part clock;\nEliminate the Reconciled - 12 part clock"),
+        'circle of flame': ("The Circle of Flame", "III", "*A refined secret society of antiquarians and scholars; cover for extortion, graft, "
+                                                          "vice, and murder.*",
+                            "The Centuralia club, Six Towers (HQ).", "**The Seven** (leadership): **Elstera Avrathi** (Iruvian diplomat, "
+                                                                     "*secretive*, *gracious*), **Lady Drake** (magistrate, *cunning*, "
+                                                                     "*ruthless*), **Raffello** (painter, *visionary*, *obsessive*), "
+                                                                     "**Lord Mora** (noble, *cold*, *suspicious*), **Lady Penderyn** (noble, "
+                                                                     "*charming*, *patient*), **Madame Tesslyn** (vice purveyor, "
+                                                                     "*sophisticated*, *subtle*), **Harvale Brogan** (vice purveyor, *shrewd*, "
+                                                                     "*quiet*).",
+                            "Vast treasury provided by wealthy membership. Impressive collection of ancient artifacts, maps, and ephemera. "
+                            "Highly trained and discreet private security force.",
+                            "One of The Seven is actually a demon in disguise.", "The Forgotten Gods, The Path of Echoes, City Council, "
+                                                                                 "The Foundation.",
+                            "The Hive, The Silver Nails.", "The Circle has an extensive library of scholarly works that catalog many of the "
+                                                           "arcane artifacts and valuable treasures that disappeared when the Lost District "
+                                                           "was abandoned outside the lightning barrier. Of special interest are the remains "
+                                                           "of Kotar, a legendary sorcerer, demon, or hero who was mummified before the "
+                                                           "cataclysm. The Eye, Hand, and Heart of Kotar are said to possess great power for "
+                                                           "those bold enough to risk their use.",
+                            "Acquire all the ancient artifacts of Kotar - 8 part clock"),
+        'city council': ("City Council", "V", "*The elite nobility who run the city government, its treasury, magistrates, and public works.*",
+                         "The city council chambers are in Charterhall, along with the attendant government offices and impregnable city treasury "
+                         "vaults. The council also holds ownership of all public spaces in the city, including streets, docks, and waterways.",
+                         "The scions of the six most powerful noble families in Doskvol, currently: *Bowmore**, **Clelland**, **Dunvil**, "
+                         "**Penderyn**, **Rowan**, and **Strangford**.",
+                         "A massive treasury of coin and valuable goods. Many officials, barristers, clerks, and officials. The public coaches "
+                         "operated by the Cabbies.",
+                         "The members of the Council are all high-ranking adepts in the Church of the Ecstasy of the Flesh. Some of them are also "
+                         "secretly initiates in the Path of Echoes.",
+                         "Bluecoats, The Church of Ecstasy, The Circle of Flame, Lord Scurlock, The Brigade, Cabbies, Sparkwrights, The Foundation.",
+                         "Imperial Military, Inspectors, Ministry of Preservation, The Reconciled.",
+                         "Three of the councilors (Bowmore, Clelland, Rowan) have aligned against Strangford and are maneuvering to remove the "
+                         "house from the council. Dunvil and Penderyn have not taken sides so far. Can the conspirators arrange for the necessary "
+                         "scandal, framed crime, or assassinations to remove Strangford? Or can Strangford House stand against them and eliminate "
+                         "the threats?",
+                         "Strangford is removed from council - 6 part clock;\nStrangford eliminates threats - 8 part clock"),
+        'crows': ("The Crows", "II", "*An old gang with new leadership. Known for running illegal games of chance and extortion rackets.*",
+                  "Claims all of Crow’s Foot as their turf. Everyone in the district pays up the chain to them. HQ in an abandoned City Watch "
+                  "tower. Operates gambling dens in Crow’s Foot and extortion rackets at the Docks.",
+                  "**Lyssa** (leader, *brash*, *killer*, *noble family*). **Bell** (second-in-command, *loyal*).",
+                  "A veteran gang of thugs and killers. A number of small boats. A fortified HQ.",
+                  "Roric’s body was lost during his murder (it fell into a canal). His vengeful ghost is now at large in the city.",
+                  "The Bluecoats, Sailors, The Lost, Citizens of Crow’s Foot.", "The Hive, Inspectors, Dockers.",
+                  "Lyssa murdered the former boss of the Crows, Roric. She is a fearsome killer, and few want to cross her, but her position "
+                  "as leader of the Crows is uncertain. Some were very loyal to Roric. As the power-play continues, the Crows’ hold on the "
+                  "district just might slip away.",
+                  "Reestablish control of Crow’s Foot - 6 part clock;\nRise in Tier - 6 part clock"),
+        'deathlands scavengers': ("Deathlands Scavengers", "II", "*Convicts from Ironhook and desperate freelancers who roam the wasteland beyond "
+                                                                 "the lightning barriers.*",
+                                  "A few precious hold-fasts in the deathlands, secured by ancient rites against spirits. Hunting grounds to feed "
+                                  "on the few strange animals that survived the cataclysm.",
+                                  "**Lady Thorn** (leader, *haunted*, *brave*, *caring*). **Richter** (hunter, *patient*, *quiet*, *deadly*).",
+                                  "Generators, lightning hooks, gas-masks, air tanks, and other essentials of deathlands survival. A secret "
+                                  "ancient book of ritual sorcery.",
+                                  "Possession is a common hazard, and scavengers either learn to deal with it, or go mad and vanish into the "
+                                  "darkness of the wastes. Those still in Lady Thorn’s company have adapted well and suffer only minimal ill "
+                                  "effects from possession.",
+                                  "Forgotten Gods, Gondoliers, Spirit Wardens.", "Ironhook Prison.",
+                                  "Condemned prisoners are sometimes given “mercy” and sent into the deathlands rather than being executed at "
+                                  "Ironhook. A few survive, thanks to Lady Thorn and her deathlands scavengers, who take them in and train them in "
+                                  "the ways of deathlands hunting and survival. The scavengers hunt for lost artifacts and treasures in the "
+                                  "wastes, to sell or trade in the city, sometimes for enough to buy a pardon and return to life within the "
+                                  "barriers once again.",
+                                  "Obtain pardons (repeating) - 8 part clock"),
+        'dimmer sisters': ("The Dimmer Sisters", "II", "*House-bound recluses with an occult reputation.*",
+                           "Fine old manor house and grounds (HQ), as well as the ancient temple ruin and subterranean canal beneath. "
+                           "Apothecaries and witches in their service.",
+                           "There is no single leader of the Sisters; their true names are not known. **Roslyn** (servant, *patient*, *loyal*, "
+                           "*arcane*) deals with contacts outside the house. **Irelen** (sparkcraft tinkerer, *loyal*, *enigmatic*, "
+                           "*obsessive*).",
+                           "A private electroplasmic generator, lightning barriers, and spirit containment vessels. Many spirits bound to "
+                           "service.",
+                           "The precise number of sisters is unknown. Some say they are an ancient family of possessing spirits. Others say "
+                           "they are vampires. Everyone knows that if you go into their house, you never come out again.",
+                           "The Forgotten Gods, The Foundation.", "Spirit Wardens, The Reconciled.",
+                           "The Sisters have been slowly and secretly consolidating the trade of captured spirits and spirit essences in "
+                           "Doskvol for several decades. Only a few remaining rivals stand between them and domination of the market. Do they "
+                           "have an ulterior motive for acquiring so many spirits and essences, or is this purely a matter of wealth and "
+                           "power?",
+                           "Dominate the spirit trade - 6 part clock;\nObtain arcane secrets (repeating) - 4 part clock"),
+        'fog hounds': ("The Fog Hounds", "I", "A crew of rough smugglers looking for a patron.",
+                       "Underground canal dock (HQ). North and East city canal routes. Northern Void Sea routes. Old North Port supply caches.",
+                       "**Margette Vale** (leader, *quiet*, *cold*, *fearless*). **Bear** (second, *fierce*, *moody*, *brash*). **Goldie** ("
+                       "navigator, *calculating*, *patient*, *confident*).",
+                       "Medium steamship, Fog Hound. A crew of hard-bitten, tough, expert sailors—all former Void Sea transport haulers (put out of "
+                       "work by the new cargo rail lines), well-worn from years of harrowing work. A wide array of Imperial transport and cargo "
+                       "documents, some forged, some legit.",
+                       "As veterans of many cruises on the Void Sea, Vale and her crew can be insular and clannish, and have a low initial opinion "
+                       "of anyone who hasn’t proven themselves in a similar way. Once won, however, their loyalty is rock solid and fierce.",
+                       "Dockers, The Lampblacks.", "Bluecoats (canal patrol), The Vultures (rival smuggling outfit, Tier I).",
+                       "Vale and her crew have mastered the Northern smuggling routes in and out of Duskwall. They’re currently attempting to "
+                       "absorb or eliminate the few remaining rivals on their territory and then establish reliable, regular work with a patron who "
+                       "needs a steady stream of contraband.",
+                       "Eliminate rival smugglers - 8 part clock;\nObtain a regular patron - 6 part clock"),
+        'gondoliers': ("Gondoliers", "III",
+                       "The canal boat operators. Venerated by ancient tradition. Said to know occult secrets (many things are submerged in the "
+                       "Dusk).",
+                       "The canals of Doskvol. Even the Bluecoats’ canal patrol pays respect to them.",
+                       "**Eisele** (leader, *serene*, *knowledgeable*, *fearless*). **Griggs** (chief Whisper, *strange*, *ruthless*, *haunted*).",
+                       "Fleet of gondolas and other water-craft. Map of known spirit wells and arcane sites across the city. A dedicated cohort of "
+                       "Adepts.",
+                       "Initiation into the Gondoliers grants the Whisper’s **Compel** special ability.",
+                       "The Lampblacks, Citizenry of all districts.",
+                       "The Red Sashes, Spirit Wardens.",
+                       "Killers have disposed of bodies in the canals of Doskvol for centuries. The vengeful ghosts that rise from the corpses are "
+                       "a serious threat—a threat dealt with by the Gondoliers since ancient times. Before the Spirit Wardens were created by the "
+                       "Emperor, the Gondoliers protected citizens from rogue spirits and supernatural dangers of all kinds. The Gondoliers are "
+                       "beloved by most citizens, who prefer to go to them with “weird problems” rather that relying on the ruthless and "
+                       "indiscriminate judgment of the Spirit Wardens. A sudden influx of ritually disfigured hollows dumped in the canals has "
+                       "sparked investigation by the Gondoliers (the Spirit Wardens are pointedly ignoring the situation).",
+                       "Investigate desecrated hollows - 8 part clock;\nDestroy spirit wells (repeating) - 4 part clock"),
+        'gray cloaks': ("The Gray Cloaks", "II", "*A crew of former Bluecoats turned to crime after being framed and expelled from the City Watch.*",
+                        "The basement of a burned-down City Watch station (HQ). Several apartments above a tobacconist in Six Towers. A "
+                        "pit-fighting arena and gambling den.",
+                        "**Nessa** (leader, *scrupulous*, *daring*). **Hutch** (second, *brash*, *fierce*).",
+                        "The Gray Cloaks have attracted other former Bluecoats to their crew, amassing a sizeable gang of trained enforcers. They "
+                        "have their old uniforms and badges and often use them to pass as the City Watch.",
+                        "The Inspectors.", "Bluecoats, Lord Strangford (Leviathan Hunters).",
+                        "The Gray Cloaks are all former Bluecoats who were framed for a crime committed by their Watch station commander. Sure, "
+                        "they were skimming from the city coffers and taking bribes like everyone else, but they didn’t burn down the Watch station "
+                        "and destroy the evidence in the case against Lord Strangford (of the Leviathan Hunters).\nSeveral inspectors who were "
+                        "working the case know the truth but can’t prove anything - yet. Lord Strangford would pay well to have these loose ends "
+                        "removed permanently.",
+                        "Secure Six Towers as their turf - 8 part clock;\nAvenge their expulsion - 8 part clock"),
+
+        # gray cloaks has an unknown bug
+
+        'grinders': ("The Grinders", "II", "*A vicious gang of former dockers and leviathan blood refinery workers.*",
+                     "Abandoned dock warehouse (HQ) and underground canal dock.",
+                     "**Hutton** (leader, *confident*, *volatile*). **Sercy** (second, *crippled*, *defiant*). **Derret** (toughest gang member, "
+                     "*huge*, *shrewd*).",
+                     "A few small canal boats. Wrecking tools and explosives.",
+                     "Many Grinders have been mutated by the toxic rain that plagues Lockport.",
+                     "Ulf Ironborn, Dockers.", "Bluecoats, Imperial Military, Leviathan Hunters, Sailors, The Silver Nails.",
+                     "The city of Lockport, to the North in Skovlan, processes 90% of the demon blood siphoned by the leviathan hunter ships of "
+                     "Doskvol (the hunters drop their raw cargo at Lockport before filling their holds with refined blood and returning to Doskvol "
+                     "for repairs and replacement crew for those lost to the Void Sea). The huge, churning refineries in Lockport have poisoned the "
+                     "city under a stinking cloud of toxic fumes and acid rain. A group of dockers and refinery workers from Lockport have come to "
+                     "Doskvol to raise an army and secure a warship with which to seize control of Lockport and destroy the Empire’s refineries. "
+                     "They call themselves “the Grinders.” To raise funds for their mission, the Grinders have turned to criminal endeavors, "
+                     "especially smash & grab looting and hijacking of cargo barges across the city.",
+                     "Raise a crew, steal a war ship - 12 part clock;\nFill war treasury - 12 part clock"),
+        'hive': ("The Hive", "IV", "*A guild of legitimate merchants who secretly trade in contraband. Named for their symbol, a golden bee.*",
+                 "Many shops, taverns, cafes, warehouses, and other mercantile establishments all across the city. No centralized HQ.",
+                 "**Djera Maha** (leader, *bold*, *strategic*, *confident*). **Karth Orris** (mercenary commander, *ruthless*, *insightful*, "
+                 "*jealous*).",
+                 "A massive treasury. Elite mercenaries on retainer. A fleet of transport ships, carriages, wagons, and private trains.",
+                 "The Hive is known to avoid doing business with any occult or arcane groups. The Church of Ecstasy is popular among Hive members, "
+                 "who reject the superstitions and weird practices of the past.",
+                 "Ministry of Preservation, Dagger Isles Consulate.", "The Circle of Flame, The Unseen, The Crows, The Wraiths.",
+                 "Djera Maha grew up as an urchin in the Dagger Isles. She learned all the secrets of vice and smuggling as she worked her way up "
+                 "the ranks of every gang along the trade routes to Doskvol. Having built up her acquisition and distribution network in the city ("
+                 "as well as within the Ministry of Preservation) she is poised to take over all of the contraband markets. Maha had a close "
+                 "relationship (some say romantic) with the leader of the Crows, Roric, who was recently murdered by his second-in-command.",
+                 "Dominate contraband market - 8 part clock;\nAvenge Roric’s murder - 6 part clock"),
+        'lampblacks': (
+            "The Lampblacks", "II", "*The former lamp-lighter guild, turned to crime when their services were replaced by electric lights.*",
+            "HQ in the office of a coal warehouse. Operates a handful of brothels and cheap drug dens across Crow’s Foot.",
+            "**Bazso Baz** (leader, *charming*, *open*, *ruthless*, *whiskey connoisseur*). **Pickett** (second, *shrewd*, *conniving*, "
+            "*suspicious*). "
+            "**Henner** (thug, *loyal*, *reckless*).",
+            "A fearsome gang of leg-breakers and mayhem-makers. A number of smugglers on the payroll who run their drugs.",
+            "Bazso Baz is a member of a secret society (forgotten gods cult, “The Empty Vessel”) and sometimes puts the needs of that group ahead of "
+            "the well-being of his gang.",
+            "The Fog Hounds, Gondoliers, Ironhook Prison.", "The Red Sashes, The Bluecoats, Cabbies.",
+            "The Lampblacks and the Red Sashes are at war over turf and vengeance for deaths on both sides. Bazso Baz is recruiting every free "
+            "blade in "
+            "the district for extra muscle and doesn’t take no for an answer. You’re either with them or against them. The Lampblacks are not "
+            "particularly well-connected politically, but are akin to folk-heroes among the working class, who see them as “lovable rogues” "
+            "standing up "
+            "to the powers-that-be.",
+            "Destroy the Red Sashes - 8 part clock;\nBecome ward boss of Crow’s Foot - 8 part clock")
+    }
+    keys = (
+        "red sashes", "billhooks", "bluecoats", "church of ecstasy", "circle of flame", "lampblacks", "hive", "grinders", "gray cloaks", "gondoliers",
+        "fog hounds", "dimmer sisters", "deathlands scavengers", "crows", "city council")
+    fac = ""
+    for x in keys:
+        if name in x:
+            fac = faction_sheets[x]
+    embed = discord.Embed(colour=discord.Colour.dark_red())
+    embed.set_author(name=fac[0] + " (" + fac[1] + ")")
+    embed.add_field(name="\n__Basic Info__\n", value="\n\n" + fac[2] + "\n\n**Turf:** " + fac[3] + "\n**NPCs:**\n" + fac[4]
+                    , inline=False)
+    embed.add_field(name="\n__Detailed Info__\n", value="\n**Notable assets:** " + fac[5] + "\n**Quirks:** " + fac[6] + "\n**Allies:** " + fac[7] +
+                                                        "\n**Enemies:** " + fac[8]
+                    , inline=False)
+    embed.add_field(name="\n__Extras__\n", value="\n\n**Situation:** " + fac[9] + "\n\n**Clocks:**\n" + fac[10], inline=False)
+    await ctx.send(embed=embed)
 
 
 @bot.command(name="info", aliases=["i"])
