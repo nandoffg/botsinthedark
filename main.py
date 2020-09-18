@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.7
+# Bots in the Dark v.1.8
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -783,9 +783,818 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
 
-@bot.command(name="faction", aliases=["f"])
-async def faction(ctx, gang):
-    name = gang.lower()
+# @bot.command(name="faction", aliases=["f"])
+# async def faction(ctx, gang):
+#     name = gang.lower()
+#     faction_sheets = {
+#         'red sashes': ("The Red Sashes", "II", "*Originally a school of ancient Iruvian sword arts, since expanded into criminal endeavors.*",
+#                        "HQ in their sword-fighting school/temple. Operates a handful of high-end drug dens across Crow’s Foot and the Docks.",
+#                        "**Mylera Klev** (leader, *shrewd*, *ruthless*, *educated*, *art collector*)",
+#                        "Small contingent of master sword-fighters. Master alchemist; many potent potions and essences.",
+#                        "Several members of the Red Sashes are the sons and daughters of Iruvian nobility and diplomats in Doskvol. They train in "
+#                        "swordplay at the school and sometimes participate in gang activities. Their families are powerful and will commit "
+#                        "significant resources to punishing anyone who harms their children.",
+#                        "Iruvian Consulate, The Path of Echoes, Dockers, Cabbies, Inspectors.", "The Lampblacks, Bluecoats, Gondoliers.",
+#                        "The Red Sashes and the Lampblacks are at war over turf and vengeance for deaths on both sides. Mylera is recruiting every "
+#                        "free blade in the district for extra muscle and doesn’t take no for an answer. You’re either with them or against them. The "
+#                        "Red Sashes are very well-connected, with former sword students placed at the Iruvian Consulate, in the Path of Echoes, "
+#                        "and among the Inspectors.",
+#                        "Destroy the Lampblacks - 8 part clock;\nBecome ward boss of Crow' Foot - 8 part clock"),
+#
+#         'billhooks': ("The Billhooks", "II", "*A tough gang of thugs who prefer hatchets, meat hooks, and pole arms.*",
+#                       "A butcher shop (HQ), stockyard, and slaughterhouse. Animal fighting pits and gambling dens. Several terrified merchants "
+#                       "and businesses, which they extort.",
+#                       "**Tarvul** (leader, serving life in prison, *savage*, *arrogant*, *family man*).\n**Erin** (captain, Tarvul’s sister, "
+#                       "*confident*, *deadly*, *ambitious*). "
+#                       "\n**Coran** (thug, Tarvul’s son, *fierce*, *loyal*, *quiet*).",
+#                       "A large gang of bloodthirsty butchers. A pack of death-dogs.",
+#                       "The Billhooks have a bloody reputation, often leaving the butchered corpses of their victims strewn about in a grisly "
+#                       "display. Many wonder why the Bluecoats turn a blind eye to their savagery.",
+#                       "The Bluecoats, Ministry of Preservation.", "Ulf Ironborn, The Lost, Citizenry of Crow’s Foot and the Docks.",
+#                       "Erin and Coran both want to take control of the Billhooks gang, either when Tarvul gets too old (which will be soon) or "
+#                       "by taking the position by force. There is no love lost between Erin and Corran and they’ll have no qualms about fighting "
+#                       "a family member for leadership. Meanwhile, the rest of the gang wants to continue their reign of terror to pressure a "
+#                       "magistrate to pardon Tarvul and other gang members and release them from Ironhook.",
+#                       "Terrorize magistrates to pardon members in prison - 8 part clock"),
+#         'bluecoats': ("Bluecoats", "III", "*The City Watch of Duskwall. Known as the meanest gang in the city. Corrupt, violent, and cruel*.",
+#                       "The Bluecoats claim the whole city as their turf, but find their influence severely limited in Whitecrown, "
+#                       "where the Imperial Military garrison holds sway under command of the Lord Governor.",
+#                       "**Commander Clelland** (chief commissioner of the City Watch, *corrupt*, *cruel*, *arrogant*).\n**Captain Michter** ("
+#                       "chief instructor, *ambitious*, *fierce*, *confident*). "
+#                       "\n**Captain Vale** (quartermaster, *loyal*, *insightful*, *quiet*)",
+#                       "Many large gangs of vicious thugs in uniform. Armored coaches and canal patrol boats. Public punishment sites ("
+#                       "pillories, stocks, hanging cages)",
+#                       "The Bluecoats are divided into companies by district, and they have fierce rivalries, encouraged by their "
+#                       "superiors—often good-natured, but sometimes violent",
+#                       "The City Council, The Billhooks, The Crows, Ironhook Prison, Lord Scurlock, The Unseen",
+#                       "Imperial Military, many criminal organizations",
+#                       "The Bluecoats have become jealous of the elite hardware and vehicles used by the Imperial Military. They want to refit "
+#                       "their watch-guards in heavy armor and weapons, to better strike fear into those they prey upon",
+#                       "Procure bigger budget, military arms & equipment - 8 part clock"),
+#         'church of ecstasy':
+#             ("The Church of Ecstasy", "IV",
+#              '*The “state religion” honors the life of the body and abhors the corrupted spirit world. Essentially a secret society.*',
+#              "The Sanctorium grand cathedral in Brightstone. Many other smaller temples across the city.",
+#              "**Elder Rowan** (leader, *devout*, *resolute*, *visionary*).\n**Preceptor Dunvil** (arcane researcher, *unorthodox*, "
+#              "*obsessive*, enigmatic*)",
+#              "A large treasury of tithes from citizens. Extensive arcane and occult libraries, workspaces, and artifacts. Many cohorts "
+#              "of acolytes and hollows who enforce the will of the Church’s leadership.",
+#              "Zealous believers volunteer to be hollowed to “become purified.” This was once common among the ancient cult of the Empty "
+#              "Vessel, which preceded the Church",
+#              "City Council, Leviathan Hunters, Spirit Wardens", "The Path of Echoes, The Reconciled",
+#              "The purest beings (according to secret teachings of the Church), are those entirely without spirits: the demons. Demons "
+#              "are immortal, but never fade into madness or lustful hungers as rogue human spirits and vampires do. They are perfect; and "
+#              "the most devout of the Church seek to become as they are, to unlock the secret of ascension. Many dark experiments and "
+#              "rituals with hulls, hollows, vampires—and the rare demon—are conducted in the labyrinthine dungeons below the Church’s "
+#              "chief cathedral in Brightstone",
+#              "Unlock the secret of ascension - 12 part clock;\nEliminate the Reconciled - 12 part clock"),
+#         'circle of flame': ("The Circle of Flame", "III", "*A refined secret society of antiquarians and scholars; cover for extortion, graft, "
+#                                                           "vice, and murder.*",
+#                             "The Centuralia club, Six Towers (HQ).", "**The Seven** (leadership):\n**Elstera Avrathi** (Iruvian diplomat, "
+#                                                                      "*secretive*, *gracious*)\n**Lady Drake** (magistrate, *cunning*, "
+#                                                                      "*ruthless*)\n**Raffello** (painter, *visionary*, *obsessive*), "
+#                                                                      "\n**Lord Mora** (noble, *cold*, *suspicious*),\n**Lady Penderyn** (noble, "
+#                                                                      "*charming*, *patient*)\n**Madame Tesslyn** (vice purveyor, "
+#                                                                      "*sophisticated*, *subtle*)\n**Harvale Brogan** (vice purveyor, *shrewd*, "
+#                                                                      "*quiet*).",
+#                             "Vast treasury provided by wealthy membership. Impressive collection of ancient artifacts, maps, and ephemera. "
+#                             "Highly trained and discreet private security force.",
+#                             "One of The Seven is actually a demon in disguise.", "The Forgotten Gods, The Path of Echoes, City Council, "
+#                                                                                  "The Foundation.",
+#                             "The Hive, The Silver Nails.", "The Circle has an extensive library of scholarly works that catalog many of the "
+#                                                            "arcane artifacts and valuable treasures that disappeared when the Lost District "
+#                                                            "was abandoned outside the lightning barrier. Of special interest are the remains "
+#                                                            "of Kotar, a legendary sorcerer, demon, or hero who was mummified before the "
+#                                                            "cataclysm. The Eye, Hand, and Heart of Kotar are said to possess great power for "
+#                                                            "those bold enough to risk their use.",
+#                             "Acquire all the ancient artifacts of Kotar - 8 part clock"),
+#         'city council': ("City Council", "V", "*The elite nobility who run the city government, its treasury, magistrates, and public works.*",
+#                          "The city council chambers are in Charterhall, along with the attendant government offices and impregnable city treasury "
+#                          "vaults. The council also holds ownership of all public spaces in the city, including streets, docks, and waterways.",
+#                          "The scions of the six most powerful noble families in Doskvol, currently: **Bowmore**, **Clelland**, **Dunvil**, "
+#                          "**Penderyn**, **Rowan**, and **Strangford**.",
+#                          "A massive treasury of coin and valuable goods. Many officials, barristers, clerks, and officials. The public coaches "
+#                          "operated by the Cabbies.",
+#                          "The members of the Council are all high-ranking adepts in the Church of the Ecstasy of the Flesh. Some of them are also "
+#                          "secretly initiates in the Path of Echoes.",
+#                          "Bluecoats, The Church of Ecstasy, The Circle of Flame, Lord Scurlock, The Brigade, Cabbies, Sparkwrights, The Foundation.",
+#                          "Imperial Military, Inspectors, Ministry of Preservation, The Reconciled.",
+#                          "Three of the councilors (Bowmore, Clelland, Rowan) have aligned against Strangford and are maneuvering to remove the "
+#                          "house from the council. Dunvil and Penderyn have not taken sides so far. Can the conspirators arrange for the necessary "
+#                          "scandal, framed crime, or assassinations to remove Strangford? Or can Strangford House stand against them and eliminate "
+#                          "the threats?",
+#                          "Strangford is removed from council - 6 part clock;\nStrangford eliminates threats - 8 part clock"),
+#         'crows': ("The Crows", "II", "*An old gang with new leadership. Known for running illegal games of chance and extortion rackets.*",
+#                   "Claims all of Crow’s Foot as their turf. Everyone in the district pays up the chain to them. HQ in an abandoned City Watch "
+#                   "tower. Operates gambling dens in Crow’s Foot and extortion rackets at the Docks.",
+#                   "**Lyssa** (leader, *brash*, *killer*, *noble family*).\n**Bell** (second-in-command, *loyal*).",
+#                   "A veteran gang of thugs and killers. A number of small boats. A fortified HQ.",
+#                   "Roric’s body was lost during his murder (it fell into a canal). His vengeful ghost is now at large in the city.",
+#                   "The Bluecoats, Sailors, The Lost, Citizens of Crow’s Foot.", "The Hive, Inspectors, Dockers.",
+#                   "Lyssa murdered the former boss of the Crows, Roric. She is a fearsome killer, and few want to cross her, but her position "
+#                   "as leader of the Crows is uncertain. Some were very loyal to Roric. As the power-play continues, the Crows’ hold on the "
+#                   "district just might slip away.",
+#                   "Reestablish control of Crow’s Foot - 6 part clock;\nRise in Tier - 6 part clock"),
+#         'deathlands scavengers': ("Deathlands Scavengers", "II", "*Convicts from Ironhook and desperate freelancers who roam the wasteland beyond "
+#                                                                  "the lightning barriers.*",
+#                                   "A few precious hold-fasts in the deathlands, secured by ancient rites against spirits. Hunting grounds to feed "
+#                                   "on the few strange animals that survived the cataclysm.",
+#                                   "**Lady Thorn** (leader, *haunted*, *brave*, *caring*).\n**Richter** (hunter, *patient*, *quiet*, *deadly*).",
+#                                   "Generators, lightning hooks, gas-masks, air tanks, and other essentials of deathlands survival. A secret "
+#                                   "ancient book of ritual sorcery.",
+#                                   "Possession is a common hazard, and scavengers either learn to deal with it, or go mad and vanish into the "
+#                                   "darkness of the wastes. Those still in Lady Thorn’s company have adapted well and suffer only minimal ill "
+#                                   "effects from possession.",
+#                                   "Forgotten Gods, Gondoliers, Spirit Wardens.", "Ironhook Prison.",
+#                                   "Condemned prisoners are sometimes given “mercy” and sent into the deathlands rather than being executed at "
+#                                   "Ironhook. A few survive, thanks to Lady Thorn and her deathlands scavengers, who take them in and train them in "
+#                                   "the ways of deathlands hunting and survival. The scavengers hunt for lost artifacts and treasures in the "
+#                                   "wastes, to sell or trade in the city, sometimes for enough to buy a pardon and return to life within the "
+#                                   "barriers once again.",
+#                                   "Obtain pardons (repeating) - 8 part clock"),
+#         'dimmer sisters': ("The Dimmer Sisters", "II", "*House-bound recluses with an occult reputation.*",
+#                            "Fine old manor house and grounds (HQ), as well as the ancient temple ruin and subterranean canal beneath. "
+#                            "Apothecaries and witches in their service.",
+#                            "There is no single leader of the Sisters; their true names are not known.\n**Roslyn** (servant, *patient*, *loyal*, "
+#                            "*arcane*) deals with contacts outside the house.\n**Irelen** (sparkcraft tinkerer, *loyal*, *enigmatic*, "
+#                            "*obsessive*).",
+#                            "A private electroplasmic generator, lightning barriers, and spirit containment vessels. Many spirits bound to "
+#                            "service.",
+#                            "The precise number of sisters is unknown. Some say they are an ancient family of possessing spirits. Others say "
+#                            "they are vampires. Everyone knows that if you go into their house, you never come out again.",
+#                            "The Forgotten Gods, The Foundation.", "Spirit Wardens, The Reconciled.",
+#                            "The Sisters have been slowly and secretly consolidating the trade of captured spirits and spirit essences in "
+#                            "Doskvol for several decades. Only a few remaining rivals stand between them and domination of the market. Do they "
+#                            "have an ulterior motive for acquiring so many spirits and essences, or is this purely a matter of wealth and "
+#                            "power?",
+#                            "Dominate the spirit trade - 6 part clock;\nObtain arcane secrets (repeating) - 4 part clock"),
+#         'fog hounds': ("The Fog Hounds", "I", "*A crew of rough smugglers looking for a patron.*",
+#                        "Underground canal dock (HQ). North and East city canal routes. Northern Void Sea routes. Old North Port supply caches.",
+#                        "**Margette Vale** (leader, *quiet*, *cold*, *fearless*).\n**Bear** (second, *fierce*, *moody*, *brash*).\n**Goldie** ("
+#                        "navigator, *calculating*, *patient*, *confident*).",
+#                        "Medium steamship, Fog Hound. A crew of hard-bitten, tough, expert sailors—all former Void Sea transport haulers (put out of "
+#                        "work by the new cargo rail lines), well-worn from years of harrowing work. A wide array of Imperial transport and cargo "
+#                        "documents, some forged, some legit.",
+#                        "As veterans of many cruises on the Void Sea, Vale and her crew can be insular and clannish, and have a low initial opinion "
+#                        "of anyone who hasn’t proven themselves in a similar way. Once won, however, their loyalty is rock solid and fierce.",
+#                        "Dockers, The Lampblacks.", "Bluecoats (canal patrol), The Vultures (rival smuggling outfit, Tier I).",
+#                        "Vale and her crew have mastered the Northern smuggling routes in and out of Duskwall. They’re currently attempting to "
+#                        "absorb or eliminate the few remaining rivals on their territory and then establish reliable, regular work with a patron who "
+#                        "needs a steady stream of contraband.",
+#                        "Eliminate rival smugglers - 8 part clock;\nObtain a regular patron - 6 part clock"),
+#         'gondoliers': ("Gondoliers", "III", "*The canal boat operators. Venerated by ancient tradition. Said to know occult secrets (many things "
+#                                             "are submerged in the Dusk).*",
+#                        "The canals of Doskvol. Even the Bluecoats’ canal patrol pays respect to them.",
+#                        "**Eisele** (leader, *serene*, *knowledgeable*, *fearless*).\n**Griggs** (chief Whisper, *strange*, *ruthless*, *haunted*).",
+#                        "Fleet of gondolas and other water-craft. Map of known spirit wells and arcane sites across the city. A dedicated cohort of "
+#                        "Adepts.",
+#                        "Initiation into the Gondoliers grants the Whisper’s **Compel** special ability.",
+#                        "The Lampblacks, Citizenry of all districts.",
+#                        "The Red Sashes, Spirit Wardens.",
+#                        "Killers have disposed of bodies in the canals of Doskvol for centuries. The vengeful ghosts that rise from the corpses are "
+#                        "a serious threat—a threat dealt with by the Gondoliers since ancient times. Before the Spirit Wardens were created by the "
+#                        "Emperor, the Gondoliers protected citizens from rogue spirits and supernatural dangers of all kinds. The Gondoliers are "
+#                        "beloved by most citizens, who prefer to go to them with “weird problems” rather that relying on the ruthless and "
+#                        "indiscriminate judgment of the Spirit Wardens. A sudden influx of ritually disfigured hollows dumped in the canals has "
+#                        "sparked investigation by the Gondoliers (the Spirit Wardens are pointedly ignoring the situation).",
+#                        "Investigate desecrated hollows - 8 part clock;\nDestroy spirit wells (repeating) - 4 part clock"),
+#         'gray cloaks':
+#             ("The Gray Cloaks", "II", "*A crew of former Bluecoats turned to crime after being framed and expelled from the City Watch.*",
+#              "The basement of a burned-down City Watch station (HQ). Several apartments above a tobacconist in Six Towers. A pit-fighting arena and "
+#              "gambling den.",
+#              "**Nessa** (leader, *scrupulous*, *daring*).\n**Hutch** (second, *brash*, *fierce*).",
+#              "The Gray Cloaks have attracted other former Bluecoats to their crew, amassing a sizeable gang of trained enforcers.They have their old uniforms and badges and often use them to pass as the City Watch.",
+#              "N/A", "The Inspectors.", "Bluecoats, Lord Strangford (Leviathan Hunters).",
+#              "The Gray Cloaks are all former Bluecoats who were framed for a crime committed by their Watch station commander. Sure, "
+#              "they were skimming from the city coffers and taking bribes like everyone else, but they didn’t burn down the Watch station "
+#              "and destroy the evidence in the case against Lord Strangford (of the Leviathan Hunters). Several inspectors who were "
+#              "working the case know the truth but can’t prove anything - yet. Lord Strangford would pay well to have these loose ends "
+#              "removed permanently.", "Secure Six Towers as their turf - 8 part clock;\nAvenge their expulsion - 8 part clock"),
+#
+#         'grinders': ("The Grinders", "II", "*A vicious gang of former dockers and leviathan blood refinery workers.*",
+#                      "Abandoned dock warehouse (HQ) and underground canal dock.",
+#                      "**Hutton** (leader, *confident*, *volatile*).\n**Sercy** (second, *crippled*, *defiant*).\n**Derret** (toughest gang member, "
+#                      "*huge*, *shrewd*).",
+#                      "A few small canal boats. Wrecking tools and explosives.",
+#                      "Many Grinders have been mutated by the toxic rain that plagues Lockport.",
+#                      "Ulf Ironborn, Dockers.", "Bluecoats, Imperial Military, Leviathan Hunters, Sailors, The Silver Nails.",
+#                      "The city of Lockport, to the North in Skovlan, processes 90% of the demon blood siphoned by the leviathan hunter ships of "
+#                      "Doskvol (the hunters drop their raw cargo at Lockport before filling their holds with refined blood and returning to Doskvol "
+#                      "for repairs and replacement crew for those lost to the Void Sea). The huge, churning refineries in Lockport have poisoned the "
+#                      "city under a stinking cloud of toxic fumes and acid rain. A group of dockers and refinery workers from Lockport have come to "
+#                      "Doskvol to raise an army and secure a warship with which to seize control of Lockport and destroy the Empire’s refineries. "
+#                      "They call themselves “the Grinders.” To raise funds for their mission, the Grinders have turned to criminal endeavors, "
+#                      "especially smash & grab looting and hijacking of cargo barges across the city.",
+#                      "Raise a crew, steal a war ship - 12 part clock;\nFill war treasury - 12 part clock"),
+#         'hive': ("The Hive", "IV", "*A guild of legitimate merchants who secretly trade in contraband. Named for their symbol, a golden bee.*",
+#                  "Many shops, taverns, cafes, warehouses, and other mercantile establishments all across the city. No centralized HQ.",
+#                  "**Djera Maha** (leader, *bold*, *strategic*, *confident*).\n**Karth Orris** (mercenary commander, *ruthless*, *insightful*, "
+#                  "*jealous*).",
+#                  "A massive treasury. Elite mercenaries on retainer. A fleet of transport ships, carriages, wagons, and private trains.",
+#                  "The Hive is known to avoid doing business with any occult or arcane groups. The Church of Ecstasy is popular among Hive members, "
+#                  "who reject the superstitions and weird practices of the past.",
+#                  "Ministry of Preservation, Dagger Isles Consulate.", "The Circle of Flame, The Unseen, The Crows, The Wraiths.",
+#                  "Djera Maha grew up as an urchin in the Dagger Isles. She learned all the secrets of vice and smuggling as she worked her way up "
+#                  "the ranks of every gang along the trade routes to Doskvol. Having built up her acquisition and distribution network in the city ("
+#                  "as well as within the Ministry of Preservation) she is poised to take over all of the contraband markets. Maha had a close "
+#                  "relationship (some say romantic) with the leader of the Crows, Roric, who was recently murdered by his second-in-command.",
+#                  "Dominate contraband market - 8 part clock;\nAvenge Roric’s murder - 6 part clock"),
+#         'lampblacks': (
+#             "The Lampblacks", "II", "*The former lamp-lighter guild, turned to crime when their services were replaced by electric lights.*",
+#             "HQ in the office of a coal warehouse. Operates a handful of brothels and cheap drug dens across Crow’s Foot.",
+#             "**Bazso Baz** (leader, *charming*, *open*, *ruthless*, *whiskey connoisseur*).\n**Pickett** (second, *shrewd*, *conniving*, "
+#             "*suspicious*).\n**Henner** (thug, *loyal*, *reckless*).",
+#             "A fearsome gang of leg-breakers and mayhem-makers. A number of smugglers on the payroll who run their drugs.",
+#             "Bazso Baz is a member of a secret society (forgotten gods cult, “The Empty Vessel”) and sometimes puts the needs of that group ahead of "
+#             "the well-being of his gang.",
+#             "The Fog Hounds, Gondoliers, Ironhook Prison.", "The Red Sashes, The Bluecoats, Cabbies.",
+#             "The Lampblacks and the Red Sashes are at war over turf and vengeance for deaths on both sides. Bazso Baz is recruiting every free "
+#             "blade in "
+#             "the district for extra muscle and doesn’t take no for an answer. You’re either with them or against them. The Lampblacks are not "
+#             "particularly well-connected politically, but are akin to folk-heroes among the working class, who see them as “lovable rogues” "
+#             "standing up "
+#             "to the powers-that-be.",
+#             "Destroy the Red Sashes - 8 part clock;\nBecome ward boss of Crow’s Foot - 8 part clock"),
+#         'leviathan hunters':
+#             ("Leviathan Hunters", "V", "*The captains and crews that grapple with titanic demons of the Void Sea to drain their blood for "
+#                                        "processing into electroplasm.*",
+#              "The massive metal docks for the huge hunter ships and the associated construction and repair facilities. Several small private "
+#              "leviathan blood processing facilities for the captains’ personal shares.",
+#              "**Lord Strangford** (captain, *ruthless*, *arrogant*, *tainted*).\n**Lady Clave** (captain, *daring*, *cruel*, "
+#              "*accomplished*).\n**Lady Ankhayat** (Iruvian captain, *confident*, *charming*, *scoundrel*).",
+#              "The leviathan hunter fleet (each vessel is owned by the noble house who built and commands it). Many cohorts of expert sailors, "
+#              "as well as spark-craft technicians, demonologist Whispers, and void-touched navigators. Companies of marines to protect the vessels "
+#              "and their valuable cargo at sea and in port.",
+#              "N/A", "City Council, The Church of Ecstasy, Sailors, Dockers, Sparkwrights.", "The Grinders, Ministry of Preservation, The Path of "
+#                                                                                             "Echoes.",
+#              "The captains have a horrible secret: the known hunting grounds for leviathans are coming up barren. The immortal creatures, "
+#              "once so reliable in their movements in the Void Sea, have begun to migrate elsewhere. New hunting grounds must be found before the "
+#              "surplus of leviathan blood disappears, and with it, the lightning barriers and the survival of the human race.",
+#              "Discover new hunting grounds - 12 part clock;\nSurplus runs dry - 12 part clock"),
+#         'the lost':
+#             ("The Lost", "I", "*A group of street-toughs and ex-soldiers dedicated to protecting the downtrodden and the hopeless.*",
+#              "Converted rail car (HQ). The poverty-stricken streets of Coalridge and Dunslough.", "**Cortland** (leader, *idealist*, *candid*, "
+#                                                                                                   "*cavalier*).",
+#              "A very experienced gang of formerly vicious thugs, killers, and Imperial soldiers.",
+#              "The Lost have all done horrible things in their former lives and they believe they must atone for these “sins.” Each member keeps a "
+#              "pile of stones under their bed—one for each sin they balance with a just deed.",
+#              "Workhouse Laborers, Citizens of Coalridge and Dunslough, The Crows.", "Workhouse Foremen, Bluecoats, The Billhooks.",
+#              "The Lost are currently focusing their efforts in Coalridge, running a campaign of sabotage, terror, and savage beatings against the "
+#              "most notoriously cruel workhouse foremen. The already-brewing union organizing efforts in that district are emboldened by the Lost’s "
+#              "attacks, and the local Bluecoat patrols are starting to complain to their commanders for support of extra Watch guards from other "
+#              "districts. Meanwhile, the Coalridge foremen are making it known that they’ll pay top dollar to anyone who will take the Lost out of "
+#              "the picture.",
+#              "Destroy cruel workhouses (repeating) - 4 part clock"),
+#         'ministry of preservation':
+#             ("Ministry of Preservation", "V", "*Oversees transportation between cities and the disbursement of food and other vital resources.*",
+#              "The electro-rail train lines of the Imperium. Radiant energy farms, eeleries, and other food-growing enterprises throughout the city.",
+#              "**Lord Dalmore** (executive officer in Doskvol, *commanding*, *intelligent*).\n**Lady Slane** (chief of operations, *insightful*, "
+#              "*subtle*, *effective*).\n**Captain Lannock** (mercenary commander, *shrewd*, *ruthless*).",
+#              "A fleet of cargo ships and their armed escorts. A significant treasury from taxation and transportation licensing. The Rail Jacks who "
+#              "work the train lines. A private mercenary company that answers only to the ministry itself.",
+#              "N/A", 'The Billhooks, Imperial Military, Rail Jacks, Sparkwrights.', "Leviathan Hunters.",
+#              "The Ministry leadership believes that the leviathan hunters are too vital to the public well-being to be controlled by the bickering "
+#              "noble houses, vulnerable to their petty rivalries and vendettas. Agents within the ministry have been tasked with a variety of "
+#              "espionage, sabotage, and political actions to ultimately seize control of the hunters and bring them into Ministry control.",
+#              "Seize control of Leviathan Hunters - 12 part clock"),
+#         'reconciled':
+#             ("The Reconciled", "III", "*An association of ancient spirits who have not gone feral with the passage of time.*",
+#              "None.", "The Reconciled have possessed several important citizens in Doskvol. Their exact membership is not known.",
+#              "Several secret and hidden spirit wells across the city and in the deathlands, which give the Reconciled the arcane energy they need "
+#              "to survive.",
+#              "The spirits of the Reconciled do not lose their minds or become obsessed with vengeance as other spirits do. They can possess a "
+#              "victim indefinitely without any adverse effects.",
+#              "City Council, Gondoliers.", "The Church of Ecstasy, Spirit Wardens, Sparkwrights.",
+#              "The Reconciled are very ancient and wise; they see themselves as the rightful and just rulers that Duskwall needs. A few of the City "
+#              "Council members have become initiates in the Path of Echoes and will soon be vulnerable to possession by the Reconciled. These "
+#              "councilors are also high-ranking members of the Church of the Ecstasy of the Flesh, which will give the Reconciled an opportunity for "
+#              "infiltration into that organization as well.",
+#              "Infiltrate the City Council - 8 part clock;\nInfiltrate the Church of Ecstasy - 8 part clock"),
+#         'scurlock':
+#             ("Lord Scurlock", "III", "*An ancient noble, said to be immortal, like the Emperor. Possibly a vampire or sorcerer. Obsessed with the "
+#                                      "occult.*",
+#              "A secret lair outside the city. A dilapidated manor house in Six Towers and the catacombs beneath. An array of business holdings and "
+#              "cult shrines across the city, collected for some united purpose known only to Scurlock.",
+#              "**Lord Scurlock** (*enigmatic*, *cold*, *arcane*, *old-fashioned*) is an individual, but is so powerful that he’s considered a "
+#              "faction. His personal scale is Tier III — in conflicts he counts as a large gang (20 people).",
+#              "An impressive collection of occult and arcane curios, books, and ephemera. An ancient demonic temple.",
+#              "Scurlock is immune to spirits. Ghosts can’t see, hear, or harm him. He makes no sound when he moves and is sometimes difficult to "
+#              "look at directly.",
+#              "City Council, Bluecoats, Inspectors, The Forgotten Gods.", "Spirit Wardens, The Immortal Emperor.",
+#              "Lord Scurlock is bound by ancient magic to the demon Setarra. Who is the master and who is the servant? Their roles have changed many "
+#              "times over the centuries. Now, Lord Scurlock must fulfill a debt. Setarra has found a nest of sea demons in the harbor, "
+#              "encased in stone, chained by magic from the cataclysm. She seeks to free them to see their wrath loosed on the world of men. Scurlock "
+#              "will aid her in this or suffer a dark doom.",
+#              "Fulfill debt to Setarra - 12 part clock;\nObtain arcane secrets (repeating) - 6 part clock"),
+#         'silver nails':
+#             ("The Silver Nails", "III", "*A company of Severosi mercenaries who fought for the Empire in the Unity War. Renowned ghost killers.*",
+#              "A large inn (The Mustang) and its fine stables (HQ).", "**Seresh** (leader, *bold*, *brash*, *defiant*).\n**Tuhan** (lead scout, "
+#                                                                      "*bold*, *cunning*, *charming*).",
+#              "A contingent of exquisite Severosian cavalry horses—fearless, swift, and trained to hunt and battle spirits. Arcane lances.",
+#              "Each member wears a ring fashioned from a silver nail, which protects against possession. They’re trained in the **Ghost Fighter** "
+#              "special ability (Cutter).",
+#              "Imperial Military, Sailors, Severosan Consulate.", "The Circle of Flame, The Grinders, Skovlan Consulate, Skovlander Refugees, "
+#                                                                  "Spirit Wardens.",
+#              "Thanks to their expertise from riding in the deathlands of Severos, the Silver Nails are perfectly suited to explore the forbidden "
+#              "Lost District outside the lightning barrier of the city. Once the fiercest ghosts are driven out or destroyed, the Silver Nails can "
+#              "seize control and plunder the forgotten treasures and artifacts hidden within. (The Spirit Wardens currently control access to the "
+#              "Lost District and do everything in their power to keep the Silver Nails—and everyone else—out.)",
+#              "Destroy spirits in the Lost District - 8 part clock;\nControl the Lost District - 8 part clock"),
+#         'sparkwrights':
+#             ("Sparkwrights", "IV", "*The engineers who maintain the lightning barriers. Also pioneers of spark-craft technology, indulging in "
+#                                    "dangerous research.*",
+#              "Massive workshop, factory, and design facility in Coalridge.", "**Una Farros** (instructor at Charterhall University, *curious*, "
+#                                                                              "*vain*, *famous*).",
+#              "The electroplasmic generators, city lights, lightning barriers and associated facilities and systems across the city.",
+#              "N/A", "City Council, Leviathan Hunters, Ministry of Preservation.", "The Path of Echoes, The Reconciled, The Foundation.",
+#              "For centuries, the Sparkwrights have worked in secret to develop an alternative fuel that could replace the leviathan blood that "
+#              "powers the lightning barriers of the Imperium. A few researchers have gotten close, but “accidents” have inevitably killed them and "
+#              "destroyed their work (certainly arranged by the nobility who rule because of their stranglehold on leviathan hunting). But there is "
+#              "always a daring visionary willing to try to pick up the pieces and complete the work—even at the risk of their own life. Will one of "
+#              "them manage it this time, or will they, too, fall victim to the deadly agents of the elite?",
+#              "Develop alternative fuel - 12 part clock"),
+#         'spirit wardens':
+#             ("Spirit Wardens", "IV", "*The bronze-masked hunters who destroy rogue spirits. Also run Bellweather Crematorium to properly dispose of "
+#                                      "corpses.*",
+#              "Bellweather Crematorium. The Master Warden’s estate in Whitecrown.", "There are no known Spirit Wardens—they maintain an anonymous "
+#                                                                                    "membership of people not native to Duskwall, using code-names. "
+#                                                                                    "A Warden known as “Bakoros” (who may be several different "
+#                                                                                    "individuals) sometimes lectures at the College of Immortal "
+#                                                                                    "studies at Doskvol Academy.",
+#              "The death bells that ring whenever someone dies in the city, and the deathseeker crows that fly to find the body (ancient, "
+#              "arcane). Many cohorts of expert Whispers. The most advanced spectrological and spark-craft equipment, including several spirit-hunter "
+#              "hulls.",
+#              "Membership in the Wardens is secret and utterly anonymous. They cut all ties and have no families or close relationships, "
+#              "save their fellow Wardens.",
+#              "The Church of Ecstasy, Deathlands Scavengers.", "The Dimmer Sisters, Gondoliers, Lord Scurlock, The Silver Nails, The Unseen, "
+#                                                               "Path of Echoes, The Reconciled.",
+#              "The Spirit Wardens know that an enemy is attempting to infiltrate their ranks (they don’t yet know that it’s the Unseen). The Wardens "
+#              "are laying a trap for this enemy, to uncover their identity and eliminate them.",
+#              "Uncover the infiltrators - 8 part clock"),
+#         'ulf ironborn':
+#             ("Ulf Ironborn", "I", "*A brutal Skovlander, newly arrived in the Dusk, fighting everyone for turf.*",
+#              "Rooms, workshop, and stable at The Old Forge tavern (HQ). A gambling den.", "**Ulf Ironborn** (leader, *ruthless*, *savage*, *bold*).\n"
+#                                                                                           "**Havid** (second, *ruthless*, *volatile*, *shrewd*).",
+#              "A small but powerfully savage gang of thugs.", "As a refugee of the Unity War, Ulf does not trust the local Akorosi, or anyone who "
+#                                                              "proclaims a strong allegiance to the Imperial government. Those of Skovlander blood "
+#                                                              "find it easy to win his trust, however.",
+#              "The Grinders.", "Citizens of Coalridge, The Billhooks.", "Ulf is newly arrived in Doskvol, seeking his fortune on the streets. His "
+#                                                                        "gang has had recent success with savage smash & grab operations, "
+#                                                                        "leading into a potential “protection” racket. As more Skovlander war "
+#                                                                        "refugees swell the city population, the bigotry of some locals is starting "
+#                                                                        "to surface, with “NO SKOVS” signs appearing at public houses and shops. Ulf "
+#                                                                        "’s blind rage will be sparked off when he encounters this, surely leading "
+#                                                                        "his gang into war with any “true Duskers” brave enough to stand up to him.",
+#              "Carve out gang territory - 6 part clock;\nRise in Tier - 4 part clock"),
+#         'unseen':
+#             ("The Unseen", "IV", "*An insidious criminal enterprise with secret membership. Thought to pull the strings of the entire underworld.*",
+#              "A multitude of vice dens and extortion rackets across the city—virtually none realize that they pay up to the Unseen. Several opulent "
+#              "townhouses used as safe houses.",
+#              "**The Tower** (leader).\n**The Star** (captain).\n**Grull** (mid-level thug with big ambitions, undercover as a coach driver).",
+#              "A legion of thugs, thieves, and killers on-call to their secret masters.",
+#              "The perfect secrecy of the Unseen is the result of arcane rituals. Core members can recognize each other with attuned second sight. "
+#              "Any non-member who learns the identity of a member falls victim to a ritual that removes that memory from their mind after a few "
+#              "moments.",
+#              "The Bluecoats, Ironhook Prison, The Forgotten Gods, Cyphers.", "Ink Rakes, The Hive, Spirit Wardens.",
+#              "The Unseen crave the power and authority of the Spirit Wardens, whose own secret membership has so far resisted infiltration. The "
+#              "Tower and The Star plot to place their own spies and operatives among the Wardens and seize it from within.",
+#              "Infiltrate the Spirit Wardens - 8 part clock;\nExpand into other cities - 8 part clock"),
+#         'wraiths':
+#             ("The Wraiths", "II", "*A mysterious crew of masked thieves and spies.*", "Silkshore and Nightmarket are their primary hunting grounds. "
+#                                                                                       "They specialize in the theft of luxury items and "
+#                                                                                       "intelligence gathering for clients to use as blackmail.",
+#              "**Slate** (leader, *sophisticated*, *daring*, *secretive*).\n**Loop** (appraisal expert, *obsessive*, *moody*, *secretive*).",
+#              "A scattered collection of secret rooftop shelters. A secret lair in a tower in Silkshore. All manner of thieves’ gear for burglary.",
+#              "Each member wears a mask and conceals their true identity with an alias. They communicate with a private sign language.",
+#              "Cabbies.", "Bluecoats, Inspectors, The Hive.", "The Wraiths recently completed a heist at a luxury brothel in Nightmarket and "
+#                                                              "happened to grab the private map book of a leviathan hunter in the process. The map "
+#                                                              "book shows the secret hunting grounds of augured leviathan sites that will be used by "
+#                                                              "the ship Storm Palace during the next season. Such a map is useless to the Wraiths, "
+#                                                              "but is worth a small fortune to another leviathan hunter. The Wraiths are currently "
+#                                                              "reaching out to contacts in the underworld to quietly arrange a sale.",
+#              "Recruit expert thieves - 8 part clock;\nSecure an arcane ally - 6 part clock")
+#     }
+#     keys = (
+#         "red sashes", "billhooks", "bluecoats", "church of ecstasy", "circle of flame", "lampblacks", "hive", "grinders", "gray cloaks", "gondoliers",
+#         "fog hounds", "dimmer sisters", "deathlands scavengers", "crows", "city council", "leviathan hunters", "the lost", "ministry of preservation",
+#         "reconciled", 'scurlock', 'silver nails', 'sparkwrights', 'spirit wardens', 'ulf ironborn', "unseen", "wraiths")
+#     fac = ""
+#     for x in keys:
+#         if name in x:
+#             fac = faction_sheets[x]
+#     embed = discord.Embed(colour=discord.Colour.dark_red())
+#     embed.set_author(name=fac[0] + " (" + fac[1] + ")")
+#     embed.add_field(name="__Basic Info__", value="\n\n" + fac[2] + "\n\n**Turf:** " + fac[3] + "\n**NPCs:**\n" + fac[4]
+#                     , inline=False)
+#     embed.add_field(name="__Detailed Info__", value="\n**Notable assets:** " + fac[5] + "\n**Quirks:** " + fac[6] + "\n**Allies:** " + fac[7] +
+#                                                     "\n**Enemies:** " + fac[8]
+#                     , inline=False)
+#     embed.add_field(name="__Extras__", value="\n\n**Situation:** " + fac[9] + "\n\n**Clocks:**\n" + fac[10], inline=False)
+#     await ctx.send(embed=embed)
+
+
+@bot.command(name="info", aliases=["i"])
+async def info(ctx):
+    embed = discord.Embed(colour=discord.Colour.darker_grey())
+    embed.set_author(name='Bots in the Dark Info')
+    embed.add_field(name='=info or =i', value='This is the **Bots in the Dark** Discord bot created by **Fernando Gomes** to be used for Blades '
+                                              'in the Dark RPG system.\nWith it you can make Blades rolls, resistance rolls, generate random streets,'
+                                              ' buildings, demons, ghosts, scores, bargains, etc.'
+                                              '\nIt can also make generic dice rolls for other purposes.'
+                                              '\n\nIf you like this Bot and want to support this work and further development,'
+                                              ' head to [my Patreon page](https://www.patreon.com/fernandogomes)'
+                                              ' and make a donation. Thank you very much for doing so.',
+                    inline=False)
+    await ctx.send(embed=embed)
+
+
+@bot.command(name="find", aliases=["f"])
+async def lookup(ctx, query):
+    q = query.lower()
+    equips = ("blade", "throwing knives", "pistol", "large weapon", "unusual weapon", "armor heavy", "burglary gear", "climbing gear",
+            "documents", "arcane implements", "subterfuge supplies", "demolition tools", "tinkering tools", "lantern", "spiritbane charm",
+                  "fine lightning hook", "fine spirit mask", "spirit bottles", "ghost key", "demonbane charm", "fine cover identity",
+                  "fine bottle of whiskey", "blueprints", "vial of slumber essence", "concealed palm pistol", "fine disguise kit",
+                  "fine clothes & jewelry", "fine loaded dice, trick cards", "trance powder", "a cane-sword", "fine lockpicks", "fine shadow cloak",
+                  "light climbing gear", "silence potion vial", "dark-sight goggles", "fine tinkering tools", "fine wrecking tools",
+                  "blowgun & dars, syringes", "bandolier", "gadgets", "fine pair of pistols", "fine long rifle", "electroplasmic ammunition",
+                  "a trained hunting pet", "spyglass", "fine hand weapon", "fine heavy weapon", "scary weapon or tool", "manacles & chain",
+                  "rage essence vial")
+    equipment = {
+        "fine hand weapon":
+            ("**Fine hand weapon:**", "A finely crafted one-handed melee weapon of your choice. *Is this a well-crafted standard weapon, "
+                                      "like a perfectly-balanced dagger, or something exotic, like an Iruvian dueling saber or a metal-banded "
+                                      "war-club?*", "**[1 load]**"),
+        "fine heavy weapon":
+            ("**Fine heavy weapon:**", "A finely crafted two-handed melee weapon of your choice. *A warhammer, a greatsword, a military pike, "
+                                       "a battleaxe, etc. A heavy weapon has more reach and hits harder than a standard weapon. This might give you "
+                                       "potency when the power or reach of the weapon is a factor.*", "**[2 load]**"),
+        "scary weapon or tool":
+            ("**Scary weapon or tool:**", "A scary-looking hand weapon or tool. This item grants increased effect when you intimidate, "
+                                          "not increased harm in combat.", "**[1 load]**"),
+        "manacles & chain":
+            ("**Manacles & chain:**", "A set of heavy manacles and chain, suitable for restraining a prisoner. *A souvenir from a stay with the "
+                                      "Bluecoats, perhaps?*", "**[0 load]**"),
+        "rage essence vial":
+            ("**Rage essence vial:**", "A single dose, which greatly enhances the user’s strength, resistance to pain, and irrational aggression "
+                                       "for the span of several minutes. *The GM will modify your position and effect accordingly when you fight on "
+                                       "rage essence. Also, you suffer two consequences: “Can’t Tell Friend From Foe” and “Can’t Stop Until They’re "
+                                       "All Broken.” You may resist these as usual.*", "**[0 load]**"),
+        "fine pair of pistols":
+            ("**Fine pair of pistols:**", "A matched pair of handguns, made for greater accuracy, with double barrels that allow for two shots "
+                                          "before reloading. *Were your pistols made by Kardera’s Daughters, Templeton & Slane, the Imperial Forge, "
+                                          "or some other gunsmith? How do they stand out from the average handgun?*", "**[1 load]**"),
+        "fine long rifle":
+            ("**Fine long rifle:**", "A finely crafted hunting rifle, deadly at long range, unwieldy in close quarters. *Long rifles are usually "
+                                     "illegal for private citizens in Doskvol, but you have (real or forged) military paperwork for this one.*",
+             "**[2 load]**"),
+        "electroplasmic ammunition":
+            ("**Electroplasmic ammunition:**", "A bandolier of electroplasmic ammo, especially potent against spirits, but less effective against "
+                                               "physical targets. *The electrical charge is enough to stun a person, but does very little real "
+                                               "harm. Several hits might incapacitate a human target. This ammunition is especially reactive in the "
+                                               "ghost field—make a 4-clock called “Attention from the Spirit Wardens” and tick it for every "
+                                               "operation in which this ammo was used.*", "**[1 load]**"),
+        "a trained hunting pet":
+            ("**A trained hunting pet:**", "Your animal companion obeys your commands and anticipates your actions. Cohort (Expert: Hunter).",
+             "**[0 load]**"),
+        "spyglass":
+            ("**Spyglass:**", "A brass tube with lenses that allow long-distance vision. Collapsible. May attach to a rifle.", "**[1 load]**"),
+        "fine tinkering tools":
+            ("**Fine tinkering tools:**", "A finely crafted set of tools for detailed mechanist work. A jeweler’s loupe. Measuring devices.",
+             "**[1 load]**"),
+        "fine wrecking tools":
+            ("**Fine wrecking tools:**", "A specialized set of tools for sabotage and destruction. A small, powerful drill. A mallet and steel "
+                                         "spikes. A prybar. An electroplasmic battery, clamps, wire. Vials of acid. A spark-torch cutter and fuel "
+                                         "tank.", "**[2 load]**"),
+        "blowgun & dars, syringes":
+            ("**Blowgun & darts, syringes:**", "A small tube and darts that can be filled from alchemy flasks. Empty syringes.", "**[0 load]**"),
+        "bandolier":
+            ("**Bandolier:**", "A strap worn across the body, fitted with specially-padded pouches to hold three alchemical agents or spark-craft "
+                               "bombs. When you employ an alchemical or bomb from a bandolier, choose one from the list at right (or one of your "
+                               "custom-made formulas). See page 226 for more on alchemicals and bombs. *During downtime, you automatically refill "
+                               "your bandoliers, so long as you have reasonable access to a supplier or workshop.*", "**[1 load]**",
+             "**Bandolier items:**\nAlcahest, Binding Oil, Drift Oil, Drown Powder, Eyeblind Poison, Fire Oil, Grenade, Quicksilver, "
+             "Skullfire Poison, Smoke Bomb, Spark (drug), Standstill Poison, Trance Powder"),
+        "gadgets":
+            ("**Gadgets:**", "You may create gadgets during downtime by **Tinkering** with tools and materials. See **Gadgets**, page 227. *Track "
+                             "the load "
+                             "for each gadget you deploy during an operation.*", "**[1+ load]**"),
+        'fine lockpicks':
+            ("**Fine lockpicks:**", "A finely crafted set of tools to disable and circumvent locks.", "**[0 load]**"),
+        'fine shadow cloak':
+            ("**Fine shadow cloak:**", "A hooded cloak made of rare Iruvian shadow-silk that blends into the darkness around it. *This item "
+                                       "improves your effect level when you sneak around.*", "**[1 load]**"),
+        'light climbing gear':
+            ("**Light climbing gear:**", "A well-crafted set of climbing gear that is less bulky and heavy than a standard set.", "**[1 load]**",
+             "*Standard climbing gear is 2 load.*"),
+        'silence potion vial':
+            ("**Silence potion vial:**", "A vial of golden liquid that negates all sound within 10 paces of the drinker for a span of several "
+                                         "moments.", "**[0 load]**"),
+        'dark-sight goggles':
+            ("**Dark-sight goggles:**", "An arcane device that allows the wearer to see in pitch darkness as if it were well-lit.", "**[1 load]**"),
+        'fine disguise kit':
+            ("**Fine disguise kit:**", "A theatrical make-up kit equipped with an impressive array of expert appliances to fool the eye. *The fine "
+                                       "quality of this kit may increase the effect of your deceptive actions when you use it.*", "**[1 load]**"),
+        'fine clothes & jewelry':
+            ("**Fine clothes & jewelry:**", "An outfit that appears to be of such fine make as to pass you off as a wealthy noble.", "**[0 load]**",
+             "*If you’re carrying this item as a second outfit to change into, it counts as 2 load.*"),
+        'fine loaded dice, trick cards':
+            ("**Fine loaded dice, trick cards:**", "Gambling accouterments subtly altered to favor particular outcomes. *The fine quality of this "
+                                                   "kit may increase the effect of your deceptive actions when you use it.*", "[0 load]"),
+        'trance powder':
+            ("**Trance powder:**", "A dose of the popular drug, which induces an altered mental state. *The victim of this powder is not fully "
+                                   "unconscious, but rather retreats into a calm, suggestible mental state, similar to hypnotism.*", "**[0 load]**"),
+        'a cane-sword':
+            ("**A cane-sword:**", "A slim sword and its sheath, disguised as a noble’s cane. The disguise will fool a cursory inspection.",
+             "**[1 load]**"),
+        'fine cover identity':
+            ("**Fine cover identity:**", "Paperwork, planted stories and rumors, and false relationships sufficient to pass as a different person.",
+             "**[0 load]**"),
+        'fine bottle of whiskey':
+            ("**Fine bottle of whiskey:**", "A rare distillation from your personal collection, potent both in its alcohol and its ability to "
+                                            "impress.", "**[1 load]**"),
+        'blueprints':
+            ("**Blueprints:**", "A folio of useful architectural drawings and city plans. *Feel free to specify which plans you’re carrying when "
+                                "you choose this item.*", "**[1 load]**"),
+        'vial of slumber essence':
+            ("**Vial of slumber essence:**", "A dose of slumber essence sufficient to put someone to sleep for an hour. *The victim’s sleep isn’t "
+                                             "supernatural, but it is deep — they can be roused with some effort.*", "**[0 load]**"),
+        'concealed palm pistol':
+            ("**Concealed palm pistol:**", "A small firearm with a weak charge, easily concealed in a sleeve or waistcoat. *This pistol has "
+                                           "extremely limited range; only a few feet. It’s very difficult to detect on your person, even if you’re "
+                                           "searched.*", "**[0 load]**"),
+        'demonbane charm':
+            ("**Demonbane charm:**", "An arcane trinket that demons prefer to avoid.", "**[0 load]**"),
+        'ghost key':
+        ("**Ghost key:**", "An arcane device that can open ghost doors. *There’s an echo of the entire city, across the ages, trapped in the ghost "
+                           "field. Sometimes a door to that place can be found.*", "**[0 load]**"),
+        'spirit bottles':
+            ("**Spirit bottles (2):**", "An arcane device used to trap a spirit. A metal and crystalline cylinder, the size of a loaf of bread.",
+             "**[1 load]**"),
+        'fine lightning hook':
+            ("**Fine lightning hook:**", "A long, two-handed pole with a loop of heavy wire at the end, connected to an electroplasmic capacitor. "
+                                         "Suitable for grappling a spirit and dragging it into a spirit bottle. *This custom-made hook collapses "
+                                         "into a compact form, thus reducing its load to 1, even though it’s two-handed.*", "**[1 load]**"),
+        'fine spirit mask':
+            ("**Fine spirit mask:**", "An arcane item that allows the trained user to see supernatural energies in great detail. Also affords some "
+                                      "measure of protection against ghostly possession. *Each spirit mask is unique. What does yours look like? "
+                                      "What makes it strange and disturbing to see?*", "**[1 load]**"),
+        'blade':
+            ("**A Blade or Two:**", "Perhaps you carry a simple fighting knife. Or two curved swords. Or a rapier and stiletto. Or a heavy butcher’s "
+                                    "cleaver.", "**[1 load]**",
+             "Your choice of blade might reflect your heritage:\n\n*In the North (Akoros and Skovlan) blades tend to be broad, "
+             "heavy, and single-edged.\n\nIn Severos, the horse-lords favor spears in battle, but for personal combat they carry distinctive "
+             "double-edged daggers with very wide blades, often intricately inscribed with family histories.\n\nIn the Dagger Isles, "
+             "the corsairs often use narrow, light blades made for quick thrusts—such as the rapier and stiletto.\n\nIn Iruvia, curved blades "
+             "are common; sharpened on the outer edge like a saber, or sharpened on the inner edge, like a sickle.*"),
+        'throwing knives':
+            ("**Throwing Knives:**", "Six small, light blades.", "**[1 load]**"),
+        'pistol':
+            ("**A Pistol/Second Pistol:**", "A heavy, single-shot, breechloading firearm. Devastating at 20 paces, slow to reload.", "**[1 load]**"),
+        'large weapon':
+            ("**A Large Weapon**", "A weapon meant for two hands. A battle-axe, greatsword, warhammer, or pole-arm. A hunting rifle. A blunderbuss. "
+                                   "A bow or crossbow.", "**[2 load]**"),
+        'unusual weapon':
+            ("**An Unusual Weapon**", "A curiosity or tool turned into a weapon. A whip, a flail, a hatchet, a shovel, a length of chain, "
+                                      "a razor-edged fan, steel-toed boots.", "**[1 load]**"),
+        'armor heavy':
+            ("**Armor:**", "A thick leather tunic plus reinforced gloves and boots.", "**[2 load]**", "**+Heavy:**\nThe addition of chain mail, "
+                                                                                                      "metal "
+                                                                                                  "plates, a metal helm.\n**[3 load]**\nThe load "
+                                                                                                  "for heavy armor is in addition to normal armor — "
+                                                                                                  "**[5 load]** total."),
+        'burglary gear':
+            ("**Burglary Gear:**", "A set of lockpicks. A small pry-bar. Vials of oil to silence squeaky hinges. A coil of wire and fishing hooks. "
+                                   "A small pouch of fine sand.", "**[1 load]**"),
+        'climbing gear':
+            ("**Climbing Gear:**", "A large coil of rope. A small coil of rope. Grappling hooks. A small pouch of chalk dust. A climbing harness "
+                                   "with loops and metal rings. A set of iron pitons and a small mallet.", "**[2 load]**"),
+        'documents':
+            ("**Documents:**", "A collection of slim volumes on a variety of topics, including a registry of the nobility, City Watch commanders, "
+                               "and other notable citizens. Blank pages, a vial of ink, a pen. A number of interesting maps.", "**[1 load]**"),
+        'arcane implements':
+            ("**Arcane Implements:**", "A vial of quicksilver. A pouch of black salt. A spirit anchor in the form of a small stone. A spirit "
+                                       "bottle. A vial of electroplasm, designed to break and splatter on impact.", "**[1 load]**"),
+        'subterfuge supplies':
+            ("**Subterfuge supplies:**",
+             "A theatrical makeup kit. A selection of blank documents, ready for the forger’s hand. Costume jewelry. A reversible cloak and "
+             "distinctive hat. A forged badge of office.",
+             "**[1 load]**"),
+        'demolition tools':
+            ("**Demolition tools:**", "A sledgehammer and iron spikes. Heavy drill. Crowbar.", "**[2 load]**"),
+        'tinkering tools':
+            (
+            "**Tinkering Tools:**", "An assortment for detailed mechanist work: jeweler’s loupe, tweezers, a small hammer, pliers, screwdriver, etc.",
+            "**[1 load]**"),
+        'lantern':
+            ("**Lantern:**", "A simple oil lantern, a fancy electroplasmic lamp, or other light source.", "**[1 load]**"),
+        "spiritbane charm":
+            ("**Spiritbane Charm:**", "A small arcane trinket that ghosts prefer to avoid.", "**[0 load]**")
+    }
+    actions = ("hunt", "study", "survey", "tinker", "skirmish", "wreck", "prowl", "finesse", "attune", "sway", "consort", "command")
+    action = {
+        'hunt': ("**Hunt**",
+                 "When you **Hunt**, you carefully track a target. You might follow a person or discover their location. You might arrange an "
+                 "ambush. You might attack with precision shooting from a distance. You could try to bring your guns to bear in a melee (but "
+                 "Skirmishing might be better).",
+                 "**GM questions:**\nHow do you hunt them down?\nWhat methods do you use?\nWhat do you hope to achieve?",
+                 "When you Hunt a target, it’s all about precise and skillful execution—your talent brought to bear against the target, "
+                 "your victim. Like *Finesse*, Hunting is about performing on your own terms— you stalk the target to their lair, you select the "
+                 "ambush point, you line up the target in your sights and take the shot. Hunting is all about the maneuvers before the fight. When "
+                 "you try to Hunt after the chaos begins, you’ll probably find yourself in a desperate spot. Time and distance are your allies. "
+                 "Contrast with *Skirmishing*, which is desperate and least effective when the enemy is far away and disengaged.",
+                 "There’s no “shooting” action in Blades, by design. The action roll system is designed for players to choose the action they "
+                 "perform in any given situation, which the GM then judges for position and effectiveness. When the fight is on, do you Hunt? (Or "
+                 "Skirmish, or Finesse, or something else?) It’s up to the player to decide their approach. Hunting is usually the most effective "
+                 "action when taking an aimed shot at a distance. But if you’re in the middle of a brawl and blast someone with your pistol, "
+                 "*Skirmish* works, too.",
+                 "The Hunt action is broader in scope than mere marksmanship. It’s the ideal action for tracking, stalking, and discovering the "
+                 "location of anything or anyone."),
+        'study': ("**Study**",
+                  "When you Study, you scrutinize details and interpret evidence. You might gather information from documents, newspapers, "
+                  "and books. You might do research on an esoteric topic. You might closely analyze a person to detect lies or true feelings. You "
+                  "could try to examine events to understand a pressing situation (but Surveying might be better).",
+                  "**GM questions:**\nWhat do you study?\nWhat details or evidence do you scrutinize?\nWhat do you hope to understand?",
+                  "When you Study, you concentrate on small details—expressions, tone of voice, innuendo, tiny clues—to find what’s hidden, "
+                  "determine facts, corroborate evidence, and guide your decisions.",
+                  "Studying is often used to “read a person”—this is a **gather information** roll to judge whether or not they’re lying, "
+                  "what they really want, what their intentions are, etc. (See the list of questions you might ask on the bottom of your character "
+                  "sheet.) When you Study someone in this way, you can ask the GM questions while you interact with them if you want, "
+                  "so you might wait until they say something fishy, and then ask the GM “Are they telling the truth?”",
+                  "If you want to get a feel for the current situation or scout out a location, that’s *Surveying*. A survey glosses over details "
+                  "in favor of big-picture stuff. Study does the opposite—it’s about precise facts and details. Are they lying about that? Is the "
+                  "safe hidden behind a wall in this room?",
+                  "Studying is also the action for research of all kinds (often a long-term project). Want to find out which noble has the best art "
+                  "collection with the worst security? Want to know how many rioting prisoners it would take to overwhelm the guards at Ironhook? "
+                  "Virtually any fact can be discovered through Study."),
+        'survey': ("**Survey**",
+                   "When you Survey, you observe the situation and anticipate outcomes. You might spot telltale signs of trouble before it happens. "
+                   "You might uncover opportunities or weaknesses. You might detect a person’s motivations or intentions (but Studying might be "
+                   "better). You could try to spot a good ambush point (but Hunting might be better).",
+                   "**GM questions:**\nHow do you survey the situation?\nIs there anything special you’re looking out for?\nWhat do you hope to "
+                   "understand?",
+                   "When you Survey, you get a better understanding of what’s going on around you. You observe a location or circumstance and its "
+                   "features: entrances and exits, strong points and weak points, what’s normal and what’s unusual there, what’s likely to happen "
+                   "next, etc. A good Survey will keep you from being surprised and helps you make better decisions about how to approach a "
+                   "problem.",
+                   "Surveying is often used to “read a situation”—this is a **gather information** roll to judge opportunities and dangers (see a "
+                   "sample list of questions you might ask on the bottom of your character sheet). When you Survey the scene, you might ask the GM "
+                   "questions before anything happens, so you can spot opportunities for action. If you’re suspicious of the meeting with the "
+                   "Lampblacks, for example, you might ask, “What’s really going on here?” to get a clear read on the situation.",
+                   "To Survey, you usually need access to good vantage points. If you want to Survey the Billhooks’ HQ for a good assault point, "
+                   "for example, you’ll need to walk around and give it a good look, maybe watch the gang members coming and going, "
+                   "notice their security measures, etc. You might use Prowl or Consort to set up a Survey action, so you can observe things with "
+                   "greater effect or from a safer position."),
+        'tinker': ("**Tinker**",
+                  "When you **Tinker**, you fiddle with devices and mechanisms. You might create a new gadget or alter an existing item. You might pick "
+                  "a lock or crack a safe. You might disable an alarm or trap. You might turn the sparkcraft and electroplasmic devices around the "
+                  "city to your advantage. You could try to use your technical expertise to control a vehicle (but Finessing might be better).",
+                  "**GM questions:**\nWhat do you tinker with?\nWhat do you hope to accomplish?",
+                  "When you Tinker, you take stuff apart, put things back together, bend, solder, twist, and modify. Tinkering covers a fairly "
+                  "broad range of activities, having to do with mechanisms and engineering as well as chemistry and biological sciences. The adept "
+                  "tinkerer knows how things work—all sorts of things.",
+                  "Tinkering is most often used during a long-term project in downtime. It’s one of the most versatile downtime actions, "
+                  "in fact (along with *Studying*). If you’re willing to acquire the necessary components and take the time, wondrous things can be "
+                  "Tinkered into existence.",
+                  "Tinkering can be useful in the moment, too. Duskwall is covered in strange technological components of all sorts, "
+                  "from spark-craft doors, locks, and elevators, to electroplasmic conduits, wires, and lights. You can Tinker with stuff on the "
+                  "fly to create a booby-trap or disable a security measure. Tinkering in this way can be a great setup action for *Wrecking* "
+                  "something later.",
+                  "You can Tinker with a device in order to break it, which is similar to *Wrecking* it. Usually, breaking a device by Tinkering is "
+                  "slower, more precise, and less apparent than when you Wreck it. You might Tinker with a door mechanism so it jams after the "
+                  "third use. If you *Wreck* it, it just breaks into pieces and that’s it."),
+        'skirmish': ("**Skirmish**",
+                     "When you **Skirmish**, you entangle a target in close combat so they can’t easily escape. You might brawl or wrestle with "
+                     "them. You might hack and slash. You might seize or hold a position in battle. You could try to fight in a formal duel (but "
+                     "Finessing might be better).",
+                     "**GM questions:**\nHow do you skirmish with them?\nWhat combat methods do you use?\nWhat do you hope to achieve?",
+                     "When you Skirmish with someone, it’s a fight. You’re attacking and defending, back and forth. You can Skirmish to start a "
+                     "fight, to survive a fight, and to end a fight—but it’s always a fight. If you step up behind someone and stab them in the "
+                     "spine, that’s *Prowling*. If you tackle them to the ground, wrestle them into submission, and cut their throat, "
+                     "that’s a Skirmish. If you address them with a formal challenge and step back into a dueling stance, maybe you’ll get to try "
+                     "out your *Finesse*. (In a duel, Skirmishing is often desperate. In a brawl, *Finesse* is desperate.)",
+                     "Generally, the consequences you suffer in a Skirmish come from the enemy. The more dangerous they are, the worse your "
+                     "position—and the more dire those consequences will be.",
+                     "If you find yourself in a skirmish and you want to do something besides fighting, you might face a consequence first— which "
+                     "you can accept or resist (or maybe get a teammate to face for you). Just because you really want to Sway someone doesn’t mean "
+                     "they stop punching you so you can talk to them. Another approach is to Skirmish (or *Prowl*) to win free of the melee (rather "
+                     "than inflict harm) then perform your other action after that.",
+                     "If you fight alongside your cohorts in battle, you Skirmish. If you direct them but you’re not engaged yourself, you Command "
+                     "them."),
+        'wreck': ("**Wreck**",
+                  "When you **Wreck**, you unleash savage force. You might smash down a door or wall with a sledgehammer, or use an explosive to do "
+                  "the same. You might employ chaos or sabotage to create a distraction or overcome an obstacle. You could try to overwhelm an "
+                  "enemy with sheer force in battle (but Skirmishing might be better).",
+                  "**GM questions:**\nWhat do you wreck?\nWhat force do you bring to bear?\nWhat do you hope to accomplish?",
+                  "When you Wreck something, you ruin its functions so it can’t be easily fixed and you create chaos in some way—loud noises, "
+                  "flying debris, fires, flooding, etc. Wrecking is as good for distractions and mayhem as it is for destroying things.",
+                  "**Scale** is often a very important effect factor for Wrecking. If you want to destroy a steamboat, for example, you need tools "
+                  "or a team that are high enough scale to have an effect on the vessel. You might get a gang of workers to go aboard and knock "
+                  "holes in the lower hull, for instance. Or you might need to exploit a weakness to gain **potency** to offset the scale factor. A "
+                  "wooden ship is vulnerable to fire, for example, so a few fire-oil bombs will do the job that took 10 people with demolition "
+                  "tools.",
+                  "There’s some overlap between Wrecking something and *Tinkering* with it so it no longer functions. In general, Wrecking is "
+                  "faster and more thorough. You smash the thing, it’s totally smashed. *Tinkering* is precise, allowing very specific results (like "
+                  "a clock that chimes at the wrong time) but it generally takes more time and is easier to fix. Also, Wrecking applies to pretty "
+                  "much anything: doors, walls, floors, whatever. *Tinkering* is limited to devices and chemicals and stuff like that."),
+        'prowl': ("**Prowl**",
+                  "When you Prowl, you traverse skillfully and quietly. You might sneak past a guard or hide in the shadows. You might run and leap "
+                  "across the rooftops. You might attack someone from hiding with a back-stab or blackjack. You could try to waylay a victim in the "
+                  "midst of battle (but Skirmishing might be better).",
+                  "**GM questions:**\nHow do you prowl?\nHow do you use the environment around you?\nWhat do you hope to achieve?",
+                  "When you Prowl, you use the features of your environment to move around skillfully. The more conducive the environment, "
+                  "the better your position. Prowling is more than just “stealth”— it’s all of the related physical skills of movement as well as "
+                  "an instinctual awareness of where to go and the right timing to employ. You can think of Prowling as general athletic ability ("
+                  "running, climbing, jumping, swimming, etc.) tuned for quiet, efficient movement.",
+                  "You might use this movement to hide out of sight and backstab an enemy. Waylaying someone this way is similar to *Hunting* a "
+                  "target from an ambush point—this is one area where the actions overlap. Prowl is often used as a setup action or to create an "
+                  "opportunity (or both at once). You might Prowl to a good hiding spot so you can take your time *Surveying* a location without "
+                  "being noticed.",
+                  "When a Prowl roll goes badly, it doesn’t have to be “all or nothing.” A common mistake is to say that the character is "
+                  "discovered as a consequence. Instead, you can start a clock like “Discovered” and tick a segment or two. Think of the clock as "
+                  "“stealth harm levels.” The PC can take a few hits before they’re knocked out of the hide-and-seek fight."),
+        'finesse': ("**Finesse**",
+                    "When you **Finesse**, you employ dextrous manipulation or subtle misdirection. You might pick someone’s pocket. You might "
+                    "handle the controls of a vehicle or direct a mount. You might formally duel an opponent with graceful fighting arts. You could "
+                    "try to employ those arts in a chaotic melee (but Skirmishing might be better). You could try to pick a lock (but Tinkering "
+                    "might be better).",
+                    "**GM questions:**\nWhat do you finesse?\nWhat’s graceful or subtle about this?\nWhat do you hope to achieve?",
+                    "When you employ Finesse, you’re graceful, stylish, and subtle. You might think of it as the polar opposite of Wreck. To use "
+                    "Finesse, you’d prefer some time and space to do things “just so” rather than rushing into something and getting sloppy. If you "
+                    "have to hurry up, or act on someone else’s terms, Finesse becomes challenging pretty quickly. It’s all well and good to want "
+                    "to duel an opponent with your fancy sword arts, but if they insist on kicking the table over and throwing fire bombs at you, "
+                    "you’ll have to get desperate. Skirmishing is the best option when the fight becomes a savage melee, but one-on-one, "
+                    "in a fight that you’re ready for, Finesse can be just as good.",
+                    "In a way, the reverse is true for sleight-ofhand and inconspicuous Finesse. Picking a pocket or slipping away unnoticed is "
+                    "less perilous when the situation is chaotic, crowded, or otherwise distracting for the target in question. (Contrast this with "
+                    "Prowl, which is best done in darkness, avoiding people.) When the Bluecoats wrestle you to the ground to manacle you, "
+                    "that’s a great opportunity to lift the keys off one of them."),
+        'attune': ("**Attune**",
+                   "When you **Attune**, you open your mind to the ghost field or channel nearby electroplasmic energy through yourbody. "
+                   "You might communicate with a ghost or understand aspects of spectrology. You could try to perceive beyond sight "
+                   "in order to better understand your situation (but Surveying might be better).",
+                   "**GM questions:**\nHow do you open your mind to the ghost field?\nWhat does that look like?\nWhat energy are you attuning "
+                   "to?\nHow are you channeling that energy?\nWhat do you hope the energy will do?",
+                   "The “ghost field” is somewhat ambiguous, by design. It’s the energy contained within the lightning barrier of the city, "
+                   "the echoes of events in the recent past, and the medium in which spirits exist. It’s a dangerous and strange element that "
+                   "should never feel safe or tame. To Attune is to connect to a crackling source of power that can easily snap out of control. "
+                   "Bring your ideas of strange arcane energy into play and ask the other players what they think about it, too.",
+                   "When you Attune to the ghost field you can see echoes of recent events or sense things beyond sight (the Whisper’s "
+                   "*fine spirit mask* allows them to see even more detail). *Surveying* is usually the action you’d use to get a sense of a "
+                   "location or to spot hidden things, "
+                   "but Attuning can work—often with a worse position since you’re risking danger from the ghost field.",
+                   "Any PC can Attune. It’s not "
+                   "a supernatural gift. The ghost field is always there, just at the edge of the mind, ready for a connection. Whispers and other "
+                   "occultists can Attune as the basis for supernatural powers, such as **Tempest** or **Possess**. Without the ghost field and "
+                   "electroplasmic energy, these powers can’t manifest."),
+        'sway': ("**Sway**",
+                 "When you Sway, you influence someone with guile, charm, or argument. You might lie convincingly. You might persuade someone to do "
+                 "what you want. You might argue a case that leaves no clear rebuttal. You could try to trick people into affection or obedience ("
+                 "but Consorting or Commanding might be better).",
+                 "**GM questions:**\nWho do you sway?\nWhat kind of leverage do you have here?\nWhat do you hope they’ll do?",
+                 "When you Sway someone, you don’t care about what they think or feel. You’re manipulating them—either with charm, lies, "
+                 "or well-reasoned arguments that they can’t easily dismiss. You’re trying to get them to do what you want, not what they want or "
+                 "need. You can Sway a friend or contact—they’re probably vulnerable to you—but the risks are higher if they figure out what you’re "
+                 "doing to them; it’s probably a desperate thing to try.",
+                 "Swaying someone isn’t mind-control. You need some kind of leverage to make it work. It might be the leverage of being a very "
+                 "charming or desirable person that the target wants to please. It might be the leverage of having good reasons, evidence, "
+                 "and/or moving rhetoric that all seems so convincing they’re inclined to agree with you. Leverage is situational: what works with "
+                 "one target may not work with another. If you have leverage, you can try to Sway them. Without it, you can fall back on fear or "
+                 "intimidation (*Commanding* them) or even simple physical force to get your way.",
+                 "You might be able to Sway another PC. Ask the player if you have any leverage over their character. If you do, then your action "
+                 "can force them to see it your way. If you don’t, then your action can only disrupt them somehow—an intense distraction, "
+                 "but not a convincing one."),
+        'consort': ("**Consort**",
+                    "When you **Consort**, you socialize with friends and contacts. You might gain access to resources, information, people, "
+                    "or places. You might make a good impression or win someone over with your charm and style. You might make new friends or "
+                    "connect with your heritage or background. You could try to direct your friends with social pressure (but Commanding might be "
+                    "better).",
+                    "**GM questions:**\nWho do you consort with?\nWhere do you meet?\nWhat do you talk about?\nWhat do you hope to achieve?",
+                    "When you Consort with someone, you care about what the other person thinks and feels and in turn they care about what you want "
+                    "(at least a tiny bit). You’re being a charming, open, socially adroit person. You can Consort with people you already know, "
+                    "or try to “fit in” in a new situation so you make a good impression.",
+                    "To Consort, you need an environment that isn’t totally hostile. You might Consort with the chain gang when you’re thrown into "
+                    "Ironhook (a desperate situation, to be sure) but it’s usually hopeless to Consort with the assassin sent to murder you. When "
+                    "you Consort with people related to your background or heritage, you can expect a better position and/or increased effect.",
+                    "You might be forced to Consort in an unfamiliar situation in order to create an opportunity for another action. For instance, "
+                    "if you want to talk to LordScurlock at a party, you’ll have to at least try to Consort with the other guests to make your way "
+                    "to his table. Commanding or Swaying are options, sure, but expect a rather sudden escalation of trouble if things go badly."),
+        'command': ("**Command**",
+                    "When you **Command**, you compel swift obedience. You might intimidate or threaten to get what you want. You might lead a gang in "
+                    "a group action. You could try to order people around to persuade them (but Consorting might be better).",
+                    "**GM questions:**\nWho do you command?\nHow do you do it?\nWhat’s your leverage here?\nWhat do you hope they’ll do?",
+                    "When you Command someone, you don’t care about what they want. You tell them what to do and expect them to do it— out of fear, "
+                    "respect, or some other motivating factor (this is your leverage over them). Consorting can be better if you’re trying to get "
+                    "along with someone and work together. When you Command a friend or contact, they can feel disrespected, so your position will "
+                    "probably be worse.",
+                    "Command is almost always the right action for leading a cohort or sending an NPC group to do something according to your "
+                    "instructions. Handle it as a “group action” teamwork maneuver with you rolling Command and the cohort rolling quality.",
+                    "You might be able to Command another PC. Ask the player if their character has reason to follow your orders—fear, trust, "
+                    "respect, etc. If they do, then your action can force them to comply. If they don’t, then your action can only disrupt them "
+                    "somehow. You might frighten them with intimidation (inflicting harm), cause them to hesitate at a crucial moment, "
+                    "make them look weak in front of others, etc. Command isn’t mind-control but it is an intense interaction. The other player "
+                    "will judge if their character can be ordered around or not.")
+    }
     faction_sheets = {
         'red sashes': ("The Red Sashes", "II", "*Originally a school of ancient Iruvian sword arts, since expanded into criminal endeavors.*",
                        "HQ in their sword-fighting school/temple. Operates a handful of high-end drug dens across Crow’s Foot and the Docks.",
@@ -1178,34 +1987,50 @@ async def faction(ctx, gang):
         "red sashes", "billhooks", "bluecoats", "church of ecstasy", "circle of flame", "lampblacks", "hive", "grinders", "gray cloaks", "gondoliers",
         "fog hounds", "dimmer sisters", "deathlands scavengers", "crows", "city council", "leviathan hunters", "the lost", "ministry of preservation",
         "reconciled", 'scurlock', 'silver nails', 'sparkwrights', 'spirit wardens', 'ulf ironborn', "unseen", "wraiths")
-    fac = ""
-    for x in keys:
-        if name in x:
-            fac = faction_sheets[x]
-    embed = discord.Embed(colour=discord.Colour.dark_red())
-    embed.set_author(name=fac[0] + " (" + fac[1] + ")")
-    embed.add_field(name="__Basic Info__", value="\n\n" + fac[2] + "\n\n**Turf:** " + fac[3] + "\n**NPCs:**\n" + fac[4]
-                    , inline=False)
-    embed.add_field(name="__Detailed Info__", value="\n**Notable assets:** " + fac[5] + "\n**Quirks:** " + fac[6] + "\n**Allies:** " + fac[7] +
-                                                    "\n**Enemies:** " + fac[8]
-                    , inline=False)
-    embed.add_field(name="__Extras__", value="\n\n**Situation:** " + fac[9] + "\n\n**Clocks:**\n" + fac[10], inline=False)
-    await ctx.send(embed=embed)
+    result = ""
+    for x in actions:
+        if q in x:
+            result = action[x]
+            embed = discord.Embed(colour=discord.Colour.dark_red())
+            embed.set_author(name="Find - Action")
+            embed.add_field(name=result[0], value=result[1] + "\n\n" + result[2]
+                            , inline=False)
+            if len(result) >= 4:
+                embed.add_field(name="Extras", value="\n" + result[3], inline=False)
+            if len(result) >= 5:
+                embed.add_field(name="** **", value="\n" + result[4], inline=False)
+            if len(result) >= 6:
+                embed.add_field(name="** **", value="\n" + result[5], inline=False)
+            if len(result) >= 7:
+                embed.add_field(name="** **", value="\n" + result[6], inline=False)
+            await ctx.send(embed=embed)
 
+    if result == "":
+        for x in equips:
+            if q in x:
+                result = equipment[x]
+                embed = discord.Embed(colour=discord.Colour.dark_red())
+                embed.set_author(name="Find - Equipment")
+                embed.add_field(name=result[0], value=result[1] + "\n\n" + result[2]
+                                , inline=False)
+                if len(result) == 4:
+                    embed.add_field(name="Extras", value="\n" + result[3], inline=False)
+                await ctx.send(embed=embed)
 
-@bot.command(name="info", aliases=["i"])
-async def info(ctx):
-    embed = discord.Embed(colour=discord.Colour.darker_grey())
-    embed.set_author(name='Bots in the Dark Info')
-    embed.add_field(name='=info or =i', value='This is the **Bots in the Dark** Discord bot created by **Fernando Gomes** to be used for Blades '
-                                              'in the Dark RPG system.\nWith it you can make Blades rolls, resistance rolls, generate random streets,'
-                                              ' buildings, demons, ghosts, scores, bargains, etc.'
-                                              '\nIt can also make generic dice rolls for other purposes.'
-                                              '\n\nIf you like this Bot and want to support this work and further development,'
-                                              ' head to [my Patreon page](https://www.patreon.com/fernandogomes)'
-                                              ' and make a donation. Thank you very much for doing so.',
-                    inline=False)
-    await ctx.send(embed=embed)
+    if result == "":
+        fac = ""
+        for x in keys:
+            if q in x:
+                fac = faction_sheets[x]
+        embed = discord.Embed(colour=discord.Colour.dark_red())
+        embed.set_author(name=fac[0] + " (" + fac[1] + ")")
+        embed.add_field(name="__Basic Info__", value="\n\n" + fac[2] + "\n\n**Turf:** " + fac[3] + "\n**NPCs:**\n" + fac[4]
+                        , inline=False)
+        embed.add_field(name="__Detailed Info__", value="\n**Notable assets:** " + fac[5] + "\n**Quirks:** " + fac[6] + "\n**Allies:** " + fac[7] +
+                                                        "\n**Enemies:** " + fac[8]
+                        , inline=False)
+        embed.add_field(name="__Extras__", value="\n\n**Situation:** " + fac[9] + "\n\n**Clocks:**\n" + fac[10], inline=False)
+        await ctx.send(embed=embed)
 
 
 @bot.command(name="blade", help="Rolls blades dices (d6) for user.", aliases=["b"])
@@ -1358,7 +2183,7 @@ async def help(ctx, *command_helper):
         embed.add_field(name='\nBots in the Dark', value='**Commands:**\n', inline=False)
         embed.add_field(name='=blade or =b', value='Makes a Blades in the Dark dice roll.', inline=False)
         embed.add_field(name='=generate or =g', value="Generates a random thing in the fiction.", inline=False)
-        embed.add_field(name='=faction or =f', value="Displays a faction's sheet.", inline=False)
+        embed.add_field(name='=find or =f', value="Displays information on what you search.", inline=False)
         embed.add_field(name='=roll or =r', value="Makes a generic dice roll.", inline=False)
         embed.add_field(name='=info or =i', value="Displays general information on this bot.", inline=False)
         embed.add_field(name='Observations:', value='If a command require a special character like "--" or "-",'
@@ -1429,17 +2254,21 @@ async def help(ctx, *command_helper):
                         inline=False)
         await ctx.send(embed=embed)
 
-    elif command_helper[0].lower() == "faction" or command_helper[0].lower() == "f":
+    elif command_helper[0].lower() == "find" or command_helper[0].lower() == "f":
         embed = discord.Embed(colour=discord.Colour.darker_grey())
         embed.set_author(name='HELP')
-        embed.add_field(name='=faction or =f', value='''\nUsage: `=f <argument>`\n
+        embed.add_field(name='=find or =f', value='''\nUsage: `=f <argument>`\n
                                                 ''', inline=False)
-        embed.add_field(name='<argument>', value='''\nThe Faction's name or part of it.''',
+        embed.add_field(name='<argument>', value='''\nSeveral search query's or part of it.''',
                         inline=False)
-        embed.add_field(name='Examples:', value='''`=faction bluecoats`
+        embed.add_field(name='Examples:', value='''`=find bluecoats`
                                                     Displays the Bluecoats' faction sheet.
                                                     `=f sash`
                                                     Displays The Red Sashes' faction sheet.
+                                                    `=find pistol`
+                                                    Displays pistol, fine pair of pistols and fine concealed palm pistol information.
+                                                    `=f attun`
+                                                    Displays information on **Attune** action.
                                                     '''
                         , inline=True)
         await ctx.send(embed=embed)
