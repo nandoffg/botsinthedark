@@ -38,8 +38,7 @@ token = "NzU0Nzg2OTUyNjc4NjA0OTYy.X150IA.gykEs6J5I5CsOHI6Ix-5ehgzt4c"
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
-    bot.owner = bot.get_guild(
-        750136732380561464).get_member(115581181017194500)
+    bot.owner = bot.get_user(115581181017194500)
     dm_c = await bot.owner.create_dm()
     await dm_c.send("Bot restarted.")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name='=help'))
