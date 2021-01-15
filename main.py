@@ -819,9 +819,9 @@ async def generate(ctx, option):
                  'Dog-sized amphibians', 'Aquatic dinosaurs', 'Schools of singing dreamfish', 'A house-sized crustacean',
                  'Ocean mammals with human voices', 'Color-changing rainbow fish', 'Angular fish with strange geometry', 'Toothed bloodsquid (giant)',
                  'Goblin sharks with human legs', 'Lamprey-faced dolphins', 'Giant rays with infinitely long tails',
-                 random.choice(shape).capitalize() + '. ' + random.choice(shape).capitalize() + '. ' + random.choice(shape).capitalize() + ' ',
-                 random.choice(shape).capitalize() + ', but humanlike', random.choice(shape).capitalize() + ', but inside-out',
-                 random.choice(shape).capitalize() + ', but it flies',
+                 (random.choice(shape).capitalize() + ', ' + random.choice(shape) + ', ' + random.choice(shape)),
+                 (random.choice(shape).capitalize() + ', but humanlike'), (random.choice(shape).capitalize() + ', but inside-out'),
+                 (random.choice(shape).capitalize() + ', but it flies'),
                  'Ghosts of dead hunters and other spectral emanations, roll on the appropriate tables (Blades in the Dark, p. 304)',
                  'An actual demon with its own will and agenda, roll on the appropriate tables (=g demon) (Blades in the Dark, p. 304)']
         activity = ['Singing', 'Bobbing', 'Slowly sinking', 'Eating', 'Leaping', 'Spouting', 'Playing with its spawn', 'Shedding its skin',
