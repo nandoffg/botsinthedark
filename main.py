@@ -819,11 +819,11 @@ async def generate(ctx, option):
                  'Dog-sized amphibians', 'Aquatic dinosaurs', 'Schools of singing dreamfish', 'A house-sized crustacean',
                  'Ocean mammals with human voices', 'Color-changing rainbow fish', 'Angular fish with strange geometry', 'Toothed bloodsquid (giant)',
                  'Goblin sharks with human legs', 'Lamprey-faced dolphins', 'Giant rays with infinitely long tails',
-                 random.choice(shape).capitalize() + '. ' + random.choice(shape).capitalize() + '. ' + random.choice(shape).capitalize() + '. ',
-                 random.choice(shape).capitalize() + ', but humanlike.', random.choice(shape).capitalize() + ', but inside-out.',
-                 random.choice(shape).capitalize() + ', but it flies.',
-                 'Ghosts of dead hunters and other spectral emanations, roll on the appropriate tables (Blades in the Dark, p. 304).',
-                 'An actual demon with its own will and agenda, roll on the appropriate tables (=g demon) (Blades in the Dark, p. 304).']
+                 random.choice(shape).capitalize() + '. ' + random.choice(shape).capitalize() + '. ' + random.choice(shape).capitalize() + ' ',
+                 random.choice(shape).capitalize() + ', but humanlike', random.choice(shape).capitalize() + ', but inside-out',
+                 random.choice(shape).capitalize() + ', but it flies',
+                 'Ghosts of dead hunters and other spectral emanations, roll on the appropriate tables (Blades in the Dark, p. 304)',
+                 'An actual demon with its own will and agenda, roll on the appropriate tables (=g demon) (Blades in the Dark, p. 304)']
         activity = ['Singing', 'Bobbing', 'Slowly sinking', 'Eating', 'Leaping', 'Spouting', 'Playing with its spawn', 'Shedding its skin',
                     'With another leviathan', 'Unwrapping itself', 'Emitting new spawn', 'Building something']
 
@@ -835,23 +835,38 @@ async def generate(ctx, option):
         region_phrase = ''
         treasure_phrase = ''
 
-        for i in shapes:
-            selected_shapes.append(random.choice(shape).capitalize())
-            shape_phrase += ' ' + selected_shapes[i]
+        x = 0
+        while x <= shapes:
+            new_shape = random.choice(shape).capitalize()
+            if new_shape in selected_shapes:
+                pass
+            else:
+                x += 1
+                selected_shapes.append(new_shape)
+                shape_phrase += new_shape + '. '
+        x = 0
+        while x <= regions:
+            new_region = random.choice(demon_traits).capitalize()
+            if new_region in selected_regions:
+                pass
+            else:
+                x+=1
+                selected_regions.append(new_region)
+                region_phrase += new_region + '. '
+        x = 0
+        while x <= regions_with_treasure:
+            new_treasure = random.choice(treasures).capitalize()
+            if new_treasure in selected_treasures:
+                pass
+            else:
+                x += 1
+                selected_treasures.append(new_treasure)
+                treasure_phrase += new_treasure + '. '
 
-        for i in regions:
-            selected_regions.append(random.choice(regions).capitalize())
-            region_phrase += ' ' + selected_regions[i]
-
-        for i in regions_with_treasure:
-            selected_treasures.append(random.choice(treasures).capitalize())
-            treasure_phrase += ' ' + selected_treasures[i]
-
-        phrase = '**Name:** ' + random.choice(name).capitalize() + '.\n**Epithet:** ' + random.choice(epithet).capitalize() + '.\n**Shape:** ' \
-                 + shape_phrase + '.\n**Regions:** ' + region_phrase + '.\n**Treasures: **' + treasure_phrase + '.\n**Spawn: **' + \
+        phrase = '**Name:** ' + random.choice(name).capitalize() + '.\n**Epithet:** ' + random.choice(epithet).capitalize() + '.\n\n**Shape(s):** ' \
+                 + shape_phrase + '\n**Region(s):** ' + region_phrase + '\n**Treasure(s): **' + treasure_phrase + '\n\n**Spawn: **' + \
                  random.choice(spawn).capitalize() + '.\n**Activity: **' + random.choice(activity).capitalize() + '.'
         total = len(name) * len(epithet) * len(shape) * len(demon_traits) * len(treasures) * len(spawn) * len(activity)
-
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
