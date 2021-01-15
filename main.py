@@ -782,415 +782,81 @@ async def generate(ctx, option):
                                                                   "amazing ideas, texts, images and patience! ;)", inline=False)
         await ctx.send(embed=embed)
 
+    elif opt == "leviathan":
+        name = ['Olvilis', 'Drulvollon', 'Voglarax', 'Ilganea', 'Brelrethaan', 'Jalgamath', 'Kurnomog', 'Thozgimor', 'Ezgeth', 'Magdronnol',
+                'Juniros', 'Sagthul Lan', 'Drethtimog', 'Berkosha', 'Dalgomur', 'Orzoch', 'Drikath', 'Galmadin', 'Thulmadar', 'Zarzonnog', 'Xolrisha',
+                'Sogmoroth', 'Tethtillog', 'Zalmol Ath', 'Ullmuxal', 'Drogdraluuth', 'Irgron', 'Dirnolloth', 'Xalgrarin', 'Galgothan', 'Dergath',
+                'Varroketh', 'Songramal', 'Ogmanod', 'Kolmathuun', 'Magthumor']
+        epithet = ['Crowned in Iron', 'The Baleful Orphan', 'Rain-of-Ashes', 'The Hidden Legion', 'Lady of Oblivion', 'The Rolling Shadow',
+                   'Deep Lord of Woe', 'The Godless Prophet', 'The Horned Flock', 'Vessel of Gray Morning', 'The Toothed Eyes',
+                   'The Lone Swordbearer', 'Instrument of Her Wrath', 'With Myriad Graces', 'The Broken Giantess', 'Wrought-by-Lightning',
+                   'The Endless Swarm', 'The Echoing Thunder', 'The Unbound Coil', 'The Orchestra of Pain', 'The Bird and the Doorway',
+                   'The Veiled Maw', 'Clothed in Beauty', 'Returner of Blessings', 'Throne of Nightmares', 'The Circle and Its End',
+                   'The Heart-Eater', 'She Who Waits', 'The Endless Descent', 'Tide of Bones', 'The Graveyard Gate', 'Unity of All Things',
+                   'Heart of the Storm', 'The Executor', 'Friend of the Lost', 'The Bloody Wake']
+        shape = ['Serpent', 'Turtle', 'Shark', 'Anglerfish', 'Seahorse', 'Octopus', 'Squid', 'Eel', 'Lobster', 'Crab', 'Nautilus', 'Crocodile',
+                 'Abalone', 'Manatee', 'Jellyfish', 'Sea cucumber', 'Sculpin', 'Geoduck', 'Walrus', 'Baleen whale', 'Toothed whale', 'Isopod',
+                 'Spider crab', 'Krill', 'Sea dragon', 'Horseshoe crab', 'Sea snail', 'Batfish', 'Ray', 'Anemone', 'Catfish', 'Pike', 'Sunfish',
+                 'Coral', 'Lamprey', 'Pipefish']
+        shapes = random.choice(range(2, 4))
+        demon_traits = ['Endless rows of shark teeth', 'Iridescent scales', 'Razor-sharp claws', 'Bony protrusions', 'Multiple eyes',
+                        'Lashing tendrils', 'A forest of spines', 'Undulating strands of hair', 'Dripping ichor', 'Glowing markings',
+                        'Metallic plates', 'Tufts of blue-black feathers', 'Multiple articulated arms', 'Suction-cupped tentacles',
+                        'A hard, bony shell', 'Floating lights flash', 'Patches of aquatic plants', 'Mechanical wreckage', 'Pools of strange liquid',
+                        'Crystalline shards', 'Acidic clouds', 'Skin pulled back or peeling', 'Hypnotic lights', 'Vibrations in the air',
+                        'Lashing hooks', 'Freezing winds', 'Electrical discharges', 'Disturbing shadows', 'Faint echoes', 'Voices in your head',
+                        'Slippery wet skin', 'Mountainous ridges', 'Spongy tissue', 'Gelatinous membranes', 'Stretched webbing', 'Pulsing gills']
+        regions = random.choice(range(1, 7)) + 4
+        treasures = ['Radiant orb', 'Crystal mirror', 'Pulsing strands', 'Warm glass', 'Cask of ichor', 'Golden scales', 'An incisor', 'Folded frill',
+                     'Humming blood', 'Blue goop', 'A chipped beak', 'A severed fin', 'A tusk', 'Shell plate', 'A perfect feather',
+                     'Flap of striped skin', 'Oozing pus', 'Tuft of silver hair', 'Poisonous spines', 'Black foam residue', 'A barnacle', 'A remora',
+                     'Saliva-soaked rag', 'Bone marrow', 'External organ', 'Length of artery', 'A toenail', 'A major eyeball', 'A sensory cluster',
+                     'Bioluminescent oil', 'A bag of lice', 'A stinger', 'An antenna', 'Major organ tissue', 'Shipwrecked artifacts',
+                     'A famous corpse']
+        regions_with_treasure = random.choice(range(1, regions))
+        spawn = ['Bloodworm swarm', 'Demon eels', 'Butcherfish (boat-size piranha)', 'Homarids (giant crab-people)', 'Ghost-white octopi',
+                 'Thoroughly mutated people', 'Clouds of stinging insects', 'Autonomous parts of the leviathan', 'Large flying jellyfish',
+                 'Dog-sized amphibians', 'Aquatic dinosaurs', 'Schools of singing dreamfish', 'A house-sized crustacean',
+                 'Ocean mammals with human voices', 'Color-changing rainbow fish', 'Angular fish with strange geometry', 'Toothed bloodsquid (giant)',
+                 'Goblin sharks with human legs', 'Lamprey-faced dolphins', 'Giant rays with infinitely long tails',
+                 random.choice(shape).capitalize() + '. ' + random.choice(shape).capitalize() + '. ' + random.choice(shape).capitalize() + '. ',
+                 random.choice(shape).capitalize() + ', but humanlike.', random.choice(shape).capitalize() + ', but inside-out.',
+                 random.choice(shape).capitalize() + ', but it flies.',
+                 'Ghosts of dead hunters and other spectral emanations, roll on the appropriate tables (Blades in the Dark, p. 304).',
+                 'An actual demon with its own will and agenda, roll on the appropriate tables (=g demon) (Blades in the Dark, p. 304).']
+        activity = ['Singing', 'Bobbing', 'Slowly sinking', 'Eating', 'Leaping', 'Spouting', 'Playing with its spawn', 'Shedding its skin',
+                    'With another leviathan', 'Unwrapping itself', 'Emitting new spawn', 'Building something']
 
-# @bot.command(name="faction", aliases=["f"])
-# async def faction(ctx, gang):
-#     name = gang.lower()
-#     faction_sheets = {
-#         'red sashes': ("The Red Sashes", "II", "*Originally a school of ancient Iruvian sword arts, since expanded into criminal endeavors.*",
-#                        "HQ in their sword-fighting school/temple. Operates a handful of high-end drug dens across Crow’s Foot and the Docks.",
-#                        "**Mylera Klev** (leader, *shrewd*, *ruthless*, *educated*, *art collector*)",
-#                        "Small contingent of master sword-fighters. Master alchemist; many potent potions and essences.",
-#                        "Several members of the Red Sashes are the sons and daughters of Iruvian nobility and diplomats in Doskvol. They train in "
-#                        "swordplay at the school and sometimes participate in gang activities. Their families are powerful and will commit "
-#                        "significant resources to punishing anyone who harms their children.",
-#                        "Iruvian Consulate, The Path of Echoes, Dockers, Cabbies, Inspectors.", "The Lampblacks, Bluecoats, Gondoliers.",
-#                        "The Red Sashes and the Lampblacks are at war over turf and vengeance for deaths on both sides. Mylera is recruiting every "
-#                        "free blade in the district for extra muscle and doesn’t take no for an answer. You’re either with them or against them. The "
-#                        "Red Sashes are very well-connected, with former sword students placed at the Iruvian Consulate, in the Path of Echoes, "
-#                        "and among the Inspectors.",
-#                        "Destroy the Lampblacks - 8 part clock;\nBecome ward boss of Crow' Foot - 8 part clock"),
-#
-#         'billhooks': ("The Billhooks", "II", "*A tough gang of thugs who prefer hatchets, meat hooks, and pole arms.*",
-#                       "A butcher shop (HQ), stockyard, and slaughterhouse. Animal fighting pits and gambling dens. Several terrified merchants "
-#                       "and businesses, which they extort.",
-#                       "**Tarvul** (leader, serving life in prison, *savage*, *arrogant*, *family man*).\n**Erin** (captain, Tarvul’s sister, "
-#                       "*confident*, *deadly*, *ambitious*). "
-#                       "\n**Coran** (thug, Tarvul’s son, *fierce*, *loyal*, *quiet*).",
-#                       "A large gang of bloodthirsty butchers. A pack of death-dogs.",
-#                       "The Billhooks have a bloody reputation, often leaving the butchered corpses of their victims strewn about in a grisly "
-#                       "display. Many wonder why the Bluecoats turn a blind eye to their savagery.",
-#                       "The Bluecoats, Ministry of Preservation.", "Ulf Ironborn, The Lost, Citizenry of Crow’s Foot and the Docks.",
-#                       "Erin and Coran both want to take control of the Billhooks gang, either when Tarvul gets too old (which will be soon) or "
-#                       "by taking the position by force. There is no love lost between Erin and Corran and they’ll have no qualms about fighting "
-#                       "a family member for leadership. Meanwhile, the rest of the gang wants to continue their reign of terror to pressure a "
-#                       "magistrate to pardon Tarvul and other gang members and release them from Ironhook.",
-#                       "Terrorize magistrates to pardon members in prison - 8 part clock"),
-#         'bluecoats': ("Bluecoats", "III", "*The City Watch of Duskwall. Known as the meanest gang in the city. Corrupt, violent, and cruel*.",
-#                       "The Bluecoats claim the whole city as their turf, but find their influence severely limited in Whitecrown, "
-#                       "where the Imperial Military garrison holds sway under command of the Lord Governor.",
-#                       "**Commander Clelland** (chief commissioner of the City Watch, *corrupt*, *cruel*, *arrogant*).\n**Captain Michter** ("
-#                       "chief instructor, *ambitious*, *fierce*, *confident*). "
-#                       "\n**Captain Vale** (quartermaster, *loyal*, *insightful*, *quiet*)",
-#                       "Many large gangs of vicious thugs in uniform. Armored coaches and canal patrol boats. Public punishment sites ("
-#                       "pillories, stocks, hanging cages)",
-#                       "The Bluecoats are divided into companies by district, and they have fierce rivalries, encouraged by their "
-#                       "superiors—often good-natured, but sometimes violent",
-#                       "The City Council, The Billhooks, The Crows, Ironhook Prison, Lord Scurlock, The Unseen",
-#                       "Imperial Military, many criminal organizations",
-#                       "The Bluecoats have become jealous of the elite hardware and vehicles used by the Imperial Military. They want to refit "
-#                       "their watch-guards in heavy armor and weapons, to better strike fear into those they prey upon",
-#                       "Procure bigger budget, military arms & equipment - 8 part clock"),
-#         'church of ecstasy':
-#             ("The Church of Ecstasy", "IV",
-#              '*The “state religion” honors the life of the body and abhors the corrupted spirit world. Essentially a secret society.*',
-#              "The Sanctorium grand cathedral in Brightstone. Many other smaller temples across the city.",
-#              "**Elder Rowan** (leader, *devout*, *resolute*, *visionary*).\n**Preceptor Dunvil** (arcane researcher, *unorthodox*, "
-#              "*obsessive*, enigmatic*)",
-#              "A large treasury of tithes from citizens. Extensive arcane and occult libraries, workspaces, and artifacts. Many cohorts "
-#              "of acolytes and hollows who enforce the will of the Church’s leadership.",
-#              "Zealous believers volunteer to be hollowed to “become purified.” This was once common among the ancient cult of the Empty "
-#              "Vessel, which preceded the Church",
-#              "City Council, Leviathan Hunters, Spirit Wardens", "The Path of Echoes, The Reconciled",
-#              "The purest beings (according to secret teachings of the Church), are those entirely without spirits: the demons. Demons "
-#              "are immortal, but never fade into madness or lustful hungers as rogue human spirits and vampires do. They are perfect; and "
-#              "the most devout of the Church seek to become as they are, to unlock the secret of ascension. Many dark experiments and "
-#              "rituals with hulls, hollows, vampires—and the rare demon—are conducted in the labyrinthine dungeons below the Church’s "
-#              "chief cathedral in Brightstone",
-#              "Unlock the secret of ascension - 12 part clock;\nEliminate the Reconciled - 12 part clock"),
-#         'circle of flame': ("The Circle of Flame", "III", "*A refined secret society of antiquarians and scholars; cover for extortion, graft, "
-#                                                           "vice, and murder.*",
-#                             "The Centuralia club, Six Towers (HQ).", "**The Seven** (leadership):\n**Elstera Avrathi** (Iruvian diplomat, "
-#                                                                      "*secretive*, *gracious*)\n**Lady Drake** (magistrate, *cunning*, "
-#                                                                      "*ruthless*)\n**Raffello** (painter, *visionary*, *obsessive*), "
-#                                                                      "\n**Lord Mora** (noble, *cold*, *suspicious*),\n**Lady Penderyn** (noble, "
-#                                                                      "*charming*, *patient*)\n**Madame Tesslyn** (vice purveyor, "
-#                                                                      "*sophisticated*, *subtle*)\n**Harvale Brogan** (vice purveyor, *shrewd*, "
-#                                                                      "*quiet*).",
-#                             "Vast treasury provided by wealthy membership. Impressive collection of ancient artifacts, maps, and ephemera. "
-#                             "Highly trained and discreet private security force.",
-#                             "One of The Seven is actually a demon in disguise.", "The Forgotten Gods, The Path of Echoes, City Council, "
-#                                                                                  "The Foundation.",
-#                             "The Hive, The Silver Nails.", "The Circle has an extensive library of scholarly works that catalog many of the "
-#                                                            "arcane artifacts and valuable treasures that disappeared when the Lost District "
-#                                                            "was abandoned outside the lightning barrier. Of special interest are the remains "
-#                                                            "of Kotar, a legendary sorcerer, demon, or hero who was mummified before the "
-#                                                            "cataclysm. The Eye, Hand, and Heart of Kotar are said to possess great power for "
-#                                                            "those bold enough to risk their use.",
-#                             "Acquire all the ancient artifacts of Kotar - 8 part clock"),
-#         'city council': ("City Council", "V", "*The elite nobility who run the city government, its treasury, magistrates, and public works.*",
-#                          "The city council chambers are in Charterhall, along with the attendant government offices and impregnable city treasury "
-#                          "vaults. The council also holds ownership of all public spaces in the city, including streets, docks, and waterways.",
-#                          "The scions of the six most powerful noble families in Doskvol, currently: **Bowmore**, **Clelland**, **Dunvil**, "
-#                          "**Penderyn**, **Rowan**, and **Strangford**.",
-#                          "A massive treasury of coin and valuable goods. Many officials, barristers, clerks, and officials. The public coaches "
-#                          "operated by the Cabbies.",
-#                          "The members of the Council are all high-ranking adepts in the Church of the Ecstasy of the Flesh. Some of them are also "
-#                          "secretly initiates in the Path of Echoes.",
-#                          "Bluecoats, The Church of Ecstasy, The Circle of Flame, Lord Scurlock, The Brigade, Cabbies, Sparkwrights, The Foundation.",
-#                          "Imperial Military, Inspectors, Ministry of Preservation, The Reconciled.",
-#                          "Three of the councilors (Bowmore, Clelland, Rowan) have aligned against Strangford and are maneuvering to remove the "
-#                          "house from the council. Dunvil and Penderyn have not taken sides so far. Can the conspirators arrange for the necessary "
-#                          "scandal, framed crime, or assassinations to remove Strangford? Or can Strangford House stand against them and eliminate "
-#                          "the threats?",
-#                          "Strangford is removed from council - 6 part clock;\nStrangford eliminates threats - 8 part clock"),
-#         'crows': ("The Crows", "II", "*An old gang with new leadership. Known for running illegal games of chance and extortion rackets.*",
-#                   "Claims all of Crow’s Foot as their turf. Everyone in the district pays up the chain to them. HQ in an abandoned City Watch "
-#                   "tower. Operates gambling dens in Crow’s Foot and extortion rackets at the Docks.",
-#                   "**Lyssa** (leader, *brash*, *killer*, *noble family*).\n**Bell** (second-in-command, *loyal*).",
-#                   "A veteran gang of thugs and killers. A number of small boats. A fortified HQ.",
-#                   "Roric’s body was lost during his murder (it fell into a canal). His vengeful ghost is now at large in the city.",
-#                   "The Bluecoats, Sailors, The Lost, Citizens of Crow’s Foot.", "The Hive, Inspectors, Dockers.",
-#                   "Lyssa murdered the former boss of the Crows, Roric. She is a fearsome killer, and few want to cross her, but her position "
-#                   "as leader of the Crows is uncertain. Some were very loyal to Roric. As the power-play continues, the Crows’ hold on the "
-#                   "district just might slip away.",
-#                   "Reestablish control of Crow’s Foot - 6 part clock;\nRise in Tier - 6 part clock"),
-#         'deathlands scavengers': ("Deathlands Scavengers", "II", "*Convicts from Ironhook and desperate freelancers who roam the wasteland beyond "
-#                                                                  "the lightning barriers.*",
-#                                   "A few precious hold-fasts in the deathlands, secured by ancient rites against spirits. Hunting grounds to feed "
-#                                   "on the few strange animals that survived the cataclysm.",
-#                                   "**Lady Thorn** (leader, *haunted*, *brave*, *caring*).\n**Richter** (hunter, *patient*, *quiet*, *deadly*).",
-#                                   "Generators, lightning hooks, gas-masks, air tanks, and other essentials of deathlands survival. A secret "
-#                                   "ancient book of ritual sorcery.",
-#                                   "Possession is a common hazard, and scavengers either learn to deal with it, or go mad and vanish into the "
-#                                   "darkness of the wastes. Those still in Lady Thorn’s company have adapted well and suffer only minimal ill "
-#                                   "effects from possession.",
-#                                   "Forgotten Gods, Gondoliers, Spirit Wardens.", "Ironhook Prison.",
-#                                   "Condemned prisoners are sometimes given “mercy” and sent into the deathlands rather than being executed at "
-#                                   "Ironhook. A few survive, thanks to Lady Thorn and her deathlands scavengers, who take them in and train them in "
-#                                   "the ways of deathlands hunting and survival. The scavengers hunt for lost artifacts and treasures in the "
-#                                   "wastes, to sell or trade in the city, sometimes for enough to buy a pardon and return to life within the "
-#                                   "barriers once again.",
-#                                   "Obtain pardons (repeating) - 8 part clock"),
-#         'dimmer sisters': ("The Dimmer Sisters", "II", "*House-bound recluses with an occult reputation.*",
-#                            "Fine old manor house and grounds (HQ), as well as the ancient temple ruin and subterranean canal beneath. "
-#                            "Apothecaries and witches in their service.",
-#                            "There is no single leader of the Sisters; their true names are not known.\n**Roslyn** (servant, *patient*, *loyal*, "
-#                            "*arcane*) deals with contacts outside the house.\n**Irelen** (sparkcraft tinkerer, *loyal*, *enigmatic*, "
-#                            "*obsessive*).",
-#                            "A private electroplasmic generator, lightning barriers, and spirit containment vessels. Many spirits bound to "
-#                            "service.",
-#                            "The precise number of sisters is unknown. Some say they are an ancient family of possessing spirits. Others say "
-#                            "they are vampires. Everyone knows that if you go into their house, you never come out again.",
-#                            "The Forgotten Gods, The Foundation.", "Spirit Wardens, The Reconciled.",
-#                            "The Sisters have been slowly and secretly consolidating the trade of captured spirits and spirit essences in "
-#                            "Doskvol for several decades. Only a few remaining rivals stand between them and domination of the market. Do they "
-#                            "have an ulterior motive for acquiring so many spirits and essences, or is this purely a matter of wealth and "
-#                            "power?",
-#                            "Dominate the spirit trade - 6 part clock;\nObtain arcane secrets (repeating) - 4 part clock"),
-#         'fog hounds': ("The Fog Hounds", "I", "*A crew of rough smugglers looking for a patron.*",
-#                        "Underground canal dock (HQ). North and East city canal routes. Northern Void Sea routes. Old North Port supply caches.",
-#                        "**Margette Vale** (leader, *quiet*, *cold*, *fearless*).\n**Bear** (second, *fierce*, *moody*, *brash*).\n**Goldie** ("
-#                        "navigator, *calculating*, *patient*, *confident*).",
-#                        "Medium steamship, Fog Hound. A crew of hard-bitten, tough, expert sailors—all former Void Sea transport haulers (put out of "
-#                        "work by the new cargo rail lines), well-worn from years of harrowing work. A wide array of Imperial transport and cargo "
-#                        "documents, some forged, some legit.",
-#                        "As veterans of many cruises on the Void Sea, Vale and her crew can be insular and clannish, and have a low initial opinion "
-#                        "of anyone who hasn’t proven themselves in a similar way. Once won, however, their loyalty is rock solid and fierce.",
-#                        "Dockers, The Lampblacks.", "Bluecoats (canal patrol), The Vultures (rival smuggling outfit, Tier I).",
-#                        "Vale and her crew have mastered the Northern smuggling routes in and out of Duskwall. They’re currently attempting to "
-#                        "absorb or eliminate the few remaining rivals on their territory and then establish reliable, regular work with a patron who "
-#                        "needs a steady stream of contraband.",
-#                        "Eliminate rival smugglers - 8 part clock;\nObtain a regular patron - 6 part clock"),
-#         'gondoliers': ("Gondoliers", "III", "*The canal boat operators. Venerated by ancient tradition. Said to know occult secrets (many things "
-#                                             "are submerged in the Dusk).*",
-#                        "The canals of Doskvol. Even the Bluecoats’ canal patrol pays respect to them.",
-#                        "**Eisele** (leader, *serene*, *knowledgeable*, *fearless*).\n**Griggs** (chief Whisper, *strange*, *ruthless*, *haunted*).",
-#                        "Fleet of gondolas and other water-craft. Map of known spirit wells and arcane sites across the city. A dedicated cohort of "
-#                        "Adepts.",
-#                        "Initiation into the Gondoliers grants the Whisper’s **Compel** special ability.",
-#                        "The Lampblacks, Citizenry of all districts.",
-#                        "The Red Sashes, Spirit Wardens.",
-#                        "Killers have disposed of bodies in the canals of Doskvol for centuries. The vengeful ghosts that rise from the corpses are "
-#                        "a serious threat—a threat dealt with by the Gondoliers since ancient times. Before the Spirit Wardens were created by the "
-#                        "Emperor, the Gondoliers protected citizens from rogue spirits and supernatural dangers of all kinds. The Gondoliers are "
-#                        "beloved by most citizens, who prefer to go to them with “weird problems” rather that relying on the ruthless and "
-#                        "indiscriminate judgment of the Spirit Wardens. A sudden influx of ritually disfigured hollows dumped in the canals has "
-#                        "sparked investigation by the Gondoliers (the Spirit Wardens are pointedly ignoring the situation).",
-#                        "Investigate desecrated hollows - 8 part clock;\nDestroy spirit wells (repeating) - 4 part clock"),
-#         'gray cloaks':
-#             ("The Gray Cloaks", "II", "*A crew of former Bluecoats turned to crime after being framed and expelled from the City Watch.*",
-#              "The basement of a burned-down City Watch station (HQ). Several apartments above a tobacconist in Six Towers. A pit-fighting arena and "
-#              "gambling den.",
-#              "**Nessa** (leader, *scrupulous*, *daring*).\n**Hutch** (second, *brash*, *fierce*).",
-#              "The Gray Cloaks have attracted other former Bluecoats to their crew, amassing a sizeable gang of trained enforcers.They have their old uniforms and badges and often use them to pass as the City Watch.",
-#              "N/A", "The Inspectors.", "Bluecoats, Lord Strangford (Leviathan Hunters).",
-#              "The Gray Cloaks are all former Bluecoats who were framed for a crime committed by their Watch station commander. Sure, "
-#              "they were skimming from the city coffers and taking bribes like everyone else, but they didn’t burn down the Watch station "
-#              "and destroy the evidence in the case against Lord Strangford (of the Leviathan Hunters). Several inspectors who were "
-#              "working the case know the truth but can’t prove anything - yet. Lord Strangford would pay well to have these loose ends "
-#              "removed permanently.", "Secure Six Towers as their turf - 8 part clock;\nAvenge their expulsion - 8 part clock"),
-#
-#         'grinders': ("The Grinders", "II", "*A vicious gang of former dockers and leviathan blood refinery workers.*",
-#                      "Abandoned dock warehouse (HQ) and underground canal dock.",
-#                      "**Hutton** (leader, *confident*, *volatile*).\n**Sercy** (second, *crippled*, *defiant*).\n**Derret** (toughest gang member, "
-#                      "*huge*, *shrewd*).",
-#                      "A few small canal boats. Wrecking tools and explosives.",
-#                      "Many Grinders have been mutated by the toxic rain that plagues Lockport.",
-#                      "Ulf Ironborn, Dockers.", "Bluecoats, Imperial Military, Leviathan Hunters, Sailors, The Silver Nails.",
-#                      "The city of Lockport, to the North in Skovlan, processes 90% of the demon blood siphoned by the leviathan hunter ships of "
-#                      "Doskvol (the hunters drop their raw cargo at Lockport before filling their holds with refined blood and returning to Doskvol "
-#                      "for repairs and replacement crew for those lost to the Void Sea). The huge, churning refineries in Lockport have poisoned the "
-#                      "city under a stinking cloud of toxic fumes and acid rain. A group of dockers and refinery workers from Lockport have come to "
-#                      "Doskvol to raise an army and secure a warship with which to seize control of Lockport and destroy the Empire’s refineries. "
-#                      "They call themselves “the Grinders.” To raise funds for their mission, the Grinders have turned to criminal endeavors, "
-#                      "especially smash & grab looting and hijacking of cargo barges across the city.",
-#                      "Raise a crew, steal a war ship - 12 part clock;\nFill war treasury - 12 part clock"),
-#         'hive': ("The Hive", "IV", "*A guild of legitimate merchants who secretly trade in contraband. Named for their symbol, a golden bee.*",
-#                  "Many shops, taverns, cafes, warehouses, and other mercantile establishments all across the city. No centralized HQ.",
-#                  "**Djera Maha** (leader, *bold*, *strategic*, *confident*).\n**Karth Orris** (mercenary commander, *ruthless*, *insightful*, "
-#                  "*jealous*).",
-#                  "A massive treasury. Elite mercenaries on retainer. A fleet of transport ships, carriages, wagons, and private trains.",
-#                  "The Hive is known to avoid doing business with any occult or arcane groups. The Church of Ecstasy is popular among Hive members, "
-#                  "who reject the superstitions and weird practices of the past.",
-#                  "Ministry of Preservation, Dagger Isles Consulate.", "The Circle of Flame, The Unseen, The Crows, The Wraiths.",
-#                  "Djera Maha grew up as an urchin in the Dagger Isles. She learned all the secrets of vice and smuggling as she worked her way up "
-#                  "the ranks of every gang along the trade routes to Doskvol. Having built up her acquisition and distribution network in the city ("
-#                  "as well as within the Ministry of Preservation) she is poised to take over all of the contraband markets. Maha had a close "
-#                  "relationship (some say romantic) with the leader of the Crows, Roric, who was recently murdered by his second-in-command.",
-#                  "Dominate contraband market - 8 part clock;\nAvenge Roric’s murder - 6 part clock"),
-#         'lampblacks': (
-#             "The Lampblacks", "II", "*The former lamp-lighter guild, turned to crime when their services were replaced by electric lights.*",
-#             "HQ in the office of a coal warehouse. Operates a handful of brothels and cheap drug dens across Crow’s Foot.",
-#             "**Bazso Baz** (leader, *charming*, *open*, *ruthless*, *whiskey connoisseur*).\n**Pickett** (second, *shrewd*, *conniving*, "
-#             "*suspicious*).\n**Henner** (thug, *loyal*, *reckless*).",
-#             "A fearsome gang of leg-breakers and mayhem-makers. A number of smugglers on the payroll who run their drugs.",
-#             "Bazso Baz is a member of a secret society (forgotten gods cult, “The Empty Vessel”) and sometimes puts the needs of that group ahead of "
-#             "the well-being of his gang.",
-#             "The Fog Hounds, Gondoliers, Ironhook Prison.", "The Red Sashes, The Bluecoats, Cabbies.",
-#             "The Lampblacks and the Red Sashes are at war over turf and vengeance for deaths on both sides. Bazso Baz is recruiting every free "
-#             "blade in "
-#             "the district for extra muscle and doesn’t take no for an answer. You’re either with them or against them. The Lampblacks are not "
-#             "particularly well-connected politically, but are akin to folk-heroes among the working class, who see them as “lovable rogues” "
-#             "standing up "
-#             "to the powers-that-be.",
-#             "Destroy the Red Sashes - 8 part clock;\nBecome ward boss of Crow’s Foot - 8 part clock"),
-#         'leviathan hunters':
-#             ("Leviathan Hunters", "V", "*The captains and crews that grapple with titanic demons of the Void Sea to drain their blood for "
-#                                        "processing into electroplasm.*",
-#              "The massive metal docks for the huge hunter ships and the associated construction and repair facilities. Several small private "
-#              "leviathan blood processing facilities for the captains’ personal shares.",
-#              "**Lord Strangford** (captain, *ruthless*, *arrogant*, *tainted*).\n**Lady Clave** (captain, *daring*, *cruel*, "
-#              "*accomplished*).\n**Lady Ankhayat** (Iruvian captain, *confident*, *charming*, *scoundrel*).",
-#              "The leviathan hunter fleet (each vessel is owned by the noble house who built and commands it). Many cohorts of expert sailors, "
-#              "as well as spark-craft technicians, demonologist Whispers, and void-touched navigators. Companies of marines to protect the vessels "
-#              "and their valuable cargo at sea and in port.",
-#              "N/A", "City Council, The Church of Ecstasy, Sailors, Dockers, Sparkwrights.", "The Grinders, Ministry of Preservation, The Path of "
-#                                                                                             "Echoes.",
-#              "The captains have a horrible secret: the known hunting grounds for leviathans are coming up barren. The immortal creatures, "
-#              "once so reliable in their movements in the Void Sea, have begun to migrate elsewhere. New hunting grounds must be found before the "
-#              "surplus of leviathan blood disappears, and with it, the lightning barriers and the survival of the human race.",
-#              "Discover new hunting grounds - 12 part clock;\nSurplus runs dry - 12 part clock"),
-#         'the lost':
-#             ("The Lost", "I", "*A group of street-toughs and ex-soldiers dedicated to protecting the downtrodden and the hopeless.*",
-#              "Converted rail car (HQ). The poverty-stricken streets of Coalridge and Dunslough.", "**Cortland** (leader, *idealist*, *candid*, "
-#                                                                                                   "*cavalier*).",
-#              "A very experienced gang of formerly vicious thugs, killers, and Imperial soldiers.",
-#              "The Lost have all done horrible things in their former lives and they believe they must atone for these “sins.” Each member keeps a "
-#              "pile of stones under their bed—one for each sin they balance with a just deed.",
-#              "Workhouse Laborers, Citizens of Coalridge and Dunslough, The Crows.", "Workhouse Foremen, Bluecoats, The Billhooks.",
-#              "The Lost are currently focusing their efforts in Coalridge, running a campaign of sabotage, terror, and savage beatings against the "
-#              "most notoriously cruel workhouse foremen. The already-brewing union organizing efforts in that district are emboldened by the Lost’s "
-#              "attacks, and the local Bluecoat patrols are starting to complain to their commanders for support of extra Watch guards from other "
-#              "districts. Meanwhile, the Coalridge foremen are making it known that they’ll pay top dollar to anyone who will take the Lost out of "
-#              "the picture.",
-#              "Destroy cruel workhouses (repeating) - 4 part clock"),
-#         'ministry of preservation':
-#             ("Ministry of Preservation", "V", "*Oversees transportation between cities and the disbursement of food and other vital resources.*",
-#              "The electro-rail train lines of the Imperium. Radiant energy farms, eeleries, and other food-growing enterprises throughout the city.",
-#              "**Lord Dalmore** (executive officer in Doskvol, *commanding*, *intelligent*).\n**Lady Slane** (chief of operations, *insightful*, "
-#              "*subtle*, *effective*).\n**Captain Lannock** (mercenary commander, *shrewd*, *ruthless*).",
-#              "A fleet of cargo ships and their armed escorts. A significant treasury from taxation and transportation licensing. The Rail Jacks who "
-#              "work the train lines. A private mercenary company that answers only to the ministry itself.",
-#              "N/A", 'The Billhooks, Imperial Military, Rail Jacks, Sparkwrights.', "Leviathan Hunters.",
-#              "The Ministry leadership believes that the leviathan hunters are too vital to the public well-being to be controlled by the bickering "
-#              "noble houses, vulnerable to their petty rivalries and vendettas. Agents within the ministry have been tasked with a variety of "
-#              "espionage, sabotage, and political actions to ultimately seize control of the hunters and bring them into Ministry control.",
-#              "Seize control of Leviathan Hunters - 12 part clock"),
-#         'reconciled':
-#             ("The Reconciled", "III", "*An association of ancient spirits who have not gone feral with the passage of time.*",
-#              "None.", "The Reconciled have possessed several important citizens in Doskvol. Their exact membership is not known.",
-#              "Several secret and hidden spirit wells across the city and in the deathlands, which give the Reconciled the arcane energy they need "
-#              "to survive.",
-#              "The spirits of the Reconciled do not lose their minds or become obsessed with vengeance as other spirits do. They can possess a "
-#              "victim indefinitely without any adverse effects.",
-#              "City Council, Gondoliers.", "The Church of Ecstasy, Spirit Wardens, Sparkwrights.",
-#              "The Reconciled are very ancient and wise; they see themselves as the rightful and just rulers that Duskwall needs. A few of the City "
-#              "Council members have become initiates in the Path of Echoes and will soon be vulnerable to possession by the Reconciled. These "
-#              "councilors are also high-ranking members of the Church of the Ecstasy of the Flesh, which will give the Reconciled an opportunity for "
-#              "infiltration into that organization as well.",
-#              "Infiltrate the City Council - 8 part clock;\nInfiltrate the Church of Ecstasy - 8 part clock"),
-#         'scurlock':
-#             ("Lord Scurlock", "III", "*An ancient noble, said to be immortal, like the Emperor. Possibly a vampire or sorcerer. Obsessed with the "
-#                                      "occult.*",
-#              "A secret lair outside the city. A dilapidated manor house in Six Towers and the catacombs beneath. An array of business holdings and "
-#              "cult shrines across the city, collected for some united purpose known only to Scurlock.",
-#              "**Lord Scurlock** (*enigmatic*, *cold*, *arcane*, *old-fashioned*) is an individual, but is so powerful that he’s considered a "
-#              "faction. His personal scale is Tier III — in conflicts he counts as a large gang (20 people).",
-#              "An impressive collection of occult and arcane curios, books, and ephemera. An ancient demonic temple.",
-#              "Scurlock is immune to spirits. Ghosts can’t see, hear, or harm him. He makes no sound when he moves and is sometimes difficult to "
-#              "look at directly.",
-#              "City Council, Bluecoats, Inspectors, The Forgotten Gods.", "Spirit Wardens, The Immortal Emperor.",
-#              "Lord Scurlock is bound by ancient magic to the demon Setarra. Who is the master and who is the servant? Their roles have changed many "
-#              "times over the centuries. Now, Lord Scurlock must fulfill a debt. Setarra has found a nest of sea demons in the harbor, "
-#              "encased in stone, chained by magic from the cataclysm. She seeks to free them to see their wrath loosed on the world of men. Scurlock "
-#              "will aid her in this or suffer a dark doom.",
-#              "Fulfill debt to Setarra - 12 part clock;\nObtain arcane secrets (repeating) - 6 part clock"),
-#         'silver nails':
-#             ("The Silver Nails", "III", "*A company of Severosi mercenaries who fought for the Empire in the Unity War. Renowned ghost killers.*",
-#              "A large inn (The Mustang) and its fine stables (HQ).", "**Seresh** (leader, *bold*, *brash*, *defiant*).\n**Tuhan** (lead scout, "
-#                                                                      "*bold*, *cunning*, *charming*).",
-#              "A contingent of exquisite Severosian cavalry horses—fearless, swift, and trained to hunt and battle spirits. Arcane lances.",
-#              "Each member wears a ring fashioned from a silver nail, which protects against possession. They’re trained in the **Ghost Fighter** "
-#              "special ability (Cutter).",
-#              "Imperial Military, Sailors, Severosan Consulate.", "The Circle of Flame, The Grinders, Skovlan Consulate, Skovlander Refugees, "
-#                                                                  "Spirit Wardens.",
-#              "Thanks to their expertise from riding in the deathlands of Severos, the Silver Nails are perfectly suited to explore the forbidden "
-#              "Lost District outside the lightning barrier of the city. Once the fiercest ghosts are driven out or destroyed, the Silver Nails can "
-#              "seize control and plunder the forgotten treasures and artifacts hidden within. (The Spirit Wardens currently control access to the "
-#              "Lost District and do everything in their power to keep the Silver Nails—and everyone else—out.)",
-#              "Destroy spirits in the Lost District - 8 part clock;\nControl the Lost District - 8 part clock"),
-#         'sparkwrights':
-#             ("Sparkwrights", "IV", "*The engineers who maintain the lightning barriers. Also pioneers of spark-craft technology, indulging in "
-#                                    "dangerous research.*",
-#              "Massive workshop, factory, and design facility in Coalridge.", "**Una Farros** (instructor at Charterhall University, *curious*, "
-#                                                                              "*vain*, *famous*).",
-#              "The electroplasmic generators, city lights, lightning barriers and associated facilities and systems across the city.",
-#              "N/A", "City Council, Leviathan Hunters, Ministry of Preservation.", "The Path of Echoes, The Reconciled, The Foundation.",
-#              "For centuries, the Sparkwrights have worked in secret to develop an alternative fuel that could replace the leviathan blood that "
-#              "powers the lightning barriers of the Imperium. A few researchers have gotten close, but “accidents” have inevitably killed them and "
-#              "destroyed their work (certainly arranged by the nobility who rule because of their stranglehold on leviathan hunting). But there is "
-#              "always a daring visionary willing to try to pick up the pieces and complete the work—even at the risk of their own life. Will one of "
-#              "them manage it this time, or will they, too, fall victim to the deadly agents of the elite?",
-#              "Develop alternative fuel - 12 part clock"),
-#         'spirit wardens':
-#             ("Spirit Wardens", "IV", "*The bronze-masked hunters who destroy rogue spirits. Also run Bellweather Crematorium to properly dispose of "
-#                                      "corpses.*",
-#              "Bellweather Crematorium. The Master Warden’s estate in Whitecrown.", "There are no known Spirit Wardens—they maintain an anonymous "
-#                                                                                    "membership of people not native to Duskwall, using code-names. "
-#                                                                                    "A Warden known as “Bakoros” (who may be several different "
-#                                                                                    "individuals) sometimes lectures at the College of Immortal "
-#                                                                                    "studies at Doskvol Academy.",
-#              "The death bells that ring whenever someone dies in the city, and the deathseeker crows that fly to find the body (ancient, "
-#              "arcane). Many cohorts of expert Whispers. The most advanced spectrological and spark-craft equipment, including several spirit-hunter "
-#              "hulls.",
-#              "Membership in the Wardens is secret and utterly anonymous. They cut all ties and have no families or close relationships, "
-#              "save their fellow Wardens.",
-#              "The Church of Ecstasy, Deathlands Scavengers.", "The Dimmer Sisters, Gondoliers, Lord Scurlock, The Silver Nails, The Unseen, "
-#                                                               "Path of Echoes, The Reconciled.",
-#              "The Spirit Wardens know that an enemy is attempting to infiltrate their ranks (they don’t yet know that it’s the Unseen). The Wardens "
-#              "are laying a trap for this enemy, to uncover their identity and eliminate them.",
-#              "Uncover the infiltrators - 8 part clock"),
-#         'ulf ironborn':
-#             ("Ulf Ironborn", "I", "*A brutal Skovlander, newly arrived in the Dusk, fighting everyone for turf.*",
-#              "Rooms, workshop, and stable at The Old Forge tavern (HQ). A gambling den.", "**Ulf Ironborn** (leader, *ruthless*, *savage*, *bold*).\n"
-#                                                                                           "**Havid** (second, *ruthless*, *volatile*, *shrewd*).",
-#              "A small but powerfully savage gang of thugs.", "As a refugee of the Unity War, Ulf does not trust the local Akorosi, or anyone who "
-#                                                              "proclaims a strong allegiance to the Imperial government. Those of Skovlander blood "
-#                                                              "find it easy to win his trust, however.",
-#              "The Grinders.", "Citizens of Coalridge, The Billhooks.", "Ulf is newly arrived in Doskvol, seeking his fortune on the streets. His "
-#                                                                        "gang has had recent success with savage smash & grab operations, "
-#                                                                        "leading into a potential “protection” racket. As more Skovlander war "
-#                                                                        "refugees swell the city population, the bigotry of some locals is starting "
-#                                                                        "to surface, with “NO SKOVS” signs appearing at public houses and shops. Ulf "
-#                                                                        "’s blind rage will be sparked off when he encounters this, surely leading "
-#                                                                        "his gang into war with any “true Duskers” brave enough to stand up to him.",
-#              "Carve out gang territory - 6 part clock;\nRise in Tier - 4 part clock"),
-#         'unseen':
-#             ("The Unseen", "IV", "*An insidious criminal enterprise with secret membership. Thought to pull the strings of the entire underworld.*",
-#              "A multitude of vice dens and extortion rackets across the city—virtually none realize that they pay up to the Unseen. Several opulent "
-#              "townhouses used as safe houses.",
-#              "**The Tower** (leader).\n**The Star** (captain).\n**Grull** (mid-level thug with big ambitions, undercover as a coach driver).",
-#              "A legion of thugs, thieves, and killers on-call to their secret masters.",
-#              "The perfect secrecy of the Unseen is the result of arcane rituals. Core members can recognize each other with attuned second sight. "
-#              "Any non-member who learns the identity of a member falls victim to a ritual that removes that memory from their mind after a few "
-#              "moments.",
-#              "The Bluecoats, Ironhook Prison, The Forgotten Gods, Cyphers.", "Ink Rakes, The Hive, Spirit Wardens.",
-#              "The Unseen crave the power and authority of the Spirit Wardens, whose own secret membership has so far resisted infiltration. The "
-#              "Tower and The Star plot to place their own spies and operatives among the Wardens and seize it from within.",
-#              "Infiltrate the Spirit Wardens - 8 part clock;\nExpand into other cities - 8 part clock"),
-#         'wraiths':
-#             ("The Wraiths", "II", "*A mysterious crew of masked thieves and spies.*", "Silkshore and Nightmarket are their primary hunting grounds. "
-#                                                                                       "They specialize in the theft of luxury items and "
-#                                                                                       "intelligence gathering for clients to use as blackmail.",
-#              "**Slate** (leader, *sophisticated*, *daring*, *secretive*).\n**Loop** (appraisal expert, *obsessive*, *moody*, *secretive*).",
-#              "A scattered collection of secret rooftop shelters. A secret lair in a tower in Silkshore. All manner of thieves’ gear for burglary.",
-#              "Each member wears a mask and conceals their true identity with an alias. They communicate with a private sign language.",
-#              "Cabbies.", "Bluecoats, Inspectors, The Hive.", "The Wraiths recently completed a heist at a luxury brothel in Nightmarket and "
-#                                                              "happened to grab the private map book of a leviathan hunter in the process. The map "
-#                                                              "book shows the secret hunting grounds of augured leviathan sites that will be used by "
-#                                                              "the ship Storm Palace during the next season. Such a map is useless to the Wraiths, "
-#                                                              "but is worth a small fortune to another leviathan hunter. The Wraiths are currently "
-#                                                              "reaching out to contacts in the underworld to quietly arrange a sale.",
-#              "Recruit expert thieves - 8 part clock;\nSecure an arcane ally - 6 part clock")
-#     }
-#     keys = (
-#         "red sashes", "billhooks", "bluecoats", "church of ecstasy", "circle of flame", "lampblacks", "hive", "grinders", "gray cloaks", "gondoliers",
-#         "fog hounds", "dimmer sisters", "deathlands scavengers", "crows", "city council", "leviathan hunters", "the lost", "ministry of preservation",
-#         "reconciled", 'scurlock', 'silver nails', 'sparkwrights', 'spirit wardens', 'ulf ironborn', "unseen", "wraiths")
-#     fac = ""
-#     for x in keys:
-#         if name in x:
-#             fac = faction_sheets[x]
-#     embed = discord.Embed(colour=discord.Colour.dark_red())
-#     embed.set_author(name=fac[0] + " (" + fac[1] + ")")
-#     embed.add_field(name="__Basic Info__", value="\n\n" + fac[2] + "\n\n**Turf:** " + fac[3] + "\n**NPCs:**\n" + fac[4]
-#                     , inline=False)
-#     embed.add_field(name="__Detailed Info__", value="\n**Notable assets:** " + fac[5] + "\n**Quirks:** " + fac[6] + "\n**Allies:** " + fac[7] +
-#                                                     "\n**Enemies:** " + fac[8]
-#                     , inline=False)
-#     embed.add_field(name="__Extras__", value="\n\n**Situation:** " + fac[9] + "\n\n**Clocks:**\n" + fac[10], inline=False)
-#     await ctx.send(embed=embed)
+        selected_shapes = []
+        selected_regions = []
+        selected_treasures = []
+
+        shape_phrase = ''
+        region_phrase = ''
+        treasure_phrase = ''
+
+        for i in shapes:
+            selected_shapes.append(random.choice(shape).capitalize())
+            shape_phrase += ' ' + selected_shapes[i]
+
+        for i in regions:
+            selected_regions.append(random.choice(regions).capitalize())
+            region_phrase += ' ' + selected_regions[i]
+
+        for i in regions_with_treasure:
+            selected_treasures.append(random.choice(treasures).capitalize())
+            treasure_phrase += ' ' + selected_treasures[i]
+
+        phrase = '**Name:** ' + random.choice(name).capitalize() + '.\n**Epithet:** ' + random.choice(epithet).capitalize() + '.\n**Shape:** ' \
+                 + shape_phrase + '.\n**Regions:** ' + region_phrase + '.\n**Treasures: **' + treasure_phrase + '.\n**Spawn: **' + \
+                 random.choice(spawn).capitalize() + '.\n**Activity: **' + random.choice(activity).capitalize() + '.'
+        total = len(name) * len(epithet) * len(shape) * len(demon_traits) * len(treasures) * len(spawn) * len(activity)
+
+        embed = discord.Embed(colour=discord.Colour.dark_red())
+        embed.set_author(name='Generating random ' + opt)
+        embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
+        await ctx.send(embed=embed)
 
 
 @bot.command(name="info", aliases=["i"])
@@ -1212,14 +878,14 @@ async def info(ctx):
 async def lookup(ctx, query):
     q = query.lower()
     equips = ("blade", "throwing knives", "pistol", "large weapon", "unusual weapon", "armor heavy", "burglary gear", "climbing gear",
-            "documents", "arcane implements", "subterfuge supplies", "demolition tools", "tinkering tools", "lantern", "spiritbane charm",
-                  "fine lightning hook", "fine spirit mask", "spirit bottles", "ghost key", "demonbane charm", "fine cover identity",
-                  "fine bottle of whiskey", "blueprints", "vial of slumber essence", "concealed palm pistol", "fine disguise kit",
-                  "fine clothes & jewelry", "fine loaded dice, trick cards", "trance powder", "a cane-sword", "fine lockpicks", "fine shadow cloak",
-                  "light climbing gear", "silence potion vial", "dark-sight goggles", "fine tinkering tools", "fine wrecking tools",
-                  "blowgun & dars, syringes", "bandolier", "gadgets", "fine pair of pistols", "fine long rifle", "electroplasmic ammunition",
-                  "a trained hunting pet", "spyglass", "fine hand weapon", "fine heavy weapon", "scary weapon or tool", "manacles & chain",
-                  "rage essence vial")
+              "documents", "arcane implements", "subterfuge supplies", "demolition tools", "tinkering tools", "lantern", "spiritbane charm",
+              "fine lightning hook", "fine spirit mask", "spirit bottles", "ghost key", "demonbane charm", "fine cover identity",
+              "fine bottle of whiskey", "blueprints", "vial of slumber essence", "concealed palm pistol", "fine disguise kit",
+              "fine clothes & jewelry", "fine loaded dice, trick cards", "trance powder", "a cane-sword", "fine lockpicks", "fine shadow cloak",
+              "light climbing gear", "silence potion vial", "dark-sight goggles", "fine tinkering tools", "fine wrecking tools",
+              "blowgun & dars, syringes", "bandolier", "gadgets", "fine pair of pistols", "fine long rifle", "electroplasmic ammunition",
+              "a trained hunting pet", "spyglass", "fine hand weapon", "fine heavy weapon", "scary weapon or tool", "manacles & chain",
+              "rage essence vial")
     equipment = {
         "fine hand weapon":
             ("**Fine hand weapon:**", "A finely crafted one-handed melee weapon of your choice. *Is this a well-crafted standard weapon, "
@@ -1326,8 +992,9 @@ async def lookup(ctx, query):
         'demonbane charm':
             ("**Demonbane charm:**", "An arcane trinket that demons prefer to avoid.", "**[0 load]**"),
         'ghost key':
-        ("**Ghost key:**", "An arcane device that can open ghost doors. *There’s an echo of the entire city, across the ages, trapped in the ghost "
-                           "field. Sometimes a door to that place can be found.*", "**[0 load]**"),
+            ("**Ghost key:**",
+             "An arcane device that can open ghost doors. *There’s an echo of the entire city, across the ages, trapped in the ghost "
+             "field. Sometimes a door to that place can be found.*", "**[0 load]**"),
         'spirit bottles':
             ("**Spirit bottles (2):**", "An arcane device used to trap a spirit. A metal and crystalline cylinder, the size of a loaf of bread.",
              "**[1 load]**"),
@@ -1360,9 +1027,9 @@ async def lookup(ctx, query):
         'armor heavy':
             ("**Armor:**", "A thick leather tunic plus reinforced gloves and boots.", "**[2 load]**", "**+Heavy:**\nThe addition of chain mail, "
                                                                                                       "metal "
-                                                                                                  "plates, a metal helm.\n**[3 load]**\nThe load "
-                                                                                                  "for heavy armor is in addition to normal armor — "
-                                                                                                  "**[5 load]** total."),
+                                                                                                      "plates, a metal helm.\n**[3 load]**\nThe load "
+                                                                                                      "for heavy armor is in addition to normal armor — "
+                                                                                                      "**[5 load]** total."),
         'burglary gear':
             ("**Burglary Gear:**", "A set of lockpicks. A small pry-bar. Vials of oil to silence squeaky hinges. A coil of wire and fishing hooks. "
                                    "A small pouch of fine sand.", "**[1 load]**"),
@@ -1384,8 +1051,9 @@ async def lookup(ctx, query):
             ("**Demolition tools:**", "A sledgehammer and iron spikes. Heavy drill. Crowbar.", "**[2 load]**"),
         'tinkering tools':
             (
-            "**Tinkering Tools:**", "An assortment for detailed mechanist work: jeweler’s loupe, tweezers, a small hammer, pliers, screwdriver, etc.",
-            "**[1 load]**"),
+                "**Tinkering Tools:**",
+                "An assortment for detailed mechanist work: jeweler’s loupe, tweezers, a small hammer, pliers, screwdriver, etc.",
+                "**[1 load]**"),
         'lantern':
             ("**Lantern:**", "A simple oil lantern, a fancy electroplasmic lamp, or other light source.", "**[1 load]**"),
         "spiritbane charm":
@@ -1446,23 +1114,23 @@ async def lookup(ctx, query):
                    "notice their security measures, etc. You might use Prowl or Consort to set up a Survey action, so you can observe things with "
                    "greater effect or from a safer position."),
         'tinker': ("**Tinker**",
-                  "When you **Tinker**, you fiddle with devices and mechanisms. You might create a new gadget or alter an existing item. You might pick "
-                  "a lock or crack a safe. You might disable an alarm or trap. You might turn the sparkcraft and electroplasmic devices around the "
-                  "city to your advantage. You could try to use your technical expertise to control a vehicle (but Finessing might be better).",
-                  "**GM questions:**\nWhat do you tinker with?\nWhat do you hope to accomplish?",
-                  "When you Tinker, you take stuff apart, put things back together, bend, solder, twist, and modify. Tinkering covers a fairly "
-                  "broad range of activities, having to do with mechanisms and engineering as well as chemistry and biological sciences. The adept "
-                  "tinkerer knows how things work—all sorts of things.",
-                  "Tinkering is most often used during a long-term project in downtime. It’s one of the most versatile downtime actions, "
-                  "in fact (along with *Studying*). If you’re willing to acquire the necessary components and take the time, wondrous things can be "
-                  "Tinkered into existence.",
-                  "Tinkering can be useful in the moment, too. Duskwall is covered in strange technological components of all sorts, "
-                  "from spark-craft doors, locks, and elevators, to electroplasmic conduits, wires, and lights. You can Tinker with stuff on the "
-                  "fly to create a booby-trap or disable a security measure. Tinkering in this way can be a great setup action for *Wrecking* "
-                  "something later.",
-                  "You can Tinker with a device in order to break it, which is similar to *Wrecking* it. Usually, breaking a device by Tinkering is "
-                  "slower, more precise, and less apparent than when you Wreck it. You might Tinker with a door mechanism so it jams after the "
-                  "third use. If you *Wreck* it, it just breaks into pieces and that’s it."),
+                   "When you **Tinker**, you fiddle with devices and mechanisms. You might create a new gadget or alter an existing item. You might pick "
+                   "a lock or crack a safe. You might disable an alarm or trap. You might turn the sparkcraft and electroplasmic devices around the "
+                   "city to your advantage. You could try to use your technical expertise to control a vehicle (but Finessing might be better).",
+                   "**GM questions:**\nWhat do you tinker with?\nWhat do you hope to accomplish?",
+                   "When you Tinker, you take stuff apart, put things back together, bend, solder, twist, and modify. Tinkering covers a fairly "
+                   "broad range of activities, having to do with mechanisms and engineering as well as chemistry and biological sciences. The adept "
+                   "tinkerer knows how things work—all sorts of things.",
+                   "Tinkering is most often used during a long-term project in downtime. It’s one of the most versatile downtime actions, "
+                   "in fact (along with *Studying*). If you’re willing to acquire the necessary components and take the time, wondrous things can be "
+                   "Tinkered into existence.",
+                   "Tinkering can be useful in the moment, too. Duskwall is covered in strange technological components of all sorts, "
+                   "from spark-craft doors, locks, and elevators, to electroplasmic conduits, wires, and lights. You can Tinker with stuff on the "
+                   "fly to create a booby-trap or disable a security measure. Tinkering in this way can be a great setup action for *Wrecking* "
+                   "something later.",
+                   "You can Tinker with a device in order to break it, which is similar to *Wrecking* it. Usually, breaking a device by Tinkering is "
+                   "slower, more precise, and less apparent than when you Wreck it. You might Tinker with a door mechanism so it jams after the "
+                   "third use. If you *Wreck* it, it just breaks into pieces and that’s it."),
         'skirmish': ("**Skirmish**",
                      "When you **Skirmish**, you entangle a target in close combat so they can’t easily escape. You might brawl or wrestle with "
                      "them. You might hack and slash. You might seize or hold a position in battle. You could try to fight in a formal duel (but "
