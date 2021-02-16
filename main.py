@@ -289,6 +289,7 @@ async def generate(ctx, option):
                  "Worn", "Rough", "Plump", "Wiry", "Striking", "Short", "Tall", "Sexy", "Wild", "Elegant", "Stooped", "Cute", "Plain", "Old", "Young",
                  "Stylish", "Strange", "Disfigured", "Maimed", "Glasses bearing", "Monocle bearing", "Prosthetic bearing", "Crippled", "Long Haired",
                  "Beard", "Wig bearing", "Shorn", "Bald", "Tattooed"]
+
         heritage = ["tycherosi", "severosi", "dagger islander", "iruvian", "skovlander", "skovlander", "akorosi", "akorosi", "akorosi", "akorosi",
                     "akorosi", "akorosi"]
 
@@ -315,15 +316,19 @@ async def generate(ctx, option):
                       "has arms that have an extra elbow like "
                       "Steve Erickson’s Forkul Assail"]
         type_of_person = ["man", "man", "woman", "woman", "man", "man", "woman", "woman", "ambiguous gender person", "concealed gender person"]
+
         goals = ["Wealth", "Power", "Authority", "Prestige", "Fame", "Control", "Knowledge", "Pleasure", "Revenge", "Freedom",
                  "Achievement", "Happiness", "Infamy", "Fear", "Respect", "Love", "Change", "Chaos", "Destruction", "Justice", "Cooperation"]
+
         preferred_methods = ["Violence", "Threats", "Negotiation", "Study", "Manipulation", "Strategy", "Theft", "Arcane methods", "Commerce",
                              "Hard Work",
                              "Law", "Politics", "Sabotage", "Subterfuge", "Alchemy", "Blackmail", "Teamwork", "Espionage", "Chaos"]
+
         prof_comm = ["Baker", "Barber", "Blacksmith", "Brewer", "Butcher", "Carpenter", "Cartwright", "Chandler", "Clerk", "Cobbler", "Cooper",
                      "Cultivator", "Driver", "Dyer", "Embroiderer", "Fishmonger", "Gondolier", "Guard", "Leatherworker", "Mason", "Merchant",
                      "Roofer", "Ropemaker", "Rug Maker", "Servant", "Shipwright", "Criminal", "Tailor", "Tanner", "Tinkerer", "Vendor",
                      "Weaver", "Woodworker", "Goat Herd", "Messenger", "Sailor"]
+
         prof_rare = ["Advocate", "Architect", "Artist", "Author", "Bailiff", "Apiarist", "Banker", "Bounty Hunter", "Clockmaker", "Courtesan",
                      "Furrier", "Glass Blower", "Diplomat", "Jailer", "Jeweler", "Leech", "Locksmith", "Magistrate", "Musician", "Physicker",
                      "Plumber", "Printer", "Scholar", "Scribe", "Sparkwright", "Tax Collector", "Treasurer", "Whisper", "Composer", "Steward",
@@ -333,11 +338,16 @@ async def generate(ctx, option):
                  "Work Boots", "a Mask & Robes", "a Suit & Vest", "a Collared Shirt", "Suspenders", "a Rough Tunic", "a Skirt & Blouse",
                  "a Wide Belt", "a Fitted Dress", "a Heavy Cloak", "a Thick Greatcoat", "Soft Boots", "Loose Silks", "Sharp Trousers", "a Waxed Coat",
                  "a Long Scarf", "Leathers", "an Eelskin Bodysuit", "Hide & Furs", "a Uniform", "Tatters", "Fitted Leggings", "an Apron",
-                 "Heavy Gloves", "a Face Mask", "a Tool Belt", "Crutches", "a Cane", "a Wheelchair"]
+                 "Heavy Gloves", "a Face Mask", "a Tool Belt", "Crutches", "a Cane", "a Wheelchair", "a Belt Sash", "a Cloak", "a Feathered Cape",
+                 "a Half-Cape", "a Headscarf", "a Hooded Cape", "Layered Robes", "a Light Jacket", "Rags & Tatters", "a Scavenged Uniform",
+                 "a Silk Bodywrap", "a Silk Kaftan", "a Simple Tunic", "a Turban", "a Vest", "a Waistcoat", "Wide-Legged Trousers",
+                 "a Wide-Brimmed Hat", "Work Trousers"]
+
         traits = ["charming", "cold", "cavalier", "brash", "suspicious", "obsessive", "shrewd", "quiet", "moody", "fierce", "careless",
                   "secretive", "ruthless", "calculating", "defiant", "gracious", "insightful", "dishonest", "Patient", "vicious", "sophisticated",
                   "paranoid", "enthusiastic", "elitist", "savage", "cooperative", "arrogant", "confident", "vain", "daring", "volatile", "candid",
                   "subtle", "melancholic", "enigmatic", "calm"]
+
         interests = ["Fine whiskey, wine, beer", "Fine food, restaurants", "Fine clothes, jewelry, furs", "Fine arts, opera, theater",
                      "Painting, drawing, sculpture", "History, legends", "Architecture, furnishings", "Poetry, novels, writing",
                      "Pit-fighting, duels", "Forgotten gods", "Church of Ecstasy", "Path of Echoes", "Weeping Lady, charity",
@@ -346,6 +356,7 @@ async def generate(ctx, option):
                      "Lovers, romance, trysts", "Parties, social events", "Exploration, adventure", "Pets (birds, dogs, cats)",
                      "Craft (leatherwork, etc.)", "Ships, boating", "Politics, journalism", "Arcane books, rituals", "Alchemy, medicine",
                      "Essences, alchemy", "Demon lore legends", "Pre-cataclysm legends"]
+
         quirks = ["Reclusive. Prefers to interact via messengers", "Massive debts (to banks / criminals / family)",
                   "Blind to flaws in friends, allies, family, etc", "Once hollowed, then restored. Immune to spirits",
                   "Has chronic illness that requires frequent care", "Secretly (openly?) controlled by possessing spirit",
@@ -363,22 +374,42 @@ async def generate(ctx, option):
                   "Cursed, haunted, harassed by spirits or demon", "Visionary. Holds radical views for future",
                   "Bigoted against culture / belief / social class", "Spotless reputation. Highly regarded",
                   "Scandalous reputation (deserved or not)", ]
+
         names_m = ["Adric", "Aldo", "Amosen", "Andrel", "Arden", "Arquo", "Arvus", "Branon", "Brance", "Bricks", "Carro", "Casslyn", "Cavelle",
                    "Corille", "Cross", "Crowl", "Drav", "Edlun", "Grine", "Helles", "Holtz", "Kelyr", "Kobb", "Kristov", "Laudius", "Milos", "Morlan",
                    "Narcus", "Noggs", "Orlan", "Phin", "Ring", "Roethe", "Skannon", "Stavrul", "Stev", "Timoth", "Tocker", "Veleris", "Vond",
                    "Weaver", "Wester"]
+
         name_f = ["Arlyn", "Ashlyn", "Brace", "Brena", "Candra", "Carissa", "Casslyn", "Clave", "Cyrene", "Daphnia", "Emeline", "Hix",
                   "Kamelin", "Lauria", "Lenia", "Lizete", "Lorette", "Lucella", "Lynthia", "Mara", "Myre", "Naria", "Odrienne",
                   "Polonia", "Quess", "Remira", "Sesereth", "Sethla", "Syra", "Talitha", "Tesslyn", "Thena", "Una", "Vaurin",
                   "Veretta", "Vestine", "Vey", "Volette", "Zamira"]
-        fam_names = ["Ankhayat", "Arran", "Athanoch", "Basran", "Boden", "Booker", "Bowman", "Bowmore", "Breakiron", "Brogan", "Clelland", "Clermont",
-                     "Coleburn", "Comber", "Daava", "Dalmore", "Danfield", "Dunvil", "Farros", "Grine", "Haig", "Helker", "Helles", "Hellyers",
-                     "Jayan", "Jeduin", "Kardera", "Karstas", "Keel", "Kessarin", "Kinclaith", "Lomond", "Maroden", "Michter", "Morriston",
+
+        names_m_i = ["Ahnav", "Aiz", "Arkash", "Ayan", "D’ruva", "Elesh", "Hakan", "Hanesh", "Haran", "Iku", "Isak", "Izu", "Jahan", "Jin", "Kan",
+                     "Kahan", "Ket", "Kos", "Kotar", "Lekat", "Lor", "Marek", "Mata", "Mo’an", "Muhan", "Nav", "Nek’set", "Niru", "Ra", "Rahan", "Ro",
+                     "Rukon", "Suhin", "Ta’amet", "Taji", "Useth", "Vaati", "Von", "Vondu"]
+
+        names_f_i = ["Aniya", "Anva", "Darha", "Elesha", "Eva", "Evi", "Esha", "Iana", "Isha", "Jaya", "Kahara", "Kavira", "Keta", "Kiara", "Kotara",
+                     "Kyra", "La’ana", "Lasa", "Lenaya", "Ma’ana", "Mita", "Nashala", "Na’ava", "Navya", "Rahana", "Ro’an", "Ruka", "Sa’ana", "Sarha",
+                     "Sethla", "Sevra", "S’rata", "Su’ua", "Syra", "Tukara", "Una", "Usa", "Vaha", "Vanya", "Vara", "Zamira", "Zarha", "Zora"]
+
+        fam_names_i = ["Akaana", "Anixis", "Ankhayat", "Ankhuset", "Anserekh", "Arkhaya", "Avrathi", "Azu", "Daava", "D’har", "Diala", "Hakar",
+                       "Havran", "Jaha", "Jayaan", "Jeduin", "Ka’asa", "Kardera", "Khara", "Khuran", "Klevanu", "Kutu", "Nahjan", "Masura", "Maat",
+                       "Nijira", "Nur", "Nuvket", "Saha", "Sanaat", "Siatu", "Siakaru", "Siketset", "Suresh", "Yara", "Zayana"]
+
+        fam_names = ["Arran", "Athanoch", "Basran", "Boden", "Booker", "Bowman", "Bowmore", "Breakiron", "Brogan", "Clelland", "Clermont",
+                     "Coleburn", "Comber", "Dalmore", "Danfield", "Dunvil", "Farros", "Grine", "Haig", "Helker", "Helles", "Hellyers",
+                     "Karstas", "Keel", "Kessarin", "Kinclaith", "Lomond", "Maroden", "Michter", "Morriston",
                      "Penderyn", "Prichard", "Rowan", "Sevoy", "Skelkallan", "Skora", "Slane", "Strangford", "Strathmill", "Templeton", "Tyrconnell",
                      "Vale", "Walund", "Welker"]
-        aliases = ["Bell", "Birch", "Bricks", "Bug", "Chime", "Coil", "Cricket", "Cross", "Crow", "Echo", "Flint", "Frog", "Frost", "Grip", "Gunner",
-                   "Hammer", "Hook", "Junker", "Mist", "Moon", "Nail", "Needle", "Ogre", "Pool", "Ring", "Ruby", "Silver", "Skinner", "Song", "Spur",
-                   "Tackle", "Thistle", "Thorn", "Tick-Tock", "Twelves", "Vixen", "Whip", "Wicker"]
+
+        aliases = ["Anvil", "Arrow", "Ash", "Axe", "Bell", "Bird", "Blaze", "Brass", "Breaker", "Broom", "Bull", "Birch", "Bricks", "Bug", "Cage",
+                   "Cannon", "Cat", "Chalk", "Cloud", "Coal", "Cord", "Crane", "Chime", "Coil", "Cricket", "Cross", "Crow", "Dagger", "Dart", "Dove",
+                   "Dust", "Echo", "Ember", "Fox", "Flint", "Frog", "Frost", "Grip", "Gunner", "Hammer", "Hawk", "Howler", "Hook", "Jackal", "Junker",
+                   "Key", "Match", "Moth", "Mule", "Mist", "Moon", "Nail", "Needle", "Owl", "Ox", "Ogre", "Pike", "Pool", "Ram", "Rasp", "Razor",
+                   "River", "Rock", "Ring", "Ruby", "Salt", "Scribe", "Shimmer", "Silk", "Silver", "Skinner", "Sky", "Slate", "Smoke", "Sparrow",
+                   "Spinner", "Star", "Stitch", "Song", "Spur", "Tackle", "Thistle", "Thorn", "Tick-Tock", "Twelves", "Viper", "Vixen", "Whip",
+                   "Wicker"]
         total = len(looks) * (len(name_f) + len(names_m)) * len(fam_names) * len(aliases) * len(heritage) * (len(prof_rare) + len(prof_comm)) * \
                 len(goals) * len(preferred_methods) * len(interests) * len(quirks) * 4 * len(demo_trait) * len(style) * len(style) * len(traits)
         clothing = []
@@ -400,15 +431,27 @@ async def generate(ctx, option):
         if herit == 'tycherosi':
             demonic = 'This person ' + random.choice(demo_trait) + '.'
 
-        gender = random.choice(type_of_person).lower()
-        if gender == 'man':
-            name = random.choice(names_m).capitalize()
-        elif gender == 'woman':
-            name = random.choice(name_f).capitalize()
-        else:
-            name = random.choice(name_f + names_m).capitalize()
+        if herit == 'iruvian':
+            gender = random.choice(type_of_person).lower()
+            if gender == 'man':
+                name = random.choice(names_m_i).capitalize()
+            elif gender == 'woman':
+                name = random.choice(names_f_i).capitalize()
+            else:
+                name = random.choice(names_f_i + names_m_i).capitalize()
+            fam = random.choice(fam_names_i)
 
-        phrase = name + ' **"' + random.choice(aliases).capitalize() + '"** ' + random.choice(fam_names).capitalize() + \
+        else:
+            gender = random.choice(type_of_person).lower()
+            if gender == 'man':
+                name = random.choice(names_m).capitalize()
+            elif gender == 'woman':
+                name = random.choice(name_f).capitalize()
+            else:
+                name = random.choice(name_f + names_m).capitalize()
+            fam = random.choice(fam_names)
+
+        phrase = name + ' **"' + random.choice(aliases).capitalize() + '"** ' + fam.capitalize() + \
                  " is a **" + random.choice(traits) + "**, **" + random.choice(looks).lower() + "**, **" + herit + " " + gender + \
                  "**. That is a **" + prof + "** that yearns for **" + random.choice(goals).lower() + "** through **" + \
                  random.choice(preferred_methods).lower() + "**. They come in **" + clothing[0] + "** and **" + clothing[1] + \
@@ -849,7 +892,7 @@ async def generate(ctx, option):
             if new_region in selected_regions:
                 pass
             else:
-                x+=1
+                x += 1
                 selected_regions.append(new_region)
                 region_phrase += new_region + '. '
         x = 0
@@ -1895,8 +1938,9 @@ async def help(ctx, *command_helper):
         embed.set_author(name='HELP')
         embed.add_field(name='=generate or =g', value='''\nUsage: `=g <argument>`\n
                                                 ''', inline=False)
-        embed.add_field(name='<argument>', value='\nValid arguments are: street, building, people, leviathan, demon, ghost, horror, fgod, score, bargain,'
-                                                 'food, drink, weather.',
+        embed.add_field(name='<argument>',
+                        value='\nValid arguments are: street, building, people, leviathan, demon, ghost, horror, fgod, score, bargain,'
+                              'food, drink, weather.',
                         inline=False)
         embed.add_field(name='Examples:', value='''`=generate street`
                                                     Generates a random street with several description details.
