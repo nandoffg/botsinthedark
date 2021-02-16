@@ -410,8 +410,11 @@ async def generate(ctx, option):
                    "River", "Rock", "Ring", "Ruby", "Salt", "Scribe", "Shimmer", "Silk", "Silver", "Skinner", "Sky", "Slate", "Smoke", "Sparrow",
                    "Spinner", "Star", "Stitch", "Song", "Spur", "Tackle", "Thistle", "Thorn", "Tick-Tock", "Twelves", "Viper", "Vixen", "Whip",
                    "Wicker"]
-        total = len(looks) * (len(name_f) + len(names_m)) * len(fam_names) * len(aliases) * len(heritage) * (len(prof_rare) + len(prof_comm)) * \
-                len(goals) * len(preferred_methods) * len(interests) * len(quirks) * 4 * len(demo_trait) * len(style) * len(style) * len(traits)
+
+        total = len(looks) * (len(name_f) + len(names_m) + len(names_m_i) + len(names_f_i)) * len(fam_names) * len(aliases) * len(heritage) * \
+                (len(prof_rare) + len(prof_comm)) * len(goals) * len(preferred_methods) * len(interests) * len(quirks) * 4 * len(demo_trait) * \
+                len(style) * len(style) * len(traits)
+
         clothing = []
         prof = ""
         x = 0
