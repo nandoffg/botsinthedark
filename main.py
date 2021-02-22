@@ -239,11 +239,59 @@ async def generate(ctx, option):
                     "Hot or not - Something you wear is on fire.",
                     "Bold or old - A thin needle pierces your flesh. Start a 4 part clock. Tick it with every action's consequence of that player. "
                     "When it fills, the poison slams you (level 3 harm).",
-                    "Player or played - You are a pawn in a bigger play. Next downtime an NPC faction takes extra advances to their project clocks."]
+                    "Player or played - You are a pawn in a bigger play. Next downtime an NPC faction takes extra advances to their project clocks.",
+                    "Compromised - You show weakness to your fellow players. Divulge a vulnerability, reveal a dark truth, or show you have "
+                    "conflicting interests. ",
+                    "Sow Doubt - You show weakness to your fellow players. The GM chooses if you divulge a vulnerability, reveal a dark truth, "
+                    "or show you have conflicting interests. ",
+                    "Going down - Start a 4-part clock, when it fills The room/place you're in is becoming on fire/covered with toxic "
+                    "smoke/flooded/etc.",
+                    "Didn't see that coming - One of the PCs can't swim/is afraid of heights/etc.",
+                    "Raining or pouring - The stars are aligned. Roll for another entanglement next development roll.",
+                    "Thrice or nice - You’ve uttered a demon’s true name thrice since the last tide. Oops. You feel it’s presence pressing...",
+                    "Ash - Your appetite is ruined. Next vice roll only clears half stress.",
+                    "Red pill or blue - You don't see bodies, only the spirits within. Till your next downtime, you can’t distinguish between "
+                    "souls, undead, ghosts, spirits, or shadows. The hollows are nothing to you.",
+                    "Or else - A faction got wind of your plan and warned against it. Countdown 4 till their assault teams hit.",
+                    "Men or omen - You dreamed this would happen. Take double stress for the next negative effect you resist.",
+                    "Magic or magnets - Someone (built like Arnie) throws the table on your plan. Your plan is now Assault. What's your point of "
+                    "attack?",
+                    "Divided or conquered - Your point breaks and the team is scattered. Each player makes a clock for this obstacle or danger. The "
+                    "crew can't use Teamwork till each PC fills their clock.",
+                    "Locked up or out - The main entrance to your crew's lair is blocked. Now getting in is a score in itself.",
+                    "One for all or all for one - Tell us who you're really working for. If this score is completed and a success, the Development "
+                    "roll gains 1 coin less for the crew. Add that coin to your **secret** stash.",
+                    "Planned to fail or failed to plan - You're not even following Plan B anymore. For the rest of the score, PC flashbacks cost 1 "
+                    "extra stress.",
+                    "Snap it's a trap - Someone you told about the plan has betrayed you completely. It's all a trap. You succeed at this score now "
+                    "if you escape and get revenge. What's your plan?",
+                    "Heat it or beat it - One obstacle or danger you face is bigger, badder, or smarter than you planned for. Add 4 segments to its "
+                    "clock.",
+                    "The Cleaner (Murder or Mayhem) - All those bodies you're racking up? Someone's gotta clean up the mess. The cleaner has "
+                    "discovered one of your secrets, what is it? You're not so hidden anymore. They definitely will blackmail you over it.",
+                    "Snake in the Grass - one of your roster is selling you out to a rival faction. You know Who…. whomever has the most stress "
+                    "after a 6-segment countdown, names the traitor. Tell us and lower your crew's hold by one.",
+                    "Highest Bidder - Another faction offers you a lucrative favor if you sell out a friend or ally (significant NPC or friendly "
+                    "faction) in a significant betrayal.",
+                    "Siren Song - After this action concludes (or at the first opportunity) you must subordinate or abandon the plan to satisfy "
+                    "your vice.",
+                    "Why’d it have to be snakes? - During this action you discover, develop, or reveal a character weakness or phobia that will "
+                    "hinder you in similar situations in the future. Tell us the details and origin of this flaw.",
+                    "In the family way - While you may not have expected or known until now, you are now a parent; Congratulations! Enjoy your new "
+                    "responsibilities while pulling scores.",
+                    "Crossfire - You are mixed up in the middle of a bitter conflict between two parties that are unaffiliated with the present "
+                    "score. (Wait, are you sure they are unaffiliated?)",
+                    "Dissent - One or more of the crew’s gangs begin grumbling and disrespecting you behind your back. Have you ever considered a "
+                    "mutiny in the crew?",
+                    "Blood Runs Thicker than Blade - A key victim of your score turns out to be close kin. Your intel must have missed that. Are "
+                    "you able to follow through with the plan? Will you allow your crew to do so? What will the rest of the family think?",
+                    "A cold shiver - That faction you thought you could trust? They help but then pull the pin. Lose one hold over them."]
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name="Generating random Devil's Bargain")
         embed.add_field(name="Offer: **+1d** on roll in exchange for: ", value=random.choice(bargains), inline=False)
         embed.add_field(name="Random seeds:", value=str(len(bargains)), inline=False)
+        embed.add_field(name="Thanks:", value="Special thanks to all the Bargains suggestions, specially Uncle Aldo’s Devil’s Bargain Emporium.",
+                        inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "score":
