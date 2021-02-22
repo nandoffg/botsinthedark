@@ -290,7 +290,8 @@ async def generate(ctx, option):
         embed.set_author(name="Generating random Devil's Bargain")
         embed.add_field(name="Offer: **+1d** on roll in exchange for: ", value=random.choice(bargains), inline=False)
         embed.add_field(name="Random seeds:", value=str(len(bargains)), inline=False)
-        embed.add_field(name="Thanks:", value="Special thanks to all the Bargains suggestions, specially Uncle Aldo’s Devil’s Bargain Emporium.",
+        embed.add_field(name="Thanks:", value="To all the Bargains suggestions sent by the BitD community, specially Uncle Aldo’s Devil’s Bargain "
+                                              "Emporium.",
                         inline=False)
         await ctx.send(embed=embed)
 
