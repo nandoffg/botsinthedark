@@ -552,7 +552,7 @@ async def generate(ctx, option):
         aliases = ["Mankiller", "The One That Knows", "White Feather", "One Eye", "Longtooth", "Lucky", "Wag", "Curly", "Champion", "Anvil", "Arrow",
                    "Ash", "Axe", "Bell", "Bird", "Blaze", "Brass", "Breaker", "Brick", "Broom", "Bug", "Bull", "Cage", "Cannon", "Chalk", "Cloud",
                    "Coal", "Rex", "Silk", "Silver", "Sky", "Slate", "Smoke", "Sparrow", "Spinner", "Star", "Stick", "Viper", "Beast", "Scar", "Spike"]
-        name = random.choice(names).capitalize() + " **" + random.choice(aliases).capitalize() + "**"
+        name = random.choice(names).capitalize() + ' **"' + random.choice(aliases).capitalize() + '"**'
         characteristics = []
         problem = ""
         x = random.choice(range(1,11))
