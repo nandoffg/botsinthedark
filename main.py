@@ -555,7 +555,7 @@ async def generate(ctx, option):
         name = random.choice(names).capitalize() + ' **"' + random.choice(aliases).capitalize() + '"**'
         characteristics = []
         problem = ""
-        x = random.choice(range(1,11))
+        x = random.choice(range(1, 11))
         if x <= 3:
             problem = "** and suffers from **" + random.choice(problems).lower() + "** problematic behavior."
         else:
@@ -2054,7 +2054,7 @@ async def help(ctx, *command_helper):
         embed.add_field(name='=generate or =g', value='''\nUsage: `=g <argument>`\n
                                                 ''', inline=False)
         embed.add_field(name='<argument>',
-                        value='\nValid arguments are: street, building, people, leviathan, demon, ghost, horror, fgod, score, bargain,'
+                        value='\nValid arguments are: street, building, people, leviathan, demon, ghost, horror, fgod, dog, score, bargain,'
                               'food, drink, weather.',
                         inline=False)
         embed.add_field(name='Examples:', value='''`=generate street`
@@ -2066,7 +2066,7 @@ async def help(ctx, *command_helper):
                                                     `=generate score`
                                                     Generates a random score opportunity with several details about it.
                                                     
-                                                    If you don't like one thing about the generated thing, generate another and go with a mix of both.
+                                                    If you don't like one detail about the generated thing, generate another and go with a mix of both.
                                                     '''
                         , inline=True)
         await ctx.send(embed=embed)
