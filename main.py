@@ -515,6 +515,74 @@ async def generate(ctx, option):
         embed.add_field(name="Random seeds:", value=str(total), inline=False)
         await ctx.send(embed=embed)
 
+    elif opt == "dog":
+        breed = ["foxhound", "beagle", "basset hound", "basenji", "coonhound", "bloodhound", "daschund", "deerhound", "wolfhound", "saluki",
+                 "greyhound", "pit bull", "bull terrier", "shar pei", "mastiff", "bordeaux dog", "mutt", "cur", "mixed-breed",
+                 "staffordshire terrier", "scottish terrier", "wire fox terrier", "yorkshire terrier", "boston terrier", "airedale terrier",
+                 "jack russel terrier", "lapdog", "pekingese", "pug", "chihuahua", "pomeranian", "shih tzu", "miniature pinscher",
+                 "bichon", "poodle", "spaniel", "mountain dog", "boxer", "husky", "great dane", "st. bernard", "cattle dog", "border collie",
+                 "corgi", "doberman pinscher", "german shepherd", "german alsatian", "rottweiler", "bulldog", "bullmastiff", "tosa inu",
+                 "water spaniel", "cocker spaniel", "german shorthaired pointer", "golden retriever", "red and white setter", "labrador",
+                 "pointer", "weimaraner"]
+
+        vices = ["a good belly scratch", "a warm home", "its human family affection", "going to strange places", "consorting with spirits,",
+                 "talking to ravens", "walks", "runs", "fighting", "food", "to drink", "mating", "serving its human family", "serving on its job",
+                 "serving a cause", "ostentatious display", "a fine silk pillow", "an expensive collar", "grooming"]
+
+        problems = ["human aggresion", "dog aggresion", "compulsive barking", "begging", "chewing", "digging", "chasing", "anxiety",
+                    "submissive urination"]
+
+        coat = ["brown", "red", "gold", "yellow", "cream", "Black", "Blue", "Gray", "White", "Black-And-Tan", "Bicolor", "Tricolor", "Merle",
+                "Tuxedo", "Harlequin", "Spotted", "Brindle", "Saddle", "Sable"]
+
+        coat_2 = ["Long", "Short", "Curly", "Mangy", 'Patchy', "Sleek", "Shiny", "Smooth", "Wiry", "Hairless"]
+
+        size = ["huge", "Big", "Medium", "Small", "Minuscule"]
+        description = ["Athletic", "Muscular", "Soft", "Slobbery", "Handsome", "Delicate", "Fierce", "Brooding", "Hunched", "Languid", "Striking",
+                       "Twitchy", "Weathered", "Gaunt", "Scarred", "Friendly", "Dopey", "Bright"]
+
+        names = ["Rolf", "Hooch", "Beasley", "Frank", "Bottomley", "Potts", "Morse", "Muffin", "Blitzer", "Maloney", "Krumm", "Bear", "Horse",
+                 "Boomer", "Bruiser", "Butch", "Ace", "Arrow", "Bullet", "Blade", "Colt", "Dagger", "Gunner", "Sabre", "Shaggy", "Spot", "Dewey",
+                 "Flealick", "Kavik", "Kiki", "Maggie", "Marley", "Red Dog", "Rowdy", "Rover", "Scud", "Shep", "Wildfire", "Yellow", "Bandit",
+                 "Dodger", "Gelert", "Meathead", "Rusty", "Barkley", "Dashi", "Dinko", "Ding Dong", "Goober", "Mammoth", "Runt", 'Scruffy', "Chips",
+                 "Smoky", "Belka", "Giant George"]
+
+        aliases = ["Mankiller", "The One That Knows", "White Feather", "One Eye", "Longtooth", "Lucky", "Wag", "Curly", "Champion", "Anvil", "Arrow",
+                   "Ash", "Axe", "Bell", "Bird", "Blaze", "Brass", "Breaker", "Brick", "Broom", "Bug", "Bull", "Cage", "Cannon", "Chalk", "Cloud",
+                   "Coal", "Rex", "Silk", "Silver", "Sky", "Slate", "Smoke", "Sparrow", "Spinner", "Star", "Stick", "Viper", "Beast", "Scar", "Spike"]
+
+        name = random.choice(names).capitalize() + " **" + random.choice(aliases).capitalize() + "**"
+
+        characteristics = []
+
+        problem = ""
+
+        for x in range(1, 11):
+            if x <= 3:
+                problem = "** and suffers from **" + random.choice(problems).lower() + "** problematic behavior."
+            else:
+                problem = "**."
+
+        x = 0
+        while x < 2:
+            pick = random.choice(description).lower()
+            if pick not in characteristics:
+                characteristics.append(pick)
+                x += 1
+
+        total = len(breed) * len(aliases) * len(names) * len(description) ^ 3 * len(size) * len(coat) * len(coat_2) * len(problems) * \
+                len(vices)
+
+        phrase = name + " is a " + random.choice(size).lower() + " **" + random.choice(breed).lower() + "**, with " + random.choice(coat).lower() +\
+                 " " + random.choice(coat_2).lower() + " fur. It is **" + characteristics[0] + "**, **" + characteristics[1] + "** and **" + \
+                 characteristics[2] + "**. " + "It enjoys **" + random.choice(vices).lower() + problem
+
+        embed = discord.Embed(colour=discord.Colour.dark_red())
+        embed.set_author(name='Generating random ' + opt)
+        embed.add_field(name="Characteristics", value=phrase, inline=False)
+        embed.add_field(name="Random seeds:", value=str(total), inline=False)
+        await ctx.send(embed=embed)
+
     elif opt == "building":
         material = ["Gray Brick", "Stone & Timbers", "Cut Stone Blocks", "Wooden Boards", "Plaster Board & Timbers", "Metal Sheeting"]
         details = ["Tile Work", "Iron Work", "Glass Work", "Stone Work", "Wood Work", "Landscaping"]
