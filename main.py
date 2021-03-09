@@ -1030,6 +1030,8 @@ async def generate(ctx, option):
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
         embed.add_field(name="Random seeds:", value=str(total), inline=False)
+        embed.add_field(name="Thanks:", value="Special thanks to J. Walton, John Harper and Sean Nittner for making the incredible Leviathan Song "
+                                              "addon for Blades in the Dark possible.", inline=False)
         await ctx.send(embed=embed)
 
 
