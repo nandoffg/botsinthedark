@@ -577,7 +577,7 @@ async def generate(ctx, option):
         embed.add_field(name="Characteristics", value=phrase, inline=False)
         embed.add_field(name="Random seeds:", value=str(total), inline=False)
         embed.add_field(name="Thanks:", value="Special thanks to **Tim Denee @dog_blink** on Twitter, who made the amazing Dogs in the Bark"
-                                              "hack for Blades.", inline=False)
+                                              " hack for Blades.", inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "building":
