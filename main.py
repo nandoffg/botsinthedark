@@ -472,11 +472,11 @@ async def generate(ctx, option):
             if pick not in clothing:
                 clothing.append(pick)
                 x += 1
-        for x in range(1, 11):
-            if x <= 2:
-                prof = random.choice(prof_rare).lower()
-            else:
-                prof = random.choice(prof_comm).lower()
+        x = random.choice(range(1, 11))
+        if x <= 2:
+            prof = random.choice(prof_rare).lower()
+        else:
+            prof = random.choice(prof_comm).lower()
 
         demonic = ''
         herit = random.choice(heritage).lower()
@@ -571,7 +571,6 @@ async def generate(ctx, option):
         phrase = name + " is a " + random.choice(size).lower() + " **" + random.choice(breed).lower() + "**, with " + random.choice(
             coat).lower() + " " + random.choice(coat_2).lower() + " fur. It is **" + characteristics[0] + "**, **" + characteristics[
                      1] + "** and **" + characteristics[2] + "**. " + "It enjoys **" + random.choice(vices).lower() + problem
-        print(phrase)
 
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
