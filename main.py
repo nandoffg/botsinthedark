@@ -516,6 +516,7 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "dog":
+
         breed = ["foxhound", "beagle", "basset hound", "basenji", "coonhound", "bloodhound", "daschund", "deerhound", "wolfhound", "saluki",
                  "greyhound", "pit bull", "bull terrier", "shar pei", "mastiff", "bordeaux dog", "mutt", "cur", "mixed-breed",
                  "staffordshire terrier", "scottish terrier", "wire fox terrier", "yorkshire terrier", "boston terrier", "airedale terrier",
@@ -538,6 +539,7 @@ async def generate(ctx, option):
         coat_2 = ["Long", "Short", "Curly", "Mangy", 'Patchy', "Sleek", "Shiny", "Smooth", "Wiry", "Hairless"]
 
         size = ["huge", "Big", "Medium", "Small", "Minuscule"]
+
         description = ["Athletic", "Muscular", "Soft", "Slobbery", "Handsome", "Delicate", "Fierce", "Brooding", "Hunched", "Languid", "Striking",
                        "Twitchy", "Weathered", "Gaunt", "Scarred", "Friendly", "Dopey", "Bright"]
 
@@ -550,32 +552,26 @@ async def generate(ctx, option):
         aliases = ["Mankiller", "The One That Knows", "White Feather", "One Eye", "Longtooth", "Lucky", "Wag", "Curly", "Champion", "Anvil", "Arrow",
                    "Ash", "Axe", "Bell", "Bird", "Blaze", "Brass", "Breaker", "Brick", "Broom", "Bug", "Bull", "Cage", "Cannon", "Chalk", "Cloud",
                    "Coal", "Rex", "Silk", "Silver", "Sky", "Slate", "Smoke", "Sparrow", "Spinner", "Star", "Stick", "Viper", "Beast", "Scar", "Spike"]
-
         name = random.choice(names).capitalize() + " **" + random.choice(aliases).capitalize() + "**"
-
         characteristics = []
-
         problem = ""
-
-        for x in range(1, 11):
-            if x <= 3:
-                problem = "** and suffers from **" + random.choice(problems).lower() + "** problematic behavior."
-            else:
-                problem = "**."
-
+        x = random.choice(range(1,11))
+        if x <= 3:
+            problem = "** and suffers from **" + random.choice(problems).lower() + "** problematic behavior."
+        else:
+            problem = "**."
         x = 0
-        while x < 2:
+        while x < 3:
             pick = random.choice(description).lower()
             if pick not in characteristics:
                 characteristics.append(pick)
                 x += 1
+        total = len(breed) * len(aliases) * len(names) * len(description) ^ 3 * len(size) * len(coat) * len(coat_2) * len(problems) * len(vices)
 
-        total = len(breed) * len(aliases) * len(names) * len(description) ^ 3 * len(size) * len(coat) * len(coat_2) * len(problems) * \
-                len(vices)
-
-        phrase = name + " is a " + random.choice(size).lower() + " **" + random.choice(breed).lower() + "**, with " + random.choice(coat).lower() +\
-                 " " + random.choice(coat_2).lower() + " fur. It is **" + characteristics[0] + "**, **" + characteristics[1] + "** and **" + \
-                 characteristics[2] + "**. " + "It enjoys **" + random.choice(vices).lower() + problem
+        phrase = name + " is a " + random.choice(size).lower() + " **" + random.choice(breed).lower() + "**, with " + random.choice(
+            coat).lower() + " " + random.choice(coat_2).lower() + " fur. It is **" + characteristics[0] + "**, **" + characteristics[
+                     1] + "** and **" + characteristics[2] + "**. " + "It enjoys **" + random.choice(vices).lower() + problem
+        print(phrase)
 
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
