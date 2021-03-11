@@ -65,7 +65,6 @@ async def on_message(message):
                                                        "demons, scores, people and many others."
                                                        "\nIf you want to back this bot, go [here](www.patreon.com/fernandogomes).", inline=False)
         await message.channel.send(embed=embed)
-        print(message.content)
     else:
         await bot.process_commands(message)
 
