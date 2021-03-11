@@ -4,12 +4,12 @@
 from discord.ext import commands
 import discord
 import random
+import pymongo
 
 # from discord import Status
 # import asyncio
 # import requests
 # from bs4 import BeautifulSoup
-# import pymongo
 # import datetime
 
 print('Starting...')
@@ -21,18 +21,26 @@ bot.remove_command("help")
 token = "NzU0Nzg2OTUyNjc4NjA0OTYy.X150IA.gykEs6J5I5CsOHI6Ix-5ehgzt4c"
 
 
-# print("Trying database connection...")
-# bot.password = "bTqZ1Rr01Y9v2mOh"
-# db_client = pymongo.MongoClient("mongodb+srv://aria-bot:" + bot.password +
-#                                 "@aria-db.txtfq.gcp.mongodb.net/aria-bot-db?retryWrites=true&w=majority")
-# db = db_client.admin
-# serverStatusResult = db.command("serverStatus")
-# mydb = db_client["aria-bot-db"]
-#
-# if db.authenticate("aria-bot", bot.password):
-#     print("Connected to database")
-# else:
-#     print("Failure connecting to the database")
+print("Trying database connection...")
+bot.password = "foBaBiqRG1vLn7QT"
+db_client = pymongo.MongoClient("mongodb+srv://bitd-bot:" + bot.password +
+                                "@bitd.urg7i.mongodb.net/bitd-bot-db?retryWrites=true&w=majority")
+db = db_client.admin
+serverStatusResult = db.command("serverStatus")
+mydb = db_client["bitd-bot-db"]
+
+if db.authenticate("bitd-bot", bot.password):
+    print("Connected to database")
+else:
+    print("Failure connecting to the database")
+
+
+def update_data(collection, _filter, new_data):
+    mydb[collection].replace_one(_filter, new_data)
+
+
+def get_data(collection):
+    return mydb[collection].find_one()
 
 
 @bot.event
@@ -51,13 +59,13 @@ async def on_message(message):
         embed.set_author(name='Hello there scoundrel!')
         embed.add_field(name="Bots in the Dark", value="\nI'm a bot with several useful functions.\nType `=h` or `=help` for more information on the "
                                                        "commands. If you want to add me to your Discord server, go [here]"
-                                                       "(https://discord.com/oauth2/authorize?client_id=754786952678604962&scope=bot&permissions"
-                                                       "=511040) to invite me. "
+                                                       "(https://discord.com/oauth2/authorize?client_id=754786952678604962&scope=bot&permissions=519232) to invite me. "
                                                        "\n\nI'm able to roll dice, spill out Blades rolls results, generate random fictional things "
                                                        "for your game, such as streets, buildings, "
                                                        "demons, scores, people and many others."
                                                        "\nIf you want to back this bot, go [here](www.patreon.com/fernandogomes).", inline=False)
         await message.channel.send(embed=embed)
+        print(message.content)
     else:
         await bot.process_commands(message)
 
@@ -1050,6 +1058,283 @@ async def info(ctx):
     await ctx.send(embed=embed)
 
 
+@bot.command(name="clock", aliases=["c"])
+async def clock(ctx, *title):
+
+    name = ""
+    if title:
+        for i in title:
+            name += i + " "
+    else:
+        name = "Unnamed Clock"
+
+    embed = discord.Embed(colour=discord.Colour.dark_red())
+    embed.set_author(name='New Clock: ' + str(name))
+    embed.add_field(name='Instructions', value='React to this message with the according clock parts amount you want to set up for your'
+                                               ' new clock.', inline=False)
+    embed.set_thumbnail(url='https://cdn3.iconfinder.com/data/icons/times-with-hands/100/TIME-HANDS-9-L-512.png')
+    clock = await ctx.send(embed=embed)
+    clock_id = clock.id
+    await clock.add_reaction('🕓')
+    await clock.add_reaction('🕕')
+    await clock.add_reaction('🕗')
+    # await clock.add_reaction('🕙')
+    await clock.add_reaction('🕛')
+
+    auth_id = str(ctx.message.author.id)
+    users = get_data("clocks")["users"]
+    ids = []
+    new_clock = {'id': str(clock_id), 'parts': str(0), "filled": str(0), "name": str(name)}
+
+    for i in users:
+        ids.append(i["id"])
+
+    if str(auth_id) in ids:
+        data = users
+        clocks = users[ids.index(auth_id)]["clocks"]
+        clocks.append(new_clock)
+        data[ids.index(auth_id)] = ({"id": auth_id, "clocks": clocks})
+        update_data("clocks", get_data("clocks"), {"users": data})
+
+    else:
+        data = users
+        clocks = []
+        clocks.append(new_clock)
+        data.append({'id': auth_id, "clocks": clocks})
+        update_data("clocks", get_data("clocks"), {"users": data})
+
+
+@bot.event
+async def on_raw_reaction_add(payload):
+    user = payload.member
+    reaction = payload.emoji
+    channel = bot.get_channel(payload.channel_id)
+    message = await channel.fetch_message(payload.message_id)
+    embeds = message.embeds
+    if bot.user == user:
+        return
+    data = get_data("clocks")["users"]
+    a_ids = []
+    old_parts = ""
+    old_filled = ""
+    old_name = ""
+    author_id = ""
+    clocks = []
+    c_index = 0
+    clock_message_id = 0
+    for i in data:
+        a_ids.append(i["id"])
+        for j in i["clocks"]:
+            if str(payload.message_id) == j["id"]:
+                clock_message_id = j["id"]
+                old_parts = j["parts"]
+                old_filled = j["filled"]
+                old_name = j["name"]
+                author_id = i["id"]
+                clocks = i["clocks"]
+                break
+            c_index += 1
+
+    if str(payload.message_id) == clock_message_id and not user.bot and str(reaction) in ['🕓', '🕕', '🕗', '🕙', '🕛']:
+        if str(reaction) == '🕓':
+            embed = discord.Embed(colour=discord.Colour.dark_red())
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819602098676826112/blue_4clock_0.png")
+            embed.set_author(name=old_name)
+            embed.add_field(name='4-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
+                                                               ' retrocede it.\n:x: to delete it.', inline=False)
+            await message.edit(embed=embed)
+            changed_entry = {'id': str(payload.message_id), 'parts': str(4), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
+
+        elif str(reaction) == '🕕':
+            embed = discord.Embed(colour=discord.Colour.dark_red())
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611471532654603/blue_6clock_0.png")
+            embed.set_author(name=old_name)
+            embed.add_field(name='6-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
+                                                       ' retrocede it.\n:x: to delete it.', inline=False)
+            await message.edit(embed=embed)
+            changed_entry = {'id': str(payload.message_id), 'parts': str(6), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
+
+        elif str(reaction) == '🕗':
+            embed = discord.Embed(colour=discord.Colour.dark_red())
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611756841140244/blue_8clock_0.png")
+            embed.set_author(name=old_name)
+            embed.add_field(name='8-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
+                                                       ' retrocede it.\n:x: to delete it.', inline=False)
+            await message.edit(embed=embed)
+            changed_entry = {'id': str(payload.message_id), 'parts': str(8), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
+
+        # elif reaction == '🕙':
+        #     embeds.Embed.set_thumbnail(url="")
+
+        elif str(reaction) == '🕛':
+            embed = discord.Embed(colour=discord.Colour.dark_red())
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611828330037258/blue_12clock_0.png")
+            embed.set_author(name=old_name)
+            embed.add_field(name='12-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
+                                                       ' retrocede it.\n:x: to delete it.', inline=False)
+            await message.edit(embed=embed)
+            changed_entry = {'id': str(payload.message_id), 'parts': str(12), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
+
+        await message.clear_reactions()
+        await message.add_reaction("⏩")
+        await message.add_reaction("❌")
+        # await message.add_reaction("✏")
+
+    if str(payload.message_id) == clock_message_id and not user.bot and str(reaction) in ["⏪", "⏩", "❌"]:
+        if str(reaction) in ["⏪", "⏩"]:
+
+            if old_parts == "4":
+                clocks_4 = {
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/819602098676826112/blue_4clock_0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/819698208187351060/blue_4clock_1.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/819698210410725407/blue_4clock_2.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/819698210795946024/blue_4clock_3.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/819698212419010611/blue_4clock_4.png"
+                }
+                if str(reaction) == "⏩":
+                    new_filled = str(int(old_filled)+1)
+                else:
+                    new_filled = str(int(old_filled)-1)
+
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+                update_data("clocks", get_data("clocks"), {"users": data})
+                if new_filled == "0":
+                    await message.clear_reaction("⏪")
+                elif new_filled == old_parts:
+                    await message.clear_reaction("⏩")
+                else:
+                    await message.clear_reactions()
+                    await message.add_reaction("⏪")
+                    await message.add_reaction("⏩")
+                    await message.add_reaction("❌")
+                    # await message.add_reaction("✏")
+
+                embed = embeds[0].set_thumbnail(url=clocks_4[int(new_filled)])
+                await message.edit(embed=embed)
+                await message.remove_reaction(reaction, user)
+
+            if old_parts == "6":
+                clocks_6 = {
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/819611471532654603/blue_6clock_0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/819704454730219550/blue_6clock_1.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/819704454101205025/blue_6clock_2.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/819704455339573388/blue_6clock_3.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/819704457074966548/blue_6clock_4.png",
+                    5: "https://cdn.discordapp.com/attachments/754797920670449785/819704458744823829/blue_6clock_5.png",
+                    6: "https://cdn.discordapp.com/attachments/754797920670449785/819704462745927730/blue_6clock_6.png"
+                }
+                if str(reaction) == "⏩":
+                    new_filled = str(int(old_filled)+1)
+                else:
+                    new_filled = str(int(old_filled)-1)
+
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+                update_data("clocks", get_data("clocks"), {"users": data})
+                if new_filled == "0":
+                    await message.clear_reaction("⏪")
+                elif new_filled == old_parts:
+                    await message.clear_reaction("⏩")
+                else:
+                    await message.clear_reactions()
+                    await message.add_reaction("⏪")
+                    await message.add_reaction("⏩")
+                    await message.add_reaction("❌")
+                    # await message.add_reaction("✏")
+
+                embed = embeds[0].set_thumbnail(url=clocks_6[int(new_filled)])
+                await message.edit(embed=embed)
+                await message.remove_reaction(reaction, user)
+
+            if old_parts == "8":
+                clocks_8 = {
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/819705954194685972/blue_8clock_0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/819705956073603072/blue_8clock_1.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/819705957587877958/blue_8clock_2.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/819705958774603791/blue_8clock_3.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/819705960536342538/blue_8clock_4.png",
+                    5: "https://cdn.discordapp.com/attachments/754797920670449785/819705960963768370/blue_8clock_5.png",
+                    6: "https://cdn.discordapp.com/attachments/754797920670449785/819705962063331389/blue_8clock_6.png",
+                    7: "https://cdn.discordapp.com/attachments/754797920670449785/819705963875532840/blue_8clock_7.png",
+                    8: "https://cdn.discordapp.com/attachments/754797920670449785/819705964914933841/blue_8clock_8.png"
+                }
+                if str(reaction) == "⏩":
+                    new_filled = str(int(old_filled)+1)
+                else:
+                    new_filled = str(int(old_filled)-1)
+
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+                update_data("clocks", get_data("clocks"), {"users": data})
+                if new_filled == "0":
+                    await message.clear_reaction("⏪")
+                elif new_filled == old_parts:
+                    await message.clear_reaction("⏩")
+                else:
+                    await message.clear_reactions()
+                    await message.add_reaction("⏪")
+                    await message.add_reaction("⏩")
+                    await message.add_reaction("❌")
+                    # await message.add_reaction("✏")
+
+                embed = embeds[0].set_thumbnail(url=clocks_8[int(new_filled)])
+                await message.edit(embed=embed)
+                await message.remove_reaction(reaction, user)
+
+            if old_parts == "12":
+                clocks_12 = {
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/819706340502929428/blue_12clock_0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/819706344596045864/blue_12clock_1.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/819706350208417814/blue_12clock_2.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/819706352775462912/blue_12clock_3.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/819706355937312780/blue_12clock_4.png",
+                    5: "https://cdn.discordapp.com/attachments/754797920670449785/819706359036510208/blue_12clock_5.png",
+                    6: "https://cdn.discordapp.com/attachments/754797920670449785/819706363629535252/blue_12clock_6.png",
+                    7: "https://cdn.discordapp.com/attachments/754797920670449785/819706366691115028/blue_12clock_7.png",
+                    8: "https://cdn.discordapp.com/attachments/754797920670449785/819706370101477386/blue_12clock_8.png",
+                    9: "https://cdn.discordapp.com/attachments/754797920670449785/819706373326766090/blue_12clock_9.png",
+                    10: "https://cdn.discordapp.com/attachments/754797920670449785/819706443716100126/blue_12clock_10.png",
+                    11: "https://cdn.discordapp.com/attachments/754797920670449785/819706446904033381/blue_12clock_11.png",
+                    12: "https://cdn.discordapp.com/attachments/754797920670449785/819706405543608340/blue_12clock_12.png"
+                }
+                if str(reaction) == "⏩":
+                    new_filled = str(int(old_filled)+1)
+                else:
+                    new_filled = str(int(old_filled)-1)
+
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+                update_data("clocks", get_data("clocks"), {"users": data})
+                if new_filled == "0":
+                    await message.clear_reaction("⏪")
+                elif new_filled == old_parts:
+                    await message.clear_reaction("⏩")
+                else:
+                    await message.clear_reactions()
+                    await message.add_reaction("⏪")
+                    await message.add_reaction("⏩")
+                    await message.add_reaction("❌")
+                    # await message.add_reaction("✏")
+
+                embed = embeds[0].set_thumbnail(url=clocks_12[int(new_filled)])
+                await message.edit(embed=embed)
+                await message.remove_reaction(reaction, user)
+
+        elif str(reaction) == "❌":
+            await message.delete()
+            data[a_ids.index(author_id)]["clocks"].pop(c_index)
+            update_data("clocks", get_data("clocks"), {"users": data})
+
+
 @bot.command(name="find", aliases=["f"])
 async def lookup(ctx, query):
     q = query.lower()
@@ -2026,6 +2311,7 @@ async def help(ctx, *command_helper):
                         inline=False)
         embed.add_field(name='\nBots in the Dark', value='**Commands:**\n', inline=False)
         embed.add_field(name='=blade or =b', value='Makes a Blades in the Dark dice roll.', inline=False)
+        embed.add_field(name='=clock or =c', value="Create and manage progress clocks.", inline=False)
         embed.add_field(name='=generate or =g', value="Generates a random thing in the fiction.", inline=False)
         embed.add_field(name='=find or =f', value="Displays information on what you search.", inline=False)
         embed.add_field(name='=roll or =r', value="Makes a generic dice roll.", inline=False)
@@ -2049,6 +2335,24 @@ async def help(ctx, *command_helper):
                                                     Rolls 3 dice and keep the highest as a resistance roll and calculate the amount of stress taken.
                                                     `=b r0`
                                                     Rolls 2 dice and keep the lowest as a resistance roll and calculate the amount of stress taken.'''
+                        , inline=True)
+        await ctx.send(embed=embed)
+
+    elif command_helper[0].lower() == "clock" or command_helper[0].lower() == "c":
+        embed = discord.Embed(colour=discord.Colour.darker_grey())
+        embed.set_author(name='HELP')
+        embed.add_field(name='=clock or =c', value='''\nUsage: `=c <name>`\n
+                                                ''', inline=False)
+        embed.add_field(name='<name>', value='''\nCreates a generic clock with <name> as a title. This name can have multiple words.
+        After creation, you'll be able to manage the new clock via Reactions.
+        First, pick how many parts your clock might have and then start advancing :fast_forward: or retroceding :rewind: it as you see fit.
+        When done, you can dismiss the clock clicking the :x:.''',
+                        inline=False)
+        embed.add_field(name='Examples:', value='''`=c`
+                                                    Creates an unnamed clock.
+                                                    `=c Red Sashes are eliminated`
+                                                    Creates a clock named "Red Sashes are eliminated"
+                                                    '''
                         , inline=True)
         await ctx.send(embed=embed)
 
@@ -2125,20 +2429,20 @@ async def help(ctx, *command_helper):
 @bot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.MissingRequiredArgument):
-        embed = discord.Embed(colour=discord.Colour.darker_grey())
+        embed = discord.Embed(colour=discord.Colour.dark_grey())
         embed.set_author(name='ERROR')
         embed.add_field(name="Syntax error",
                         value='**Missing Argument.**  :x:\n"' + ctx.message.content + '"', inline=False)
         await ctx.send(embed=embed)
     if isinstance(error, discord.InvalidArgument):
-        embed = discord.Embed(colour=discord.Colour.darker_grey())
+        embed = discord.Embed(colour=discord.Colour.dark_grey())
         embed.set_author(name='ERROR')
         embed.add_field(name="Syntax error",
                         value='**Invalid argument or argument type.**  :x:\n"' + ctx.message.content + '"',
                         inline=False)
         await ctx.send(embed=embed)
     if isinstance(error, commands.CommandNotFound):
-        embed = discord.Embed(colour=discord.Colour.darker_grey())
+        embed = discord.Embed(colour=discord.Colour.dark_grey())
         embed.set_author(name='ERROR')
         embed.add_field(name="Syntax error",
                         value='**Invalid command.**  :x:\n"' + ctx.message.content + '"',
@@ -2147,3 +2451,36 @@ async def on_command_error(ctx, error):
 
 
 bot.run(token)
+
+
+
+
+
+
+# auth_id = str(ctx.message.author.id)
+#         users = get_data("clocks")["users"]
+#         ids = []
+#         new_clock = {'parts': str(name[1]), "filled": str(0), "name": str(name[0])}
+#
+#         for i in users:
+#             ids.append(i["id"])
+#
+#         if str(auth_id) in ids:
+#             data = users
+#             print(data)
+#             clocks = users[ids.index(auth_id)]["clocks"]
+#             print(clocks)
+#             clocks.append(new_clock)
+#             print(clocks)
+#             data[ids.index(auth_id)] = ({"id": auth_id, "clocks": clocks})
+#             print(data[ids.index(auth_id)])
+#             update_data("clocks", get_data("clocks"), {"users": data})
+#
+#         else:
+#             data = users
+#             print(data)
+#             clocks = new_clock
+#             print(clocks)
+#             data.append({'id': auth_id, "clocks": clocks})
+#             print(data)
+#             update_data("clocks", get_data("clocks"), {"users": data})
