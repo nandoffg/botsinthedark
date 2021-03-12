@@ -1136,51 +1136,52 @@ async def on_raw_reaction_add(payload):
 
     if str(payload.message_id) == clock_message_id and not user.bot and str(reaction) in ['🕓', '🕕', '🕗', '🕙', '🕛']:
         if str(reaction) == '🕓':
+            changed_entry = {'id': str(payload.message_id), 'parts': str(4), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
             embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819602098676826112/blue_4clock_0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='4-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                                ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
-            changed_entry = {'id': str(payload.message_id), 'parts': str(4), "filled": old_filled, "name": old_name}
-            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
-            update_data("clocks", get_data("clocks"), {"users": data})
 
         elif str(reaction) == '🕕':
+            changed_entry = {'id': str(payload.message_id), 'parts': str(6), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
             embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611471532654603/blue_6clock_0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='6-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
-            changed_entry = {'id': str(payload.message_id), 'parts': str(6), "filled": old_filled, "name": old_name}
-            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
-            update_data("clocks", get_data("clocks"), {"users": data})
 
         elif str(reaction) == '🕗':
+            changed_entry = {'id': str(payload.message_id), 'parts': str(8), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
             embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611756841140244/blue_8clock_0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='8-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
-            changed_entry = {'id': str(payload.message_id), 'parts': str(8), "filled": old_filled, "name": old_name}
-            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
-            update_data("clocks", get_data("clocks"), {"users": data})
+
 
         # elif reaction == '🕙':
         #     embeds.Embed.set_thumbnail(url="")
 
         elif str(reaction) == '🕛':
+            changed_entry = {'id': str(payload.message_id), 'parts': str(12), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
             embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611828330037258/blue_12clock_0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='12-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
-            changed_entry = {'id': str(payload.message_id), 'parts': str(12), "filled": old_filled, "name": old_name}
-            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
-            update_data("clocks", get_data("clocks"), {"users": data})
 
         await message.clear_reactions()
         await message.add_reaction("⏩")
