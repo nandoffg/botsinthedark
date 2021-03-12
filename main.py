@@ -1121,20 +1121,22 @@ async def on_raw_reaction_add(payload):
     clocks = []
     c_index = 0
     clock_message_id = 0
-    for i in data:
-        a_ids.append(i["id"])
-        for j in i["clocks"]:
-            if str(payload.message_id) == j["id"]:
-                clock_message_id = j["id"]
-                old_parts = j["parts"]
-                old_filled = j["filled"]
-                old_name = j["name"]
-                author_id = i["id"]
-                clocks = i["clocks"]
+    for u in data:
+        a_ids.append(u["id"])
+        for clock in u["clocks"]:
+            if str(payload.message_id) == clock["id"]:
+                c_index = u["clocks"].index(clock)
+                clock_message_id = clock["id"]
+                old_parts = clock["parts"]
+                old_filled = clock["filled"]
+                old_name = clock["name"]
+                author_id = u["id"]
+                clocks = u["clocks"]
                 break
-            c_index += 1
+            # c_index += 1
 
     if str(payload.message_id) == clock_message_id and not user.bot and str(reaction) in ['🕓', '🕕', '🕗', '🕙', '🕛']:
+
         if str(reaction) == '🕓':
             changed_entry = {'id': str(payload.message_id), 'parts': str(4), "filled": old_filled, "name": old_name}
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
