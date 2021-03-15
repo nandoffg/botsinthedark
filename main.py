@@ -1077,7 +1077,7 @@ async def clock(ctx, *title):
     await clock.add_reaction('🕓')
     await clock.add_reaction('🕕')
     await clock.add_reaction('🕗')
-    # await clock.add_reaction('🕙')
+    await clock.add_reaction('🕙')
     await clock.add_reaction('🕛')
 
     auth_id = str(ctx.message.author.id)
@@ -1142,7 +1142,7 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819602098676826112/blue_4clock_0.png")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/820831427758915634/posicao-0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='4-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                                ' retrocede it.\n:x: to delete it.', inline=False)
@@ -1153,7 +1153,7 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611471532654603/blue_6clock_0.png")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/820832158200365056/relogio-posicao-0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='6-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
@@ -1164,22 +1164,29 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611756841140244/blue_8clock_0.png")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/820832555720769536/posicao_0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='8-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
 
-
-        # elif reaction == '🕙':
-        #     embeds.Embed.set_thumbnail(url="")
+        elif reaction == '🕙':
+            changed_entry = {'id': str(payload.message_id), 'parts': str(10), "filled": old_filled, "name": old_name}
+            data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+            update_data("clocks", get_data("clocks"), {"users": data})
+            embed = discord.Embed(colour=discord.Colour.dark_red())
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/820832555720769536/posicao_0.png")
+            embed.set_author(name=old_name)
+            embed.add_field(name='10-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
+                                                       ' retrocede it.\n:x: to delete it.', inline=False)
+            await message.edit(embed=embed)
 
         elif str(reaction) == '🕛':
             changed_entry = {'id': str(payload.message_id), 'parts': str(12), "filled": old_filled, "name": old_name}
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/819611828330037258/blue_12clock_0.png")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/820832555720769536/posicao_0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='12-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
@@ -1195,11 +1202,11 @@ async def on_raw_reaction_add(payload):
 
             if old_parts == "4":
                 clocks_4 = {
-                    0: "https://cdn.discordapp.com/attachments/754797920670449785/819602098676826112/blue_4clock_0.png",
-                    1: "https://cdn.discordapp.com/attachments/754797920670449785/819698208187351060/blue_4clock_1.png",
-                    2: "https://cdn.discordapp.com/attachments/754797920670449785/819698210410725407/blue_4clock_2.png",
-                    3: "https://cdn.discordapp.com/attachments/754797920670449785/819698210795946024/blue_4clock_3.png",
-                    4: "https://cdn.discordapp.com/attachments/754797920670449785/819698212419010611/blue_4clock_4.png"
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/820831427758915634/posicao-0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/820831430547865640/posicao-1-vetorizada.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/820831434045784104/posicao-2-vetorizada.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/820831437669269504/posicao-3-vetorizada.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/820831440966516786/posicao-4-vetorizada.png"
                 }
                 if str(reaction) == "⏩":
                     new_filled = str(int(old_filled)+1)
@@ -1226,13 +1233,13 @@ async def on_raw_reaction_add(payload):
 
             if old_parts == "6":
                 clocks_6 = {
-                    0: "https://cdn.discordapp.com/attachments/754797920670449785/819611471532654603/blue_6clock_0.png",
-                    1: "https://cdn.discordapp.com/attachments/754797920670449785/819704454730219550/blue_6clock_1.png",
-                    2: "https://cdn.discordapp.com/attachments/754797920670449785/819704454101205025/blue_6clock_2.png",
-                    3: "https://cdn.discordapp.com/attachments/754797920670449785/819704455339573388/blue_6clock_3.png",
-                    4: "https://cdn.discordapp.com/attachments/754797920670449785/819704457074966548/blue_6clock_4.png",
-                    5: "https://cdn.discordapp.com/attachments/754797920670449785/819704458744823829/blue_6clock_5.png",
-                    6: "https://cdn.discordapp.com/attachments/754797920670449785/819704462745927730/blue_6clock_6.png"
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/820832158200365056/relogio-posicao-0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/820832159967084595/relogio-posicao-1vetorizado.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/820832162663890964/relogio-posicao-2vetorizado.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/820832165323210822/relogio-posicao-3vetorizado.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/820832167528759317/relogio-posicao-4vetorizado.png",
+                    5: "https://cdn.discordapp.com/attachments/754797920670449785/820832169584492584/relogio-posicao-5-vetorizado.png",
+                    6: "https://cdn.discordapp.com/attachments/754797920670449785/820832172055068682/relogio-posicao-6vetorizado.png"
                 }
                 if str(reaction) == "⏩":
                     new_filled = str(int(old_filled)+1)
@@ -1259,15 +1266,15 @@ async def on_raw_reaction_add(payload):
 
             if old_parts == "8":
                 clocks_8 = {
-                    0: "https://cdn.discordapp.com/attachments/754797920670449785/819705954194685972/blue_8clock_0.png",
-                    1: "https://cdn.discordapp.com/attachments/754797920670449785/819705956073603072/blue_8clock_1.png",
-                    2: "https://cdn.discordapp.com/attachments/754797920670449785/819705957587877958/blue_8clock_2.png",
-                    3: "https://cdn.discordapp.com/attachments/754797920670449785/819705958774603791/blue_8clock_3.png",
-                    4: "https://cdn.discordapp.com/attachments/754797920670449785/819705960536342538/blue_8clock_4.png",
-                    5: "https://cdn.discordapp.com/attachments/754797920670449785/819705960963768370/blue_8clock_5.png",
-                    6: "https://cdn.discordapp.com/attachments/754797920670449785/819705962063331389/blue_8clock_6.png",
-                    7: "https://cdn.discordapp.com/attachments/754797920670449785/819705963875532840/blue_8clock_7.png",
-                    8: "https://cdn.discordapp.com/attachments/754797920670449785/819705964914933841/blue_8clock_8.png"
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/820832555720769536/posicao_0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/820832558220443678/posicao_1.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/820832561156456478/posicao_2.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/820832564214366208/posicao_3.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/820832567062167602/posicao_4.png",
+                    5: "https://cdn.discordapp.com/attachments/754797920670449785/820832569398394921/posicao_5.png",
+                    6: "https://cdn.discordapp.com/attachments/754797920670449785/820832571343503451/posicao_6.png",
+                    7: "https://cdn.discordapp.com/attachments/754797920670449785/820832574603395102/posicao_7.png",
+                    8: "https://cdn.discordapp.com/attachments/754797920670449785/820832576817594398/posicao_8.png"
                 }
                 if str(reaction) == "⏩":
                     new_filled = str(int(old_filled)+1)
@@ -1292,21 +1299,58 @@ async def on_raw_reaction_add(payload):
                 await message.edit(embed=embed)
                 await message.remove_reaction(reaction, user)
 
+            if old_parts == "10":
+                clocks_10 = {
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/820832555720769536/posicao_0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/820833354085433374/posicao_1_1.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/820833355507564574/posicao_2_1.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/820833356903481384/posicao_3_1.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/820833358199783434/posicao_4_1.png",
+                    5: "https://cdn.discordapp.com/attachments/754797920670449785/820833359403810816/posicao_5_1.png",
+                    6: "https://cdn.discordapp.com/attachments/754797920670449785/820833361013637130/posicao_6_1.png",
+                    7: "https://cdn.discordapp.com/attachments/754797920670449785/820833362343624755/posicao_7_1.png",
+                    8: "https://cdn.discordapp.com/attachments/754797920670449785/820833363849117747/posicao_8_1.png",
+                    9: "https://cdn.discordapp.com/attachments/754797920670449785/820833365753069579/posicao_9.png",
+                    10: "https://cdn.discordapp.com/attachments/754797920670449785/820833366987243520/posicao-10.png"
+                }
+                if str(reaction) == "⏩":
+                    new_filled = str(int(old_filled)+1)
+                else:
+                    new_filled = str(int(old_filled)-1)
+
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
+                update_data("clocks", get_data("clocks"), {"users": data})
+                if new_filled == "0":
+                    await message.clear_reaction("⏪")
+                elif new_filled == old_parts:
+                    await message.clear_reaction("⏩")
+                else:
+                    await message.clear_reactions()
+                    await message.add_reaction("⏪")
+                    await message.add_reaction("⏩")
+                    await message.add_reaction("❌")
+                    # await message.add_reaction("✏")
+
+                embed = embeds[0].set_thumbnail(url=clocks_10[int(new_filled)])
+                await message.edit(embed=embed)
+                await message.remove_reaction(reaction, user)
+
             if old_parts == "12":
                 clocks_12 = {
-                    0: "https://cdn.discordapp.com/attachments/754797920670449785/819706340502929428/blue_12clock_0.png",
-                    1: "https://cdn.discordapp.com/attachments/754797920670449785/819706344596045864/blue_12clock_1.png",
-                    2: "https://cdn.discordapp.com/attachments/754797920670449785/819706350208417814/blue_12clock_2.png",
-                    3: "https://cdn.discordapp.com/attachments/754797920670449785/819706352775462912/blue_12clock_3.png",
-                    4: "https://cdn.discordapp.com/attachments/754797920670449785/819706355937312780/blue_12clock_4.png",
-                    5: "https://cdn.discordapp.com/attachments/754797920670449785/819706359036510208/blue_12clock_5.png",
-                    6: "https://cdn.discordapp.com/attachments/754797920670449785/819706363629535252/blue_12clock_6.png",
-                    7: "https://cdn.discordapp.com/attachments/754797920670449785/819706366691115028/blue_12clock_7.png",
-                    8: "https://cdn.discordapp.com/attachments/754797920670449785/819706370101477386/blue_12clock_8.png",
-                    9: "https://cdn.discordapp.com/attachments/754797920670449785/819706373326766090/blue_12clock_9.png",
-                    10: "https://cdn.discordapp.com/attachments/754797920670449785/819706443716100126/blue_12clock_10.png",
-                    11: "https://cdn.discordapp.com/attachments/754797920670449785/819706446904033381/blue_12clock_11.png",
-                    12: "https://cdn.discordapp.com/attachments/754797920670449785/819706405543608340/blue_12clock_12.png"
+                    0: "https://cdn.discordapp.com/attachments/754797920670449785/820832555720769536/posicao_0.png",
+                    1: "https://cdn.discordapp.com/attachments/754797920670449785/820834095668002876/posicao-1.png",
+                    2: "https://cdn.discordapp.com/attachments/754797920670449785/820834097504190494/posicao-2.png",
+                    3: "https://cdn.discordapp.com/attachments/754797920670449785/820834101224538163/posicao-3.png",
+                    4: "https://cdn.discordapp.com/attachments/754797920670449785/820834101418393670/posicao-4.png",
+                    5: "https://cdn.discordapp.com/attachments/754797920670449785/820834103430873119/posicao-5.png",
+                    6: "https://cdn.discordapp.com/attachments/754797920670449785/820834106023608320/posicao-6.png",
+                    7: "https://cdn.discordapp.com/attachments/754797920670449785/820835340692619304/posicao-7.png",
+                    8: "https://cdn.discordapp.com/attachments/754797920670449785/820834106911752212/posicao-7.png",
+                    9: "https://cdn.discordapp.com/attachments/754797920670449785/820834110439555082/posicao-9.png",
+                    10: "https://cdn.discordapp.com/attachments/754797920670449785/820834112037584936/posicao-10_1.png",
+                    11: "https://cdn.discordapp.com/attachments/754797920670449785/820834140249128970/posicao-11.png",
+                    12: "https://cdn.discordapp.com/attachments/754797920670449785/820834919424196608/posicao-12.png"
                 }
                 if str(reaction) == "⏩":
                     new_filled = str(int(old_filled)+1)
