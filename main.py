@@ -1170,7 +1170,7 @@ async def on_raw_reaction_add(payload):
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
 
-        elif reaction == '🕙':
+        elif str(reaction) == '🕙':
             changed_entry = {'id': str(payload.message_id), 'parts': str(10), "filled": old_filled, "name": old_name}
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
