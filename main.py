@@ -1142,7 +1142,7 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/820831427758915634/posicao-0.png")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/819725081075908648/821148629532147732/0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='4-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                                ' retrocede it.\n:x: to delete it.', inline=False)
@@ -1202,11 +1202,11 @@ async def on_raw_reaction_add(payload):
 
             if old_parts == "4":
                 clocks_4 = {
-                    0: "https://cdn.discordapp.com/attachments/754797920670449785/820831427758915634/posicao-0.png",
-                    1: "https://cdn.discordapp.com/attachments/754797920670449785/820831430547865640/posicao-1-vetorizada.png",
-                    2: "https://cdn.discordapp.com/attachments/754797920670449785/820831434045784104/posicao-2-vetorizada.png",
-                    3: "https://cdn.discordapp.com/attachments/754797920670449785/820831437669269504/posicao-3-vetorizada.png",
-                    4: "https://cdn.discordapp.com/attachments/754797920670449785/820831440966516786/posicao-4-vetorizada.png"
+                    0: "https://cdn.discordapp.com/attachments/819725081075908648/821148629532147732/0.png",
+                    1: "https://cdn.discordapp.com/attachments/819725081075908648/821148631427842099/1.png",
+                    2: "https://cdn.discordapp.com/attachments/819725081075908648/821148634049282058/2.png",
+                    3: "https://cdn.discordapp.com/attachments/819725081075908648/821148635789656074/3.png",
+                    4: "https://cdn.discordapp.com/attachments/819725081075908648/821148637761503252/4.png"
                 }
                 if str(reaction) == "⏩":
                     new_filled = str(int(old_filled)+1)
