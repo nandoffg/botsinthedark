@@ -14,8 +14,7 @@ import randomName
 # import datetime
 
 print('Starting...')
-intents = discord.Intents.default()
-# intents.members = True
+intents = discord.Intents(messages=True, guilds=True)
 client = discord.Client()
 bot = commands.Bot(command_prefix='=', intents=intents)
 bot.remove_command("help")
@@ -48,9 +47,11 @@ def get_data(collection):
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
-    bot.owner = bot.get_user(115581181017194500)
-    dm_c = await bot.owner.create_dm()
-    await dm_c.send("Bot restarted.")
+    bot.owner = bot.fetch_user(115581181017194500)
+    print(bot.owner)
+    print(type(bot.owner))
+    # dm_c = await bot.owner.create_dm()
+    # await dm_c.send("Bot restarted.")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name='=help'))
 
 
@@ -1319,7 +1320,8 @@ async def generate(ctx, option):
                               "addon for Blades in the Dark possible.", inline=False)
         await ctx.send(embed=embed)
 
-    elif opt == "npc" and ctx.message.author == bot.get_user(115581181017194500):
+    elif opt == "npc" and ctx.message.author.id == 115581181017194500:
+
         looks = ["Large", "Lovely", "Weathered", "Chiseled", "Handsome", "Athletic", "Slim", "Dark", "Fair", "Stout",
                  "Delicate", "Scarred", "Bony",
                  "Worn", "Rough", "Plump", "Wiry", "Striking", "Short", "Tall", "Sexy", "Wild", "Elegant", "Stooped",
@@ -1332,11 +1334,6 @@ async def generate(ctx, option):
                  "human", "human", "human", "dragonborn", "changeling", "gnome", "kalashtar", "shifter", "warforged",
                  "human", "human", "human", "human", "human", "human", "human", "genasi", "goliath", "firbolg",
                  "goblin", "hobgoblin", "bugbear", "orc", "yuan-ti", "tortle", "gith"]
-
-        demo_trait = []
-
-        type_of_person = ["man", "man", "woman", "woman", "man", "man", "woman", "woman", "ambiguous gender person",
-                          "concealed gender person"]
 
         goals = ["Wealth", "Power", "Authority", "Prestige", "Fame", "Control", "Knowledge", "Pleasure", "Revenge",
                  "Freedom", "Achievement", "Happiness", "Infamy", "Fear", "Respect", "Love", "Change", "Chaos",
@@ -1371,12 +1368,12 @@ async def generate(ctx, option):
                      "Captain", "Bard", "Journalist", "Explorer", "Rogue", "Soldier", "Druid", "Fighter", "Paladin",
                      "Ranger", "Warlock", "Sorcerer",]
 
-        style = ["distinctive jewelry: earrings, necklace, circlet, bracelets, piercings", "flamboyant clothes",
-                 "outlandish clothes", "formal, clean clothes", "ragged, dirty clothes", "pronounced scar",
-                 "missing teeth", "missing fingers", "unusual eye color", "two different colors", "tattoos",
-                 "birthmark", "unusual skin color", "bald", "braided beard", "braided hair", "unusual hair color",
-                 "nervous eye twitch", "distinctive nose", "distinctive posture", "exceptionally beautiful",
-                 "exceptionally ugly"]
+        style = ["come in distinctive jewelry: earrings, necklace, circlet, bracelets, piercings", "come in flamboyant clothes",
+                 "come in outlandish clothes", "come in formal, clean clothes", "come in ragged, dirty clothes", "have a pronounced scar",
+                 "have missing teeth", "have missing fingers", "have an unusual eye color", "have two different colors", "have tattoos",
+                 "have a birthmark", "have unusual skin color", "are bald", "have braided beard", "have braided hair", "have unusual hair color",
+                 "have a nervous eye twitch", "have a distinctive nose", "have a distinctive posture", "are exceptionally beautiful",
+                 "are exceptionally ugly"]
 
         traits = ["charming", "cold", "cavalier", "brash", "suspicious", "obsessive", "shrewd", "quiet", "moody",
                   "fierce", "careless",
@@ -1390,8 +1387,7 @@ async def generate(ctx, option):
                      "Fine arts, opera, theater",
                      "Painting, drawing, sculpture", "History, legends", "Architecture, furnishings",
                      "Poetry, novels, writing",
-                     "Pit-fighting, duels", "Forgotten gods", "Church of Ecstasy", "Path of Echoes",
-                     "Weeping Lady, charity",
+                     "Pit-fighting, duels", "Gods",
                      "Antiques, artifacts, curios", "Horses, riding", "Gadgets, new technology", "Weapons collector",
                      "Music, instruments, dance",
                      "Hunting, shooting", "Cooking, gardening", "Gambling, cards, dice", "Natural philosophy",
@@ -1400,7 +1396,7 @@ async def generate(ctx, option):
                      "Pets (birds, dogs, cats)",
                      "Craft (leatherwork, etc.)", "Ships, boating", "Politics, journalism", "Arcane books, rituals",
                      "Alchemy, medicine",
-                     "Essences, alchemy", "Demon lore legends", "Pre-cataclysm legends"]
+                     "Essences, alchemy", "Ancient lore legends", "Magical legends"]
         abilities = [
             "Strength - powerful, brawny, strong as an ox", "Dexterity - lithe, agile, graceful",
             "Constitution - hardy, hale, healthy", "Intelligence - studious, learned, inquisitive",
@@ -1429,10 +1425,8 @@ async def generate(ctx, option):
                   "Cursed, haunted, harassed by spirits or the alike", "Visionary. Holds radical views for future",
                   "Bigoted against culture / belief / social class", "Spotless reputation. Highly regarded",
                   "Scandalous reputation (deserved or not)", ]
-
         name = randomName.MName()
         name = name.new()
-
         clothing = []
         x = 0
         while x < 2:
@@ -1445,16 +1439,12 @@ async def generate(ctx, option):
             prof = random.choice(prof_rare).lower()
         else:
             prof = random.choice(prof_comm).lower()
-
         race = random.choice(races).lower()
-        phrase = name + " is a **" + random.choice(traits) + "**, **" + random.choice(
-            looks).lower() + "**, " + race + " " + \
-                 ". That is a **" + prof + "** that yearns for **" + random.choice(goals).lower() + "** through **" + \
-                 random.choice(preferred_methods).lower() + "**. They come in **" + clothing[0] + "** and **" + \
-                 clothing[1] + \
-                 "** and are interested in **" + random.choice(interests).lower() + "**. \n" + random.choice(
-            quirks) + ". \n" + abilities
-
+        phrase = name + " is a **" + random.choice(traits).lower() + "**, **" + random.choice(looks).lower() + "**, " + race + \
+                 ". " + "That is a **" + prof + "** that yearns for **" + random.choice(goals).lower() + "** through **"\
+                 + random.choice(preferred_methods).lower() + "**. They **" + clothing[0] + "** and **" + \
+                 clothing[1] + "** and are interested in **" + random.choice(interests).lower() + "**. \n" + \
+                 random.choice(quirks) + ". \n" + random.choice(abilities) + "."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
