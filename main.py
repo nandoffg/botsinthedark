@@ -14,7 +14,7 @@ import randomName
 # import datetime
 
 print('Starting...')
-intents = discord.Intents(members=True)
+intents = discord.Intents.all()
 client = discord.Client()
 bot = commands.Bot(command_prefix='=', intents=intents)
 bot.remove_command("help")
