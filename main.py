@@ -47,10 +47,8 @@ def get_data(collection):
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
-    bot.owner = bot.fetch_user(115581181017194500)
-    print(bot.owner)
-    print(type(bot.owner))
-    # dm_c = await bot.owner.create_dm()
+    # bot.owner = discord.utils.get(bot.get_all_members(), id=115581181017194500)
+    # dm_c = bot.owner.create_dm()
     # await dm_c.send("Bot restarted.")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name='=help'))
 
