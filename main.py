@@ -23,9 +23,9 @@ bot.remove_command("help")
 token = "NzU0Nzg2OTUyNjc4NjA0OTYy.X150IA.gykEs6J5I5CsOHI6Ix-5ehgzt4c"
 
 print("Trying database connection...")
-bot.password = "foBaBiqRG1vLn7QT"
+bot.password = "2WX0s7aJ2T4iRkL6"
 db_client = pymongo.MongoClient("mongodb+srv://bitd-bot:" + bot.password +
-                                "@bitd.urg7i.mongodb.net/bitd-bot-db?retryWrites=true&w=majority")
+                                "@bitd.urg7i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = db_client.admin
 serverStatusResult = db.command("serverStatus")
 mydb = db_client["bitd-bot-db"]
