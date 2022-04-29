@@ -14,7 +14,7 @@ import randomName
 # import datetime
 
 print('Starting...')
-intents = discord.Intents(messages=True, guilds=True)
+intents = discord.Intents(members=True)
 client = discord.Client()
 bot = commands.Bot(command_prefix='=', intents=intents)
 bot.remove_command("help")
@@ -47,9 +47,6 @@ def get_data(collection):
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
-    # bot.owner = discord.utils.get(bot.get_all_members(), id=115581181017194500)
-    # dm_c = bot.owner.create_dm()
-    # await dm_c.send("Bot restarted.")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name='=help'))
 
 
