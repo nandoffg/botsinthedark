@@ -1,10 +1,11 @@
-# Bots in the Dark v.1.8
+# Bots in the Dark v.1.9
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
 import discord
 import random
 import pymongo
+import randomName
 
 # from discord import Status
 # import asyncio
@@ -13,13 +14,14 @@ import pymongo
 # import datetime
 
 print('Starting...')
+intents = discord.Intents.default()
+# intents.members = True
 client = discord.Client()
-bot = commands.Bot(command_prefix='=')
+bot = commands.Bot(command_prefix='=', intents=intents)
 bot.remove_command("help")
 
 # INSERT BOT TOKE HERE IN QUOTES VVVVVVVVVVVVVV
 token = "NzU0Nzg2OTUyNjc4NjA0OTYy.X150IA.gykEs6J5I5CsOHI6Ix-5ehgzt4c"
-
 
 print("Trying database connection...")
 bot.password = "foBaBiqRG1vLn7QT"
@@ -57,13 +59,14 @@ async def on_message(message):
     if not message.author.bot and isinstance(message.channel, discord.channel.DMChannel):
         embed = discord.Embed(colour=discord.Colour.darker_grey())
         embed.set_author(name='Hello there scoundrel!')
-        embed.add_field(name="Bots in the Dark", value="\nI'm a bot with several useful functions.\nType `=h` or `=help` for more information on the "
-                                                       "commands. If you want to add me to your Discord server, go [here]"
-                                                       "(https://discord.com/oauth2/authorize?client_id=754786952678604962&scope=bot&permissions=519232) to invite me. "
-                                                       "\n\nI'm able to roll dice, spill out Blades rolls results, generate random fictional things "
-                                                       "for your game, such as streets, buildings, "
-                                                       "demons, scores, people and many others."
-                                                       "\nIf you want to back this bot, go [here](www.patreon.com/fernandogomes).", inline=False)
+        embed.add_field(name="Bots in the Dark",
+                        value="\nI'm a bot with several useful functions.\nType `=h` or `=help` for more information on the "
+                              "commands. If you want to add me to your Discord server, go [here]"
+                              "(https://discord.com/oauth2/authorize?client_id=754786952678604962&scope=bot&permissions=519232) to invite me. "
+                              "\n\nI'm able to roll dice, spill out Blades rolls results, generate random fictional things "
+                              "for your game, such as streets, buildings, "
+                              "demons, scores, people and many others."
+                              "\nIf you want to back this bot, go [here](www.patreon.com/fernandogomes).", inline=False)
         await message.channel.send(embed=embed)
     else:
         await bot.process_commands(message)
@@ -73,39 +76,65 @@ async def on_message(message):
 async def generate(ctx, option):
     opt = str(option.lower())
     if opt == "street":
-        mood = ["dark", "cold", "bright", "lively", "quiet", "refined", "abandoned", "decrepit", "cramped", "noisy", "cozy", "warm"]
-        sights = ["rain slick", "oil slick", "dancing shadows", "flickering lights", "mist", "fog", "frost", "fleeting shapes",
-                  "echoes in the ghost field", "soot", "ash", "clouds", "grime", "crackling electricity", "wires", "mechanisms"]
-        sounds = ["machinery", "workers", "fluttering cloth", "howling wind", "laughter", "song", "music", "whispers", "echoes", "strange voices",
+        mood = ["dark", "cold", "bright", "lively", "quiet", "refined", "abandoned", "decrepit", "cramped", "noisy",
+                "cozy", "warm"]
+        sights = ["rain slick", "oil slick", "dancing shadows", "flickering lights", "mist", "fog", "frost",
+                  "fleeting shapes",
+                  "echoes in the ghost field", "soot", "ash", "clouds", "grime", "crackling electricity", "wires",
+                  "mechanisms"]
+        sounds = ["machinery", "workers", "fluttering cloth", "howling wind", "laughter", "song", "music", "whispers",
+                  "echoes", "strange voices",
                   "thunder", "driving rain", "bells", "clock chimes", "harbor horns"]
-        smells = ["cook fires", "furnaces", "damp wood", "decay", "refuse", "animals", "hides", "blood", "chemicals", "distillates", "fumes",
+        smells = ["cook fires", "furnaces", "damp wood", "decay", "refuse", "animals", "hides", "blood", "chemicals",
+                  "distillates", "fumes",
                   "rain water", "ocean", "ozone", "electroplasmic discharges"]
-        use = ["residential", "craft", "labor", "shops", "trade", "hospitality", "law", "government", "public space", "power and electricity",
-               "manufacture", "transportation", "leisure", "vice", "entertainment", "storage", "cultivation", "academic", "arts"]
-        type_of_street = ["narrow lane", "tight alley", "twisting street", "rough road", "bridge", "waterway", "closed court", "open plaza", "paved "
-                                                                                                                                             "avenue",
-                          "tunnel", "wide boulevard", "roundabout", "elevated road", "flooded street", "suspended way", "subterranean alley",
+        use = ["residential", "craft", "labor", "shops", "trade", "hospitality", "law", "government", "public space",
+               "power and electricity",
+               "manufacture", "transportation", "leisure", "vice", "entertainment", "storage", "cultivation",
+               "academic", "arts"]
+        type_of_street = ["narrow lane", "tight alley", "twisting street", "rough road", "bridge", "waterway",
+                          "closed court", "open plaza", "paved "
+                                                        "avenue",
+                          "tunnel", "wide boulevard", "roundabout", "elevated road", "flooded street", "suspended way",
+                          "subterranean alley",
                           "floating lane",
                           "private street", "gated passage"]
-        details = ["metal supports", "ironwork", "gates", "fences", "belching chimneys", "metal grates", "hatches", "doors", "clockwork mechanisms",
-                   "ringing bells", "stairs", "ramps", "terraces", "wooden scaffolds", "skyways", "rooftop spaces", "rails", "train cars",
-                   "hidden passages", "banners", "pennants", "festival decorations", "crowd", "parade", "riot", "street performers",
-                   "makeshift stalls", "shelters", "crisscrossing routes", "gang markings", "patrol posts", "lookouts", "stocks",
-                   "public punishment", "street crier", "visionary", "news stand", "public notices", "stray animals", "landscaping",
-                   "muck", "mire", "construction", "demolition", "foul runoff", "fumes", "smoke", "orphans", "beggars", "ancient ruin",
-                   "leering gargoyles", "spirit chimes", "wards", "eerie", "emptiness", "quarantine", "lockdown", "shrine offerings", "street ritual"]
-        props = ["Nets", "Ropes", "Crates", "Boxes", "Cables", "Chains", "Drain Pipes", "Water Pump", "Oil Drums", "Brick Pile", "Iron Bars",
-                 "Wooden Boards", "Cut Stones", "Loose Rocks", "Cement Buckets", "Sewer Grate", "Rotting Refuse", "Mud Puddles", "Discarded Junk",
-                 "Carrion & Crows", "Sodden Trash", "Carriages", "Push Carts", "Moored Boats", "Cargo Barge", "Gondolas", "Wagons", "Crane & Pulleys",
-                 "Cargo Bales", "Metal Ingots", "Industrial Forge", "Coal", "Fuel", "Waste Bins", "Street Lamps", "Electric Wires", "Junction Boxes",
-                 "Spotlight Tower", "Clock Tower", "Messenger Post", "Withered Trees", "Monument", "Fountain", "Mossy Ruin", "Collapsed Building",
-                 "Flimsy Hovel", "Barricade", "Gate", "Checkpoint", "Piled Rubble", "Canal Lock", "Lightning Barrier", "Food Stall",
+        details = ["metal supports", "ironwork", "gates", "fences", "belching chimneys", "metal grates", "hatches",
+                   "doors", "clockwork mechanisms",
+                   "ringing bells", "stairs", "ramps", "terraces", "wooden scaffolds", "skyways", "rooftop spaces",
+                   "rails", "train cars",
+                   "hidden passages", "banners", "pennants", "festival decorations", "crowd", "parade", "riot",
+                   "street performers",
+                   "makeshift stalls", "shelters", "crisscrossing routes", "gang markings", "patrol posts", "lookouts",
+                   "stocks",
+                   "public punishment", "street crier", "visionary", "news stand", "public notices", "stray animals",
+                   "landscaping",
+                   "muck", "mire", "construction", "demolition", "foul runoff", "fumes", "smoke", "orphans", "beggars",
+                   "ancient ruin",
+                   "leering gargoyles", "spirit chimes", "wards", "eerie", "emptiness", "quarantine", "lockdown",
+                   "shrine offerings", "street ritual"]
+        props = ["Nets", "Ropes", "Crates", "Boxes", "Cables", "Chains", "Drain Pipes", "Water Pump", "Oil Drums",
+                 "Brick Pile", "Iron Bars",
+                 "Wooden Boards", "Cut Stones", "Loose Rocks", "Cement Buckets", "Sewer Grate", "Rotting Refuse",
+                 "Mud Puddles", "Discarded Junk",
+                 "Carrion & Crows", "Sodden Trash", "Carriages", "Push Carts", "Moored Boats", "Cargo Barge",
+                 "Gondolas", "Wagons", "Crane & Pulleys",
+                 "Cargo Bales", "Metal Ingots", "Industrial Forge", "Coal", "Fuel", "Waste Bins", "Street Lamps",
+                 "Electric Wires", "Junction Boxes",
+                 "Spotlight Tower", "Clock Tower", "Messenger Post", "Withered Trees", "Monument", "Fountain",
+                 "Mossy Ruin", "Collapsed Building",
+                 "Flimsy Hovel", "Barricade", "Gate", "Checkpoint", "Piled Rubble", "Canal Lock", "Lightning Barrier",
+                 "Food Stall",
                  "Vendor Stall", "Barrels", "Casks", "Makeshift Shrine", "News Stands", "Stockades"]
-        phrase = "It's a **" + random.choice(mood) + " " + random.choice(type_of_street) + "**, with **" + random.choice(sights) + "**, **" \
-                 + random.choice(sounds) + "** noises and smell of **" + random.choice(smells) + "**. It's mostly used for **" + \
-                 random.choice(use) + "**, with " + random.choice(details) + " and " + random.choice(props).lower() + " in it."
+        phrase = "It's a **" + random.choice(mood) + " " + random.choice(
+            type_of_street) + "**, with **" + random.choice(sights) + "**, **" \
+                 + random.choice(sounds) + "** noises and smell of **" + random.choice(
+            smells) + "**. It's mostly used for **" + \
+                 random.choice(use) + "**, with " + random.choice(details) + " and " + random.choice(
+            props).lower() + " in it."
 
-        total = len(mood) * len(sights) * len(sounds) * len(smells) * len(use) * len(type_of_street) * len(details) * len(props)
+        total = len(mood) * len(sights) * len(sounds) * len(smells) * len(use) * len(type_of_street) * len(
+            details) * len(props)
 
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
@@ -115,21 +144,29 @@ async def generate(ctx, option):
 
     elif opt == "demon":
         demon_types = ["a humanoid with bestial or elemental features", "a humanoid with bestial or elemental features",
-                       "a humanoid with bestial or elemental features", "an animal", "a monstrous being", "an amorphous being"]
-        demon_desires = ["Mayhem", "Murder", "Justice", "Corruption", "Power", "Control", "Knowledge", "Pleasure", "Suffering", "War", "Revenge",
+                       "a humanoid with bestial or elemental features", "an animal", "a monstrous being",
+                       "an amorphous being"]
+        demon_desires = ["Mayhem", "Murder", "Justice", "Corruption", "Power", "Control", "Knowledge", "Pleasure",
+                         "Suffering", "War", "Revenge",
                          "Chaos", "Freedom", "Savagery", "Manipulation", "Deception" "Fear", "Achievement"]
-        demon_features = ["Black shark eyes", "Scales (onyx, iridescent,crystalline, metallic, etc.)", "Razor-sharp claws", "Bony protrusions",
-                          "Multiple eyes", "a Lashing tail", "Leathery wings", "Spines", "Dripping ichor from his body", "Glowing eyes or markings",
-                          "Hair or fur (drifting as if underwater, burning with a cool fire, etc.)", "Feathers", "Multiple arms", "Tentacles",
+        demon_features = ["Black shark eyes", "Scales (onyx, iridescent,crystalline, metallic, etc.)",
+                          "Razor-sharp claws", "Bony protrusions",
+                          "Multiple eyes", "a Lashing tail", "Leathery wings", "Spines", "Dripping ichor from his body",
+                          "Glowing eyes or markings",
+                          "Hair or fur (drifting as if underwater, burning with a cool fire, etc.)", "Feathers",
+                          "Multiple arms", "Tentacles",
                           "a Hard shell, metallic plates", "an effect on Lights, that dim or flare",
-                          "an effect on Plants, that wither or grow wildly", "an effect on Mechanisms, that grind to a halt",
+                          "an effect on Plants, that wither or grow wildly",
+                          "an effect on Mechanisms, that grind to a halt",
                           "an effect on Liquids, that freezes, boils, turns to blood or ashes"]
-        demon_names = ["Korvaeth", "Sevraxis", "Argaz", "Zalvroxos", "Kethtera", "Arkeveron", "Ixis", "Kyronax", "Voldranai", "Esketra", "Ardranax",
+        demon_names = ["Korvaeth", "Sevraxis", "Argaz", "Zalvroxos", "Kethtera", "Arkeveron", "Ixis", "Kyronax",
+                       "Voldranai", "Esketra", "Ardranax",
                        "Kylastra", "Oryxus", "Ahazu", "Tyraxis", "Azarax", "Vaskari"]
 
         total = len(demon_names) * 4 * len(demon_desires) * len(demon_features)
 
-        phrase = "You see **" + random.choice(demon_types).lower() + "** that has **" + random.choice(demon_features).lower() + \
+        phrase = "You see **" + random.choice(demon_types).lower() + "** that has **" + random.choice(
+            demon_features).lower() + \
                  "**. Their demon desire is **" + random.choice(demon_desires).lower() + "**. Their name is **" + \
                  random.choice(demon_names).capitalize() + "**."
         embed = discord.Embed(colour=discord.Colour.dark_red())
@@ -139,18 +176,26 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "ghost":
-        ghost_traits = ["Jealous", "Desperate", "Violent", "Hysterical", "Skittish", "Fleeting", "Curious", "Deceptive", "Clever", "Probing",
-                        "Knowledgeable", "Charming", "Prophetic", "Insightful", "True", "Revelatory", "Guiding", "Instructive", "Reactive",
-                        "Territorial", "Dominant", "Insistent", "Bold", "Demanding", "Angry", "Volatile", "Aggressive", "Wild", "Savage", "Vengeful",
+        ghost_traits = ["Jealous", "Desperate", "Violent", "Hysterical", "Skittish", "Fleeting", "Curious", "Deceptive",
+                        "Clever", "Probing",
+                        "Knowledgeable", "Charming", "Prophetic", "Insightful", "True", "Revelatory", "Guiding",
+                        "Instructive", "Reactive",
+                        "Territorial", "Dominant", "Insistent", "Bold", "Demanding", "Angry", "Volatile", "Aggressive",
+                        "Wild", "Savage", "Vengeful",
                         "Mad", "Chaotic", "Bizarre", "Destructive", "Insane", "Vile"]
-        ghost_more_traits = ["Frost, Chill", "Cold wind", "Faint visions of the local past", "Electrical discharge", "Weird shadows", "Faint echoes",
-                             "Mist", "Fog", "Rushing wind", "Intense visual echoes", "Intense magnetism", "Disturbing shadows", "Thunderous sounds",
-                             "Freezing fog", "Storm winds", "Pitch darkness", "Lightning", "Clutching shadows", "Voices in your head"]
+        ghost_more_traits = ["Frost, Chill", "Cold wind", "Faint visions of the local past", "Electrical discharge",
+                             "Weird shadows", "Faint echoes",
+                             "Mist", "Fog", "Rushing wind", "Intense visual echoes", "Intense magnetism",
+                             "Disturbing shadows", "Thunderous sounds",
+                             "Freezing fog", "Storm winds", "Pitch darkness", "Lightning", "Clutching shadows",
+                             "Voices in your head"]
 
         total = len(ghost_traits) * len(ghost_more_traits)
 
-        phrase = "Add these characteristics on top of another person's: \nYou feel a **" + random.choice(ghost_traits).lower() + \
-                 "** aura emanating from them." + "\nAround them you also see the effects of **" + random.choice(ghost_more_traits).lower() + "**."
+        phrase = "Add these characteristics on top of another person's: \nYou feel a **" + random.choice(
+            ghost_traits).lower() + \
+                 "** aura emanating from them." + "\nAround them you also see the effects of **" + random.choice(
+            ghost_more_traits).lower() + "**."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
@@ -158,12 +203,18 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "fgod":
-        gods = ["The One Within Many", "The Silver Fire", "The Rapturous Chord", "The Fallen Star", "The Lord of the Depths", "The Silent Song",
-                "The Lady of Thorns", "Our Blood Spilled in Glory", "The Ram", "The Empty Vessel", "The Closed Eye", "The Hand of Sorrow",
-                "That Which Hungers", "The Thousand Faces", "The Web of Pain", "The Pillars of Night", "The Burned King", "The Father of the Abyss",
-                "The Forsaken Legion", "The Unbroken Sun", "The Revelation", "The Radiant Word", "The Shrouded Queen", "The Reconciler",
-                "The Cloud of Woe", "The Broken Circle", "The Conqueror", "She Who Slays in Darkness", "The Dream Beyond Death",
-                "The Blood Dimmed Tide", "The Guardian of the Gates", "The Maw of the Void", "The Keeper of the Flame", "The Throne of Judgment",
+        gods = ["The One Within Many", "The Silver Fire", "The Rapturous Chord", "The Fallen Star",
+                "The Lord of the Depths", "The Silent Song",
+                "The Lady of Thorns", "Our Blood Spilled in Glory", "The Ram", "The Empty Vessel", "The Closed Eye",
+                "The Hand of Sorrow",
+                "That Which Hungers", "The Thousand Faces", "The Web of Pain", "The Pillars of Night",
+                "The Burned King", "The Father of the Abyss",
+                "The Forsaken Legion", "The Unbroken Sun", "The Revelation", "The Radiant Word", "The Shrouded Queen",
+                "The Reconciler",
+                "The Cloud of Woe", "The Broken Circle", "The Conqueror", "She Who Slays in Darkness",
+                "The Dream Beyond Death",
+                "The Blood Dimmed Tide", "The Guardian of the Gates", "The Maw of the Void", "The Keeper of the Flame",
+                "The Throne of Judgment",
                 "The Lost Crown", "The Golden Stag"]
         cult_practices = ["Sacrifice: Fed to specially consecrated beasts / Savaged (eaten?) by frenzied cult mob.",
                           "Desecration: Mindless, pointless chaos; sewing the seeds of anarchy.",
@@ -202,7 +253,8 @@ async def generate(ctx, option):
                           "Sacrifice: Ritually bled upon the sacred altar.",
                           "Sacrifice: Pitted against an anointed champion in death arena."]
         total = len(gods) * len(cult_practices)
-        phrase = "This is the Forgotten God: **" + random.choice(gods) + "**.\nTheir cult's practices are " + random.choice(cult_practices)
+        phrase = "This is the Forgotten God: **" + random.choice(
+            gods) + "**.\nTheir cult's practices are " + random.choice(cult_practices)
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random Forgotten God.')
         embed.add_field(name="Characteristics", value=phrase, inline=False)
@@ -210,11 +262,16 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "horror":
-        horrors = ["Reeking Tar", "Writhing Mass", "Radiant Being", "Crystalline Shards", "Creeping Growth", "Animated Stone", "Cloud of Burning Ash",
-                   "Shadow Being", "Swarm of Insects", "Toxic Cloud", "Fiery Being", "Liquid Being", "Flayed Being", "Shambling Rags",
-                   "Freezing Fire", "Impossible Geometry", "Monstrous Animal", "Shimmering Spheres", "Twisting Machinery", "Psychic Mist",
-                   "Throbbing Viscera", "Metallic Being", "Coil of Thorns", "Hypnotic Lights", "Oozing Slug", "Tremulous Vibrations", "Lashing Hooks",
-                   "Skeleton of Black Glass", "Flowing Quicksilver", "Clutching Darkness", "Floating Octopoid", "Cloying Vapors", "Swirling Mucus",
+        horrors = ["Reeking Tar", "Writhing Mass", "Radiant Being", "Crystalline Shards", "Creeping Growth",
+                   "Animated Stone", "Cloud of Burning Ash",
+                   "Shadow Being", "Swarm of Insects", "Toxic Cloud", "Fiery Being", "Liquid Being", "Flayed Being",
+                   "Shambling Rags",
+                   "Freezing Fire", "Impossible Geometry", "Monstrous Animal", "Shimmering Spheres",
+                   "Twisting Machinery", "Psychic Mist",
+                   "Throbbing Viscera", "Metallic Being", "Coil of Thorns", "Hypnotic Lights", "Oozing Slug",
+                   "Tremulous Vibrations", "Lashing Hooks",
+                   "Skeleton of Black Glass", "Flowing Quicksilver", "Clutching Darkness", "Floating Octopoid",
+                   "Cloying Vapors", "Swirling Mucus",
                    "Serpent Being", "Insectoid Being", "Consuming Orb"]
         phrase = "You see this **" + random.choice(horrors).lower() + "** forming in front of you."
         embed = discord.Embed(colour=discord.Colour.dark_red())
@@ -224,115 +281,137 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "bargain":
-        bargains = ["What’s Our Take? - Your gang wants a bigger cut of this score. -1 or -2 Coin on this score's Payoff.",
-                    "Walls Have Ears - Word gets out to a faction your crew is friendly with that you did a job against their ally if the Heat for "
-                    "this score is 2 or more.",
-                    "Hunter or Hunted - So intent on tailing your mark, you fail to notice you yourself are followed by a rival.",
-                    "All Or Nothing - If the danger comes to pass you cannot resist it.",
-                    "Now Or Never - If you don’t overcome the obstacle entirely, you must abandon it forever.",
-                    "Quelle Horreur! - You’re in for some sleepless nights. -1d on the next long-term project clock roll.",
-                    "Lay Out - You're gonna find yourself face-down or flat on your ass, no matter what else the outcome.",
-                    "Leave Yourself Open - In the face of the danger at hand, you make a bolder move and expose yourself on doing so, you'll be in "
-                    "a lower position from now on.",
-                    "SMASH - whatever you're using for this, it's broken, shattered, ruined. And it probably makes a bit of noise.",
-                    "Ghostly attraction - Your activities attract ghosts or other things...",
-                    "Hell hath no fury like a lover spurned... It's love at first sight. Your mark is besotted, you can do no wrong other than "
-                    "ignore them and become romantically stalked.",
-                    "Bombs away - Things flung by rooftop revellers attract unwanted attention to your activities, making things loud & chaotic. +4 "
-                    "Heat for this score.",
-                    "Once more unto the breach - No one trusts your judgement.For the rest of the score, no one can Assist you anymore.",
-                    "Sign here - Accept the next devil's bargain or suffer -1D.",
-                    "Falling or stalling - The floor beneath you cracks to the brink of collapse. Any action now is desperate.",
-                    "Hot or not - Something you wear is on fire.",
-                    "Bold or old - A thin needle pierces your flesh. Start a 4 part clock. Tick it with every action's consequence of that player. "
-                    "When it fills, the poison slams you (level 3 harm).",
-                    "Player or played - You are a pawn in a bigger play. Next downtime an NPC faction takes extra advances to their project clocks.",
-                    "Compromised - You show weakness to your fellow players. Divulge a vulnerability, reveal a dark truth, or show you have "
-                    "conflicting interests. ",
-                    "Sow Doubt - You show weakness to your fellow players. The GM chooses if you divulge a vulnerability, reveal a dark truth, "
-                    "or show you have conflicting interests. ",
-                    "Going down - Start a 4-part clock, when it fills The room/place you're in is becoming on fire/covered with toxic "
-                    "smoke/flooded/etc.",
-                    "Didn't see that coming - One of the PCs can't swim/is afraid of heights/etc.",
-                    "Raining or pouring - The stars are aligned. Roll for another entanglement next development roll.",
-                    "Thrice or nice - You’ve uttered a demon’s true name thrice since the last tide. Oops. You feel it’s presence pressing...",
-                    "Ash - Your appetite is ruined. Next vice roll only clears half stress.",
-                    "Red pill or blue - You don't see bodies, only the spirits within. Till your next downtime, you can’t distinguish between "
-                    "souls, undead, ghosts, spirits, or shadows. The hollows are nothing to you.",
-                    "Or else - A faction got wind of your plan and warned against it. Countdown 4 till their assault teams hit.",
-                    "Men or omen - You dreamed this would happen. Take double stress for the next negative effect you resist.",
-                    "Magic or magnets - Someone (built like Arnie) throws the table on your plan. Your plan is now Assault. What's your point of "
-                    "attack?",
-                    "Divided or conquered - Your point breaks and the team is scattered. Each player makes a clock for this obstacle or danger. The "
-                    "crew can't use Teamwork till each PC fills their clock.",
-                    "Locked up or out - The main entrance to your crew's lair is blocked. Now getting in is a score in itself.",
-                    "One for all or all for one - Tell us who you're really working for. If this score is completed and a success, the Development "
-                    "roll gains 1 coin less for the crew. Add that coin to your **secret** stash.",
-                    "Planned to fail or failed to plan - You're not even following Plan B anymore. For the rest of the score, PC flashbacks cost 1 "
-                    "extra stress.",
-                    "Snap it's a trap - Someone you told about the plan has betrayed you completely. It's all a trap. You succeed at this score now "
-                    "if you escape and get revenge. What's your plan?",
-                    "Heat it or beat it - One obstacle or danger you face is bigger, badder, or smarter than you planned for. Add 4 segments to its "
-                    "clock.",
-                    "The Cleaner (Murder or Mayhem) - All those bodies you're racking up? Someone's gotta clean up the mess. The cleaner has "
-                    "discovered one of your secrets, what is it? You're not so hidden anymore. They definitely will blackmail you over it.",
-                    "Snake in the Grass - one of your roster is selling you out to a rival faction. You know Who…. whomever has the most stress "
-                    "after a 6-segment countdown, names the traitor. Tell us and lower your crew's hold by one.",
-                    "Highest Bidder - Another faction offers you a lucrative favor if you sell out a friend or ally (significant NPC or friendly "
-                    "faction) in a significant betrayal.",
-                    "Siren Song - After this action concludes (or at the first opportunity) you must subordinate or abandon the plan to satisfy "
-                    "your vice.",
-                    "Why’d it have to be snakes? - During this action you discover, develop, or reveal a character weakness or phobia that will "
-                    "hinder you in similar situations in the future. Tell us the details and origin of this flaw.",
-                    "In the family way - While you may not have expected or known until now, you are now a parent; Congratulations! Enjoy your new "
-                    "responsibilities while pulling scores.",
-                    "Crossfire - You are mixed up in the middle of a bitter conflict between two parties that are unaffiliated with the present "
-                    "score. (Wait, are you sure they are unaffiliated?)",
-                    "Dissent - One or more of the crew’s gangs begin grumbling and disrespecting you behind your back. Have you ever considered a "
-                    "mutiny in the crew?",
-                    "Blood Runs Thicker than Blade - A key victim of your score turns out to be close kin. Your intel must have missed that. Are "
-                    "you able to follow through with the plan? Will you allow your crew to do so? What will the rest of the family think?",
-                    "A cold shiver - That faction you thought you could trust? They help but then pull the pin. Lose one hold over them."]
+        bargains = [
+            "What’s Our Take? - Your gang wants a bigger cut of this score. -1 or -2 Coin on this score's Payoff.",
+            "Walls Have Ears - Word gets out to a faction your crew is friendly with that you did a job against their ally if the Heat for "
+            "this score is 2 or more.",
+            "Hunter or Hunted - So intent on tailing your mark, you fail to notice you yourself are followed by a rival.",
+            "All Or Nothing - If the danger comes to pass you cannot resist it.",
+            "Now Or Never - If you don’t overcome the obstacle entirely, you must abandon it forever.",
+            "Quelle Horreur! - You’re in for some sleepless nights. -1d on the next long-term project clock roll.",
+            "Lay Out - You're gonna find yourself face-down or flat on your ass, no matter what else the outcome.",
+            "Leave Yourself Open - In the face of the danger at hand, you make a bolder move and expose yourself on doing so, you'll be in "
+            "a lower position from now on.",
+            "SMASH - whatever you're using for this, it's broken, shattered, ruined. And it probably makes a bit of noise.",
+            "Ghostly attraction - Your activities attract ghosts or other things...",
+            "Hell hath no fury like a lover spurned... It's love at first sight. Your mark is besotted, you can do no wrong other than "
+            "ignore them and become romantically stalked.",
+            "Bombs away - Things flung by rooftop revellers attract unwanted attention to your activities, making things loud & chaotic. +4 "
+            "Heat for this score.",
+            "Once more unto the breach - No one trusts your judgement.For the rest of the score, no one can Assist you anymore.",
+            "Sign here - Accept the next devil's bargain or suffer -1D.",
+            "Falling or stalling - The floor beneath you cracks to the brink of collapse. Any action now is desperate.",
+            "Hot or not - Something you wear is on fire.",
+            "Bold or old - A thin needle pierces your flesh. Start a 4 part clock. Tick it with every action's consequence of that player. "
+            "When it fills, the poison slams you (level 3 harm).",
+            "Player or played - You are a pawn in a bigger play. Next downtime an NPC faction takes extra advances to their project clocks.",
+            "Compromised - You show weakness to your fellow players. Divulge a vulnerability, reveal a dark truth, or show you have "
+            "conflicting interests. ",
+            "Sow Doubt - You show weakness to your fellow players. The GM chooses if you divulge a vulnerability, reveal a dark truth, "
+            "or show you have conflicting interests. ",
+            "Going down - Start a 4-part clock, when it fills The room/place you're in is becoming on fire/covered with toxic "
+            "smoke/flooded/etc.",
+            "Didn't see that coming - One of the PCs can't swim/is afraid of heights/etc.",
+            "Raining or pouring - The stars are aligned. Roll for another entanglement next development roll.",
+            "Thrice or nice - You’ve uttered a demon’s true name thrice since the last tide. Oops. You feel it’s presence pressing...",
+            "Ash - Your appetite is ruined. Next vice roll only clears half stress.",
+            "Red pill or blue - You don't see bodies, only the spirits within. Till your next downtime, you can’t distinguish between "
+            "souls, undead, ghosts, spirits, or shadows. The hollows are nothing to you.",
+            "Or else - A faction got wind of your plan and warned against it. Countdown 4 till their assault teams hit.",
+            "Men or omen - You dreamed this would happen. Take double stress for the next negative effect you resist.",
+            "Magic or magnets - Someone (built like Arnie) throws the table on your plan. Your plan is now Assault. What's your point of "
+            "attack?",
+            "Divided or conquered - Your point breaks and the team is scattered. Each player makes a clock for this obstacle or danger. The "
+            "crew can't use Teamwork till each PC fills their clock.",
+            "Locked up or out - The main entrance to your crew's lair is blocked. Now getting in is a score in itself.",
+            "One for all or all for one - Tell us who you're really working for. If this score is completed and a success, the Development "
+            "roll gains 1 coin less for the crew. Add that coin to your **secret** stash.",
+            "Planned to fail or failed to plan - You're not even following Plan B anymore. For the rest of the score, PC flashbacks cost 1 "
+            "extra stress.",
+            "Snap it's a trap - Someone you told about the plan has betrayed you completely. It's all a trap. You succeed at this score now "
+            "if you escape and get revenge. What's your plan?",
+            "Heat it or beat it - One obstacle or danger you face is bigger, badder, or smarter than you planned for. Add 4 segments to its "
+            "clock.",
+            "The Cleaner (Murder or Mayhem) - All those bodies you're racking up? Someone's gotta clean up the mess. The cleaner has "
+            "discovered one of your secrets, what is it? You're not so hidden anymore. They definitely will blackmail you over it.",
+            "Snake in the Grass - one of your roster is selling you out to a rival faction. You know Who…. whomever has the most stress "
+            "after a 6-segment countdown, names the traitor. Tell us and lower your crew's hold by one.",
+            "Highest Bidder - Another faction offers you a lucrative favor if you sell out a friend or ally (significant NPC or friendly "
+            "faction) in a significant betrayal.",
+            "Siren Song - After this action concludes (or at the first opportunity) you must subordinate or abandon the plan to satisfy "
+            "your vice.",
+            "Why’d it have to be snakes? - During this action you discover, develop, or reveal a character weakness or phobia that will "
+            "hinder you in similar situations in the future. Tell us the details and origin of this flaw.",
+            "In the family way - While you may not have expected or known until now, you are now a parent; Congratulations! Enjoy your new "
+            "responsibilities while pulling scores.",
+            "Crossfire - You are mixed up in the middle of a bitter conflict between two parties that are unaffiliated with the present "
+            "score. (Wait, are you sure they are unaffiliated?)",
+            "Dissent - One or more of the crew’s gangs begin grumbling and disrespecting you behind your back. Have you ever considered a "
+            "mutiny in the crew?",
+            "Blood Runs Thicker than Blade - A key victim of your score turns out to be close kin. Your intel must have missed that. Are "
+            "you able to follow through with the plan? Will you allow your crew to do so? What will the rest of the family think?",
+            "A cold shiver - That faction you thought you could trust? They help but then pull the pin. Lose one hold over them."]
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name="Generating random Devil's Bargain")
         embed.add_field(name="Offer: **+1d** on roll in exchange for: ", value=random.choice(bargains), inline=False)
         embed.add_field(name="Random seeds:", value=str(len(bargains)), inline=False)
-        embed.add_field(name="Thanks:", value="To all the Bargains suggestions sent by the BitD community, specially Uncle Aldo’s Devil’s Bargain "
-                                              "Emporium.",
+        embed.add_field(name="Thanks:",
+                        value="To all the Bargains suggestions sent by the BitD community, specially Uncle Aldo’s Devil’s Bargain "
+                              "Emporium.",
                         inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "score":
-        client_target = ["an Academic", "a Scholar", "a Laborer", "a Tradesman", "a Courier", "a Sailor", "a Merchant", "a Shopkeeper", "an Artist",
-                         "a Writer", "a Doctor", "an Alchemist", "a Drug Dealer", "a Supplier", "a Mercenary", "a Thug", "a Fence", "a Gambler",
-                         "a Spy", "an Informant", "a Smuggler", "a Thief", "a Crime Boss", "a Noble", "an Official", "a Banker", "a Captain",
-                         "a Revolutionary", "a Refugee", "a Clergy", "a Cultist", "a Constable", "an Inspector", "a Magistrate", "a Ward Boss",
-                         "a Ghost of someone (generate a person)", "an Occult Collector", "a Vampire", "anOther kind of Undead",
+        client_target = ["an Academic", "a Scholar", "a Laborer", "a Tradesman", "a Courier", "a Sailor", "a Merchant",
+                         "a Shopkeeper", "an Artist",
+                         "a Writer", "a Doctor", "an Alchemist", "a Drug Dealer", "a Supplier", "a Mercenary", "a Thug",
+                         "a Fence", "a Gambler",
+                         "a Spy", "an Informant", "a Smuggler", "a Thief", "a Crime Boss", "a Noble", "an Official",
+                         "a Banker", "a Captain",
+                         "a Revolutionary", "a Refugee", "a Clergy", "a Cultist", "a Constable", "an Inspector",
+                         "a Magistrate", "a Ward Boss",
+                         "a Ghost of someone (generate a person)", "an Occult Collector", "a Vampire",
+                         "anOther kind of Undead",
                          "a Demon (disguised)", "a Possessed", "a Hollow", "a Whisper", "a Cultist"]
-        work = ["Stalking", "Surveillance", "Sabotage", "Arson", "Lift", "Plant", "Poison", "Arrange Accident", "Burglary", "Heist", "Impersonate",
-                "Misdirect", "Assassinate", "Disappear", "Ransom", "Terrorize", "Extort", "Destroy", "Deface", "Raid", "Defend", "Rob", "Strong-arm",
-                "Escort", "Security", "Smuggle", "Courier", "Blackmail", "Discredit", "Con", "Espionage", "Locate", "Hide", "Negotiate", "Threaten",
-                "Curse", "Sanctify", "Banish", "Summon", "Extract Essence", "Place runes", "Remove Runes", "Perform ritual", "Stop Ritual", "Hollow",
+        work = ["Stalking", "Surveillance", "Sabotage", "Arson", "Lift", "Plant", "Poison", "Arrange Accident",
+                "Burglary", "Heist", "Impersonate",
+                "Misdirect", "Assassinate", "Disappear", "Ransom", "Terrorize", "Extort", "Destroy", "Deface", "Raid",
+                "Defend", "Rob", "Strong-arm",
+                "Escort", "Security", "Smuggle", "Courier", "Blackmail", "Discredit", "Con", "Espionage", "Locate",
+                "Hide", "Negotiate", "Threaten",
+                "Curse", "Sanctify", "Banish", "Summon", "Extract Essence", "Place runes", "Remove Runes",
+                "Perform ritual", "Stop Ritual", "Hollow",
                 "Revivify"]
-        twist = ["An element is a cover for heretic spirit cult practices", "An occultist has foreseen this job and warned the parties involved",
+        twist = ["An element is a cover for heretic spirit cult practices",
+                 "An occultist has foreseen this job and warned the parties involved",
                  "Rogue spirits possess some/most/all of the people involved", "Rogue spirits haunt the location",
                  "The job furthers a demon’s secret agenda", "The job furthers a vampire’s secret agenda",
-                 "An element is a front for a criminal enterprise", "A dangerous gang uses the location", "The job is a trap laid by your enemies",
+                 "An element is a front for a criminal enterprise", "A dangerous gang uses the location",
+                 "The job is a trap laid by your enemies",
                  "The job is a test for another job", "The job furthers a merchant lord’s secret agenda",
-                 "The job furthers a crime boss’s secret agenda", "The job requires travel by electrorail", "Must visit the deathlands to do the job",
+                 "The job furthers a crime boss’s secret agenda", "The job requires travel by electrorail",
+                 "Must visit the deathlands to do the job",
                  "The job requires sea travel", "The location moves around (site changes, it’s on a vehicle, etc.)",
                  "The job furthers a revolutionary’s secret agenda", "The job furthers a city official’s secret agenda"]
         connection = ["Friend", "Rival", "Vice purveyor", "Contact", "Doskvol notable", "Ghost", "Demon", "God"]
-        faction = ["The Unseen", "The Silver Nails", "Lord Scurlock", "The Hive", "The Circle of Flame", "The Crows", "The Lampblacks",
-                   "The Red Sashes", "The Dimmer Sisters", "The Grinders", "The Billhooks", "The Wraiths", "The Gray Cloaks", "Ulf Ironborn",
-                   "The Fog Hounds", "The Lost", "City Council", "The Foundation", "Ironhook Prison", "Spirit Wardens", "Bluecoats", "Inspectors",
-                   "Imperial Military", "Laborers", "Servants", "Sparkwrights", "Cyphers", "Ink Rakes", "A Consulate", "Ministry of Preservation",
-                   "Leviathan Hunters", "Sailors", "Dockers", "Gondoliers", "Cabbies", "Rail Jacks", "The Brigade", "The Church of Ecstasy",
-                   "The Weeping Lady", "The Forgotten Gods", "Path of Echoes", "Reconciled", "Skovlander Refugees", "Deathlands", "Scavengers"]
+        faction = ["The Unseen", "The Silver Nails", "Lord Scurlock", "The Hive", "The Circle of Flame", "The Crows",
+                   "The Lampblacks",
+                   "The Red Sashes", "The Dimmer Sisters", "The Grinders", "The Billhooks", "The Wraiths",
+                   "The Gray Cloaks", "Ulf Ironborn",
+                   "The Fog Hounds", "The Lost", "City Council", "The Foundation", "Ironhook Prison", "Spirit Wardens",
+                   "Bluecoats", "Inspectors",
+                   "Imperial Military", "Laborers", "Servants", "Sparkwrights", "Cyphers", "Ink Rakes", "A Consulate",
+                   "Ministry of Preservation",
+                   "Leviathan Hunters", "Sailors", "Dockers", "Gondoliers", "Cabbies", "Rail Jacks", "The Brigade",
+                   "The Church of Ecstasy",
+                   "The Weeping Lady", "The Forgotten Gods", "Path of Echoes", "Reconciled", "Skovlander Refugees",
+                   "Deathlands", "Scavengers"]
 
         total = len(client_target) * len(work) * len(twist) * len(connection) * len(faction) * len(client_target)
-        phrase = "**" + random.choice(client_target).capitalize() + "** wants someone to do a/an **" + random.choice(work).lower() + "** job over **" \
-                 + random.choice(client_target).lower() + "**. But **" + random.choice(twist).lower() + "** and/or is connected to a **" + \
+        phrase = "**" + random.choice(client_target).capitalize() + "** wants someone to do a/an **" + random.choice(
+            work).lower() + "** job over **" \
+                 + random.choice(client_target).lower() + "**. But **" + random.choice(
+            twist).lower() + "** and/or is connected to a **" + \
                  random.choice(connection).lower() + "** and/or **" + random.choice(faction) + "**."
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
@@ -341,25 +420,33 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "people":
-        looks = ["Large", "Lovely", "Weathered", "Chiseled", "Handsome", "Athletic", "Slim", "Dark", "Fair", "Stout", "Delicate", "Scarred", "Bony",
-                 "Worn", "Rough", "Plump", "Wiry", "Striking", "Short", "Tall", "Sexy", "Wild", "Elegant", "Stooped", "Cute", "Plain", "Old", "Young",
-                 "Stylish", "Strange", "Disfigured", "Maimed", "Glasses bearing", "Monocle bearing", "Prosthetic bearing", "Crippled", "Long Haired",
+        looks = ["Large", "Lovely", "Weathered", "Chiseled", "Handsome", "Athletic", "Slim", "Dark", "Fair", "Stout",
+                 "Delicate", "Scarred", "Bony",
+                 "Worn", "Rough", "Plump", "Wiry", "Striking", "Short", "Tall", "Sexy", "Wild", "Elegant", "Stooped",
+                 "Cute", "Plain", "Old", "Young",
+                 "Stylish", "Strange", "Disfigured", "Maimed", "Glasses bearing", "Monocle bearing",
+                 "Prosthetic bearing", "Crippled", "Long Haired",
                  "Beard", "Wig bearing", "Shorn", "Bald", "Tattooed"]
 
-        heritage = ["tycherosi", "severosi", "dagger islander", "iruvian", "skovlander", "skovlander", "akorosi", "akorosi", "akorosi", "akorosi",
+        heritage = ["tycherosi", "severosi", "dagger islander", "iruvian", "skovlander", "skovlander", "akorosi",
+                    "akorosi", "akorosi", "akorosi",
                     "akorosi", "akorosi"]
 
-        demo_trait = ["has feathers instead of hair", "has cat's eyes", "has claws instead of nails", "has a pale bluish skin",
+        demo_trait = ["has feathers instead of hair", "has cat's eyes", "has claws instead of nails",
+                      "has a pale bluish skin",
                       "has black shark eyes",
-                      'has a yellow cyst like sores that occasionally break and release "harmless” flies', "has transparent skin",
-                      "has a mouth that extends ear to ear", "has stain glass finger nails", "has stain glass hair", "has two faces on one head",
+                      'has a yellow cyst like sores that occasionally break and release "harmless” flies',
+                      "has transparent skin",
+                      "has a mouth that extends ear to ear", "has stain glass finger nails", "has stain glass hair",
+                      "has two faces on one head",
                       "has several rows of differing animal teeth", "has scales. Scales everywhere",
                       "has an arm that is made of glass and is to all appearances hollowing. A different substance/organism replaces the hollow space"
                       " each time they sleep",
                       "has a a transparent film over the skin covering their heart. In place of their heart is a scale model of a leviathan hunter "
                       "ship, always tossing about in a squall",
                       "has facial features with umbilicals that constantly crawl about their head",
-                      "talks with a chorus of voices, some old, some young, some pained some ecstatic", "has hands for feet",
+                      "talks with a chorus of voices, some old, some young, some pained some ecstatic",
+                      "has hands for feet",
                       "has fly limbs for eyelashes", "has a crown of avian beaks, each beak from a different bird",
                       "has the ability to heal wounds fine, whenever they get physically hurt, but the healing replaces the wounded tissue with "
                       "nonliving matter (steel cable for muscle fiber, paper for skin, etc.)",
@@ -367,63 +454,95 @@ async def generate(ctx, option):
                       "has hair that is luminous", "has a third, smaller arm in place of their tongue",
                       "has differently sized handprints all over their body, some look like burns, some look like makeup, "
                       "some look like handprints pressing up from the inside. The fingers on each “hand” move and quiver",
-                      "has an animal tail", "has skin that flakes as drops of bioluminescence. These skin flakes that turn into shreds of tree bark"
-                                            " with insects on them before rapidly decomposing", "has mollusk chitin",
+                      "has an animal tail",
+                      "has skin that flakes as drops of bioluminescence. These skin flakes that turn into shreds of tree bark"
+                      " with insects on them before rapidly decomposing", "has mollusk chitin",
                       "has arms that have an extra elbow like "
                       "Steve Erickson’s Forkul Assail"]
-        type_of_person = ["man", "man", "woman", "woman", "man", "man", "woman", "woman", "ambiguous gender person", "concealed gender person"]
+        type_of_person = ["man", "man", "woman", "woman", "man", "man", "woman", "woman", "ambiguous gender person",
+                          "concealed gender person"]
 
-        goals = ["Wealth", "Power", "Authority", "Prestige", "Fame", "Control", "Knowledge", "Pleasure", "Revenge", "Freedom",
-                 "Achievement", "Happiness", "Infamy", "Fear", "Respect", "Love", "Change", "Chaos", "Destruction", "Justice", "Cooperation"]
+        goals = ["Wealth", "Power", "Authority", "Prestige", "Fame", "Control", "Knowledge", "Pleasure", "Revenge",
+                 "Freedom",
+                 "Achievement", "Happiness", "Infamy", "Fear", "Respect", "Love", "Change", "Chaos", "Destruction",
+                 "Justice", "Cooperation"]
 
-        preferred_methods = ["Violence", "Threats", "Negotiation", "Study", "Manipulation", "Strategy", "Theft", "Arcane methods", "Commerce",
+        preferred_methods = ["Violence", "Threats", "Negotiation", "Study", "Manipulation", "Strategy", "Theft",
+                             "Arcane methods", "Commerce",
                              "Hard Work",
-                             "Law", "Politics", "Sabotage", "Subterfuge", "Alchemy", "Blackmail", "Teamwork", "Espionage", "Chaos"]
+                             "Law", "Politics", "Sabotage", "Subterfuge", "Alchemy", "Blackmail", "Teamwork",
+                             "Espionage", "Chaos"]
 
-        prof_comm = ["Baker", "Barber", "Blacksmith", "Brewer", "Butcher", "Carpenter", "Cartwright", "Chandler", "Clerk", "Cobbler", "Cooper",
-                     "Cultivator", "Driver", "Dyer", "Embroiderer", "Fishmonger", "Gondolier", "Guard", "Leatherworker", "Mason", "Merchant",
-                     "Roofer", "Ropemaker", "Rug Maker", "Servant", "Shipwright", "Criminal", "Tailor", "Tanner", "Tinkerer", "Vendor",
+        prof_comm = ["Baker", "Barber", "Blacksmith", "Brewer", "Butcher", "Carpenter", "Cartwright", "Chandler",
+                     "Clerk", "Cobbler", "Cooper",
+                     "Cultivator", "Driver", "Dyer", "Embroiderer", "Fishmonger", "Gondolier", "Guard", "Leatherworker",
+                     "Mason", "Merchant",
+                     "Roofer", "Ropemaker", "Rug Maker", "Servant", "Shipwright", "Criminal", "Tailor", "Tanner",
+                     "Tinkerer", "Vendor",
                      "Weaver", "Woodworker", "Goat Herd", "Messenger", "Sailor"]
 
-        prof_rare = ["Advocate", "Architect", "Artist", "Author", "Bailiff", "Apiarist", "Banker", "Bounty Hunter", "Clockmaker", "Courtesan",
-                     "Furrier", "Glass Blower", "Diplomat", "Jailer", "Jeweler", "Leech", "Locksmith", "Magistrate", "Musician", "Physicker",
-                     "Plumber", "Printer", "Scholar", "Scribe", "Sparkwright", "Tax Collector", "Treasurer", "Whisper", "Composer", "Steward",
+        prof_rare = ["Advocate", "Architect", "Artist", "Author", "Bailiff", "Apiarist", "Banker", "Bounty Hunter",
+                     "Clockmaker", "Courtesan",
+                     "Furrier", "Glass Blower", "Diplomat", "Jailer", "Jeweler", "Leech", "Locksmith", "Magistrate",
+                     "Musician", "Physicker",
+                     "Plumber", "Printer", "Scholar", "Scribe", "Sparkwright", "Tax Collector", "Treasurer", "Whisper",
+                     "Composer", "Steward",
                      "Captain", "Spirit Warden", "Journalist", "Explorer", "Rail Jack", "Soldier"]
 
-        style = ["a Tricorn Hat", "a Long Coat", "a Hood & Veil", "a Short Cloak", "a Knit Cap", "a Slim Jacket", "a Hooded Coat", "Tall Boots",
-                 "Work Boots", "a Mask & Robes", "a Suit & Vest", "a Collared Shirt", "Suspenders", "a Rough Tunic", "a Skirt & Blouse",
-                 "a Wide Belt", "a Fitted Dress", "a Heavy Cloak", "a Thick Greatcoat", "Soft Boots", "Loose Silks", "Sharp Trousers", "a Waxed Coat",
-                 "a Long Scarf", "Leathers", "an Eelskin Bodysuit", "Hide & Furs", "a Uniform", "Tatters", "Fitted Leggings", "an Apron",
-                 "Heavy Gloves", "a Face Mask", "a Tool Belt", "Crutches", "a Cane", "a Wheelchair", "a Belt Sash", "a Cloak", "a Feathered Cape",
-                 "a Half-Cape", "a Headscarf", "a Hooded Cape", "Layered Robes", "a Light Jacket", "Rags & Tatters", "a Scavenged Uniform",
-                 "a Silk Bodywrap", "a Silk Kaftan", "a Simple Tunic", "a Turban", "a Vest", "a Waistcoat", "Wide-Legged Trousers",
+        style = ["a Tricorn Hat", "a Long Coat", "a Hood & Veil", "a Short Cloak", "a Knit Cap", "a Slim Jacket",
+                 "a Hooded Coat", "Tall Boots",
+                 "Work Boots", "a Mask & Robes", "a Suit & Vest", "a Collared Shirt", "Suspenders", "a Rough Tunic",
+                 "a Skirt & Blouse",
+                 "a Wide Belt", "a Fitted Dress", "a Heavy Cloak", "a Thick Greatcoat", "Soft Boots", "Loose Silks",
+                 "Sharp Trousers", "a Waxed Coat",
+                 "a Long Scarf", "Leathers", "an Eelskin Bodysuit", "Hide & Furs", "a Uniform", "Tatters",
+                 "Fitted Leggings", "an Apron",
+                 "Heavy Gloves", "a Face Mask", "a Tool Belt", "Crutches", "a Cane", "a Wheelchair", "a Belt Sash",
+                 "a Cloak", "a Feathered Cape",
+                 "a Half-Cape", "a Headscarf", "a Hooded Cape", "Layered Robes", "a Light Jacket", "Rags & Tatters",
+                 "a Scavenged Uniform",
+                 "a Silk Bodywrap", "a Silk Kaftan", "a Simple Tunic", "a Turban", "a Vest", "a Waistcoat",
+                 "Wide-Legged Trousers",
                  "a Wide-Brimmed Hat", "Work Trousers"]
 
-        traits = ["charming", "cold", "cavalier", "brash", "suspicious", "obsessive", "shrewd", "quiet", "moody", "fierce", "careless",
-                  "secretive", "ruthless", "calculating", "defiant", "gracious", "insightful", "dishonest", "Patient", "vicious", "sophisticated",
-                  "paranoid", "enthusiastic", "elitist", "savage", "cooperative", "arrogant", "confident", "vain", "daring", "volatile", "candid",
+        traits = ["charming", "cold", "cavalier", "brash", "suspicious", "obsessive", "shrewd", "quiet", "moody",
+                  "fierce", "careless",
+                  "secretive", "ruthless", "calculating", "defiant", "gracious", "insightful", "dishonest", "Patient",
+                  "vicious", "sophisticated",
+                  "paranoid", "enthusiastic", "elitist", "savage", "cooperative", "arrogant", "confident", "vain",
+                  "daring", "volatile", "candid",
                   "subtle", "melancholic", "enigmatic", "calm"]
 
-        interests = ["Fine whiskey, wine, beer", "Fine food, restaurants", "Fine clothes, jewelry, furs", "Fine arts, opera, theater",
-                     "Painting, drawing, sculpture", "History, legends", "Architecture, furnishings", "Poetry, novels, writing",
-                     "Pit-fighting, duels", "Forgotten gods", "Church of Ecstasy", "Path of Echoes", "Weeping Lady, charity",
-                     "Antiques, artifacts, curios", "Horses, riding", "Gadgets, new technology", "Weapons collector", "Music, instruments, dance",
-                     "Hunting, shooting", "Cooking, gardening", "Gambling, cards, dice", "Natural philosophy", "Drugs, essences, tobacco",
-                     "Lovers, romance, trysts", "Parties, social events", "Exploration, adventure", "Pets (birds, dogs, cats)",
-                     "Craft (leatherwork, etc.)", "Ships, boating", "Politics, journalism", "Arcane books, rituals", "Alchemy, medicine",
+        interests = ["Fine whiskey, wine, beer", "Fine food, restaurants", "Fine clothes, jewelry, furs",
+                     "Fine arts, opera, theater",
+                     "Painting, drawing, sculpture", "History, legends", "Architecture, furnishings",
+                     "Poetry, novels, writing",
+                     "Pit-fighting, duels", "Forgotten gods", "Church of Ecstasy", "Path of Echoes",
+                     "Weeping Lady, charity",
+                     "Antiques, artifacts, curios", "Horses, riding", "Gadgets, new technology", "Weapons collector",
+                     "Music, instruments, dance",
+                     "Hunting, shooting", "Cooking, gardening", "Gambling, cards, dice", "Natural philosophy",
+                     "Drugs, essences, tobacco",
+                     "Lovers, romance, trysts", "Parties, social events", "Exploration, adventure",
+                     "Pets (birds, dogs, cats)",
+                     "Craft (leatherwork, etc.)", "Ships, boating", "Politics, journalism", "Arcane books, rituals",
+                     "Alchemy, medicine",
                      "Essences, alchemy", "Demon lore legends", "Pre-cataclysm legends"]
 
         quirks = ["Reclusive. Prefers to interact via messengers", "Massive debts (to banks / criminals / family)",
                   "Blind to flaws in friends, allies, family, etc", "Once hollowed, then restored. Immune to spirits",
-                  "Has chronic illness that requires frequent care", "Secretly (openly?) controlled by possessing spirit",
+                  "Has chronic illness that requires frequent care",
+                  "Secretly (openly?) controlled by possessing spirit",
                   "Serves a demon’s agenda (knowingly or not)", "Proud of heritage, traditions, native language",
                   "Concerned with appearances, gossip, peers", "Drug / alcohol abuser. Often impaired by their vice",
-                  "Holds their position due to blackmail", "Relies on council to make decisions", "Involved with war crimes from the Unity War",
+                  "Holds their position due to blackmail", "Relies on council to make decisions",
+                  "Involved with war crimes from the Unity War",
                   "Leads a double life using cover identity", "Black sheep / outcast from family or organization",
                   "In prison or under noble’s house arrest", "Well-traveled. Connections outside Doskvol",
                   "Revolutionary. Plots against the Imperium", "Inherited their position. May not deserve / want it",
                   "Celebrity. Popularized in print / song / theater", "Surrounded by sycophants, supplicants, toadies",
-                  "Superstitious. Believes in signs, magic numbers", "Devoted to their family", "A fraud. Some important aspect is fabricated",
+                  "Superstitious. Believes in signs, magic numbers", "Devoted to their family",
+                  "A fraud. Some important aspect is fabricated",
                   "Deeply traditional. Opposed to new ideas", "Is blindly faithful to an ideal, group, or tradition",
                   "Keeps detailed journals, notes, records, ledgers", "Intense, unreasonable phobia or loathing",
                   "Married into important / powerful family", "Holds their position to spy for another faction",
@@ -431,44 +550,69 @@ async def generate(ctx, option):
                   "Bigoted against culture / belief / social class", "Spotless reputation. Highly regarded",
                   "Scandalous reputation (deserved or not)", ]
 
-        names_m = ["Adric", "Aldo", "Amosen", "Andrel", "Arden", "Arquo", "Arvus", "Branon", "Brance", "Bricks", "Carro", "Casslyn", "Cavelle",
-                   "Corille", "Cross", "Crowl", "Drav", "Edlun", "Grine", "Helles", "Holtz", "Kelyr", "Kobb", "Kristov", "Laudius", "Milos", "Morlan",
-                   "Narcus", "Noggs", "Orlan", "Phin", "Ring", "Roethe", "Skannon", "Stavrul", "Stev", "Timoth", "Tocker", "Veleris", "Vond",
+        names_m = ["Adric", "Aldo", "Amosen", "Andrel", "Arden", "Arquo", "Arvus", "Branon", "Brance", "Bricks",
+                   "Carro", "Casslyn", "Cavelle",
+                   "Corille", "Cross", "Crowl", "Drav", "Edlun", "Grine", "Helles", "Holtz", "Kelyr", "Kobb", "Kristov",
+                   "Laudius", "Milos", "Morlan",
+                   "Narcus", "Noggs", "Orlan", "Phin", "Ring", "Roethe", "Skannon", "Stavrul", "Stev", "Timoth",
+                   "Tocker", "Veleris", "Vond",
                    "Weaver", "Wester"]
 
-        name_f = ["Arlyn", "Ashlyn", "Brace", "Brena", "Candra", "Carissa", "Casslyn", "Clave", "Cyrene", "Daphnia", "Emeline", "Hix",
-                  "Kamelin", "Lauria", "Lenia", "Lizete", "Lorette", "Lucella", "Lynthia", "Mara", "Myre", "Naria", "Odrienne",
-                  "Polonia", "Quess", "Remira", "Sesereth", "Sethla", "Syra", "Talitha", "Tesslyn", "Thena", "Una", "Vaurin",
+        name_f = ["Arlyn", "Ashlyn", "Brace", "Brena", "Candra", "Carissa", "Casslyn", "Clave", "Cyrene", "Daphnia",
+                  "Emeline", "Hix",
+                  "Kamelin", "Lauria", "Lenia", "Lizete", "Lorette", "Lucella", "Lynthia", "Mara", "Myre", "Naria",
+                  "Odrienne",
+                  "Polonia", "Quess", "Remira", "Sesereth", "Sethla", "Syra", "Talitha", "Tesslyn", "Thena", "Una",
+                  "Vaurin",
                   "Veretta", "Vestine", "Vey", "Volette", "Zamira"]
 
-        names_m_i = ["Ahnav", "Aiz", "Arkash", "Ayan", "D’ruva", "Elesh", "Hakan", "Hanesh", "Haran", "Iku", "Isak", "Izu", "Jahan", "Jin", "Kan",
-                     "Kahan", "Ket", "Kos", "Kotar", "Lekat", "Lor", "Marek", "Mata", "Mo’an", "Muhan", "Nav", "Nek’set", "Niru", "Ra", "Rahan", "Ro",
+        names_m_i = ["Ahnav", "Aiz", "Arkash", "Ayan", "D’ruva", "Elesh", "Hakan", "Hanesh", "Haran", "Iku", "Isak",
+                     "Izu", "Jahan", "Jin", "Kan",
+                     "Kahan", "Ket", "Kos", "Kotar", "Lekat", "Lor", "Marek", "Mata", "Mo’an", "Muhan", "Nav",
+                     "Nek’set", "Niru", "Ra", "Rahan", "Ro",
                      "Rukon", "Suhin", "Ta’amet", "Taji", "Useth", "Vaati", "Von", "Vondu"]
 
-        names_f_i = ["Aniya", "Anva", "Darha", "Elesha", "Eva", "Evi", "Esha", "Iana", "Isha", "Jaya", "Kahara", "Kavira", "Keta", "Kiara", "Kotara",
-                     "Kyra", "La’ana", "Lasa", "Lenaya", "Ma’ana", "Mita", "Nashala", "Na’ava", "Navya", "Rahana", "Ro’an", "Ruka", "Sa’ana", "Sarha",
-                     "Sethla", "Sevra", "S’rata", "Su’ua", "Syra", "Tukara", "Una", "Usa", "Vaha", "Vanya", "Vara", "Zamira", "Zarha", "Zora"]
+        names_f_i = ["Aniya", "Anva", "Darha", "Elesha", "Eva", "Evi", "Esha", "Iana", "Isha", "Jaya", "Kahara",
+                     "Kavira", "Keta", "Kiara", "Kotara",
+                     "Kyra", "La’ana", "Lasa", "Lenaya", "Ma’ana", "Mita", "Nashala", "Na’ava", "Navya", "Rahana",
+                     "Ro’an", "Ruka", "Sa’ana", "Sarha",
+                     "Sethla", "Sevra", "S’rata", "Su’ua", "Syra", "Tukara", "Una", "Usa", "Vaha", "Vanya", "Vara",
+                     "Zamira", "Zarha", "Zora"]
 
-        fam_names_i = ["Akaana", "Anixis", "Ankhayat", "Ankhuset", "Anserekh", "Arkhaya", "Avrathi", "Azu", "Daava", "D’har", "Diala", "Hakar",
-                       "Havran", "Jaha", "Jayaan", "Jeduin", "Ka’asa", "Kardera", "Khara", "Khuran", "Klevanu", "Kutu", "Nahjan", "Masura", "Maat",
-                       "Nijira", "Nur", "Nuvket", "Saha", "Sanaat", "Siatu", "Siakaru", "Siketset", "Suresh", "Yara", "Zayana"]
+        fam_names_i = ["Akaana", "Anixis", "Ankhayat", "Ankhuset", "Anserekh", "Arkhaya", "Avrathi", "Azu", "Daava",
+                       "D’har", "Diala", "Hakar",
+                       "Havran", "Jaha", "Jayaan", "Jeduin", "Ka’asa", "Kardera", "Khara", "Khuran", "Klevanu", "Kutu",
+                       "Nahjan", "Masura", "Maat",
+                       "Nijira", "Nur", "Nuvket", "Saha", "Sanaat", "Siatu", "Siakaru", "Siketset", "Suresh", "Yara",
+                       "Zayana"]
 
-        fam_names = ["Arran", "Athanoch", "Basran", "Boden", "Booker", "Bowman", "Bowmore", "Breakiron", "Brogan", "Clelland", "Clermont",
-                     "Coleburn", "Comber", "Dalmore", "Danfield", "Dunvil", "Farros", "Grine", "Haig", "Helker", "Helles", "Hellyers",
+        fam_names = ["Arran", "Athanoch", "Basran", "Boden", "Booker", "Bowman", "Bowmore", "Breakiron", "Brogan",
+                     "Clelland", "Clermont",
+                     "Coleburn", "Comber", "Dalmore", "Danfield", "Dunvil", "Farros", "Grine", "Haig", "Helker",
+                     "Helles", "Hellyers",
                      "Karstas", "Keel", "Kessarin", "Kinclaith", "Lomond", "Maroden", "Michter", "Morriston",
-                     "Penderyn", "Prichard", "Rowan", "Sevoy", "Skelkallan", "Skora", "Slane", "Strangford", "Strathmill", "Templeton", "Tyrconnell",
+                     "Penderyn", "Prichard", "Rowan", "Sevoy", "Skelkallan", "Skora", "Slane", "Strangford",
+                     "Strathmill", "Templeton", "Tyrconnell",
                      "Vale", "Walund", "Welker"]
 
-        aliases = ["Anvil", "Arrow", "Ash", "Axe", "Bell", "Bird", "Blaze", "Brass", "Breaker", "Broom", "Bull", "Birch", "Bricks", "Bug", "Cage",
-                   "Cannon", "Cat", "Chalk", "Cloud", "Coal", "Cord", "Crane", "Chime", "Coil", "Cricket", "Cross", "Crow", "Dagger", "Dart", "Dove",
-                   "Dust", "Echo", "Ember", "Fox", "Flint", "Frog", "Frost", "Grip", "Gunner", "Hammer", "Hawk", "Howler", "Hook", "Jackal", "Junker",
-                   "Key", "Match", "Moth", "Mule", "Mist", "Moon", "Nail", "Needle", "Owl", "Ox", "Ogre", "Pike", "Pool", "Ram", "Rasp", "Razor",
-                   "River", "Rock", "Ring", "Ruby", "Salt", "Scribe", "Shimmer", "Silk", "Silver", "Skinner", "Sky", "Slate", "Smoke", "Sparrow",
-                   "Spinner", "Star", "Stitch", "Song", "Spur", "Tackle", "Thistle", "Thorn", "Tick-Tock", "Twelves", "Viper", "Vixen", "Whip",
+        aliases = ["Anvil", "Arrow", "Ash", "Axe", "Bell", "Bird", "Blaze", "Brass", "Breaker", "Broom", "Bull",
+                   "Birch", "Bricks", "Bug", "Cage",
+                   "Cannon", "Cat", "Chalk", "Cloud", "Coal", "Cord", "Crane", "Chime", "Coil", "Cricket", "Cross",
+                   "Crow", "Dagger", "Dart", "Dove",
+                   "Dust", "Echo", "Ember", "Fox", "Flint", "Frog", "Frost", "Grip", "Gunner", "Hammer", "Hawk",
+                   "Howler", "Hook", "Jackal", "Junker",
+                   "Key", "Match", "Moth", "Mule", "Mist", "Moon", "Nail", "Needle", "Owl", "Ox", "Ogre", "Pike",
+                   "Pool", "Ram", "Rasp", "Razor",
+                   "River", "Rock", "Ring", "Ruby", "Salt", "Scribe", "Shimmer", "Silk", "Silver", "Skinner", "Sky",
+                   "Slate", "Smoke", "Sparrow",
+                   "Spinner", "Star", "Stitch", "Song", "Spur", "Tackle", "Thistle", "Thorn", "Tick-Tock", "Twelves",
+                   "Viper", "Vixen", "Whip",
                    "Wicker"]
 
-        total = len(looks) * (len(name_f) + len(names_m) + len(names_m_i) + len(names_f_i)) * len(fam_names) * len(aliases) * len(heritage) * \
-                (len(prof_rare) + len(prof_comm)) * len(goals) * len(preferred_methods) * len(interests) * len(quirks) * 4 * len(demo_trait) * \
+        total = len(looks) * (len(name_f) + len(names_m) + len(names_m_i) + len(names_f_i)) * len(fam_names) * len(
+            aliases) * len(heritage) * \
+                (len(prof_rare) + len(prof_comm)) * len(goals) * len(preferred_methods) * len(interests) * len(
+            quirks) * 4 * len(demo_trait) * \
                 len(style) * len(style) * len(traits)
 
         clothing = []
@@ -511,10 +655,13 @@ async def generate(ctx, option):
             fam = random.choice(fam_names)
 
         phrase = name + ' **"' + random.choice(aliases).capitalize() + '"** ' + fam.capitalize() + \
-                 " is a **" + random.choice(traits) + "**, **" + random.choice(looks).lower() + "**, **" + herit + " " + gender + \
+                 " is a **" + random.choice(traits) + "**, **" + random.choice(
+            looks).lower() + "**, **" + herit + " " + gender + \
                  "**. That is a **" + prof + "** that yearns for **" + random.choice(goals).lower() + "** through **" + \
-                 random.choice(preferred_methods).lower() + "**. They come in **" + clothing[0] + "** and **" + clothing[1] + \
-                 "** and are interested in **" + random.choice(interests).lower() + "**. \n" + random.choice(quirks) + ". \n" + demonic
+                 random.choice(preferred_methods).lower() + "**. They come in **" + clothing[0] + "** and **" + \
+                 clothing[1] + \
+                 "** and are interested in **" + random.choice(interests).lower() + "**. \n" + random.choice(
+            quirks) + ". \n" + demonic
 
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
@@ -524,41 +671,60 @@ async def generate(ctx, option):
 
     elif opt == "dog":
 
-        breed = ["foxhound", "beagle", "basset hound", "basenji", "coonhound", "bloodhound", "daschund", "deerhound", "wolfhound", "saluki",
-                 "greyhound", "pit bull", "bull terrier", "shar pei", "mastiff", "bordeaux dog", "mutt", "cur", "mixed-breed",
-                 "staffordshire terrier", "scottish terrier", "wire fox terrier", "yorkshire terrier", "boston terrier", "airedale terrier",
-                 "jack russel terrier", "lapdog", "pekingese", "pug", "chihuahua", "pomeranian", "shih tzu", "miniature pinscher",
-                 "bichon", "poodle", "spaniel", "mountain dog", "boxer", "husky", "great dane", "st. bernard", "cattle dog", "border collie",
-                 "corgi", "doberman pinscher", "german shepherd", "german alsatian", "rottweiler", "bulldog", "bullmastiff", "tosa inu",
-                 "water spaniel", "cocker spaniel", "german shorthaired pointer", "golden retriever", "red and white setter", "labrador",
+        breed = ["foxhound", "beagle", "basset hound", "basenji", "coonhound", "bloodhound", "daschund", "deerhound",
+                 "wolfhound", "saluki",
+                 "greyhound", "pit bull", "bull terrier", "shar pei", "mastiff", "bordeaux dog", "mutt", "cur",
+                 "mixed-breed",
+                 "staffordshire terrier", "scottish terrier", "wire fox terrier", "yorkshire terrier", "boston terrier",
+                 "airedale terrier",
+                 "jack russel terrier", "lapdog", "pekingese", "pug", "chihuahua", "pomeranian", "shih tzu",
+                 "miniature pinscher",
+                 "bichon", "poodle", "spaniel", "mountain dog", "boxer", "husky", "great dane", "st. bernard",
+                 "cattle dog", "border collie",
+                 "corgi", "doberman pinscher", "german shepherd", "german alsatian", "rottweiler", "bulldog",
+                 "bullmastiff", "tosa inu",
+                 "water spaniel", "cocker spaniel", "german shorthaired pointer", "golden retriever",
+                 "red and white setter", "labrador",
                  "pointer", "weimaraner"]
 
-        vices = ["a good belly scratch", "a warm home", "its human family affection", "going to strange places", "consorting with spirits,",
-                 "talking to ravens", "walks", "runs", "fighting", "food", "to drink", "mating", "serving its human family", "serving on its job",
+        vices = ["a good belly scratch", "a warm home", "its human family affection", "going to strange places",
+                 "consorting with spirits,",
+                 "talking to ravens", "walks", "runs", "fighting", "food", "to drink", "mating",
+                 "serving its human family", "serving on its job",
                  "serving a cause", "ostentatious display", "a fine silk pillow", "an expensive collar", "grooming"]
 
-        problems = ["human aggresion", "dog aggresion", "compulsive barking", "begging", "chewing", "digging", "chasing", "anxiety",
+        problems = ["human aggresion", "dog aggresion", "compulsive barking", "begging", "chewing", "digging",
+                    "chasing", "anxiety",
                     "submissive urination"]
 
-        coat = ["brown", "red", "gold", "yellow", "cream", "Black", "Blue", "Gray", "White", "Black-And-Tan", "Bicolor", "Tricolor", "Merle",
+        coat = ["brown", "red", "gold", "yellow", "cream", "Black", "Blue", "Gray", "White", "Black-And-Tan", "Bicolor",
+                "Tricolor", "Merle",
                 "Tuxedo", "Harlequin", "Spotted", "Brindle", "Saddle", "Sable"]
 
         coat_2 = ["Long", "Short", "Curly", "Mangy", 'Patchy', "Sleek", "Shiny", "Smooth", "Wiry", "Hairless"]
 
         size = ["huge", "Big", "Medium", "Small", "Minuscule"]
 
-        description = ["Athletic", "Muscular", "Soft", "Slobbery", "Handsome", "Delicate", "Fierce", "Brooding", "Hunched", "Languid", "Striking",
+        description = ["Athletic", "Muscular", "Soft", "Slobbery", "Handsome", "Delicate", "Fierce", "Brooding",
+                       "Hunched", "Languid", "Striking",
                        "Twitchy", "Weathered", "Gaunt", "Scarred", "Friendly", "Dopey", "Bright"]
 
-        names = ["Rolf", "Hooch", "Beasley", "Frank", "Bottomley", "Potts", "Morse", "Muffin", "Blitzer", "Maloney", "Krumm", "Bear", "Horse",
-                 "Boomer", "Bruiser", "Butch", "Ace", "Arrow", "Bullet", "Blade", "Colt", "Dagger", "Gunner", "Sabre", "Shaggy", "Spot", "Dewey",
-                 "Flealick", "Kavik", "Kiki", "Maggie", "Marley", "Red Dog", "Rowdy", "Rover", "Scud", "Shep", "Wildfire", "Yellow", "Bandit",
-                 "Dodger", "Gelert", "Meathead", "Rusty", "Barkley", "Dashi", "Dinko", "Ding Dong", "Goober", "Mammoth", "Runt", 'Scruffy', "Chips",
+        names = ["Rolf", "Hooch", "Beasley", "Frank", "Bottomley", "Potts", "Morse", "Muffin", "Blitzer", "Maloney",
+                 "Krumm", "Bear", "Horse",
+                 "Boomer", "Bruiser", "Butch", "Ace", "Arrow", "Bullet", "Blade", "Colt", "Dagger", "Gunner", "Sabre",
+                 "Shaggy", "Spot", "Dewey",
+                 "Flealick", "Kavik", "Kiki", "Maggie", "Marley", "Red Dog", "Rowdy", "Rover", "Scud", "Shep",
+                 "Wildfire", "Yellow", "Bandit",
+                 "Dodger", "Gelert", "Meathead", "Rusty", "Barkley", "Dashi", "Dinko", "Ding Dong", "Goober", "Mammoth",
+                 "Runt", 'Scruffy', "Chips",
                  "Smoky", "Belka", "Giant George"]
 
-        aliases = ["Mankiller", "The One That Knows", "White Feather", "One Eye", "Longtooth", "Lucky", "Wag", "Curly", "Champion", "Anvil", "Arrow",
-                   "Ash", "Axe", "Bell", "Bird", "Blaze", "Brass", "Breaker", "Brick", "Broom", "Bug", "Bull", "Cage", "Cannon", "Chalk", "Cloud",
-                   "Coal", "Rex", "Silk", "Silver", "Sky", "Slate", "Smoke", "Sparrow", "Spinner", "Star", "Stick", "Viper", "Beast", "Scar", "Spike"]
+        aliases = ["Mankiller", "The One That Knows", "White Feather", "One Eye", "Longtooth", "Lucky", "Wag", "Curly",
+                   "Champion", "Anvil", "Arrow",
+                   "Ash", "Axe", "Bell", "Bird", "Blaze", "Brass", "Breaker", "Brick", "Broom", "Bug", "Bull", "Cage",
+                   "Cannon", "Chalk", "Cloud",
+                   "Coal", "Rex", "Silk", "Silver", "Sky", "Slate", "Smoke", "Sparrow", "Spinner", "Star", "Stick",
+                   "Viper", "Beast", "Scar", "Spike"]
         name = random.choice(names).capitalize() + ' **"' + random.choice(aliases).capitalize() + '"**'
         characteristics = []
         problem = ""
@@ -573,50 +739,79 @@ async def generate(ctx, option):
             if pick not in characteristics:
                 characteristics.append(pick)
                 x += 1
-        total = len(breed) * len(aliases) * len(names) * len(description) ^ 3 * len(size) * len(coat) * len(coat_2) * len(problems) * len(vices)
+        total = len(breed) * len(aliases) * len(names) * len(description) ^ 3 * len(size) * len(coat) * len(
+            coat_2) * len(problems) * len(vices)
 
-        phrase = name + " is a " + random.choice(size).lower() + " **" + random.choice(breed).lower() + "**, with " + random.choice(
-            coat).lower() + " " + random.choice(coat_2).lower() + " fur. It is **" + characteristics[0] + "**, **" + characteristics[
-                     1] + "** and **" + characteristics[2] + "**. " + "It enjoys **" + random.choice(vices).lower() + problem
+        phrase = name + " is a " + random.choice(size).lower() + " **" + random.choice(
+            breed).lower() + "**, with " + random.choice(
+            coat).lower() + " " + random.choice(coat_2).lower() + " fur. It is **" + characteristics[0] + "**, **" + \
+                 characteristics[
+                     1] + "** and **" + characteristics[2] + "**. " + "It enjoys **" + random.choice(
+            vices).lower() + problem
 
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
         embed.add_field(name="Random seeds:", value=str(total), inline=False)
-        embed.add_field(name="Thanks:", value="Special thanks to **Tim Denee @dog_blink** on Twitter, who made the amazing Dogs in the Bark"
-                                              " hack for Blades.", inline=False)
+        embed.add_field(name="Thanks:",
+                        value="Special thanks to **Tim Denee @dog_blink** on Twitter, who made the amazing Dogs in the Bark"
+                              " hack for Blades.", inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "building":
-        material = ["Gray Brick", "Stone & Timbers", "Cut Stone Blocks", "Wooden Boards", "Plaster Board & Timbers", "Metal Sheeting"]
+        material = ["Gray Brick", "Stone & Timbers", "Cut Stone Blocks", "Wooden Boards", "Plaster Board & Timbers",
+                    "Metal Sheeting"]
         details = ["Tile Work", "Iron Work", "Glass Work", "Stone Work", "Wood Work", "Landscaping"]
-        use_com = ["Bunk House", "Inn", "Tavern", "Gambling Hall", "Drug Den", "Brothel", "Market", "Workshop", "Bakery", "Butchery", "Forge",
-                   "Tailory", "Work House", "Goat Stables", "Brewery", "Watch Post", "Court", "Jail", "Dock", "Ruin", "Row Houses", "Tenements",
-                   "Apartment Building", "Small House", "Bath House", "Shrine", "Tattooist", "Physicker", "Fighting Pits", "Square", "Fountain",
+        use_com = ["Bunk House", "Inn", "Tavern", "Gambling Hall", "Drug Den", "Brothel", "Market", "Workshop",
+                   "Bakery", "Butchery", "Forge",
+                   "Tailory", "Work House", "Goat Stables", "Brewery", "Watch Post", "Court", "Jail", "Dock", "Ruin",
+                   "Row Houses", "Tenements",
+                   "Apartment Building", "Small House", "Bath House", "Shrine", "Tattooist", "Physicker",
+                   "Fighting Pits", "Square", "Fountain",
                    "Grotto", "Warehouse", "Stockyard", "Factory", "Refinery", "Eelery", "Mushroom Garden"]
-        use_rare = ["Market House", "Restaurant", "Bar", "Lounge", "Academy", "Salon", "Cafe", "Floristry", "Tobacconist", "Book Shop", "Jeweler",
-                    "Clothier", "Gallery", "Apothecary", "Horse Stables", "Distillery", "Vintner", "Master Artisan", "Boat House", "Theater",
-                    "Opera House", "Apartment Building", "Townhouse", "Manor House", "Villa", "Clinic", "Temple", "Cistern", "Watch Post",
-                    "Park", "Monument", "Archive", "Spiritualist", "Bank", "Alchemist", "Power Plant", "Radiant Energy Garden"]
-        more_details = ["Dripping Water", "Creaking Floorboards", "Roaring Fires", "Smoky Lamps", "Buzzing Electric Lights", "Ticking Clockworks",
-                        "Plants", "Flowers", "Wall Hangings", "Artwork all around", "Shuttered Windows", "Heavy Curtains", "Thick Carpet",
-                        "Dust all around", "Detritus all around", "Wear and tear", "Damage everywhere", "Threadbare", "that is Tattered",
-                        "Utilitarian Furnishings", "Elegant Finery", "a Lush feeling to it", "a Comfortable feeling to it",
-                        "Rough-Spun Simplicity", "Spartan Austerity", "Circular Stairs", "Ladders everywhere", "Secret Doors", "Catwalks",
-                        "Skylights", "a Balcony", "a Cellar", "a Drafty feeling to it", "a Cold feeling to it", "a Stout feeling to it",
-                        "a Quiet feeling to it", "a Cozy feeling to it", "a Warm feeling to it", "that is Vaulted", "that is Spacious",
-                        "that is Low", "that is Cramped", "Rickety", "Ramshackle", "Strange Devices", "Weird Artifacts", "Spirit Wards",
+        use_rare = ["Market House", "Restaurant", "Bar", "Lounge", "Academy", "Salon", "Cafe", "Floristry",
+                    "Tobacconist", "Book Shop", "Jeweler",
+                    "Clothier", "Gallery", "Apothecary", "Horse Stables", "Distillery", "Vintner", "Master Artisan",
+                    "Boat House", "Theater",
+                    "Opera House", "Apartment Building", "Townhouse", "Manor House", "Villa", "Clinic", "Temple",
+                    "Cistern", "Watch Post",
+                    "Park", "Monument", "Archive", "Spiritualist", "Bank", "Alchemist", "Power Plant",
+                    "Radiant Energy Garden"]
+        more_details = ["Dripping Water", "Creaking Floorboards", "Roaring Fires", "Smoky Lamps",
+                        "Buzzing Electric Lights", "Ticking Clockworks",
+                        "Plants", "Flowers", "Wall Hangings", "Artwork all around", "Shuttered Windows",
+                        "Heavy Curtains", "Thick Carpet",
+                        "Dust all around", "Detritus all around", "Wear and tear", "Damage everywhere", "Threadbare",
+                        "that is Tattered",
+                        "Utilitarian Furnishings", "Elegant Finery", "a Lush feeling to it",
+                        "a Comfortable feeling to it",
+                        "Rough-Spun Simplicity", "Spartan Austerity", "Circular Stairs", "Ladders everywhere",
+                        "Secret Doors", "Catwalks",
+                        "Skylights", "a Balcony", "a Cellar", "a Drafty feeling to it", "a Cold feeling to it",
+                        "a Stout feeling to it",
+                        "a Quiet feeling to it", "a Cozy feeling to it", "a Warm feeling to it", "that is Vaulted",
+                        "that is Spacious",
+                        "that is Low", "that is Cramped", "Rickety", "Ramshackle", "Strange Devices", "Weird Artifacts",
+                        "Spirit Wards",
                         "Old Runes", "Piled Jumble of Curios", "Antique Appointments", "Shrine", "Altar"]
-        items = ["a Chalkboard", "Desks", "Papers", "Maps", "Charts", "Diagrams", "Books", "Scrolls", "Bookcases", "a Lamp", "an Inkwell",
-                 "a Writing Desk", "a Clock", "a Cabinet", "Shelves", "a Table", "Chairs", "Notebooks", "a Bed", "a Bureau", "a Vanity", "Bunks",
-                 "Stools", "Trunks", "a Basin", "a Pitcher", "a Mirror", "a Sofa", "a Divan", "a Music Box", "Couches", "a Table Lamp", "Drapery",
-                 "Pillows", "Cushions", "a Counter", "a Sink", "Cabinets", "a Cookfire", "Pots", "Pans", "Utensils", "a Dining Table", "Chairs",
-                 "Cutlery", "a Game Board", "Cards", "Dice", "a Larder", "Spices", "Meat Hooks", "Wine", "Beer", "Whiskey", "a Pedestal", "a Statue",
-                 "Paintings", "a Bird Cage", "a Quill", "a Diary", "a Bell", "a Book", "a Candle", "a Fireplace", "a Rug", "an Armchair",
-                 "Curtains", "Vases", "Flowers", "Instruments", "Music Sheets", "an Exam Chair", "Medical Tools", "a Burner", "Vials", "Beakers",
+        items = ["a Chalkboard", "Desks", "Papers", "Maps", "Charts", "Diagrams", "Books", "Scrolls", "Bookcases",
+                 "a Lamp", "an Inkwell",
+                 "a Writing Desk", "a Clock", "a Cabinet", "Shelves", "a Table", "Chairs", "Notebooks", "a Bed",
+                 "a Bureau", "a Vanity", "Bunks",
+                 "Stools", "Trunks", "a Basin", "a Pitcher", "a Mirror", "a Sofa", "a Divan", "a Music Box", "Couches",
+                 "a Table Lamp", "Drapery",
+                 "Pillows", "Cushions", "a Counter", "a Sink", "Cabinets", "a Cookfire", "Pots", "Pans", "Utensils",
+                 "a Dining Table", "Chairs",
+                 "Cutlery", "a Game Board", "Cards", "Dice", "a Larder", "Spices", "Meat Hooks", "Wine", "Beer",
+                 "Whiskey", "a Pedestal", "a Statue",
+                 "Paintings", "a Bird Cage", "a Quill", "a Diary", "a Bell", "a Book", "a Candle", "a Fireplace",
+                 "a Rug", "an Armchair",
+                 "Curtains", "Vases", "Flowers", "Instruments", "Music Sheets", "an Exam Chair", "Medical Tools",
+                 "a Burner", "Vials", "Beakers",
                  "a Workbench", "Tools", "Rags", "Weapons", "Ammunition"]
         phrase = ""
-        total = len(material) * len(details) * (len(use_com) + len(use_rare)) * len(more_details) * len(items) * len(items) * len(items) * len(items)
+        total = len(material) * len(details) * (len(use_com) + len(use_rare)) * len(more_details) * len(items) * len(
+            items) * len(items) * len(items)
         picked_items = []
         x = 0
         if random.choice(range(1, 6)) == 1:
@@ -625,8 +820,10 @@ async def generate(ctx, option):
                 if pick not in picked_items:
                     picked_items.append(pick)
                     x += 1
-            phrase = "It's a **" + random.choice(use_rare).lower() + "** made of **" + random.choice(material).lower() + "** and **" + \
-                     random.choice(details).lower() + "**, and **" + random.choice(more_details).lower() + "**. Inside you see **" + \
+            phrase = "It's a **" + random.choice(use_rare).lower() + "** made of **" + random.choice(
+                material).lower() + "** and **" + \
+                     random.choice(details).lower() + "**, and **" + random.choice(
+                more_details).lower() + "**. Inside you see **" + \
                      picked_items[0] + "**, **" + picked_items[1] + "**, **" + picked_items[2] + "** and **" + \
                      picked_items[3] + "**."
         else:
@@ -635,8 +832,10 @@ async def generate(ctx, option):
                 if pick not in picked_items:
                     picked_items.append(pick)
                     x += 1
-            phrase = "It's a **" + random.choice(use_com).lower() + "** made of **" + random.choice(material).lower() + "** and **" + \
-                     random.choice(details).lower() + "**, and **" + random.choice(more_details).lower() + "**. Inside you see **" + \
+            phrase = "It's a **" + random.choice(use_com).lower() + "** made of **" + random.choice(
+                material).lower() + "** and **" + \
+                     random.choice(details).lower() + "**, and **" + random.choice(
+                more_details).lower() + "**. Inside you see **" + \
                      picked_items[0] + "**, **" + picked_items[1] + "**, **" + picked_items[2] + "** and **" + \
                      picked_items[3] + "**."
 
@@ -648,11 +847,14 @@ async def generate(ctx, option):
 
     elif opt == "food":
         preparations = ['baked', 'broiled', 'fried', 'roasted', 'smoked', 'blanched', 'braised', 'coddled', 'infused',
-                        'pressure cooked', 'simmered', 'poached', 'steamed', 'steeped', 'stewed', 'grilled', 'barbecued', 'deep fried', 'pan fried',
+                        'pressure cooked', 'simmered', 'poached', 'steamed', 'steeped', 'stewed', 'grilled',
+                        'barbecued', 'deep fried', 'pan fried',
                         'stir fried',
                         'hot salt fried', 'seared', 'brined', 'dried', 'fermented', 'marinated', 'pickled', 'salted']
-        ingredients = ["eel", "mushrooms", "centipedes", "slugs", "grubs", "worms", "rat meat", "canal weed", "watermoss", "algae",
-                       "rice", "wheat", "barley", "rye", "corn", "chicken meat", "goat meat", "goat milk", "goat cheese", "dolphin meat",
+        ingredients = ["eel", "mushrooms", "centipedes", "slugs", "grubs", "worms", "rat meat", "canal weed",
+                       "watermoss", "algae",
+                       "rice", "wheat", "barley", "rye", "corn", "chicken meat", "goat meat", "goat milk",
+                       "goat cheese", "dolphin meat",
                        "devilfish meat", "squid meat", "mussels", "crab meat", "caviar", "grapes", "clam meat"]
         total = len(preparations) * len(preparations) * len(ingredients) * len(ingredients)
         phrase = random.choice(preparations).capitalize() + " " + random.choice(ingredients).lower() + " with " + \
@@ -664,7 +866,8 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "drink":
-        ingredients = ["mushrooms", "mushroom cap", "mushroom stem", "canal weed", "watermoss", "algae", "rice", "wheat", "barley", "rye", "corn",
+        ingredients = ["mushrooms", "mushroom cap", "mushroom stem", "canal weed", "watermoss", "algae", "rice",
+                       "wheat", "barley", "rye", "corn",
                        "goat milk", "mussels", "grapes"]
         drinks = ('soft drink', 'tea', 'beer', 'wine',
                   'spirits', 'infusion', 'fermentation', 'distillation', 'mixing')
@@ -678,29 +881,37 @@ async def generate(ctx, option):
 
     elif opt == "weather":
 
-        clear = [("Normal dreary conditions", "the shattered darkness of Duskvol", "light escaping hooded lanterns", "people wander",
+        clear = [("Normal dreary conditions", "the shattered darkness of Duskvol", "light escaping hooded lanterns",
+                  "people wander",
                   "the emerald green glow of the electroplasmic street lamps"),
 
                  ("Normal and dark veiled weather", "the oily, reeking streets of Doskvol", "fumes rise up to the sky",
                   "bluecoated ill intended men stroll the cobblestones in the dark", "dogs barks in the distance"),
 
-                 ("The same stale air is as good as it gets", "the good ol' Duskwallen neighbourhoods", "electrical sparks are heard",
-                  "sparkwrights fiddle with their equipment in the corner", "a fresh, nightly breeze coming from the sea"),
+                 ("The same stale air is as good as it gets", "the good ol' Duskwallen neighbourhoods",
+                  "electrical sparks are heard",
+                  "sparkwrights fiddle with their equipment in the corner",
+                  "a fresh, nightly breeze coming from the sea"),
 
-                 ("Cool, salty air breezes through", "Duskwall denizens to relish", "dark well known birds drift the skies",
+                 ("Cool, salty air breezes through", "Duskwall denizens to relish",
+                  "dark well known birds drift the skies",
                   "scoundrels flee from an alley", "the morbid, enchanted sounds of bells ringing across the block"),
 
                  ("Lust, red-colored atmosphere", "all carnal, rousing craving bastards on North Hook",
                   "perfume scent and covert laughter", "lavish people trade secrets and fondness",
                   "the influence of illgotten, psychedelic, alchemical compounds"),
 
-                 ("Smog and ash fall as embers of Coalridge", "upon the already littered streets in Crow's Foot", "people scour their doorsteps",
+                 ("Smog and ash fall as embers of Coalridge", "upon the already littered streets in Crow's Foot",
+                  "people scour their doorsteps",
                   "they prepare for another night shift", "the danger of famine and disease in these trying times"),
 
-                 ("Shattered darkness of varying shadows and ink looms above", "the Sun is no more", "a man stabs another in the back",
-                  "horror screams are heard in a parlour", "the stinky, gooey, formless Avatar of a fogotten god's itself"),
+                 ("Shattered darkness of varying shadows and ink looms above", "the Sun is no more",
+                  "a man stabs another in the back",
+                  "horror screams are heard in a parlour",
+                  "the stinky, gooey, formless Avatar of a fogotten god's itself"),
 
-                 ("Electrified barriers whine as echoes scream and burn", "ghosts haunt this damned lands", "people close their shutters in fear",
+                 ("Electrified barriers whine as echoes scream and burn", "ghosts haunt this damned lands",
+                  "people close their shutters in fear",
                   "a smell of ozone and ash come with the wind", "the black void sky above everybody's heads"),
 
                  ("Radiant generators hum within the bleakness of the shattered hours", "the city must survive",
@@ -715,23 +926,27 @@ async def generate(ctx, option):
                   "be sure to bring out your muckboots", "help you out on the job dead ahead"),
 
                  ('"Ink Rain" covering everything in fine obsidian wetness, permeating the darkness like a stain',
-                  "the black, voidy, encircling atmosphere,", "Mist hangs in the air", "use caution", "avoid sinkholes"),
+                  "the black, voidy, encircling atmosphere,", "Mist hangs in the air", "use caution",
+                  "avoid sinkholes"),
 
                  ("Fine mist of whirling echoes as the ghost field shifts", "a dark and cloudy dome from above",
                   "Deluge of water", "can be treacherous", "ignore reflective puddles that act as spirit wells"),
 
-                 ("Glowing as if filled with electroplasm itself though only radiant pollen trapped in the water pours down",
-                  "above", "Electrified precipitation",
-                  "dangerous without careful care", "halt before touching glistening dew")]
+                 (
+                     "Glowing as if filled with electroplasm itself though only radiant pollen trapped in the water pours down",
+                     "above", "Electrified precipitation",
+                     "dangerous without careful care", "halt before touching glistening dew")]
 
         heavy_rain = [("Heavy sheets of rain tasting of the Ink if coming in from the channel",
                        "Beware getting drenched for some seem to hear a Siren's call luring them towards the Void."),
 
-                      ("Pounding droplets in their own small oceans exploding with Voidal anguish...if you listen close enough",
-                       "Don't go down sloped streets for that you might end up in a brand new channel that just formed"),
+                      (
+                          "Pounding droplets in their own small oceans exploding with Voidal anguish...if you listen close enough",
+                          "Don't go down sloped streets for that you might end up in a brand new channel that just formed"),
 
-                      ("Damp and musk heavy as if the earth itself is attempting to cleanse generations of darkness from it's very soul,",
-                       "There are forgotten evils that will cling to drops of blood and grains of dirt, no rain will wash those"),
+                      (
+                          "Damp and musk heavy as if the earth itself is attempting to cleanse generations of darkness from it's very soul,",
+                          "There are forgotten evils that will cling to drops of blood and grains of dirt, no rain will wash those"),
 
                       ("Shedding around unseen objects long lost in the ghost field though remembered by echoes",
                        "The feeling of pale and frigid air makes the hair on the back of your neck stand up, as if some evil is to come"),
@@ -739,166 +954,194 @@ async def generate(ctx, option):
                       ("Drowning air of salt heavy water descends like miasma",
                        "Pull up your collar and check your pockets, if a cold doesn't kill you, a blade might")]
 
-        overcast = [("Shattered clouds hiding signs of the sister moons as if to avert their eyes from skullduggery below",
-                     "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble"),
+        overcast = [
+            ("Shattered clouds hiding signs of the sister moons as if to avert their eyes from skullduggery below",
+             "You feel as if those echoes unseen from beyond the Mirror are always watching you...as if waiting for you to stumble"),
 
-                    ("The fog hangs higher than Blind Hour yet doesn't leave even with a strong breeze",
-                     "The smog lays heavy today as if wanting to prevent healthy breathing"),
+            ("The fog hangs higher than Blind Hour yet doesn't leave even with a strong breeze",
+             "The smog lays heavy today as if wanting to prevent healthy breathing"),
 
-                    ("Clouds like petrified leaves dancing across unseen glass above, the sound of rustling stone heard in the wind,",
-                     "The barrier between the physical and ghost field feels flipped or reversed somehow"),
+            (
+                "Clouds like petrified leaves dancing across unseen glass above, the sound of rustling stone heard in the wind,",
+                "The barrier between the physical and ghost field feels flipped or reversed somehow"),
 
-                    ("Dark as a hooded lantern preventing light from escaping and making the city known to whatever lies beyond the Barriers",
-                     "The shattered sky appear hooded by something massive yet moving as stars blink in and out"),
+            (
+                "Dark as a hooded lantern preventing light from escaping and making the city known to whatever lies beyond the Barriers",
+                "The shattered sky appear hooded by something massive yet moving as stars blink in and out"),
 
-                    ("Hazy like wheat laden brew left to seep in a barrel, the smell of fermentation thick as refined demon blood",
-                     "Smoke and ash with pockets of falling embers cause fires due to Coalridge production")]
+            (
+                "Hazy like wheat laden brew left to seep in a barrel, the smell of fermentation thick as refined demon blood",
+                "Smoke and ash with pockets of falling embers cause fires due to Coalridge production")]
 
-        windy = [("Most prevalent during Kalivet and Suran as the winds blow through the streets and buildings shifting echoes of buildings past",
-                  "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
-                  " building long gone"),
+        windy = [(
+            "Most prevalent during Kalivet and Suran as the winds blow through the streets and buildings shifting echoes of buildings past",
+            "Danger within the Ghost Field as these echoes can change as you traverse though - possibly blocking your path or adding a"
+            " building long gone"),
 
-                 ("Howling of nature and horrors angrily lash at all within its path seeking vengeance of something long forgotten",
-                  "Currents within the Ghost Field shift and ebb against physical barriers, manipulating their echoes wearing them down over time"),
+            (
+                "Howling of nature and horrors angrily lash at all within its path seeking vengeance of something long forgotten",
+                "Currents within the Ghost Field shift and ebb against physical barriers, manipulating their echoes wearing them down over time"),
 
-                 ("Smells of sulfur and minerals burning acidic escape Coalridge, the factories adding pollutants to the very wind,",
-                  "Howling winds like horrors racing about an unseen track"),
+            (
+                "Smells of sulfur and minerals burning acidic escape Coalridge, the factories adding pollutants to the very wind,",
+                "Howling winds like horrors racing about an unseen track"),
 
-                 ("Nectar laden winds blowing in from beyond the Barriers towards the Deathlands, luring many with its caressing touch",
-                  "Cold breeze coming in from beyond the bay"),
+            (
+                "Nectar laden winds blowing in from beyond the Barriers towards the Deathlands, luring many with its caressing touch",
+                "Cold breeze coming in from beyond the bay"),
 
-                 ("Shifting like a serpent upon the Mirror, cold and calculating as it hunts for unsuspecting prey",
-                  "Glowing pockets of wind carrying pollen from radiant flora of the Deathlands. Only a few deaths have been accounted to Glow Lung "
-                  "in recent years")]
+            ("Shifting like a serpent upon the Mirror, cold and calculating as it hunts for unsuspecting prey",
+             "Glowing pockets of wind carrying pollen from radiant flora of the Deathlands. Only a few deaths have been accounted to Glow Lung "
+             "in recent years")]
 
         fog = [("The dense fog of Blind Hour remains and weighs heavy upon all those who walk within it",
                 "Those with mental harm or trauma may experience this weight more heavily than others as it clings to them as unseen tethers, "
                 "sapping essence from the living"),
 
-               ("Some say you can cut it with a sword it is so thick, though occasionally it bleeds before enveloping you",
-                "Siren’s Eternal Blind Hour although rare it can make civilians hear songs of the demons within the Ink. Begin a clock (4 seg) "
-                "demonic influence"),
+               (
+                   "Some say you can cut it with a sword it is so thick, though occasionally it bleeds before enveloping you",
+                   "Siren’s Eternal Blind Hour although rare it can make civilians hear songs of the demons within the Ink. Begin a clock (4 seg) "
+                   "demonic influence"),
 
-               ("\"Devil's Maw\" appearing normal but psyconauts tell tales of unseen spectacles and horrors lost in it",
-                "Industrial smog or natural disaster causes the very air to be inhospitable.  Filtering masks needed for travel"),
+               (
+                   "\"Devil's Maw\" appearing normal but psyconauts tell tales of unseen spectacles and horrors lost in it",
+                   "Industrial smog or natural disaster causes the very air to be inhospitable.  Filtering masks needed for travel"),
 
                ("Rich smelling like iron and wet, coated in blood-like condensation",
                 "Precipitation from the Void sea storms causes drastic changes in heat and feel of the fog"),
 
-               ("Sparkcraft devices randomly turn on or bulbs burn out from being overloaded from the charged ions of the fog",
-                "Charged fog from passing through the barriers cause some sparkcraft devices to malfunction. “Maintain your equipment for it will "
-                "help maintain you.” -Sparkwright phrase")]
+               (
+                   "Sparkcraft devices randomly turn on or bulbs burn out from being overloaded from the charged ions of the fog",
+                   "Charged fog from passing through the barriers cause some sparkcraft devices to malfunction. “Maintain your equipment for it will "
+                   "help maintain you.” -Sparkwright phrase")]
 
-        stormy = [("Thunder, and lightning of varying shattered colors rolls across the sky as if volleys of sparkcraft cannons of Unity aerial "
-                   "warfare", "If it arrives from the Deathlands special caution is needed as some horrors ride the storm",
-                   "Storm Eel' is normally a dish served after such storms"),
+        stormy = [(
+            "Thunder, and lightning of varying shattered colors rolls across the sky as if volleys of sparkcraft cannons of Unity aerial "
+            "warfare",
+            "If it arrives from the Deathlands special caution is needed as some horrors ride the storm",
+            "Storm Eel' is normally a dish served after such storms"),
 
-                  ("One of Spiregarden's famous compositions was inspired by a storm on Arenvorn, sounds of cawing crows like thunder",
-                   "Alchemicals gain potency when crafted in the eye of a storm",
-                   "There is some relief in sipping tea and cookies in a stormy Honor Hour"),
+            (
+                "One of Spiregarden's famous compositions was inspired by a storm on Arenvorn, sounds of cawing crows like thunder",
+                "Alchemicals gain potency when crafted in the eye of a storm",
+                "There is some relief in sipping tea and cookies in a stormy Honor Hour"),
 
-                  ("Gnashing echoes trapped before being pulled apart, their screams showering essence below",
-                   "Some adventurous psychonauts attempt dimensional travel during storms, what they find is unknown for rarely do they return",
-                   "Depending on the season, you can collect dripping water from marquees and use it to spice up some food"),
+            ("Gnashing echoes trapped before being pulled apart, their screams showering essence below",
+             "Some adventurous psychonauts attempt dimensional travel during storms, what they find is unknown for rarely do they return",
+             "Depending on the season, you can collect dripping water from marquees and use it to spice up some food"),
 
-                  ("Thunder like shattering glass, the separation of the Mirror touchable by those who don't see their reflection",
-                   "Kaleidoscope of shifting colored cloud like lenses placed upon the very breath of the sky. Psychedelic storm",
-                   "In the deathlands, the miasma is washed down into the soil. Some say this miasma is living essence dust that feed the "
-                   "strange flora there"), ]
+            (
+                "Thunder like shattering glass, the separation of the Mirror touchable by those who don't see their reflection",
+                "Kaleidoscope of shifting colored cloud like lenses placed upon the very breath of the sky. Psychedelic storm",
+                "In the deathlands, the miasma is washed down into the soil. Some say this miasma is living essence dust that feed the "
+                "strange flora there"), ]
 
-        super_storm = [("Will appear as a normal storm yet you may experience weird attunes or suffer unexpected consequences from attuning without "
-                        "extra protection", "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
+        super_storm = [(
+            "Will appear as a normal storm yet you may experience weird attunes or suffer unexpected consequences from attuning without "
+            "extra protection",
+            "Some find that they get swallowed by unnatural fog or hear voices in their minds. Use caution always."),
 
-                       ("Thousands of echoes both horror and nature alike trapped in a cyclone of swirling lightning and rain",
-                        "Hordes of ghosts seem to ride the storm inland from the sea. Watch yourself for the storm has a vengeance and it will seek "
-                        "any essence to exact it"),
+            (
+                "Thousands of echoes both horror and nature alike trapped in a cyclone of swirling lightning and rain",
+                "Hordes of ghosts seem to ride the storm inland from the sea. Watch yourself for the storm has a vengeance and it will seek "
+                "any essence to exact it"),
 
-                       ("Black lightning like tendrils leaving pools of star filled ink upon the ground it strikes. Causing temporary ghost doors",
-                        "Aspects of sky leviathans appear above during the storm causing star laden ink to fall below. Those marked quickly find "
-                        "misfortune"),
+            (
+                "Black lightning like tendrils leaving pools of star filled ink upon the ground it strikes. Causing temporary ghost doors",
+                "Aspects of sky leviathans appear above during the storm causing star laden ink to fall below. Those marked quickly find "
+                "misfortune"),
 
-                       ("The ghost field melds into the material, you may be walking long forgotten streets and unable to leave",
-                        "Blood storm of red oxide and red rain like viscous fluids fall. Many blame the Path of Echoes for ill gotten rituals gone "
-                        "wrong *or very right*"),
+            (
+                "The ghost field melds into the material, you may be walking long forgotten streets and unable to leave",
+                "Blood storm of red oxide and red rain like viscous fluids fall. Many blame the Path of Echoes for ill gotten rituals gone "
+                "wrong *or very right*"),
 
-                       ("'Hollow Storms' caused by horror filled effluvia that can hollow someone weak minded if not protected",
-                        "Devil Bargains seem to gain potency and consequences as the sky is filled with the gods long forgotten. Battling for "
-                        "shattered sky and souls")]
+            (
+                "'Hollow Storms' caused by horror filled effluvia that can hollow someone weak minded if not protected",
+                "Devil Bargains seem to gain potency and consequences as the sky is filled with the gods long forgotten. Battling for "
+                "shattered sky and souls")]
 
-        snow = [("Common during the winter months of Mendar and Elisar bringing an eerie stillness and quiet to the bustling cityscape, "
-                 "brightening the city to a higher light level frozen if the heaters fail.",
-                 "Less crime is committed though more are found", "Manna from the heavens though laden with ash and smog from the factories- city "
-                                                                  "officials recommend not using it as drinking water as it is not 'cleansed'"),
+        snow = [(
+            "Common during the winter months of Mendar and Elisar bringing an eerie stillness and quiet to the bustling cityscape, "
+            "brightening the city to a higher light level frozen if the heaters fail.",
+            "Less crime is committed though more are found",
+            "Manna from the heavens though laden with ash and smog from the factories- city "
+            "officials recommend not using it as drinking water as it is not 'cleansed'"),
 
-                ("Ivory cold flakes of something surreal and silent, making you uneasy.",
-                 "The wealthy wear specialized darkened goggles to shade their sensitive eyes from the brightness of the cold snow",
-                 "Under snowfall, Doskvol coal consumption on households increases dramatically for extra heat. The poor whose can't afford "
-                 "stick with the publicly available steam radiators, which can faulter on occasion"),
+            ("Ivory cold flakes of something surreal and silent, making you uneasy.",
+             "The wealthy wear specialized darkened goggles to shade their sensitive eyes from the brightness of the cold snow",
+             "Under snowfall, Doskvol coal consumption on households increases dramatically for extra heat. The poor whose can't afford "
+             "stick with the publicly available steam radiators, which can faulter on occasion"),
 
-                ("Blessing from the Weeping Lady to cleanse the darkness.",
-                 "Horrors of ice and cold seem to hide within the frozen tundra  and snow drifts of the Deathlands.",
-                 "Silver Nails take special precautions during the Winter months"),
+            ("Blessing from the Weeping Lady to cleanse the darkness.",
+             "Horrors of ice and cold seem to hide within the frozen tundra  and snow drifts of the Deathlands.",
+             "Silver Nails take special precautions during the Winter months"),
 
-                ("Flesh like horrors hide within the drifts- stay away from colored snow!",
-                 "House fires are more common due to civilians trying to stay warm in these cold and dark times.",
-                 "Some unfortunate are discovered by the Weeping Lady as they shelter those not yet frozen"),
+            ("Flesh like horrors hide within the drifts- stay away from colored snow!",
+             "House fires are more common due to civilians trying to stay warm in these cold and dark times.",
+             "Some unfortunate are discovered by the Weeping Lady as they shelter those not yet frozen"),
 
-                ("Icicles like webs of roots spread underneath  reaching for something unseen",
-                 "Street urchins dared to trespass upon the Mire of Dunslough quickly race down the steep snowed banks of the quarry on sheets of "
-                 "oiled or waxed rails.",
-                 "Underground bidding and wins are usually disguised in the newspapers the following day, along with incurred injuries")]
+            ("Icicles like webs of roots spread underneath  reaching for something unseen",
+             "Street urchins dared to trespass upon the Mire of Dunslough quickly race down the steep snowed banks of the quarry on sheets of "
+             "oiled or waxed rails.",
+             "Underground bidding and wins are usually disguised in the newspapers the following day, along with incurred injuries")]
 
-        driving_snow = [("Massive drifts form quickly and cause even the tallest Drafthorn cannot pull carriages through its cold fleece",
-                         "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
-                         "the labyrinths", "If exposed to the elements and not properly dressed begin a 4 seg clock for hypothermia "
-                                           "depending on the table's fiction"),
+        driving_snow = [(
+            "Massive drifts form quickly and cause even the tallest Drafthorn cannot pull carriages through its cold fleece",
+            "Most underworld crimes move into the catacombs for easier travel though you may find ghosts and lost horrors among "
+            "the labyrinths",
+            "If exposed to the elements and not properly dressed begin a 4 seg clock for hypothermia "
+            "depending on the table's fiction"),
 
-                        ("Drifts of snow black as the Ink, shifting as if alive and if you look long enough you see star-like eyes staring back",
-                         "Some snow creations of children are seen wandering about in the blizzards,  aspects of echoes trapped by them before "
-                         "fading completely. Though some grow stronger with the makeshift ‘hulls’ hunting unsuspecting civilians",
-                         "If exposed to the elements and not dressed for the conditions begin a 4 seg clock for frostbite "
-                         "depending on the table's fiction"),
+            (
+                "Drifts of snow black as the Ink, shifting as if alive and if you look long enough you see star-like eyes staring back",
+                "Some snow creations of children are seen wandering about in the blizzards,  aspects of echoes trapped by them before "
+                "fading completely. Though some grow stronger with the makeshift ‘hulls’ hunting unsuspecting civilians",
+                "If exposed to the elements and not dressed for the conditions begin a 4 seg clock for frostbite "
+                "depending on the table's fiction"),
 
-                        ("You feel your spirit slowly, numbingly loosen from you as you are hollowed by the cold",
-                         "Blizzard conditions bringing the city almost to a stop, though the Underworld continues beneath in the catacombs",
-                         "Your mind and body seems more numb, making it difficult to tell if that is simply your spirit being more solid or another "
-                         "presence pressing in"),
+            ("You feel your spirit slowly, numbingly loosen from you as you are hollowed by the cold",
+             "Blizzard conditions bringing the city almost to a stop, though the Underworld continues beneath in the catacombs",
+             "Your mind and body seems more numb, making it difficult to tell if that is simply your spirit being more solid or another "
+             "presence pressing in"),
 
-                        ("Fractured ice follow you as if a frozen glacier, slowing consuming all essence it overtakes",
-                         "Workers are found to abuse modified Bloodneedle to stay warm within in heated factories. Some manufacturers even provide "
-                         "it as part of worker benefits to maintain production on even the coldest of days",
-                         "Traveling via foot or carriage is near impossible. You have to travel via other means"),
+            ("Fractured ice follow you as if a frozen glacier, slowing consuming all essence it overtakes",
+             "Workers are found to abuse modified Bloodneedle to stay warm within in heated factories. Some manufacturers even provide "
+             "it as part of worker benefits to maintain production on even the coldest of days",
+             "Traveling via foot or carriage is near impossible. You have to travel via other means"),
 
-                        ("Soft and fluffy like the finest fleece, insulating from horrors and echoes",
-                         "Power and water lines flicker on and off in the storm. Most well to do have generators to maintain warmth and power while "
-                         "the poor are thrown into darkness, at the mercy of the storm",
-                         "You need to stay warm at all times, otherwise you may begin to feel sluggish. If cold take a lvl 1 harm ‘numbness’ unless "
-                         "resisted. Actions requiring fine skills may have reduced effect unless you are prepared")]
+            ("Soft and fluffy like the finest fleece, insulating from horrors and echoes",
+             "Power and water lines flicker on and off in the storm. Most well to do have generators to maintain warmth and power while "
+             "the poor are thrown into darkness, at the mercy of the storm",
+             "You need to stay warm at all times, otherwise you may begin to feel sluggish. If cold take a lvl 1 harm ‘numbness’ unless "
+             "resisted. Actions requiring fine skills may have reduced effect unless you are prepared")]
 
-        hail = [("Usually seen during the stormy months of Ulsivet and Volnivet hail can come as a torrent or merely as popped rice tossed in the "
-                 "air and allowed to drift downwards",
-                 "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
-                 "unknown reasons."),
+        hail = [(
+            "Usually seen during the stormy months of Ulsivet and Volnivet hail can come as a torrent or merely as popped rice tossed in the "
+            "air and allowed to drift downwards",
+            "Some say if you find one that is shaped like a star you will have good luck, though those who find them soon vanish through "
+            "unknown reasons."),
 
-                ("Shattered stars fall as if cinders of hail",
-                 "Some glowing horrors are trapped in the ice, the wealthy dipping them in alchemical preservatives and decorating with them as "
-                 "glowing orbs like twinkle lights until they slowly die out"),
+            ("Shattered stars fall as if cinders of hail",
+             "Some glowing horrors are trapped in the ice, the wealthy dipping them in alchemical preservatives and decorating with them as "
+             "glowing orbs like twinkle lights until they slowly die out"),
 
-                ("Wailing ice, most have a face from a horror frozen within",
-                 "Ice so polished it seems almost reflective showing a small aspect of the ghost field *viewable from both sides*"),
+            ("Wailing ice, most have a face from a horror frozen within",
+             "Ice so polished it seems almost reflective showing a small aspect of the ghost field *viewable from both sides*"),
 
-                ("Metallic quicksilver, like droplets from a celestial psychonaut",
-                 "Varying shapes and sizes that cause damage to property. The citizenry repairing after each hail storm"),
+            ("Metallic quicksilver, like droplets from a celestial psychonaut",
+             "Varying shapes and sizes that cause damage to property. The citizenry repairing after each hail storm"),
 
-                ("Shards of demonic power but they come with a price",
-                 "'Demon Hail', black as coal yet void of anything keeping it's shape. Warned against by sermons of the Church for special handling "
-                 "is needed in the removal and cleansing the area it infected")]
+            ("Shards of demonic power but they come with a price",
+             "'Demon Hail', black as coal yet void of anything keeping it's shape. Warned against by sermons of the Church for special handling "
+             "is needed in the removal and cleansing the area it infected")]
 
         conditions_doskvol = [
             "**Clear** - " + random.choice(clear)[0] + " for " + random.choice(clear)[1] + ", some " +
             random.choice(clear)[2] + " as " + random.choice(clear)[3] + " under " + random.choice(clear)[4] + ".",
 
-            "**Rain** - " + random.choice(rainy)[0] + " from " + random.choice(rainy)[1] + ". " + random.choice(rainy)[2]
+            "**Rain** - " + random.choice(rainy)[0] + " from " + random.choice(rainy)[1] + ". " + random.choice(rainy)[
+                2]
             + " so " + random.choice(rainy)[3] + " to " + random.choice(rainy)[4] + ".",
 
             "**Heavy Rain** - " + random.choice(heavy_rain)[0] + ". " + random.choice(heavy_rain)[1] + ".",
@@ -913,7 +1156,8 @@ async def generate(ctx, option):
 
             "**Supernatural Storm** - " + random.choice(super_storm)[0] + ". " + random.choice(super_storm)[1] + ".",
 
-            "**Snow** - . " + random.choice(snow)[0] + " " + random.choice(snow)[1] + ". " + random.choice(snow)[2] + ".",
+            "**Snow** - . " + random.choice(snow)[0] + " " + random.choice(snow)[1] + ". " + random.choice(snow)[
+                2] + ".",
 
             "**Driving Snow** - " + random.choice(driving_snow)[0] + ". " + random.choice(driving_snow)[1] + ". " +
             random.choice(driving_snow)[2] + ".",
@@ -934,7 +1178,8 @@ async def generate(ctx, option):
                   "https://cdn.discordapp.com/attachments/755162850267234424/755450005741109408/Hail_white.png"]
 
         totals = (len(clear) * len(clear[0])) + (len(rainy) * len(rainy[0])) + (len(heavy_rain) * len(heavy_rain[0])) + \
-                 (len(overcast) * len(overcast[0])) + (len(windy) * len(windy[0])) + (len(fog) * len(fog[0])) + (len(stormy) * len(stormy[0])) + \
+                 (len(overcast) * len(overcast[0])) + (len(windy) * len(windy[0])) + (len(fog) * len(fog[0])) + (
+                         len(stormy) * len(stormy[0])) + \
                  (len(super_storm) * len(super_storm[0])) + (len(snow) * len(snow[0])) + \
                  (len(driving_snow) * len(driving_snow[0])) + (len(hail) * len(hail[0]))
 
@@ -944,53 +1189,84 @@ async def generate(ctx, option):
         embed.set_thumbnail(url=image)
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Weather forecast", value=phrase, inline=False)
-        embed.add_field(name="Random seeds:", value=str(totals) + "\n\nSpecial thanks to Mistletoe_kiss of Voidal Space LLC for the "
-                                                                  "amazing ideas, texts, images and patience! ;)", inline=False)
+        embed.add_field(name="Random seeds:",
+                        value=str(totals) + "\n\nSpecial thanks to Mistletoe_kiss of Voidal Space LLC for the "
+                                            "amazing ideas, texts, images and patience! ;)", inline=False)
         await ctx.send(embed=embed)
 
     elif opt == "leviathan":
-        name = ['Olvilis', 'Drulvollon', 'Voglarax', 'Ilganea', 'Brelrethaan', 'Jalgamath', 'Kurnomog', 'Thozgimor', 'Ezgeth', 'Magdronnol',
-                'Juniros', 'Sagthul Lan', 'Drethtimog', 'Berkosha', 'Dalgomur', 'Orzoch', 'Drikath', 'Galmadin', 'Thulmadar', 'Zarzonnog', 'Xolrisha',
-                'Sogmoroth', 'Tethtillog', 'Zalmol Ath', 'Ullmuxal', 'Drogdraluuth', 'Irgron', 'Dirnolloth', 'Xalgrarin', 'Galgothan', 'Dergath',
+        name = ['Olvilis', 'Drulvollon', 'Voglarax', 'Ilganea', 'Brelrethaan', 'Jalgamath', 'Kurnomog', 'Thozgimor',
+                'Ezgeth', 'Magdronnol',
+                'Juniros', 'Sagthul Lan', 'Drethtimog', 'Berkosha', 'Dalgomur', 'Orzoch', 'Drikath', 'Galmadin',
+                'Thulmadar', 'Zarzonnog', 'Xolrisha',
+                'Sogmoroth', 'Tethtillog', 'Zalmol Ath', 'Ullmuxal', 'Drogdraluuth', 'Irgron', 'Dirnolloth',
+                'Xalgrarin', 'Galgothan', 'Dergath',
                 'Varroketh', 'Songramal', 'Ogmanod', 'Kolmathuun', 'Magthumor']
-        epithet = ['Crowned in Iron', 'The Baleful Orphan', 'Rain-of-Ashes', 'The Hidden Legion', 'Lady of Oblivion', 'The Rolling Shadow',
-                   'Deep Lord of Woe', 'The Godless Prophet', 'The Horned Flock', 'Vessel of Gray Morning', 'The Toothed Eyes',
-                   'The Lone Swordbearer', 'Instrument of Her Wrath', 'With Myriad Graces', 'The Broken Giantess', 'Wrought-by-Lightning',
-                   'The Endless Swarm', 'The Echoing Thunder', 'The Unbound Coil', 'The Orchestra of Pain', 'The Bird and the Doorway',
-                   'The Veiled Maw', 'Clothed in Beauty', 'Returner of Blessings', 'Throne of Nightmares', 'The Circle and Its End',
-                   'The Heart-Eater', 'She Who Waits', 'The Endless Descent', 'Tide of Bones', 'The Graveyard Gate', 'Unity of All Things',
+        epithet = ['Crowned in Iron', 'The Baleful Orphan', 'Rain-of-Ashes', 'The Hidden Legion', 'Lady of Oblivion',
+                   'The Rolling Shadow',
+                   'Deep Lord of Woe', 'The Godless Prophet', 'The Horned Flock', 'Vessel of Gray Morning',
+                   'The Toothed Eyes',
+                   'The Lone Swordbearer', 'Instrument of Her Wrath', 'With Myriad Graces', 'The Broken Giantess',
+                   'Wrought-by-Lightning',
+                   'The Endless Swarm', 'The Echoing Thunder', 'The Unbound Coil', 'The Orchestra of Pain',
+                   'The Bird and the Doorway',
+                   'The Veiled Maw', 'Clothed in Beauty', 'Returner of Blessings', 'Throne of Nightmares',
+                   'The Circle and Its End',
+                   'The Heart-Eater', 'She Who Waits', 'The Endless Descent', 'Tide of Bones', 'The Graveyard Gate',
+                   'Unity of All Things',
                    'Heart of the Storm', 'The Executor', 'Friend of the Lost', 'The Bloody Wake']
-        shape = ['Serpent', 'Turtle', 'Shark', 'Anglerfish', 'Seahorse', 'Octopus', 'Squid', 'Eel', 'Lobster', 'Crab', 'Nautilus', 'Crocodile',
-                 'Abalone', 'Manatee', 'Jellyfish', 'Sea cucumber', 'Sculpin', 'Geoduck', 'Walrus', 'Baleen whale', 'Toothed whale', 'Isopod',
-                 'Spider crab', 'Krill', 'Sea dragon', 'Horseshoe crab', 'Sea snail', 'Batfish', 'Ray', 'Anemone', 'Catfish', 'Pike', 'Sunfish',
+        shape = ['Serpent', 'Turtle', 'Shark', 'Anglerfish', 'Seahorse', 'Octopus', 'Squid', 'Eel', 'Lobster', 'Crab',
+                 'Nautilus', 'Crocodile',
+                 'Abalone', 'Manatee', 'Jellyfish', 'Sea cucumber', 'Sculpin', 'Geoduck', 'Walrus', 'Baleen whale',
+                 'Toothed whale', 'Isopod',
+                 'Spider crab', 'Krill', 'Sea dragon', 'Horseshoe crab', 'Sea snail', 'Batfish', 'Ray', 'Anemone',
+                 'Catfish', 'Pike', 'Sunfish',
                  'Coral', 'Lamprey', 'Pipefish']
         shapes = random.choice(range(2, 4))
-        demon_traits = ['Endless rows of shark teeth', 'Iridescent scales', 'Razor-sharp claws', 'Bony protrusions', 'Multiple eyes',
-                        'Lashing tendrils', 'A forest of spines', 'Undulating strands of hair', 'Dripping ichor', 'Glowing markings',
-                        'Metallic plates', 'Tufts of blue-black feathers', 'Multiple articulated arms', 'Suction-cupped tentacles',
-                        'A hard, bony shell', 'Floating lights flash', 'Patches of aquatic plants', 'Mechanical wreckage', 'Pools of strange liquid',
-                        'Crystalline shards', 'Acidic clouds', 'Skin pulled back or peeling', 'Hypnotic lights', 'Vibrations in the air',
-                        'Lashing hooks', 'Freezing winds', 'Electrical discharges', 'Disturbing shadows', 'Faint echoes', 'Voices in your head',
-                        'Slippery wet skin', 'Mountainous ridges', 'Spongy tissue', 'Gelatinous membranes', 'Stretched webbing', 'Pulsing gills']
+        demon_traits = ['Endless rows of shark teeth', 'Iridescent scales', 'Razor-sharp claws', 'Bony protrusions',
+                        'Multiple eyes',
+                        'Lashing tendrils', 'A forest of spines', 'Undulating strands of hair', 'Dripping ichor',
+                        'Glowing markings',
+                        'Metallic plates', 'Tufts of blue-black feathers', 'Multiple articulated arms',
+                        'Suction-cupped tentacles',
+                        'A hard, bony shell', 'Floating lights flash', 'Patches of aquatic plants',
+                        'Mechanical wreckage', 'Pools of strange liquid',
+                        'Crystalline shards', 'Acidic clouds', 'Skin pulled back or peeling', 'Hypnotic lights',
+                        'Vibrations in the air',
+                        'Lashing hooks', 'Freezing winds', 'Electrical discharges', 'Disturbing shadows',
+                        'Faint echoes', 'Voices in your head',
+                        'Slippery wet skin', 'Mountainous ridges', 'Spongy tissue', 'Gelatinous membranes',
+                        'Stretched webbing', 'Pulsing gills']
         regions = random.choice(range(1, 7)) + 4
-        treasures = ['Radiant orb', 'Crystal mirror', 'Pulsing strands', 'Warm glass', 'Cask of ichor', 'Golden scales', 'An incisor', 'Folded frill',
-                     'Humming blood', 'Blue goop', 'A chipped beak', 'A severed fin', 'A tusk', 'Shell plate', 'A perfect feather',
-                     'Flap of striped skin', 'Oozing pus', 'Tuft of silver hair', 'Poisonous spines', 'Black foam residue', 'A barnacle', 'A remora',
-                     'Saliva-soaked rag', 'Bone marrow', 'External organ', 'Length of artery', 'A toenail', 'A major eyeball', 'A sensory cluster',
-                     'Bioluminescent oil', 'A bag of lice', 'A stinger', 'An antenna', 'Major organ tissue', 'Shipwrecked artifacts',
+        treasures = ['Radiant orb', 'Crystal mirror', 'Pulsing strands', 'Warm glass', 'Cask of ichor', 'Golden scales',
+                     'An incisor', 'Folded frill',
+                     'Humming blood', 'Blue goop', 'A chipped beak', 'A severed fin', 'A tusk', 'Shell plate',
+                     'A perfect feather',
+                     'Flap of striped skin', 'Oozing pus', 'Tuft of silver hair', 'Poisonous spines',
+                     'Black foam residue', 'A barnacle', 'A remora',
+                     'Saliva-soaked rag', 'Bone marrow', 'External organ', 'Length of artery', 'A toenail',
+                     'A major eyeball', 'A sensory cluster',
+                     'Bioluminescent oil', 'A bag of lice', 'A stinger', 'An antenna', 'Major organ tissue',
+                     'Shipwrecked artifacts',
                      'A famous corpse']
         regions_with_treasure = random.choice(range(1, regions))
-        spawn = ['Bloodworm swarm', 'Demon eels', 'Butcherfish (boat-size piranha)', 'Homarids (giant crab-people)', 'Ghost-white octopi',
-                 'Thoroughly mutated people', 'Clouds of stinging insects', 'Autonomous parts of the leviathan', 'Large flying jellyfish',
-                 'Dog-sized amphibians', 'Aquatic dinosaurs', 'Schools of singing dreamfish', 'A house-sized crustacean',
-                 'Ocean mammals with human voices', 'Color-changing rainbow fish', 'Angular fish with strange geometry', 'Toothed bloodsquid (giant)',
+        spawn = ['Bloodworm swarm', 'Demon eels', 'Butcherfish (boat-size piranha)', 'Homarids (giant crab-people)',
+                 'Ghost-white octopi',
+                 'Thoroughly mutated people', 'Clouds of stinging insects', 'Autonomous parts of the leviathan',
+                 'Large flying jellyfish',
+                 'Dog-sized amphibians', 'Aquatic dinosaurs', 'Schools of singing dreamfish',
+                 'A house-sized crustacean',
+                 'Ocean mammals with human voices', 'Color-changing rainbow fish', 'Angular fish with strange geometry',
+                 'Toothed bloodsquid (giant)',
                  'Goblin sharks with human legs', 'Lamprey-faced dolphins', 'Giant rays with infinitely long tails',
                  (random.choice(shape).capitalize() + ', ' + random.choice(shape) + ', ' + random.choice(shape)),
-                 (random.choice(shape).capitalize() + ', but humanlike'), (random.choice(shape).capitalize() + ', but inside-out'),
+                 (random.choice(shape).capitalize() + ', but humanlike'),
+                 (random.choice(shape).capitalize() + ', but inside-out'),
                  (random.choice(shape).capitalize() + ', but it flies'),
                  'Ghosts of dead hunters and other spectral emanations, roll on the appropriate tables (Blades in the Dark, p. 304)',
                  'An actual demon with its own will and agenda, roll on the appropriate tables (=g demon) (Blades in the Dark, p. 304)']
-        activity = ['Singing', 'Bobbing', 'Slowly sinking', 'Eating', 'Leaping', 'Spouting', 'Playing with its spawn', 'Shedding its skin',
+        activity = ['Singing', 'Bobbing', 'Slowly sinking', 'Eating', 'Leaping', 'Spouting', 'Playing with its spawn',
+                    'Shedding its skin',
                     'With another leviathan', 'Unwrapping itself', 'Emitting new spawn', 'Building something']
 
         selected_shapes = []
@@ -1029,7 +1305,8 @@ async def generate(ctx, option):
                 selected_treasures.append(new_treasure)
                 treasure_phrase += new_treasure + '. '
 
-        phrase = '**Name:** ' + random.choice(name).capitalize() + '.\n**Epithet:** ' + random.choice(epithet).capitalize() + '.\n\n**Shape(s):** ' \
+        phrase = '**Name:** ' + random.choice(name).capitalize() + '.\n**Epithet:** ' + random.choice(
+            epithet).capitalize() + '.\n\n**Shape(s):** ' \
                  + shape_phrase + '\n**Region(s):** ' + region_phrase + '\n**Treasure(s): **' + treasure_phrase + '\n\n**Spawn: **' + \
                  random.choice(spawn).capitalize() + '.\n**Activity: **' + random.choice(activity).capitalize() + '.'
         total = len(name) * len(epithet) * len(shape) * len(demon_traits) * len(treasures) * len(spawn) * len(activity)
@@ -1037,8 +1314,150 @@ async def generate(ctx, option):
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
         embed.add_field(name="Random seeds:", value=str(total), inline=False)
-        embed.add_field(name="Thanks:", value="Special thanks to J. Walton, John Harper and Sean Nittner for making the incredible Leviathan Song "
-                                              "addon for Blades in the Dark possible.", inline=False)
+        embed.add_field(name="Thanks:",
+                        value="Special thanks to J. Walton, John Harper and Sean Nittner for making the incredible Leviathan Song "
+                              "addon for Blades in the Dark possible.", inline=False)
+        await ctx.send(embed=embed)
+
+    elif opt == "npc" and ctx.message.author == bot.get_user(115581181017194500):
+        looks = ["Large", "Lovely", "Weathered", "Chiseled", "Handsome", "Athletic", "Slim", "Dark", "Fair", "Stout",
+                 "Delicate", "Scarred", "Bony",
+                 "Worn", "Rough", "Plump", "Wiry", "Striking", "Short", "Tall", "Sexy", "Wild", "Elegant", "Stooped",
+                 "Cute", "Plain", "Old", "Young",
+                 "Stylish", "Strange", "Disfigured", "Maimed", "Glasses bearing", "Monocle bearing",
+                 "Prosthetic bearing", "Crippled", "Long Haired",
+                 "Beard", "Wig bearing", "Shorn", "Bald", "Tattooed"]
+
+        races = ["dwarf", "elf", "half-elf", "half-orc", "halfling", "aasimar", "human", "tiefling", "aarakocra",
+                 "human", "human", "human", "dragonborn", "changeling", "gnome", "kalashtar", "shifter", "warforged",
+                 "human", "human", "human", "human", "human", "human", "human", "genasi", "goliath", "firbolg",
+                 "goblin", "hobgoblin", "bugbear", "orc", "yuan-ti", "tortle", "gith"]
+
+        demo_trait = []
+
+        type_of_person = ["man", "man", "woman", "woman", "man", "man", "woman", "woman", "ambiguous gender person",
+                          "concealed gender person"]
+
+        goals = ["Wealth", "Power", "Authority", "Prestige", "Fame", "Control", "Knowledge", "Pleasure", "Revenge",
+                 "Freedom", "Achievement", "Happiness", "Infamy", "Fear", "Respect", "Love", "Change", "Chaos",
+                 "Destruction", "Justice", "Cooperation", "Beauty", "Domination", "Charity", "Greed", "Greater good",
+                 "Might", "Life", "Pain", "Respect", "Retribution", "Self-sacrifice", "Slaughter", "Community",
+                 "Change", "Fairness", "Creativity", "Honor", "Freedom", "Logic", "Independence", "Responsibility",
+                 "No limits", "Tradition", "Whimsy", "Balance", "Aspiration", "Knowledge", "Discovery",
+                 "Live and let live", "Glory", "Moderation", "Nation", "Neutrality", "Redemption",
+                 "People" "Self-knowledge",
+                 ]
+
+        preferred_methods = ["Violence", "Threats", "Negotiation", "Study", "Manipulation", "Strategy", "Theft",
+                             "Arcane methods", "Commerce",
+                             "Hard Work", "Magic",
+                             "Law", "Politics", "Sabotage", "Subterfuge", "Alchemy", "Blackmail", "Teamwork",
+                             "Espionage", "Chaos"]
+
+        prof_comm = ["Baker", "Barber", "Blacksmith", "Brewer", "Butcher", "Carpenter", "Cartwright", "Chandler",
+                     "Clerk", "Cobbler", "Cooper",
+                     "Cultivator", "Driver", "Dyer", "Embroiderer", "Fishmonger", "Gondolier", "Guard", "Leatherworker",
+                     "Mason", "Merchant",
+                     "Roofer", "Ropemaker", "Rug Maker", "Servant", "Shipwright", "Criminal", "Tailor", "Tanner",
+                     "Tinkerer", "Vendor",
+                     "Weaver", "Woodworker", "Messenger", "Sailor"]
+
+        prof_rare = ["Advocate", "Architect", "Artist", "Author", "Bailiff", "Apiarist", "Banker", "Bounty Hunter",
+                     "Clockmaker", "Courtesan",
+                     "Furrier", "Glass Blower", "Diplomat", "Jailer", "Jeweler", "Wizard", "Locksmith", "Magistrate",
+                     "Musician", "Physicker",
+                     "Plumber", "Printer", "Scholar", "Scribe", "Cleric", "Tax Collector", "Treasurer", "Barbarian",
+                     "Composer", "Steward",
+                     "Captain", "Bard", "Journalist", "Explorer", "Rogue", "Soldier", "Druid", "Fighter", "Paladin",
+                     "Ranger", "Warlock", "Sorcerer",]
+
+        style = ["distinctive jewelry: earrings, necklace, circlet, bracelets, piercings", "flamboyant clothes",
+                 "outlandish clothes", "formal, clean clothes", "ragged, dirty clothes", "pronounced scar",
+                 "missing teeth", "missing fingers", "unusual eye color", "two different colors", "tattoos",
+                 "birthmark", "unusual skin color", "bald", "braided beard", "braided hair", "unusual hair color",
+                 "nervous eye twitch", "distinctive nose", "distinctive posture", "exceptionally beautiful",
+                 "exceptionally ugly"]
+
+        traits = ["charming", "cold", "cavalier", "brash", "suspicious", "obsessive", "shrewd", "quiet", "moody",
+                  "fierce", "careless",
+                  "secretive", "ruthless", "calculating", "defiant", "gracious", "insightful", "dishonest", "Patient",
+                  "vicious", "sophisticated",
+                  "paranoid", "enthusiastic", "elitist", "savage", "cooperative", "arrogant", "confident", "vain",
+                  "daring", "volatile", "candid",
+                  "subtle", "melancholic", "enigmatic", "calm"]
+
+        interests = ["Fine whiskey, wine, beer", "Fine food, restaurants", "Fine clothes, jewelry, furs",
+                     "Fine arts, opera, theater",
+                     "Painting, drawing, sculpture", "History, legends", "Architecture, furnishings",
+                     "Poetry, novels, writing",
+                     "Pit-fighting, duels", "Forgotten gods", "Church of Ecstasy", "Path of Echoes",
+                     "Weeping Lady, charity",
+                     "Antiques, artifacts, curios", "Horses, riding", "Gadgets, new technology", "Weapons collector",
+                     "Music, instruments, dance",
+                     "Hunting, shooting", "Cooking, gardening", "Gambling, cards, dice", "Natural philosophy",
+                     "Drugs, essences, tobacco",
+                     "Lovers, romance, trysts", "Parties, social events", "Exploration, adventure",
+                     "Pets (birds, dogs, cats)",
+                     "Craft (leatherwork, etc.)", "Ships, boating", "Politics, journalism", "Arcane books, rituals",
+                     "Alchemy, medicine",
+                     "Essences, alchemy", "Demon lore legends", "Pre-cataclysm legends"]
+        abilities = [
+            "Strength - powerful, brawny, strong as an ox", "Dexterity - lithe, agile, graceful",
+            "Constitution - hardy, hale, healthy", "Intelligence - studious, learned, inquisitive",
+            "Wisdom - perceptive, spiritual, insightful", "Charisma - persuasive, forceful, born leader",
+            "Strength - feeble, scrawny", "Dexterity - clumsy, fumbling", "Constitution - sickly, pale",
+            "Intelligence - dim - witted, slow", "Wisdom - oblivious, absentminded", "Charisma - dull, boring",
+        ]
+
+        quirks = ["Reclusive. Prefers to interact via messengers", "Massive debts (to banks / criminals / family)",
+                  "Blind to flaws in friends, allies, family, etc", "Once cursed, then restored. Immune to magic",
+                  "Has chronic illness that requires frequent care",
+                  "Secretly (openly?) has an Otherwordly Patron",
+                  "Serves a villain’s agenda (knowingly or not)", "Proud of heritage, traditions, native language",
+                  "Concerned with appearances, gossip, peers", "Drug / alcohol abuser. Often impaired by their vice",
+                  "Holds their position due to blackmail", "Relies on council to make decisions",
+                  "Involved with war crimes from the past",
+                  "Leads a double life using cover identity", "Black sheep / outcast from family or organization",
+                  "In prison or under noble’s house arrest", "Well-traveled. Connections outside town",
+                  "Revolutionary. Plots against the King/Kingdom", "Inherited their position. May not deserve / want it",
+                  "Celebrity. Popularized in print / song / theater", "Surrounded by sycophants, supplicants, toadies",
+                  "Superstitious. Believes in signs, magic numbers", "Devoted to their family",
+                  "A fraud. Some important aspect is fabricated",
+                  "Deeply traditional. Opposed to new ideas", "Is blindly faithful to an ideal, group, or tradition",
+                  "Keeps detailed journals, notes, records, ledgers", "Intense, unreasonable phobia or loathing",
+                  "Married into important / powerful family", "Holds their position to spy for another faction",
+                  "Cursed, haunted, harassed by spirits or the alike", "Visionary. Holds radical views for future",
+                  "Bigoted against culture / belief / social class", "Spotless reputation. Highly regarded",
+                  "Scandalous reputation (deserved or not)", ]
+
+        name = randomName.MName()
+        name = name.new()
+
+        clothing = []
+        x = 0
+        while x < 2:
+            pick = random.choice(style).lower()
+            if pick not in clothing:
+                clothing.append(pick)
+                x += 1
+        x = random.choice(range(1, 11))
+        if x <= 2:
+            prof = random.choice(prof_rare).lower()
+        else:
+            prof = random.choice(prof_comm).lower()
+
+        race = random.choice(races).lower()
+        phrase = name + " is a **" + random.choice(traits) + "**, **" + random.choice(
+            looks).lower() + "**, " + race + " " + \
+                 ". That is a **" + prof + "** that yearns for **" + random.choice(goals).lower() + "** through **" + \
+                 random.choice(preferred_methods).lower() + "**. They come in **" + clothing[0] + "** and **" + \
+                 clothing[1] + \
+                 "** and are interested in **" + random.choice(interests).lower() + "**. \n" + random.choice(
+            quirks) + ". \n" + abilities
+
+        embed = discord.Embed(colour=discord.Colour.dark_red())
+        embed.set_author(name='Generating random ' + opt)
+        embed.add_field(name="Characteristics", value=phrase, inline=False)
         await ctx.send(embed=embed)
 
 
@@ -1046,20 +1465,20 @@ async def generate(ctx, option):
 async def info(ctx):
     embed = discord.Embed(colour=discord.Colour.darker_grey())
     embed.set_author(name='Bots in the Dark Info')
-    embed.add_field(name='=info or =i', value='This is the **Bots in the Dark** Discord bot created by **Fernando Gomes** to be used for Blades '
-                                              'in the Dark RPG system.\nWith it you can make Blades rolls, resistance rolls, generate random streets,'
-                                              ' buildings, demons, ghosts, scores, bargains, etc.'
-                                              '\nIt can also make generic dice rolls for other purposes.'
-                                              '\n\nIf you like this Bot and want to support this work and further development,'
-                                              ' you can do so at [my Patreon page](https://www.patreon.com/fernandogomes)'
-                                              ' . Thank you very much for doing so.',
+    embed.add_field(name='=info or =i',
+                    value='This is the **Bots in the Dark** Discord bot created by **Fernando Gomes** to be used for Blades '
+                          'in the Dark RPG system.\nWith it you can make Blades rolls, resistance rolls, generate random streets,'
+                          ' buildings, demons, ghosts, scores, bargains, etc.'
+                          '\nIt can also make generic dice rolls for other purposes.'
+                          '\n\nIf you like this Bot and want to support this work and further development,'
+                          ' you can do so at [my Patreon page](https://www.patreon.com/fernandogomes)'
+                          ' . Thank you very much for doing so.',
                     inline=False)
     await ctx.send(embed=embed)
 
 
 @bot.command(name="clock", aliases=["c"])
 async def clock(ctx, *title):
-
     name = ""
     if title:
         for i in title:
@@ -1069,8 +1488,9 @@ async def clock(ctx, *title):
 
     embed = discord.Embed(colour=discord.Colour.dark_red())
     embed.set_author(name='New Clock: ' + str(name))
-    embed.add_field(name='Instructions', value='React to this message with the according clock parts amount you want to set up for your'
-                                               ' new clock.', inline=False)
+    embed.add_field(name='Instructions',
+                    value='React to this message with the according clock parts amount you want to set up for your'
+                          ' new clock.', inline=False)
     embed.set_thumbnail(url='https://cdn3.iconfinder.com/data/icons/times-with-hands/100/TIME-HANDS-9-L-512.png')
     clock = await ctx.send(embed=embed)
     clock_id = clock.id
@@ -1142,10 +1562,11 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/821959778234269696/0.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/754797920670449785/821959778234269696/0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='4-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
-                                                               ' retrocede it.\n:x: to delete it.', inline=False)
+                                                       ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
 
         elif str(reaction) == '🕕':
@@ -1153,7 +1574,8 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/821960305356570664/0.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/754797920670449785/821960305356570664/0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='6-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
@@ -1164,7 +1586,8 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/821960680105574410/0.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/754797920670449785/821960680105574410/0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='8-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
                                                        ' retrocede it.\n:x: to delete it.', inline=False)
@@ -1175,10 +1598,11 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/821961092975951872/0.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/754797920670449785/821961092975951872/0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='10-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
-                                                       ' retrocede it.\n:x: to delete it.', inline=False)
+                                                        ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
 
         elif str(reaction) == '🕛':
@@ -1186,10 +1610,11 @@ async def on_raw_reaction_add(payload):
             data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
             update_data("clocks", get_data("clocks"), {"users": data})
             embed = discord.Embed(colour=discord.Colour.dark_red())
-            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754797920670449785/821961539388309524/0.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/754797920670449785/821961539388309524/0.png")
             embed.set_author(name=old_name)
             embed.add_field(name='12-Part Clock', value=':fast_forward: to advance this clock.\n:rewind: to'
-                                                       ' retrocede it.\n:x: to delete it.', inline=False)
+                                                        ' retrocede it.\n:x: to delete it.', inline=False)
             await message.edit(embed=embed)
 
         await message.clear_reactions()
@@ -1209,11 +1634,12 @@ async def on_raw_reaction_add(payload):
                     4: "https://cdn.discordapp.com/attachments/754797920670449785/821959796332298280/4.png"
                 }
                 if str(reaction) == "⏩":
-                    new_filled = str(int(old_filled)+1)
+                    new_filled = str(int(old_filled) + 1)
                 else:
-                    new_filled = str(int(old_filled)-1)
+                    new_filled = str(int(old_filled) - 1)
 
-                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled,
+                                 "name": old_name}
                 data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
                 update_data("clocks", get_data("clocks"), {"users": data})
                 if new_filled == "0":
@@ -1242,11 +1668,12 @@ async def on_raw_reaction_add(payload):
                     6: "https://cdn.discordapp.com/attachments/754797920670449785/821960331814764574/6.png"
                 }
                 if str(reaction) == "⏩":
-                    new_filled = str(int(old_filled)+1)
+                    new_filled = str(int(old_filled) + 1)
                 else:
-                    new_filled = str(int(old_filled)-1)
+                    new_filled = str(int(old_filled) - 1)
 
-                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled,
+                                 "name": old_name}
                 data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
                 update_data("clocks", get_data("clocks"), {"users": data})
                 if new_filled == "0":
@@ -1277,11 +1704,12 @@ async def on_raw_reaction_add(payload):
                     8: "https://cdn.discordapp.com/attachments/754797920670449785/821960702168006676/8.png"
                 }
                 if str(reaction) == "⏩":
-                    new_filled = str(int(old_filled)+1)
+                    new_filled = str(int(old_filled) + 1)
                 else:
-                    new_filled = str(int(old_filled)-1)
+                    new_filled = str(int(old_filled) - 1)
 
-                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled,
+                                 "name": old_name}
                 data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
                 update_data("clocks", get_data("clocks"), {"users": data})
                 if new_filled == "0":
@@ -1314,11 +1742,12 @@ async def on_raw_reaction_add(payload):
                     10: "https://cdn.discordapp.com/attachments/754797920670449785/821961149372170271/10.png"
                 }
                 if str(reaction) == "⏩":
-                    new_filled = str(int(old_filled)+1)
+                    new_filled = str(int(old_filled) + 1)
                 else:
-                    new_filled = str(int(old_filled)-1)
+                    new_filled = str(int(old_filled) - 1)
 
-                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled,
+                                 "name": old_name}
                 data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
                 update_data("clocks", get_data("clocks"), {"users": data})
                 if new_filled == "0":
@@ -1353,11 +1782,12 @@ async def on_raw_reaction_add(payload):
                     12: "https://cdn.discordapp.com/attachments/754797920670449785/821961591322050580/12.png"
                 }
                 if str(reaction) == "⏩":
-                    new_filled = str(int(old_filled)+1)
+                    new_filled = str(int(old_filled) + 1)
                 else:
-                    new_filled = str(int(old_filled)-1)
+                    new_filled = str(int(old_filled) - 1)
 
-                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled, "name": old_name}
+                changed_entry = {'id': str(payload.message_id), 'parts': old_parts, "filled": new_filled,
+                                 "name": old_name}
                 data[a_ids.index(author_id)]["clocks"][c_index] = changed_entry
                 update_data("clocks", get_data("clocks"), {"users": data})
                 if new_filled == "0":
@@ -1384,118 +1814,158 @@ async def on_raw_reaction_add(payload):
 @bot.command(name="find", aliases=["f"])
 async def lookup(ctx, query):
     q = query.lower()
-    equips = ("blade", "throwing knives", "pistol", "large weapon", "unusual weapon", "armor heavy", "burglary gear", "climbing gear",
-              "documents", "arcane implements", "subterfuge supplies", "demolition tools", "tinkering tools", "lantern", "spiritbane charm",
-              "fine lightning hook", "fine spirit mask", "spirit bottles", "ghost key", "demonbane charm", "fine cover identity",
-              "fine bottle of whiskey", "blueprints", "vial of slumber essence", "concealed palm pistol", "fine disguise kit",
-              "fine clothes & jewelry", "fine loaded dice, trick cards", "trance powder", "a cane-sword", "fine lockpicks", "fine shadow cloak",
-              "light climbing gear", "silence potion vial", "dark-sight goggles", "fine tinkering tools", "fine wrecking tools",
-              "blowgun & dars, syringes", "bandolier", "gadgets", "fine pair of pistols", "fine long rifle", "electroplasmic ammunition",
-              "a trained hunting pet", "spyglass", "fine hand weapon", "fine heavy weapon", "scary weapon or tool", "manacles & chain",
+    equips = ("blade", "throwing knives", "pistol", "large weapon", "unusual weapon", "armor heavy", "burglary gear",
+              "climbing gear",
+              "documents", "arcane implements", "subterfuge supplies", "demolition tools", "tinkering tools", "lantern",
+              "spiritbane charm",
+              "fine lightning hook", "fine spirit mask", "spirit bottles", "ghost key", "demonbane charm",
+              "fine cover identity",
+              "fine bottle of whiskey", "blueprints", "vial of slumber essence", "concealed palm pistol",
+              "fine disguise kit",
+              "fine clothes & jewelry", "fine loaded dice, trick cards", "trance powder", "a cane-sword",
+              "fine lockpicks", "fine shadow cloak",
+              "light climbing gear", "silence potion vial", "dark-sight goggles", "fine tinkering tools",
+              "fine wrecking tools",
+              "blowgun & dars, syringes", "bandolier", "gadgets", "fine pair of pistols", "fine long rifle",
+              "electroplasmic ammunition",
+              "a trained hunting pet", "spyglass", "fine hand weapon", "fine heavy weapon", "scary weapon or tool",
+              "manacles & chain",
               "rage essence vial")
     equipment = {
         "fine hand weapon":
-            ("**Fine hand weapon:**", "A finely crafted one-handed melee weapon of your choice. *Is this a well-crafted standard weapon, "
-                                      "like a perfectly-balanced dagger, or something exotic, like an Iruvian dueling saber or a metal-banded "
-                                      "war-club?*", "**[1 load]**"),
+            ("**Fine hand weapon:**",
+             "A finely crafted one-handed melee weapon of your choice. *Is this a well-crafted standard weapon, "
+             "like a perfectly-balanced dagger, or something exotic, like an Iruvian dueling saber or a metal-banded "
+             "war-club?*", "**[1 load]**"),
         "fine heavy weapon":
-            ("**Fine heavy weapon:**", "A finely crafted two-handed melee weapon of your choice. *A warhammer, a greatsword, a military pike, "
-                                       "a battleaxe, etc. A heavy weapon has more reach and hits harder than a standard weapon. This might give you "
-                                       "potency when the power or reach of the weapon is a factor.*", "**[2 load]**"),
+            ("**Fine heavy weapon:**",
+             "A finely crafted two-handed melee weapon of your choice. *A warhammer, a greatsword, a military pike, "
+             "a battleaxe, etc. A heavy weapon has more reach and hits harder than a standard weapon. This might give you "
+             "potency when the power or reach of the weapon is a factor.*", "**[2 load]**"),
         "scary weapon or tool":
-            ("**Scary weapon or tool:**", "A scary-looking hand weapon or tool. This item grants increased effect when you intimidate, "
-                                          "not increased harm in combat.", "**[1 load]**"),
+            ("**Scary weapon or tool:**",
+             "A scary-looking hand weapon or tool. This item grants increased effect when you intimidate, "
+             "not increased harm in combat.", "**[1 load]**"),
         "manacles & chain":
-            ("**Manacles & chain:**", "A set of heavy manacles and chain, suitable for restraining a prisoner. *A souvenir from a stay with the "
-                                      "Bluecoats, perhaps?*", "**[0 load]**"),
+            ("**Manacles & chain:**",
+             "A set of heavy manacles and chain, suitable for restraining a prisoner. *A souvenir from a stay with the "
+             "Bluecoats, perhaps?*", "**[0 load]**"),
         "rage essence vial":
-            ("**Rage essence vial:**", "A single dose, which greatly enhances the user’s strength, resistance to pain, and irrational aggression "
-                                       "for the span of several minutes. *The GM will modify your position and effect accordingly when you fight on "
-                                       "rage essence. Also, you suffer two consequences: “Can’t Tell Friend From Foe” and “Can’t Stop Until They’re "
-                                       "All Broken.” You may resist these as usual.*", "**[0 load]**"),
+            ("**Rage essence vial:**",
+             "A single dose, which greatly enhances the user’s strength, resistance to pain, and irrational aggression "
+             "for the span of several minutes. *The GM will modify your position and effect accordingly when you fight on "
+             "rage essence. Also, you suffer two consequences: “Can’t Tell Friend From Foe” and “Can’t Stop Until They’re "
+             "All Broken.” You may resist these as usual.*", "**[0 load]**"),
         "fine pair of pistols":
-            ("**Fine pair of pistols:**", "A matched pair of handguns, made for greater accuracy, with double barrels that allow for two shots "
-                                          "before reloading. *Were your pistols made by Kardera’s Daughters, Templeton & Slane, the Imperial Forge, "
-                                          "or some other gunsmith? How do they stand out from the average handgun?*", "**[1 load]**"),
+            ("**Fine pair of pistols:**",
+             "A matched pair of handguns, made for greater accuracy, with double barrels that allow for two shots "
+             "before reloading. *Were your pistols made by Kardera’s Daughters, Templeton & Slane, the Imperial Forge, "
+             "or some other gunsmith? How do they stand out from the average handgun?*", "**[1 load]**"),
         "fine long rifle":
-            ("**Fine long rifle:**", "A finely crafted hunting rifle, deadly at long range, unwieldy in close quarters. *Long rifles are usually "
-                                     "illegal for private citizens in Doskvol, but you have (real or forged) military paperwork for this one.*",
+            ("**Fine long rifle:**",
+             "A finely crafted hunting rifle, deadly at long range, unwieldy in close quarters. *Long rifles are usually "
+             "illegal for private citizens in Doskvol, but you have (real or forged) military paperwork for this one.*",
              "**[2 load]**"),
         "electroplasmic ammunition":
-            ("**Electroplasmic ammunition:**", "A bandolier of electroplasmic ammo, especially potent against spirits, but less effective against "
-                                               "physical targets. *The electrical charge is enough to stun a person, but does very little real "
-                                               "harm. Several hits might incapacitate a human target. This ammunition is especially reactive in the "
-                                               "ghost field—make a 4-clock called “Attention from the Spirit Wardens” and tick it for every "
-                                               "operation in which this ammo was used.*", "**[1 load]**"),
+            ("**Electroplasmic ammunition:**",
+             "A bandolier of electroplasmic ammo, especially potent against spirits, but less effective against "
+             "physical targets. *The electrical charge is enough to stun a person, but does very little real "
+             "harm. Several hits might incapacitate a human target. This ammunition is especially reactive in the "
+             "ghost field—make a 4-clock called “Attention from the Spirit Wardens” and tick it for every "
+             "operation in which this ammo was used.*", "**[1 load]**"),
         "a trained hunting pet":
-            ("**A trained hunting pet:**", "Your animal companion obeys your commands and anticipates your actions. Cohort (Expert: Hunter).",
+            ("**A trained hunting pet:**",
+             "Your animal companion obeys your commands and anticipates your actions. Cohort (Expert: Hunter).",
              "**[0 load]**"),
         "spyglass":
-            ("**Spyglass:**", "A brass tube with lenses that allow long-distance vision. Collapsible. May attach to a rifle.", "**[1 load]**"),
+            ("**Spyglass:**",
+             "A brass tube with lenses that allow long-distance vision. Collapsible. May attach to a rifle.",
+             "**[1 load]**"),
         "fine tinkering tools":
-            ("**Fine tinkering tools:**", "A finely crafted set of tools for detailed mechanist work. A jeweler’s loupe. Measuring devices.",
+            ("**Fine tinkering tools:**",
+             "A finely crafted set of tools for detailed mechanist work. A jeweler’s loupe. Measuring devices.",
              "**[1 load]**"),
         "fine wrecking tools":
-            ("**Fine wrecking tools:**", "A specialized set of tools for sabotage and destruction. A small, powerful drill. A mallet and steel "
-                                         "spikes. A prybar. An electroplasmic battery, clamps, wire. Vials of acid. A spark-torch cutter and fuel "
-                                         "tank.", "**[2 load]**"),
+            ("**Fine wrecking tools:**",
+             "A specialized set of tools for sabotage and destruction. A small, powerful drill. A mallet and steel "
+             "spikes. A prybar. An electroplasmic battery, clamps, wire. Vials of acid. A spark-torch cutter and fuel "
+             "tank.", "**[2 load]**"),
         "blowgun & dars, syringes":
-            ("**Blowgun & darts, syringes:**", "A small tube and darts that can be filled from alchemy flasks. Empty syringes.", "**[0 load]**"),
+            ("**Blowgun & darts, syringes:**",
+             "A small tube and darts that can be filled from alchemy flasks. Empty syringes.", "**[0 load]**"),
         "bandolier":
-            ("**Bandolier:**", "A strap worn across the body, fitted with specially-padded pouches to hold three alchemical agents or spark-craft "
-                               "bombs. When you employ an alchemical or bomb from a bandolier, choose one from the list at right (or one of your "
-                               "custom-made formulas). See page 226 for more on alchemicals and bombs. *During downtime, you automatically refill "
-                               "your bandoliers, so long as you have reasonable access to a supplier or workshop.*", "**[1 load]**",
+            ("**Bandolier:**",
+             "A strap worn across the body, fitted with specially-padded pouches to hold three alchemical agents or spark-craft "
+             "bombs. When you employ an alchemical or bomb from a bandolier, choose one from the list at right (or one of your "
+             "custom-made formulas). See page 226 for more on alchemicals and bombs. *During downtime, you automatically refill "
+             "your bandoliers, so long as you have reasonable access to a supplier or workshop.*", "**[1 load]**",
              "**Bandolier items:**\nAlcahest, Binding Oil, Drift Oil, Drown Powder, Eyeblind Poison, Fire Oil, Grenade, Quicksilver, "
              "Skullfire Poison, Smoke Bomb, Spark (drug), Standstill Poison, Trance Powder"),
         "gadgets":
-            ("**Gadgets:**", "You may create gadgets during downtime by **Tinkering** with tools and materials. See **Gadgets**, page 227. *Track "
-                             "the load "
-                             "for each gadget you deploy during an operation.*", "**[1+ load]**"),
+            ("**Gadgets:**",
+             "You may create gadgets during downtime by **Tinkering** with tools and materials. See **Gadgets**, page 227. *Track "
+             "the load "
+             "for each gadget you deploy during an operation.*", "**[1+ load]**"),
         'fine lockpicks':
             ("**Fine lockpicks:**", "A finely crafted set of tools to disable and circumvent locks.", "**[0 load]**"),
         'fine shadow cloak':
-            ("**Fine shadow cloak:**", "A hooded cloak made of rare Iruvian shadow-silk that blends into the darkness around it. *This item "
-                                       "improves your effect level when you sneak around.*", "**[1 load]**"),
+            ("**Fine shadow cloak:**",
+             "A hooded cloak made of rare Iruvian shadow-silk that blends into the darkness around it. *This item "
+             "improves your effect level when you sneak around.*", "**[1 load]**"),
         'light climbing gear':
-            ("**Light climbing gear:**", "A well-crafted set of climbing gear that is less bulky and heavy than a standard set.", "**[1 load]**",
+            ("**Light climbing gear:**",
+             "A well-crafted set of climbing gear that is less bulky and heavy than a standard set.", "**[1 load]**",
              "*Standard climbing gear is 2 load.*"),
         'silence potion vial':
-            ("**Silence potion vial:**", "A vial of golden liquid that negates all sound within 10 paces of the drinker for a span of several "
-                                         "moments.", "**[0 load]**"),
+            ("**Silence potion vial:**",
+             "A vial of golden liquid that negates all sound within 10 paces of the drinker for a span of several "
+             "moments.", "**[0 load]**"),
         'dark-sight goggles':
-            ("**Dark-sight goggles:**", "An arcane device that allows the wearer to see in pitch darkness as if it were well-lit.", "**[1 load]**"),
+            ("**Dark-sight goggles:**",
+             "An arcane device that allows the wearer to see in pitch darkness as if it were well-lit.",
+             "**[1 load]**"),
         'fine disguise kit':
-            ("**Fine disguise kit:**", "A theatrical make-up kit equipped with an impressive array of expert appliances to fool the eye. *The fine "
-                                       "quality of this kit may increase the effect of your deceptive actions when you use it.*", "**[1 load]**"),
+            ("**Fine disguise kit:**",
+             "A theatrical make-up kit equipped with an impressive array of expert appliances to fool the eye. *The fine "
+             "quality of this kit may increase the effect of your deceptive actions when you use it.*", "**[1 load]**"),
         'fine clothes & jewelry':
-            ("**Fine clothes & jewelry:**", "An outfit that appears to be of such fine make as to pass you off as a wealthy noble.", "**[0 load]**",
+            ("**Fine clothes & jewelry:**",
+             "An outfit that appears to be of such fine make as to pass you off as a wealthy noble.", "**[0 load]**",
              "*If you’re carrying this item as a second outfit to change into, it counts as 2 load.*"),
         'fine loaded dice, trick cards':
-            ("**Fine loaded dice, trick cards:**", "Gambling accouterments subtly altered to favor particular outcomes. *The fine quality of this "
-                                                   "kit may increase the effect of your deceptive actions when you use it.*", "[0 load]"),
+            ("**Fine loaded dice, trick cards:**",
+             "Gambling accouterments subtly altered to favor particular outcomes. *The fine quality of this "
+             "kit may increase the effect of your deceptive actions when you use it.*", "[0 load]"),
         'trance powder':
-            ("**Trance powder:**", "A dose of the popular drug, which induces an altered mental state. *The victim of this powder is not fully "
-                                   "unconscious, but rather retreats into a calm, suggestible mental state, similar to hypnotism.*", "**[0 load]**"),
+            ("**Trance powder:**",
+             "A dose of the popular drug, which induces an altered mental state. *The victim of this powder is not fully "
+             "unconscious, but rather retreats into a calm, suggestible mental state, similar to hypnotism.*",
+             "**[0 load]**"),
         'a cane-sword':
-            ("**A cane-sword:**", "A slim sword and its sheath, disguised as a noble’s cane. The disguise will fool a cursory inspection.",
+            ("**A cane-sword:**",
+             "A slim sword and its sheath, disguised as a noble’s cane. The disguise will fool a cursory inspection.",
              "**[1 load]**"),
         'fine cover identity':
-            ("**Fine cover identity:**", "Paperwork, planted stories and rumors, and false relationships sufficient to pass as a different person.",
+            ("**Fine cover identity:**",
+             "Paperwork, planted stories and rumors, and false relationships sufficient to pass as a different person.",
              "**[0 load]**"),
         'fine bottle of whiskey':
-            ("**Fine bottle of whiskey:**", "A rare distillation from your personal collection, potent both in its alcohol and its ability to "
-                                            "impress.", "**[1 load]**"),
+            ("**Fine bottle of whiskey:**",
+             "A rare distillation from your personal collection, potent both in its alcohol and its ability to "
+             "impress.", "**[1 load]**"),
         'blueprints':
-            ("**Blueprints:**", "A folio of useful architectural drawings and city plans. *Feel free to specify which plans you’re carrying when "
-                                "you choose this item.*", "**[1 load]**"),
+            ("**Blueprints:**",
+             "A folio of useful architectural drawings and city plans. *Feel free to specify which plans you’re carrying when "
+             "you choose this item.*", "**[1 load]**"),
         'vial of slumber essence':
-            ("**Vial of slumber essence:**", "A dose of slumber essence sufficient to put someone to sleep for an hour. *The victim’s sleep isn’t "
-                                             "supernatural, but it is deep — they can be roused with some effort.*", "**[0 load]**"),
+            ("**Vial of slumber essence:**",
+             "A dose of slumber essence sufficient to put someone to sleep for an hour. *The victim’s sleep isn’t "
+             "supernatural, but it is deep — they can be roused with some effort.*", "**[0 load]**"),
         'concealed palm pistol':
-            ("**Concealed palm pistol:**", "A small firearm with a weak charge, easily concealed in a sleeve or waistcoat. *This pistol has "
-                                           "extremely limited range; only a few feet. It’s very difficult to detect on your person, even if you’re "
-                                           "searched.*", "**[0 load]**"),
+            ("**Concealed palm pistol:**",
+             "A small firearm with a weak charge, easily concealed in a sleeve or waistcoat. *This pistol has "
+             "extremely limited range; only a few feet. It’s very difficult to detect on your person, even if you’re "
+             "searched.*", "**[0 load]**"),
         'demonbane charm':
             ("**Demonbane charm:**", "An arcane trinket that demons prefer to avoid.", "**[0 load]**"),
         'ghost key':
@@ -1503,19 +1973,23 @@ async def lookup(ctx, query):
              "An arcane device that can open ghost doors. *There’s an echo of the entire city, across the ages, trapped in the ghost "
              "field. Sometimes a door to that place can be found.*", "**[0 load]**"),
         'spirit bottles':
-            ("**Spirit bottles (2):**", "An arcane device used to trap a spirit. A metal and crystalline cylinder, the size of a loaf of bread.",
+            ("**Spirit bottles (2):**",
+             "An arcane device used to trap a spirit. A metal and crystalline cylinder, the size of a loaf of bread.",
              "**[1 load]**"),
         'fine lightning hook':
-            ("**Fine lightning hook:**", "A long, two-handed pole with a loop of heavy wire at the end, connected to an electroplasmic capacitor. "
-                                         "Suitable for grappling a spirit and dragging it into a spirit bottle. *This custom-made hook collapses "
-                                         "into a compact form, thus reducing its load to 1, even though it’s two-handed.*", "**[1 load]**"),
+            ("**Fine lightning hook:**",
+             "A long, two-handed pole with a loop of heavy wire at the end, connected to an electroplasmic capacitor. "
+             "Suitable for grappling a spirit and dragging it into a spirit bottle. *This custom-made hook collapses "
+             "into a compact form, thus reducing its load to 1, even though it’s two-handed.*", "**[1 load]**"),
         'fine spirit mask':
-            ("**Fine spirit mask:**", "An arcane item that allows the trained user to see supernatural energies in great detail. Also affords some "
-                                      "measure of protection against ghostly possession. *Each spirit mask is unique. What does yours look like? "
-                                      "What makes it strange and disturbing to see?*", "**[1 load]**"),
+            ("**Fine spirit mask:**",
+             "An arcane item that allows the trained user to see supernatural energies in great detail. Also affords some "
+             "measure of protection against ghostly possession. *Each spirit mask is unique. What does yours look like? "
+             "What makes it strange and disturbing to see?*", "**[1 load]**"),
         'blade':
-            ("**A Blade or Two:**", "Perhaps you carry a simple fighting knife. Or two curved swords. Or a rapier and stiletto. Or a heavy butcher’s "
-                                    "cleaver.", "**[1 load]**",
+            ("**A Blade or Two:**",
+             "Perhaps you carry a simple fighting knife. Or two curved swords. Or a rapier and stiletto. Or a heavy butcher’s "
+             "cleaver.", "**[1 load]**",
              "Your choice of blade might reflect your heritage:\n\n*In the North (Akoros and Skovlan) blades tend to be broad, "
              "heavy, and single-edged.\n\nIn Severos, the horse-lords favor spears in battle, but for personal combat they carry distinctive "
              "double-edged daggers with very wide blades, often intricately inscribed with family histories.\n\nIn the Dagger Isles, "
@@ -1524,31 +1998,40 @@ async def lookup(ctx, query):
         'throwing knives':
             ("**Throwing Knives:**", "Six small, light blades.", "**[1 load]**"),
         'pistol':
-            ("**A Pistol/Second Pistol:**", "A heavy, single-shot, breechloading firearm. Devastating at 20 paces, slow to reload.", "**[1 load]**"),
+            ("**A Pistol/Second Pistol:**",
+             "A heavy, single-shot, breechloading firearm. Devastating at 20 paces, slow to reload.", "**[1 load]**"),
         'large weapon':
-            ("**A Large Weapon**", "A weapon meant for two hands. A battle-axe, greatsword, warhammer, or pole-arm. A hunting rifle. A blunderbuss. "
-                                   "A bow or crossbow.", "**[2 load]**"),
+            ("**A Large Weapon**",
+             "A weapon meant for two hands. A battle-axe, greatsword, warhammer, or pole-arm. A hunting rifle. A blunderbuss. "
+             "A bow or crossbow.", "**[2 load]**"),
         'unusual weapon':
-            ("**An Unusual Weapon**", "A curiosity or tool turned into a weapon. A whip, a flail, a hatchet, a shovel, a length of chain, "
-                                      "a razor-edged fan, steel-toed boots.", "**[1 load]**"),
+            ("**An Unusual Weapon**",
+             "A curiosity or tool turned into a weapon. A whip, a flail, a hatchet, a shovel, a length of chain, "
+             "a razor-edged fan, steel-toed boots.", "**[1 load]**"),
         'armor heavy':
-            ("**Armor:**", "A thick leather tunic plus reinforced gloves and boots.", "**[2 load]**", "**+Heavy:**\nThe addition of chain mail, "
-                                                                                                      "metal "
-                                                                                                      "plates, a metal helm.\n**[3 load]**\nThe load "
-                                                                                                      "for heavy armor is in addition to normal armor — "
-                                                                                                      "**[5 load]** total."),
+            ("**Armor:**", "A thick leather tunic plus reinforced gloves and boots.", "**[2 load]**",
+             "**+Heavy:**\nThe addition of chain mail, "
+             "metal "
+             "plates, a metal helm.\n**[3 load]**\nThe load "
+             "for heavy armor is in addition to normal armor — "
+             "**[5 load]** total."),
         'burglary gear':
-            ("**Burglary Gear:**", "A set of lockpicks. A small pry-bar. Vials of oil to silence squeaky hinges. A coil of wire and fishing hooks. "
-                                   "A small pouch of fine sand.", "**[1 load]**"),
+            ("**Burglary Gear:**",
+             "A set of lockpicks. A small pry-bar. Vials of oil to silence squeaky hinges. A coil of wire and fishing hooks. "
+             "A small pouch of fine sand.", "**[1 load]**"),
         'climbing gear':
-            ("**Climbing Gear:**", "A large coil of rope. A small coil of rope. Grappling hooks. A small pouch of chalk dust. A climbing harness "
-                                   "with loops and metal rings. A set of iron pitons and a small mallet.", "**[2 load]**"),
+            ("**Climbing Gear:**",
+             "A large coil of rope. A small coil of rope. Grappling hooks. A small pouch of chalk dust. A climbing harness "
+             "with loops and metal rings. A set of iron pitons and a small mallet.", "**[2 load]**"),
         'documents':
-            ("**Documents:**", "A collection of slim volumes on a variety of topics, including a registry of the nobility, City Watch commanders, "
-                               "and other notable citizens. Blank pages, a vial of ink, a pen. A number of interesting maps.", "**[1 load]**"),
+            ("**Documents:**",
+             "A collection of slim volumes on a variety of topics, including a registry of the nobility, City Watch commanders, "
+             "and other notable citizens. Blank pages, a vial of ink, a pen. A number of interesting maps.",
+             "**[1 load]**"),
         'arcane implements':
-            ("**Arcane Implements:**", "A vial of quicksilver. A pouch of black salt. A spirit anchor in the form of a small stone. A spirit "
-                                       "bottle. A vial of electroplasm, designed to break and splatter on impact.", "**[1 load]**"),
+            ("**Arcane Implements:**",
+             "A vial of quicksilver. A pouch of black salt. A spirit anchor in the form of a small stone. A spirit "
+             "bottle. A vial of electroplasm, designed to break and splatter on impact.", "**[1 load]**"),
         'subterfuge supplies':
             ("**Subterfuge supplies:**",
              "A theatrical makeup kit. A selection of blank documents, ready for the forger’s hand. Costume jewelry. A reversible cloak and "
@@ -1562,11 +2045,14 @@ async def lookup(ctx, query):
                 "An assortment for detailed mechanist work: jeweler’s loupe, tweezers, a small hammer, pliers, screwdriver, etc.",
                 "**[1 load]**"),
         'lantern':
-            ("**Lantern:**", "A simple oil lantern, a fancy electroplasmic lamp, or other light source.", "**[1 load]**"),
+            ("**Lantern:**", "A simple oil lantern, a fancy electroplasmic lamp, or other light source.",
+             "**[1 load]**"),
         "spiritbane charm":
             ("**Spiritbane Charm:**", "A small arcane trinket that ghosts prefer to avoid.", "**[0 load]**")
     }
-    actions = ("hunt", "study", "survey", "tinker", "skirmish", "wreck", "prowl", "finesse", "attune", "sway", "consort", "command")
+    actions = (
+        "hunt", "study", "survey", "tinker", "skirmish", "wreck", "prowl", "finesse", "attune", "sway", "consort",
+        "command")
     action = {
         'hunt': ("**Hunt**",
                  "When you **Hunt**, you carefully track a target. You might follow a person or discover their location. You might arrange an "
@@ -1771,14 +2257,16 @@ async def lookup(ctx, query):
                     "will judge if their character can be ordered around or not.")
     }
     faction_sheets = {
-        'red sashes': ("The Red Sashes", "II", "*Originally a school of ancient Iruvian sword arts, since expanded into criminal endeavors.*",
+        'red sashes': ("The Red Sashes", "II",
+                       "*Originally a school of ancient Iruvian sword arts, since expanded into criminal endeavors.*",
                        "HQ in their sword-fighting school/temple. Operates a handful of high-end drug dens across Crow’s Foot and the Docks.",
                        "**Mylera Klev** (leader, *shrewd*, *ruthless*, *educated*, *art collector*)",
                        "Small contingent of master sword-fighters. Master alchemist; many potent potions and essences.",
                        "Several members of the Red Sashes are the sons and daughters of Iruvian nobility and diplomats in Doskvol. They train in "
                        "swordplay at the school and sometimes participate in gang activities. Their families are powerful and will commit "
                        "significant resources to punishing anyone who harms their children.",
-                       "Iruvian Consulate, The Path of Echoes, Dockers, Cabbies, Inspectors.", "The Lampblacks, Bluecoats, Gondoliers.",
+                       "Iruvian Consulate, The Path of Echoes, Dockers, Cabbies, Inspectors.",
+                       "The Lampblacks, Bluecoats, Gondoliers.",
                        "The Red Sashes and the Lampblacks are at war over turf and vengeance for deaths on both sides. Mylera is recruiting every "
                        "free blade in the district for extra muscle and doesn’t take no for an answer. You’re either with them or against them. The "
                        "Red Sashes are very well-connected, with former sword students placed at the Iruvian Consulate, in the Path of Echoes, "
@@ -1794,13 +2282,15 @@ async def lookup(ctx, query):
                       "A large gang of bloodthirsty butchers. A pack of death-dogs.",
                       "The Billhooks have a bloody reputation, often leaving the butchered corpses of their victims strewn about in a grisly "
                       "display. Many wonder why the Bluecoats turn a blind eye to their savagery.",
-                      "The Bluecoats, Ministry of Preservation.", "Ulf Ironborn, The Lost, Citizenry of Crow’s Foot and the Docks.",
+                      "The Bluecoats, Ministry of Preservation.",
+                      "Ulf Ironborn, The Lost, Citizenry of Crow’s Foot and the Docks.",
                       "Erin and Coran both want to take control of the Billhooks gang, either when Tarvul gets too old (which will be soon) or "
                       "by taking the position by force. There is no love lost between Erin and Corran and they’ll have no qualms about fighting "
                       "a family member for leadership. Meanwhile, the rest of the gang wants to continue their reign of terror to pressure a "
                       "magistrate to pardon Tarvul and other gang members and release them from Ironhook.",
                       "Terrorize magistrates to pardon members in prison - 8 part clock"),
-        'bluecoats': ("Bluecoats", "III", "*The City Watch of Duskwall. Known as the meanest gang in the city. Corrupt, violent, and cruel*.",
+        'bluecoats': ("Bluecoats", "III",
+                      "*The City Watch of Duskwall. Known as the meanest gang in the city. Corrupt, violent, and cruel*.",
                       "The Bluecoats claim the whole city as their turf, but find their influence severely limited in Whitecrown, "
                       "where the Imperial Military garrison holds sway under command of the Lord Governor.",
                       "**Commander Clelland** (chief commissioner of the City Watch, *corrupt*, *cruel*, *arrogant*).\n**Captain Michter** ("
@@ -1832,27 +2322,32 @@ async def lookup(ctx, query):
              "rituals with hulls, hollows, vampires—and the rare demon—are conducted in the labyrinthine dungeons below the Church’s "
              "chief cathedral in Brightstone",
              "Unlock the secret of ascension - 12 part clock;\nEliminate the Reconciled - 12 part clock"),
-        'circle of flame': ("The Circle of Flame", "III", "*A refined secret society of antiquarians and scholars; cover for extortion, graft, "
-                                                          "vice, and murder.*",
-                            "The Centuralia club, Six Towers (HQ).", "**The Seven** (leadership):\n**Elstera Avrathi** (Iruvian diplomat, "
-                                                                     "*secretive*, *gracious*)\n**Lady Drake** (magistrate, *cunning*, "
-                                                                     "*ruthless*)\n**Raffello** (painter, *visionary*, *obsessive*), "
-                                                                     "\n**Lord Mora** (noble, *cold*, *suspicious*),\n**Lady Penderyn** (noble, "
-                                                                     "*charming*, *patient*)\n**Madame Tesslyn** (vice purveyor, "
-                                                                     "*sophisticated*, *subtle*)\n**Harvale Brogan** (vice purveyor, *shrewd*, "
-                                                                     "*quiet*).",
+        'circle of flame': ("The Circle of Flame", "III",
+                            "*A refined secret society of antiquarians and scholars; cover for extortion, graft, "
+                            "vice, and murder.*",
+                            "The Centuralia club, Six Towers (HQ).",
+                            "**The Seven** (leadership):\n**Elstera Avrathi** (Iruvian diplomat, "
+                            "*secretive*, *gracious*)\n**Lady Drake** (magistrate, *cunning*, "
+                            "*ruthless*)\n**Raffello** (painter, *visionary*, *obsessive*), "
+                            "\n**Lord Mora** (noble, *cold*, *suspicious*),\n**Lady Penderyn** (noble, "
+                            "*charming*, *patient*)\n**Madame Tesslyn** (vice purveyor, "
+                            "*sophisticated*, *subtle*)\n**Harvale Brogan** (vice purveyor, *shrewd*, "
+                            "*quiet*).",
                             "Vast treasury provided by wealthy membership. Impressive collection of ancient artifacts, maps, and ephemera. "
                             "Highly trained and discreet private security force.",
-                            "One of The Seven is actually a demon in disguise.", "The Forgotten Gods, The Path of Echoes, City Council, "
-                                                                                 "The Foundation.",
-                            "The Hive, The Silver Nails.", "The Circle has an extensive library of scholarly works that catalog many of the "
-                                                           "arcane artifacts and valuable treasures that disappeared when the Lost District "
-                                                           "was abandoned outside the lightning barrier. Of special interest are the remains "
-                                                           "of Kotar, a legendary sorcerer, demon, or hero who was mummified before the "
-                                                           "cataclysm. The Eye, Hand, and Heart of Kotar are said to possess great power for "
-                                                           "those bold enough to risk their use.",
+                            "One of The Seven is actually a demon in disguise.",
+                            "The Forgotten Gods, The Path of Echoes, City Council, "
+                            "The Foundation.",
+                            "The Hive, The Silver Nails.",
+                            "The Circle has an extensive library of scholarly works that catalog many of the "
+                            "arcane artifacts and valuable treasures that disappeared when the Lost District "
+                            "was abandoned outside the lightning barrier. Of special interest are the remains "
+                            "of Kotar, a legendary sorcerer, demon, or hero who was mummified before the "
+                            "cataclysm. The Eye, Hand, and Heart of Kotar are said to possess great power for "
+                            "those bold enough to risk their use.",
                             "Acquire all the ancient artifacts of Kotar - 8 part clock"),
-        'city council': ("City Council", "V", "*The elite nobility who run the city government, its treasury, magistrates, and public works.*",
+        'city council': ("City Council", "V",
+                         "*The elite nobility who run the city government, its treasury, magistrates, and public works.*",
                          "The city council chambers are in Charterhall, along with the attendant government offices and impregnable city treasury "
                          "vaults. The council also holds ownership of all public spaces in the city, including streets, docks, and waterways.",
                          "The scions of the six most powerful noble families in Doskvol, currently: **Bowmore**, **Clelland**, **Dunvil**, "
@@ -1868,7 +2363,8 @@ async def lookup(ctx, query):
                          "scandal, framed crime, or assassinations to remove Strangford? Or can Strangford House stand against them and eliminate "
                          "the threats?",
                          "Strangford is removed from council - 6 part clock;\nStrangford eliminates threats - 8 part clock"),
-        'crows': ("The Crows", "II", "*An old gang with new leadership. Known for running illegal games of chance and extortion rackets.*",
+        'crows': ("The Crows", "II",
+                  "*An old gang with new leadership. Known for running illegal games of chance and extortion rackets.*",
                   "Claims all of Crow’s Foot as their turf. Everyone in the district pays up the chain to them. HQ in an abandoned City Watch "
                   "tower. Operates gambling dens in Crow’s Foot and extortion rackets at the Docks.",
                   "**Lyssa** (leader, *brash*, *killer*, *noble family*).\n**Bell** (second-in-command, *loyal*).",
@@ -1879,8 +2375,9 @@ async def lookup(ctx, query):
                   "as leader of the Crows is uncertain. Some were very loyal to Roric. As the power-play continues, the Crows’ hold on the "
                   "district just might slip away.",
                   "Reestablish control of Crow’s Foot - 6 part clock;\nRise in Tier - 6 part clock"),
-        'deathlands scavengers': ("Deathlands Scavengers", "II", "*Convicts from Ironhook and desperate freelancers who roam the wasteland beyond "
-                                                                 "the lightning barriers.*",
+        'deathlands scavengers': ("Deathlands Scavengers", "II",
+                                  "*Convicts from Ironhook and desperate freelancers who roam the wasteland beyond "
+                                  "the lightning barriers.*",
                                   "A few precious hold-fasts in the deathlands, secured by ancient rites against spirits. Hunting grounds to feed "
                                   "on the few strange animals that survived the cataclysm.",
                                   "**Lady Thorn** (leader, *haunted*, *brave*, *caring*).\n**Richter** (hunter, *patient*, *quiet*, *deadly*).",
@@ -1921,13 +2418,15 @@ async def lookup(ctx, query):
                        "documents, some forged, some legit.",
                        "As veterans of many cruises on the Void Sea, Vale and her crew can be insular and clannish, and have a low initial opinion "
                        "of anyone who hasn’t proven themselves in a similar way. Once won, however, their loyalty is rock solid and fierce.",
-                       "Dockers, The Lampblacks.", "Bluecoats (canal patrol), The Vultures (rival smuggling outfit, Tier I).",
+                       "Dockers, The Lampblacks.",
+                       "Bluecoats (canal patrol), The Vultures (rival smuggling outfit, Tier I).",
                        "Vale and her crew have mastered the Northern smuggling routes in and out of Duskwall. They’re currently attempting to "
                        "absorb or eliminate the few remaining rivals on their territory and then establish reliable, regular work with a patron who "
                        "needs a steady stream of contraband.",
                        "Eliminate rival smugglers - 8 part clock;\nObtain a regular patron - 6 part clock"),
-        'gondoliers': ("Gondoliers", "III", "*The canal boat operators. Venerated by ancient tradition. Said to know occult secrets (many things "
-                                            "are submerged in the Dusk).*",
+        'gondoliers': ("Gondoliers", "III",
+                       "*The canal boat operators. Venerated by ancient tradition. Said to know occult secrets (many things "
+                       "are submerged in the Dusk).*",
                        "The canals of Doskvol. Even the Bluecoats’ canal patrol pays respect to them.",
                        "**Eisele** (leader, *serene*, *knowledgeable*, *fearless*).\n**Griggs** (chief Whisper, *strange*, *ruthless*, *haunted*).",
                        "Fleet of gondolas and other water-craft. Map of known spirit wells and arcane sites across the city. A dedicated cohort of "
@@ -1943,7 +2442,8 @@ async def lookup(ctx, query):
                        "sparked investigation by the Gondoliers (the Spirit Wardens are pointedly ignoring the situation).",
                        "Investigate desecrated hollows - 8 part clock;\nDestroy spirit wells (repeating) - 4 part clock"),
         'gray cloaks':
-            ("The Gray Cloaks", "II", "*A crew of former Bluecoats turned to crime after being framed and expelled from the City Watch.*",
+            ("The Gray Cloaks", "II",
+             "*A crew of former Bluecoats turned to crime after being framed and expelled from the City Watch.*",
              "The basement of a burned-down City Watch station (HQ). Several apartments above a tobacconist in Six Towers. A pit-fighting arena and "
              "gambling den.",
              "**Nessa** (leader, *scrupulous*, *daring*).\n**Hutch** (second, *brash*, *fierce*).",
@@ -1953,7 +2453,8 @@ async def lookup(ctx, query):
              "they were skimming from the city coffers and taking bribes like everyone else, but they didn’t burn down the Watch station "
              "and destroy the evidence in the case against Lord Strangford (of the Leviathan Hunters). Several inspectors who were "
              "working the case know the truth but can’t prove anything - yet. Lord Strangford would pay well to have these loose ends "
-             "removed permanently.", "Secure Six Towers as their turf - 8 part clock;\nAvenge their expulsion - 8 part clock"),
+             "removed permanently.",
+             "Secure Six Towers as their turf - 8 part clock;\nAvenge their expulsion - 8 part clock"),
 
         'grinders': ("The Grinders", "II", "*A vicious gang of former dockers and leviathan blood refinery workers.*",
                      "Abandoned dock warehouse (HQ) and underground canal dock.",
@@ -1961,7 +2462,8 @@ async def lookup(ctx, query):
                      "*huge*, *shrewd*).",
                      "A few small canal boats. Wrecking tools and explosives.",
                      "Many Grinders have been mutated by the toxic rain that plagues Lockport.",
-                     "Ulf Ironborn, Dockers.", "Bluecoats, Imperial Military, Leviathan Hunters, Sailors, The Silver Nails.",
+                     "Ulf Ironborn, Dockers.",
+                     "Bluecoats, Imperial Military, Leviathan Hunters, Sailors, The Silver Nails.",
                      "The city of Lockport, to the North in Skovlan, processes 90% of the demon blood siphoned by the leviathan hunter ships of "
                      "Doskvol (the hunters drop their raw cargo at Lockport before filling their holds with refined blood and returning to Doskvol "
                      "for repairs and replacement crew for those lost to the Void Sea). The huge, churning refineries in Lockport have poisoned the "
@@ -1970,21 +2472,24 @@ async def lookup(ctx, query):
                      "They call themselves “the Grinders.” To raise funds for their mission, the Grinders have turned to criminal endeavors, "
                      "especially smash & grab looting and hijacking of cargo barges across the city.",
                      "Raise a crew, steal a war ship - 12 part clock;\nFill war treasury - 12 part clock"),
-        'hive': ("The Hive", "IV", "*A guild of legitimate merchants who secretly trade in contraband. Named for their symbol, a golden bee.*",
+        'hive': ("The Hive", "IV",
+                 "*A guild of legitimate merchants who secretly trade in contraband. Named for their symbol, a golden bee.*",
                  "Many shops, taverns, cafes, warehouses, and other mercantile establishments all across the city. No centralized HQ.",
                  "**Djera Maha** (leader, *bold*, *strategic*, *confident*).\n**Karth Orris** (mercenary commander, *ruthless*, *insightful*, "
                  "*jealous*).",
                  "A massive treasury. Elite mercenaries on retainer. A fleet of transport ships, carriages, wagons, and private trains.",
                  "The Hive is known to avoid doing business with any occult or arcane groups. The Church of Ecstasy is popular among Hive members, "
                  "who reject the superstitions and weird practices of the past.",
-                 "Ministry of Preservation, Dagger Isles Consulate.", "The Circle of Flame, The Unseen, The Crows, The Wraiths.",
+                 "Ministry of Preservation, Dagger Isles Consulate.",
+                 "The Circle of Flame, The Unseen, The Crows, The Wraiths.",
                  "Djera Maha grew up as an urchin in the Dagger Isles. She learned all the secrets of vice and smuggling as she worked her way up "
                  "the ranks of every gang along the trade routes to Doskvol. Having built up her acquisition and distribution network in the city ("
                  "as well as within the Ministry of Preservation) she is poised to take over all of the contraband markets. Maha had a close "
                  "relationship (some say romantic) with the leader of the Crows, Roric, who was recently murdered by his second-in-command.",
                  "Dominate contraband market - 8 part clock;\nAvenge Roric’s murder - 6 part clock"),
         'lampblacks': (
-            "The Lampblacks", "II", "*The former lamp-lighter guild, turned to crime when their services were replaced by electric lights.*",
+            "The Lampblacks", "II",
+            "*The former lamp-lighter guild, turned to crime when their services were replaced by electric lights.*",
             "HQ in the office of a coal warehouse. Operates a handful of brothels and cheap drug dens across Crow’s Foot.",
             "**Bazso Baz** (leader, *charming*, *open*, *ruthless*, *whiskey connoisseur*).\n**Pickett** (second, *shrewd*, *conniving*, "
             "*suspicious*).\n**Henner** (thug, *loyal*, *reckless*).",
@@ -2000,8 +2505,9 @@ async def lookup(ctx, query):
             "to the powers-that-be.",
             "Destroy the Red Sashes - 8 part clock;\nBecome ward boss of Crow’s Foot - 8 part clock"),
         'leviathan hunters':
-            ("Leviathan Hunters", "V", "*The captains and crews that grapple with titanic demons of the Void Sea to drain their blood for "
-                                       "processing into electroplasm.*",
+            ("Leviathan Hunters", "V",
+             "*The captains and crews that grapple with titanic demons of the Void Sea to drain their blood for "
+             "processing into electroplasm.*",
              "The massive metal docks for the huge hunter ships and the associated construction and repair facilities. Several small private "
              "leviathan blood processing facilities for the captains’ personal shares.",
              "**Lord Strangford** (captain, *ruthless*, *arrogant*, *tainted*).\n**Lady Clave** (captain, *daring*, *cruel*, "
@@ -2009,20 +2515,24 @@ async def lookup(ctx, query):
              "The leviathan hunter fleet (each vessel is owned by the noble house who built and commands it). Many cohorts of expert sailors, "
              "as well as spark-craft technicians, demonologist Whispers, and void-touched navigators. Companies of marines to protect the vessels "
              "and their valuable cargo at sea and in port.",
-             "N/A", "City Council, The Church of Ecstasy, Sailors, Dockers, Sparkwrights.", "The Grinders, Ministry of Preservation, The Path of "
-                                                                                            "Echoes.",
+             "N/A", "City Council, The Church of Ecstasy, Sailors, Dockers, Sparkwrights.",
+             "The Grinders, Ministry of Preservation, The Path of "
+             "Echoes.",
              "The captains have a horrible secret: the known hunting grounds for leviathans are coming up barren. The immortal creatures, "
              "once so reliable in their movements in the Void Sea, have begun to migrate elsewhere. New hunting grounds must be found before the "
              "surplus of leviathan blood disappears, and with it, the lightning barriers and the survival of the human race.",
              "Discover new hunting grounds - 12 part clock;\nSurplus runs dry - 12 part clock"),
         'the lost':
-            ("The Lost", "I", "*A group of street-toughs and ex-soldiers dedicated to protecting the downtrodden and the hopeless.*",
-             "Converted rail car (HQ). The poverty-stricken streets of Coalridge and Dunslough.", "**Cortland** (leader, *idealist*, *candid*, "
-                                                                                                  "*cavalier*).",
+            ("The Lost", "I",
+             "*A group of street-toughs and ex-soldiers dedicated to protecting the downtrodden and the hopeless.*",
+             "Converted rail car (HQ). The poverty-stricken streets of Coalridge and Dunslough.",
+             "**Cortland** (leader, *idealist*, *candid*, "
+             "*cavalier*).",
              "A very experienced gang of formerly vicious thugs, killers, and Imperial soldiers.",
              "The Lost have all done horrible things in their former lives and they believe they must atone for these “sins.” Each member keeps a "
              "pile of stones under their bed—one for each sin they balance with a just deed.",
-             "Workhouse Laborers, Citizens of Coalridge and Dunslough, The Crows.", "Workhouse Foremen, Bluecoats, The Billhooks.",
+             "Workhouse Laborers, Citizens of Coalridge and Dunslough, The Crows.",
+             "Workhouse Foremen, Bluecoats, The Billhooks.",
              "The Lost are currently focusing their efforts in Coalridge, running a campaign of sabotage, terror, and savage beatings against the "
              "most notoriously cruel workhouse foremen. The already-brewing union organizing efforts in that district are emboldened by the Lost’s "
              "attacks, and the local Bluecoat patrols are starting to complain to their commanders for support of extra Watch guards from other "
@@ -2030,7 +2540,8 @@ async def lookup(ctx, query):
              "the picture.",
              "Destroy cruel workhouses (repeating) - 4 part clock"),
         'ministry of preservation':
-            ("Ministry of Preservation", "V", "*Oversees transportation between cities and the disbursement of food and other vital resources.*",
+            ("Ministry of Preservation", "V",
+             "*Oversees transportation between cities and the disbursement of food and other vital resources.*",
              "The electro-rail train lines of the Imperium. Radiant energy farms, eeleries, and other food-growing enterprises throughout the city.",
              "**Lord Dalmore** (executive officer in Doskvol, *commanding*, *intelligent*).\n**Lady Slane** (chief of operations, *insightful*, "
              "*subtle*, *effective*).\n**Captain Lannock** (mercenary commander, *shrewd*, *ruthless*).",
@@ -2042,8 +2553,10 @@ async def lookup(ctx, query):
              "espionage, sabotage, and political actions to ultimately seize control of the hunters and bring them into Ministry control.",
              "Seize control of Leviathan Hunters - 12 part clock"),
         'reconciled':
-            ("The Reconciled", "III", "*An association of ancient spirits who have not gone feral with the passage of time.*",
-             "None.", "The Reconciled have possessed several important citizens in Doskvol. Their exact membership is not known.",
+            ("The Reconciled", "III",
+             "*An association of ancient spirits who have not gone feral with the passage of time.*",
+             "None.",
+             "The Reconciled have possessed several important citizens in Doskvol. Their exact membership is not known.",
              "Several secret and hidden spirit wells across the city and in the deathlands, which give the Reconciled the arcane energy they need "
              "to survive.",
              "The spirits of the Reconciled do not lose their minds or become obsessed with vengeance as other spirits do. They can possess a "
@@ -2055,8 +2568,9 @@ async def lookup(ctx, query):
              "infiltration into that organization as well.",
              "Infiltrate the City Council - 8 part clock;\nInfiltrate the Church of Ecstasy - 8 part clock"),
         'scurlock':
-            ("Lord Scurlock", "III", "*An ancient noble, said to be immortal, like the Emperor. Possibly a vampire or sorcerer. Obsessed with the "
-                                     "occult.*",
+            ("Lord Scurlock", "III",
+             "*An ancient noble, said to be immortal, like the Emperor. Possibly a vampire or sorcerer. Obsessed with the "
+             "occult.*",
              "A secret lair outside the city. A dilapidated manor house in Six Towers and the catacombs beneath. An array of business holdings and "
              "cult shrines across the city, collected for some united purpose known only to Scurlock.",
              "**Lord Scurlock** (*enigmatic*, *cold*, *arcane*, *old-fashioned*) is an individual, but is so powerful that he’s considered a "
@@ -2071,26 +2585,32 @@ async def lookup(ctx, query):
              "will aid her in this or suffer a dark doom.",
              "Fulfill debt to Setarra - 12 part clock;\nObtain arcane secrets (repeating) - 6 part clock"),
         'silver nails':
-            ("The Silver Nails", "III", "*A company of Severosi mercenaries who fought for the Empire in the Unity War. Renowned ghost killers.*",
-             "A large inn (The Mustang) and its fine stables (HQ).", "**Seresh** (leader, *bold*, *brash*, *defiant*).\n**Tuhan** (lead scout, "
-                                                                     "*bold*, *cunning*, *charming*).",
+            ("The Silver Nails", "III",
+             "*A company of Severosi mercenaries who fought for the Empire in the Unity War. Renowned ghost killers.*",
+             "A large inn (The Mustang) and its fine stables (HQ).",
+             "**Seresh** (leader, *bold*, *brash*, *defiant*).\n**Tuhan** (lead scout, "
+             "*bold*, *cunning*, *charming*).",
              "A contingent of exquisite Severosian cavalry horses—fearless, swift, and trained to hunt and battle spirits. Arcane lances.",
              "Each member wears a ring fashioned from a silver nail, which protects against possession. They’re trained in the **Ghost Fighter** "
              "special ability (Cutter).",
-             "Imperial Military, Sailors, Severosan Consulate.", "The Circle of Flame, The Grinders, Skovlan Consulate, Skovlander Refugees, "
-                                                                 "Spirit Wardens.",
+             "Imperial Military, Sailors, Severosan Consulate.",
+             "The Circle of Flame, The Grinders, Skovlan Consulate, Skovlander Refugees, "
+             "Spirit Wardens.",
              "Thanks to their expertise from riding in the deathlands of Severos, the Silver Nails are perfectly suited to explore the forbidden "
              "Lost District outside the lightning barrier of the city. Once the fiercest ghosts are driven out or destroyed, the Silver Nails can "
              "seize control and plunder the forgotten treasures and artifacts hidden within. (The Spirit Wardens currently control access to the "
              "Lost District and do everything in their power to keep the Silver Nails—and everyone else—out.)",
              "Destroy spirits in the Lost District - 8 part clock;\nControl the Lost District - 8 part clock"),
         'sparkwrights':
-            ("Sparkwrights", "IV", "*The engineers who maintain the lightning barriers. Also pioneers of spark-craft technology, indulging in "
-                                   "dangerous research.*",
-             "Massive workshop, factory, and design facility in Coalridge.", "**Una Farros** (instructor at Charterhall University, *curious*, "
-                                                                             "*vain*, *famous*).",
+            ("Sparkwrights", "IV",
+             "*The engineers who maintain the lightning barriers. Also pioneers of spark-craft technology, indulging in "
+             "dangerous research.*",
+             "Massive workshop, factory, and design facility in Coalridge.",
+             "**Una Farros** (instructor at Charterhall University, *curious*, "
+             "*vain*, *famous*).",
              "The electroplasmic generators, city lights, lightning barriers and associated facilities and systems across the city.",
-             "N/A", "City Council, Leviathan Hunters, Ministry of Preservation.", "The Path of Echoes, The Reconciled, The Foundation.",
+             "N/A", "City Council, Leviathan Hunters, Ministry of Preservation.",
+             "The Path of Echoes, The Reconciled, The Foundation.",
              "For centuries, the Sparkwrights have worked in secret to develop an alternative fuel that could replace the leviathan blood that "
              "powers the lightning barriers of the Imperium. A few researchers have gotten close, but “accidents” have inevitably killed them and "
              "destroyed their work (certainly arranged by the nobility who rule because of their stranglehold on leviathan hunting). But there is "
@@ -2098,40 +2618,47 @@ async def lookup(ctx, query):
              "them manage it this time, or will they, too, fall victim to the deadly agents of the elite?",
              "Develop alternative fuel - 12 part clock"),
         'spirit wardens':
-            ("Spirit Wardens", "IV", "*The bronze-masked hunters who destroy rogue spirits. Also run Bellweather Crematorium to properly dispose of "
-                                     "corpses.*",
-             "Bellweather Crematorium. The Master Warden’s estate in Whitecrown.", "There are no known Spirit Wardens—they maintain an anonymous "
-                                                                                   "membership of people not native to Duskwall, using code-names. "
-                                                                                   "A Warden known as “Bakoros” (who may be several different "
-                                                                                   "individuals) sometimes lectures at the College of Immortal "
-                                                                                   "studies at Doskvol Academy.",
+            ("Spirit Wardens", "IV",
+             "*The bronze-masked hunters who destroy rogue spirits. Also run Bellweather Crematorium to properly dispose of "
+             "corpses.*",
+             "Bellweather Crematorium. The Master Warden’s estate in Whitecrown.",
+             "There are no known Spirit Wardens—they maintain an anonymous "
+             "membership of people not native to Duskwall, using code-names. "
+             "A Warden known as “Bakoros” (who may be several different "
+             "individuals) sometimes lectures at the College of Immortal "
+             "studies at Doskvol Academy.",
              "The death bells that ring whenever someone dies in the city, and the deathseeker crows that fly to find the body (ancient, "
              "arcane). Many cohorts of expert Whispers. The most advanced spectrological and spark-craft equipment, including several spirit-hunter "
              "hulls.",
              "Membership in the Wardens is secret and utterly anonymous. They cut all ties and have no families or close relationships, "
              "save their fellow Wardens.",
-             "The Church of Ecstasy, Deathlands Scavengers.", "The Dimmer Sisters, Gondoliers, Lord Scurlock, The Silver Nails, The Unseen, "
-                                                              "Path of Echoes, The Reconciled.",
+             "The Church of Ecstasy, Deathlands Scavengers.",
+             "The Dimmer Sisters, Gondoliers, Lord Scurlock, The Silver Nails, The Unseen, "
+             "Path of Echoes, The Reconciled.",
              "The Spirit Wardens know that an enemy is attempting to infiltrate their ranks (they don’t yet know that it’s the Unseen). The Wardens "
              "are laying a trap for this enemy, to uncover their identity and eliminate them.",
              "Uncover the infiltrators - 8 part clock"),
         'ulf ironborn':
             ("Ulf Ironborn", "I", "*A brutal Skovlander, newly arrived in the Dusk, fighting everyone for turf.*",
-             "Rooms, workshop, and stable at The Old Forge tavern (HQ). A gambling den.", "**Ulf Ironborn** (leader, *ruthless*, *savage*, *bold*).\n"
-                                                                                          "**Havid** (second, *ruthless*, *volatile*, *shrewd*).",
-             "A small but powerfully savage gang of thugs.", "As a refugee of the Unity War, Ulf does not trust the local Akorosi, or anyone who "
-                                                             "proclaims a strong allegiance to the Imperial government. Those of Skovlander blood "
-                                                             "find it easy to win his trust, however.",
-             "The Grinders.", "Citizens of Coalridge, The Billhooks.", "Ulf is newly arrived in Doskvol, seeking his fortune on the streets. His "
-                                                                       "gang has had recent success with savage smash & grab operations, "
-                                                                       "leading into a potential “protection” racket. As more Skovlander war "
-                                                                       "refugees swell the city population, the bigotry of some locals is starting "
-                                                                       "to surface, with “NO SKOVS” signs appearing at public houses and shops. Ulf "
-                                                                       "’s blind rage will be sparked off when he encounters this, surely leading "
-                                                                       "his gang into war with any “true Duskers” brave enough to stand up to him.",
+             "Rooms, workshop, and stable at The Old Forge tavern (HQ). A gambling den.",
+             "**Ulf Ironborn** (leader, *ruthless*, *savage*, *bold*).\n"
+             "**Havid** (second, *ruthless*, *volatile*, *shrewd*).",
+             "A small but powerfully savage gang of thugs.",
+             "As a refugee of the Unity War, Ulf does not trust the local Akorosi, or anyone who "
+             "proclaims a strong allegiance to the Imperial government. Those of Skovlander blood "
+             "find it easy to win his trust, however.",
+             "The Grinders.", "Citizens of Coalridge, The Billhooks.",
+             "Ulf is newly arrived in Doskvol, seeking his fortune on the streets. His "
+             "gang has had recent success with savage smash & grab operations, "
+             "leading into a potential “protection” racket. As more Skovlander war "
+             "refugees swell the city population, the bigotry of some locals is starting "
+             "to surface, with “NO SKOVS” signs appearing at public houses and shops. Ulf "
+             "’s blind rage will be sparked off when he encounters this, surely leading "
+             "his gang into war with any “true Duskers” brave enough to stand up to him.",
              "Carve out gang territory - 6 part clock;\nRise in Tier - 4 part clock"),
         'unseen':
-            ("The Unseen", "IV", "*An insidious criminal enterprise with secret membership. Thought to pull the strings of the entire underworld.*",
+            ("The Unseen", "IV",
+             "*An insidious criminal enterprise with secret membership. Thought to pull the strings of the entire underworld.*",
              "A multitude of vice dens and extortion rackets across the city—virtually none realize that they pay up to the Unseen. Several opulent "
              "townhouses used as safe houses.",
              "**The Tower** (leader).\n**The Star** (captain).\n**Grull** (mid-level thug with big ambitions, undercover as a coach driver).",
@@ -2144,23 +2671,27 @@ async def lookup(ctx, query):
              "Tower and The Star plot to place their own spies and operatives among the Wardens and seize it from within.",
              "Infiltrate the Spirit Wardens - 8 part clock;\nExpand into other cities - 8 part clock"),
         'wraiths':
-            ("The Wraiths", "II", "*A mysterious crew of masked thieves and spies.*", "Silkshore and Nightmarket are their primary hunting grounds. "
-                                                                                      "They specialize in the theft of luxury items and "
-                                                                                      "intelligence gathering for clients to use as blackmail.",
+            ("The Wraiths", "II", "*A mysterious crew of masked thieves and spies.*",
+             "Silkshore and Nightmarket are their primary hunting grounds. "
+             "They specialize in the theft of luxury items and "
+             "intelligence gathering for clients to use as blackmail.",
              "**Slate** (leader, *sophisticated*, *daring*, *secretive*).\n**Loop** (appraisal expert, *obsessive*, *moody*, *secretive*).",
              "A scattered collection of secret rooftop shelters. A secret lair in a tower in Silkshore. All manner of thieves’ gear for burglary.",
              "Each member wears a mask and conceals their true identity with an alias. They communicate with a private sign language.",
-             "Cabbies.", "Bluecoats, Inspectors, The Hive.", "The Wraiths recently completed a heist at a luxury brothel in Nightmarket and "
-                                                             "happened to grab the private map book of a leviathan hunter in the process. The map "
-                                                             "book shows the secret hunting grounds of augured leviathan sites that will be used by "
-                                                             "the ship Storm Palace during the next season. Such a map is useless to the Wraiths, "
-                                                             "but is worth a small fortune to another leviathan hunter. The Wraiths are currently "
-                                                             "reaching out to contacts in the underworld to quietly arrange a sale.",
+             "Cabbies.", "Bluecoats, Inspectors, The Hive.",
+             "The Wraiths recently completed a heist at a luxury brothel in Nightmarket and "
+             "happened to grab the private map book of a leviathan hunter in the process. The map "
+             "book shows the secret hunting grounds of augured leviathan sites that will be used by "
+             "the ship Storm Palace during the next season. Such a map is useless to the Wraiths, "
+             "but is worth a small fortune to another leviathan hunter. The Wraiths are currently "
+             "reaching out to contacts in the underworld to quietly arrange a sale.",
              "Recruit expert thieves - 8 part clock;\nSecure an arcane ally - 6 part clock")
     }
     keys = (
-        "red sashes", "billhooks", "bluecoats", "church of ecstasy", "circle of flame", "lampblacks", "hive", "grinders", "gray cloaks", "gondoliers",
-        "fog hounds", "dimmer sisters", "deathlands scavengers", "crows", "city council", "leviathan hunters", "the lost", "ministry of preservation",
+        "red sashes", "billhooks", "bluecoats", "church of ecstasy", "circle of flame", "lampblacks", "hive",
+        "grinders", "gray cloaks", "gondoliers",
+        "fog hounds", "dimmer sisters", "deathlands scavengers", "crows", "city council", "leviathan hunters",
+        "the lost", "ministry of preservation",
         "reconciled", 'scurlock', 'silver nails', 'sparkwrights', 'spirit wardens', 'ulf ironborn', "unseen", "wraiths")
     result = ""
     for x in actions:
@@ -2199,12 +2730,16 @@ async def lookup(ctx, query):
                 fac = faction_sheets[x]
         embed = discord.Embed(colour=discord.Colour.dark_red())
         embed.set_author(name=fac[0] + " (" + fac[1] + ")")
-        embed.add_field(name="__Basic Info__", value="\n\n" + fac[2] + "\n\n**Turf:** " + fac[3] + "\n**NPCs:**\n" + fac[4]
+        embed.add_field(name="__Basic Info__",
+                        value="\n\n" + fac[2] + "\n\n**Turf:** " + fac[3] + "\n**NPCs:**\n" + fac[4]
                         , inline=False)
-        embed.add_field(name="__Detailed Info__", value="\n**Notable assets:** " + fac[5] + "\n**Quirks:** " + fac[6] + "\n**Allies:** " + fac[7] +
-                                                        "\n**Enemies:** " + fac[8]
+        embed.add_field(name="__Detailed Info__",
+                        value="\n**Notable assets:** " + fac[5] + "\n**Quirks:** " + fac[6] + "\n**Allies:** " + fac[
+                            7] +
+                              "\n**Enemies:** " + fac[8]
                         , inline=False)
-        embed.add_field(name="__Extras__", value="\n\n**Situation:** " + fac[9] + "\n\n**Clocks:**\n" + fac[10], inline=False)
+        embed.add_field(name="__Extras__", value="\n\n**Situation:** " + fac[9] + "\n\n**Clocks:**\n" + fac[10],
+                        inline=False)
         await ctx.send(embed=embed)
 
 
@@ -2226,7 +2761,8 @@ async def blade(ctx, number):
                 embed = discord.Embed(colour=discord.Colour.dark_red())
                 embed.set_author(name='Resistance ' + str(num_dices) + ' dice roll')
                 embed.add_field(name="CRITICAL RESISTANCE:", value="You recover 1 stress!", inline=False)
-                embed.add_field(name="What happens?", value='You resist a consequence and recover stress.', inline=False)
+                embed.add_field(name="What happens?", value='You resist a consequence and recover stress.',
+                                inline=False)
                 embed.add_field(name="Your roll:", value=str(result) + '.',
                                 inline=False)
                 await ctx.send(embed=embed)
@@ -2234,7 +2770,8 @@ async def blade(ctx, number):
                 embed = discord.Embed(colour=discord.Colour.dark_red())
                 embed.set_author(name='Resistance ' + str(num_dices) + ' dice roll')
                 embed.add_field(name="Stress taken:", value=str(results), inline=False)
-                embed.add_field(name="What happens?", value='You resist a consequence and suffer **%i stress**.' % (results), inline=False)
+                embed.add_field(name="What happens?",
+                                value='You resist a consequence and suffer **%i stress**.' % (results), inline=False)
                 embed.add_field(name="Your roll:", value=str(result) + '.',
                                 inline=False)
                 await ctx.send(embed=embed)
@@ -2248,7 +2785,8 @@ async def blade(ctx, number):
             embed = discord.Embed(colour=discord.Colour.dark_red())
             embed.set_author(name='Resistance ' + str(num_dices) + ' dice roll')
             embed.add_field(name="Stress taken:", value=str(results), inline=False)
-            embed.add_field(name="What happens?", value='You resist a consequence and suffer %i stress.' % (results), inline=False)
+            embed.add_field(name="What happens?", value='You resist a consequence and suffer %i stress.' % (results),
+                            inline=False)
             embed.add_field(name="Your roll:", value=str(result) + '.',
                             inline=False)
             await ctx.send(embed=embed)
@@ -2353,7 +2891,8 @@ async def help(ctx, *command_helper):
     if len(command_helper) == 0:
         embed = discord.Embed(colour=discord.Colour.darker_grey())
         embed.set_author(name='HELP')
-        embed.add_field(name='=help or =h', value='Shows this message. Type in `=help command` or `=h command` for help on that command.',
+        embed.add_field(name='=help or =h',
+                        value='Shows this message. Type in `=help command` or `=h command` for help on that command.',
                         inline=False)
         embed.add_field(name='\nBots in the Dark', value='**Commands:**\n', inline=False)
         embed.add_field(name='=blade or =b', value='Makes a Blades in the Dark dice roll.', inline=False)
@@ -2363,7 +2902,8 @@ async def help(ctx, *command_helper):
         embed.add_field(name='=roll or =r', value="Makes a generic dice roll.", inline=False)
         embed.add_field(name='=info or =i', value="Displays general information on this bot.", inline=False)
         embed.add_field(name='Observations:', value='If a command require a special character like "--" or "-",'
-                                                    'you have to provide them. Command arguments are separated by single spaces.', inline=False)
+                                                    'you have to provide them. Command arguments are separated by single spaces.',
+                        inline=False)
         await ctx.send(embed=embed)
 
     elif command_helper[0].lower() == "blade" or command_helper[0].lower() == "b":
@@ -2497,11 +3037,6 @@ async def on_command_error(ctx, error):
 
 
 bot.run(token)
-
-
-
-
-
 
 # auth_id = str(ctx.message.author.id)
 #         users = get_data("clocks")["users"]

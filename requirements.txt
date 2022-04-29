@@ -1,11 +1,11 @@
 git+https://github.com/Rapptz/discord.py
-PyNaCl==1.4.0
+PyNaCl
 pandas
-discord.py
+discord
 python-dotenv
 aiohttp
 async-timeout
-dnspython==2.0.0
+dnspython
 bs4
 requests
 discord
