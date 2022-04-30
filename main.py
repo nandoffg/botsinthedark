@@ -14,8 +14,8 @@ import randomName
 # import datetime
 
 print('Starting...')
-intents = discord.Intents(members=True)
-client = discord.Client()
+intents = discord.Intents(messages=True, members=True, guilds=True)
+client = discord.Client(intents=intents)
 bot = commands.Bot(command_prefix='=', intents=intents)
 bot.remove_command("help")
 
@@ -28,7 +28,7 @@ db_client = pymongo.MongoClient("mongodb+srv://bitd-bot:" + bot.password +
                                 "@bitd.urg7i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = db_client.admin
 serverStatusResult = db.command("serverStatus")
-
+mydb = db_client["bitd-bot-db"]
 
 if db.authenticate("bitd-bot", bot.password):
     print("Connected to database")
@@ -37,12 +37,10 @@ else:
 
 
 def update_data(collection, _filter, new_data):
-    mydb = db_client["bitd-bot-db"]
     mydb[collection].replace_one(_filter, new_data)
 
 
 def get_data(collection):
-    mydb = db_client["bitd-bot-db"]
     return mydb[collection].find_one()
 
 
@@ -50,7 +48,6 @@ def get_data(collection):
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name='=help'))
-
 
 @bot.event
 async def on_message(message):
@@ -1318,7 +1315,7 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "npc" and ctx.message.author.id == 115581181017194500:
-
+        print(2)
         looks = ["Large", "Lovely", "Weathered", "Chiseled", "Handsome", "Athletic", "Slim", "Dark", "Fair", "Stout",
                  "Delicate", "Scarred", "Bony",
                  "Worn", "Rough", "Plump", "Wiry", "Striking", "Short", "Tall", "Sexy", "Wild", "Elegant", "Stooped",
@@ -1363,13 +1360,18 @@ async def generate(ctx, option):
                      "Plumber", "Printer", "Scholar", "Scribe", "Cleric", "Tax Collector", "Treasurer", "Barbarian",
                      "Composer", "Steward",
                      "Captain", "Bard", "Journalist", "Explorer", "Rogue", "Soldier", "Druid", "Fighter", "Paladin",
-                     "Ranger", "Warlock", "Sorcerer",]
+                     "Ranger", "Warlock", "Sorcerer", ]
 
-        style = ["come in distinctive jewelry: earrings, necklace, circlet, bracelets, piercings", "come in flamboyant clothes",
-                 "come in outlandish clothes", "come in formal, clean clothes", "come in ragged, dirty clothes", "have a pronounced scar",
-                 "have missing teeth", "have missing fingers", "have an unusual eye color", "have two different colors", "have tattoos",
-                 "have a birthmark", "have unusual skin color", "are bald", "have braided beard", "have braided hair", "have unusual hair color",
-                 "have a nervous eye twitch", "have a distinctive nose", "have a distinctive posture", "are exceptionally beautiful",
+        style = ["come in distinctive jewelry: earrings, necklace, circlet, bracelets, piercings",
+                 "come in flamboyant clothes",
+                 "come in outlandish clothes", "come in formal, clean clothes", "come in ragged, dirty clothes",
+                 "have a pronounced scar",
+                 "have missing teeth", "have missing fingers", "have an unusual eye color", "have two different colors",
+                 "have tattoos",
+                 "have a birthmark", "have unusual skin color", "are bald", "have braided beard", "have braided hair",
+                 "have unusual hair color",
+                 "have a nervous eye twitch", "have a distinctive nose", "have a distinctive posture",
+                 "are exceptionally beautiful",
                  "are exceptionally ugly"]
 
         traits = ["charming", "cold", "cavalier", "brash", "suspicious", "obsessive", "shrewd", "quiet", "moody",
@@ -1412,7 +1414,8 @@ async def generate(ctx, option):
                   "Involved with war crimes from the past",
                   "Leads a double life using cover identity", "Black sheep / outcast from family or organization",
                   "In prison or under noble’s house arrest", "Well-traveled. Connections outside town",
-                  "Revolutionary. Plots against the King/Kingdom", "Inherited their position. May not deserve / want it",
+                  "Revolutionary. Plots against the King/Kingdom",
+                  "Inherited their position. May not deserve / want it",
                   "Celebrity. Popularized in print / song / theater", "Surrounded by sycophants, supplicants, toadies",
                   "Superstitious. Believes in signs, magic numbers", "Devoted to their family",
                   "A fraud. Some important aspect is fabricated",
@@ -1437,8 +1440,9 @@ async def generate(ctx, option):
         else:
             prof = random.choice(prof_comm).lower()
         race = random.choice(races).lower()
-        phrase = name + " is a **" + random.choice(traits).lower() + "**, **" + random.choice(looks).lower() + "**, " + race + \
-                 ". " + "That is a **" + prof + "** that yearns for **" + random.choice(goals).lower() + "** through **"\
+        phrase = name + " is a **" + random.choice(traits).lower() + "**, **" + random.choice(
+            looks).lower() + "**, " + race + \
+                 ". " + "That is a **" + prof + "** that yearns for **" + random.choice(goals).lower() + "** through **" \
                  + random.choice(preferred_methods).lower() + "**. They **" + clothing[0] + "** and **" + \
                  clothing[1] + "** and are interested in **" + random.choice(interests).lower() + "**. \n" + \
                  random.choice(quirks) + ". \n" + random.choice(abilities) + "."
@@ -1446,7 +1450,6 @@ async def generate(ctx, option):
         embed.set_author(name='Generating random ' + opt)
         embed.add_field(name="Characteristics", value=phrase, inline=False)
         await ctx.send(embed=embed)
-
 
 @bot.command(name="info", aliases=["i"])
 async def info(ctx):
@@ -1462,7 +1465,6 @@ async def info(ctx):
                           ' . Thank you very much for doing so.',
                     inline=False)
     await ctx.send(embed=embed)
-
 
 @bot.command(name="clock", aliases=["c"])
 async def clock(ctx, *title):
@@ -3024,7 +3026,6 @@ async def on_command_error(ctx, error):
 
 
 bot.run(token)
-
 # auth_id = str(ctx.message.author.id)
 #         users = get_data("clocks")["users"]
 #         ids = []
