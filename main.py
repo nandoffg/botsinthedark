@@ -28,7 +28,7 @@ db_client = pymongo.MongoClient("mongodb+srv://bitd-bot:" + bot.password +
                                 "@bitd.urg7i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = db_client.admin
 serverStatusResult = db.command("serverStatus")
-mydb = db_client["bitd-bot-db"]
+
 
 if db.authenticate("bitd-bot", bot.password):
     print("Connected to database")
@@ -37,10 +37,12 @@ else:
 
 
 def update_data(collection, _filter, new_data):
+    mydb = db_client["bitd-bot-db"]
     mydb[collection].replace_one(_filter, new_data)
 
 
 def get_data(collection):
+    mydb = db_client["bitd-bot-db"]
     return mydb[collection].find_one()
 
 
