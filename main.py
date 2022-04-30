@@ -1315,7 +1315,6 @@ async def generate(ctx, option):
         await ctx.send(embed=embed)
 
     elif opt == "npc" and ctx.message.author.id == 115581181017194500:
-        print(2)
         looks = ["Large", "Lovely", "Weathered", "Chiseled", "Handsome", "Athletic", "Slim", "Dark", "Fair", "Stout",
                  "Delicate", "Scarred", "Bony",
                  "Worn", "Rough", "Plump", "Wiry", "Striking", "Short", "Tall", "Sexy", "Wild", "Elegant", "Stooped",
