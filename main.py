@@ -1,4 +1,4 @@
-# Bots in the Dark v.1.9
+# Bots in the Dark v.2.0
 # AUTHOR: FERNANDO GOMES
 
 from discord.ext import commands
@@ -2658,13 +2658,13 @@ async def on_command_error(ctx, error):
         embed.add_field(name="Syntax error",
                         value='**Missing Argument.**  :x:\n"' + ctx.message.content + '"', inline=False)
         await ctx.send(embed=embed)
-    if isinstance(error, discord.InvalidArgument):
-        embed = discord.Embed(colour=discord.Colour.dark_grey())
-        embed.set_author(name='ERROR')
-        embed.add_field(name="Syntax error",
-                        value='**Invalid argument or argument type.**  :x:\n"' + ctx.message.content + '"',
-                        inline=False)
-        await ctx.send(embed=embed)
+    # if isinstance(error, discord.Argument):
+    #     embed = discord.Embed(colour=discord.Colour.dark_grey())
+    #     embed.set_author(name='ERROR')
+    #     embed.add_field(name="Syntax error",
+    #                     value='**Invalid argument or argument type.**  :x:\n"' + ctx.message.content + '"',
+    #                     inline=False)
+    #     await ctx.send(embed=embed)
     if isinstance(error, commands.CommandNotFound):
         embed = discord.Embed(colour=discord.Colour.dark_grey())
         embed.set_author(name='ERROR')

@@ -8,6 +8,5 @@ async-timeout
 dnspython
 bs4
 requests
-discord
 pymongo
 datetime
