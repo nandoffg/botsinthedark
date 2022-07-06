@@ -21,27 +21,27 @@ bot = commands.Bot(command_prefix='=', intents=intents)
 bot.remove_command("help")
 print("Trying database connection...")
 bot.password = "2WX0s7aJ2T4iRkL6"
-db_client = pymongo.MongoClient("mongodb+srv://bitd-bot:" + bot.password +
-                                "@bitd.urg7i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db = db_client.admin
+dbClient = pymongo.MongoClient("mongodb+srv://bitd-bot:"+bot.password+
+                                "@bitd.urg7i.mongodb.net/?retryWrites=true&w=majority")
+db = dbClient.admin
 serverStatusResult = db.command("serverStatus")
 
-if db.authenticate("bitd-bot", bot.password):
-    print("Connected to database")
-else:
-    print("Failure connecting to the database")
+# if db.authenticate("bitd-bot", bot.password):
+#     print("Connected to database")
+# else:
+#     print("Failure connecting to the database")
 
 # INSERT BOT TOKE HERE IN QUOTES VVVVVVVVVVVVVV
 token = "NzU0Nzg2OTUyNjc4NjA0OTYy.X150IA.gykEs6J5I5CsOHI6Ix-5ehgzt4c"
 
 
 def update_data(collection, _filter, new_data):
-    mydb = db_client["bitd-bot-db"]
+    mydb = dbClient["bitd-bot-db"]
     mydb[collection].replace_one(_filter, new_data)
 
 
 def get_data(collection):
-    mydb = db_client["bitd-bot-db"]
+    mydb = dbClient["bitd-bot-db"]
     return mydb[collection].find_one()
 
 
