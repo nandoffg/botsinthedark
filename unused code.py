@@ -1,25 +1,25 @@
-import pymongo
-
-
-print("Trying database connection...")
-bot.password = "2WX0s7aJ2T4iRkL6"
-db_client = pymongo.MongoClient("mongodb+srv://bitd-bot:" + bot.password +
-                                "@bitd.urg7i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db = db_client.admin
-serverStatusResult = db.command("serverStatus")
-
-if db.authenticate("bitd-bot", bot.password):
-    print("Connected to database")
-else:
-    print("Failure connecting to the database")
-
-def update_data(collection, _filter, new_data):
-    mydb = db_client["bitd-bot-db"]
-    mydb[collection].replace_one(_filter, new_data)
-
-def get_data(collection):
-    mydb = db_client["bitd-bot-db"]
-    return mydb[collection].find_one()
+# import pymongo
+#
+#
+# print("Trying database connection...")
+# bot.password = "2WX0s7aJ2T4iRkL6"
+# db_client = pymongo.MongoClient("mongodb+srv://bitd-bot:" + bot.password +
+#                                 "@bitd.urg7i.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+# db = db_client.admin
+# serverStatusResult = db.command("serverStatus")
+#
+# if db.authenticate("bitd-bot", bot.password):
+#     print("Connected to database")
+# else:
+#     print("Failure connecting to the database")
+#
+# def update_data(collection, _filter, new_data):
+#     mydb = db_client["bitd-bot-db"]
+#     mydb[collection].replace_one(_filter, new_data)
+#
+# def get_data(collection):
+#     mydb = db_client["bitd-bot-db"]
+#     return mydb[collection].find_one()
 
 
 @bot.command(name="clock", aliases=["c"])
