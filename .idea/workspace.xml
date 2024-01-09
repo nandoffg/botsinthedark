@@ -1,0 +1,1340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4efb7188-bb4e-4330-8e1a-ef4532271c83" name="Default Changelist" comment="Update:&#10;- Downgraded to python 3.7 to make the code work.">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/_distutils_hack/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/_distutils_hack/override.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/distutils-precedence.pth" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip-22.0.4.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip-22.0.4.dist-info/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip-22.0.4.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip-22.0.4.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip-22.0.4.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip-22.0.4.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip-22.0.4.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip-22.0.4.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/build_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/autocompletion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/base_command.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/cmdoptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/command_context.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/main_parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/progress_bars.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/req_command.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/spinners.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/cli/status_codes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/completion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/debug.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/download.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/freeze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/hash.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/list.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/search.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/show.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/uninstall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/commands/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/configuration.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/distributions/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/distributions/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/distributions/installed.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/distributions/sdist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/distributions/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/index/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/index/collector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/index/package_finder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/index/sources.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/locations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/locations/_distutils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/locations/_sysconfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/locations/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/metadata/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/metadata/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/metadata/pkg_resources.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/candidate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/direct_url.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/format_control.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/link.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/scheme.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/search_scope.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/selection_prefs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/target_python.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/models/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/network/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/network/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/network/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/network/download.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/network/lazy_wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/network/session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/network/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/network/xmlrpc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/build/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/build/metadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/build/metadata_editable.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/build/metadata_legacy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/build/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/build/wheel_editable.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/build/wheel_legacy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/freeze.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/install/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/install/editable_legacy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/install/legacy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/install/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/operations/prepare.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/pyproject.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/req/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/req/constructors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/req/req_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/req/req_install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/req/req_set.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/req/req_tracker.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/req/req_uninstall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/legacy/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/legacy/resolver.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/candidates.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/factory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/provider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/reporter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/requirements.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/resolution/resolvelib/resolver.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/self_outdated_check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/_log.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/appdirs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/compatibility_tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/datetime.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/deprecation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/direct_url_helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/distutils_args.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/egg_link.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/encoding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/entrypoints.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/filesystem.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/filetypes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/glibc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/hashes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/inject_securetransport.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/logging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/packaging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/setuptools_build.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/subprocess.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/temp_dir.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/unpacking.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/virtualenv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/utils/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/vcs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/vcs/bazaar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/vcs/git.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/vcs/mercurial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/vcs/subversion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/vcs/versioncontrol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_internal/wheel_builder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/_cmd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/adapter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/caches/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/caches/file_cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/caches/redis_cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/filewrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/heuristics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/serialize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/cachecontrol/wrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/certifi/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/certifi/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/certifi/cacert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/certifi/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/big5freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/big5prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/chardistribution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/charsetgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/charsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/cli/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/cli/chardetect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/codingstatemachine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/cp949prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/enums.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/escprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/escsm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/eucjpprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/euckrfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/euckrprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/euctwfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/euctwprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/gb2312freq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/gb2312prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/hebrewprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/jisfreq.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/jpcntx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/langbulgarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/langgreekmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/langhebrewmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/langhungarianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/langrussianmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/langthaimodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/langturkishmodel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/latin1prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/mbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/mbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/mbcssm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/metadata/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/metadata/languages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/sbcharsetprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/sbcsgroupprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/sjisprober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/universaldetector.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/utf8prober.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/chardet/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/colorama/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/colorama/ansi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/colorama/ansitowin32.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/colorama/initialise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/colorama/win32.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/colorama/winterm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/_backport/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/_backport/misc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/_backport/shutil.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/_backport/sysconfig.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/_backport/sysconfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/_backport/tarfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/database.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/locators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/manifest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/markers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/metadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/resources.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/scripts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/t32.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/t64-arm.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/t64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/w32.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/w64-arm.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/w64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distlib/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/distro.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/_ihatexml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/_inputstream.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/_tokenizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/_trie/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/_trie/_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/_trie/py.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/filters/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/filters/alphabeticalattributes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/filters/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/filters/inject_meta_charset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/filters/lint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/filters/optionaltags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/filters/sanitizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/filters/whitespace.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/html5parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/serializer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treeadapters/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treeadapters/genshi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treeadapters/sax.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treebuilders/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treebuilders/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treebuilders/dom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treebuilders/etree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treebuilders/etree_lxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treewalkers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treewalkers/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treewalkers/dom.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treewalkers/etree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treewalkers/etree_lxml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/html5lib/treewalkers/genshi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/idna/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/idna/codec.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/idna/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/idna/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/idna/idnadata.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/idna/intranges.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/idna/package_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/idna/uts46data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/msgpack/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/msgpack/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/msgpack/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/msgpack/ext.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/msgpack/fallback.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/__about__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/_manylinux.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/_musllinux.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/_structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/markers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/requirements.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/specifiers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/packaging/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/build.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/colorlog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/dirtools.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/envbuild.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/in_process/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/in_process/_in_process.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/meta.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pep517/wrappers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pkg_resources/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pkg_resources/py31compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/platformdirs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/platformdirs/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/platformdirs/android.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/platformdirs/api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/platformdirs/macos.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/platformdirs/unix.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/platformdirs/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/platformdirs/windows.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/progress/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/progress/bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/progress/colors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/progress/counter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/progress/spinner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/cmdline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/console.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/filter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/filters/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/_mapping.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/bbcode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/groff.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/html.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/img.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/irc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/latex.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/other.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/pangomarkup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/rtf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/svg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/terminal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/formatters/terminal256.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/lexer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/lexers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/lexers/_mapping.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/lexers/python.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/modeline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/plugin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/regexopt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/scanner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/sphinxext.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/style.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/styles/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/token.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/unistring.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pygments/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/actions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/common.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/diagram/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/results.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/testing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/unicode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/pyparsing/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/__version__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/_internal_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/adapters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/auth.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/certs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/cookies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/help.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/hooks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/packages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/sessions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/status_codes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/requests/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/resolvelib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/resolvelib/compat/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/resolvelib/compat/collections_abc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/resolvelib/providers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/resolvelib/reporters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/resolvelib/resolvers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/resolvelib/structs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/__main__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_cell_widths.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_emoji_codes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_emoji_replace.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_extension.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_inspect.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_log_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_loop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_lru_cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_palettes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_pick.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_ratio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_spinners.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_stack.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_timer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_windows.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/_wrap.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/abc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/align.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/ansi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/box.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/cells.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/color.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/color_triplet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/columns.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/console.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/constrain.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/containers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/control.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/default_styles.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/diagnose.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/emoji.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/file_proxy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/filesize.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/highlighter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/json.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/jupyter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/layout.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/live.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/live_render.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/logging.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/markup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/measure.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/padding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/pager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/palette.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/panel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/pretty.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/progress.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/progress_bar.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/prompt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/protocol.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/region.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/repr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/rule.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/scope.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/screen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/segment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/spinner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/status.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/style.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/styled.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/syntax.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/tabulate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/terminal_theme.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/theme.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/themes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/traceback.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/rich/tree.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/six.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/_asyncio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/after.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/before.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/before_sleep.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/nap.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/retry.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/stop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/tornadoweb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tenacity/wait.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tomli/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tomli/_parser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/tomli/_re.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/typing_extensions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/_collections.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/connectionpool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/_appengine_environ.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/_securetransport/bindings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/_securetransport/low_level.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/appengine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/securetransport.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/contrib/socks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/fields.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/filepost.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/packages/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/packages/backports/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/packages/backports/makefile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/packages/six.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/poolmanager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/connection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/proxy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/queue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/request.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/response.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/retry.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/ssl_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/ssltransport.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/timeout.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/url.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/urllib3/util/wait.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/vendor.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/webencodings/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/webencodings/labels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/webencodings/mklabels.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/webencodings/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/_vendor/webencodings/x_user_defined.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pip/py.typed" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/appdirs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/__about__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/_compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/_structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/_typing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/markers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/requirements.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/specifiers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/packaging/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/_vendor/pyparsing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/extern/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/pkg_resources/tests/data/my-test-package-source/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools-58.1.0.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools-58.1.0.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools-58.1.0.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools-58.1.0.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools-58.1.0.dist-info/REQUESTED" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools-58.1.0.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools-58.1.0.dist-info/entry_points.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools-58.1.0.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_deprecation_warning.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/_msvccompiler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/archive_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/bcppcompiler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/ccompiler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/cmd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/bdist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/bdist_dumb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/bdist_msi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/bdist_rpm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/bdist_wininst.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/build.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/build_clib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/build_ext.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/build_py.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/build_scripts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/clean.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/install_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/install_egg_info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/install_headers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/install_lib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/install_scripts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/py37compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/register.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/sdist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/command/upload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/cygwinccompiler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/debug.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/dep_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/dir_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/dist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/extension.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/fancy_getopt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/file_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/filelist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/log.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/msvc9compiler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/msvccompiler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/py35compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/py38compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/spawn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/sysconfig.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/text_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/unixccompiler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_distutils/versionpredicate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_imp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/more_itertools/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/more_itertools/more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/more_itertools/recipes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/ordered_set.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/__about__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/_compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/_structures.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/_typing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/markers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/requirements.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/specifiers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/packaging/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/_vendor/pyparsing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/archive_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/build_meta.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/cli-32.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/cli-64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/cli.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/alias.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/bdist_egg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/bdist_rpm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/build_clib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/build_ext.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/build_py.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/develop.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/dist_info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/easy_install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/egg_info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/install_egg_info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/install_lib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/install_scripts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/launcher manifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/py36compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/register.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/rotate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/saveopts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/sdist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/setopt.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/upload.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/command/upload_docs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/dep_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/depends.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/dist.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/extension.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/extern/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/glob.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/gui-32.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/gui-64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/gui.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/installer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/launch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/monkey.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/msvc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/namespaces.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/package_index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/py34compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/sandbox.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/script (dev).tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/script.tmpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/unicode_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/wheel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Lib/site-packages/setuptools/windows_support.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/Activate.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/activate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/activate.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/deactivate.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/pip.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/pip3.9.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/pip3.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/python.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/Scripts/pythonw.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/env_name/pyvenv.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/botsinthedark/lookup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/.idea/bitd.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/Procfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/bargain.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/randomName.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/runtime.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/discord.py/unused code.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/generatorOptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/generatorOptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/randomName.py" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/randomName.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/unused code.py" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/unused code.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Blank Requirements File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/botsinthedark" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="onto" value="5e84bdd38305055093015d7c94bd8d0826c18b70" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="1hTDe9FXDu2KXW3r7Ttc5XAukhY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/code/bots-in-the-dark/main.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RunManager" selected="Python.main (4)">
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bitd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/discord.py" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/discord.py/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bitd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../pythonProject" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../pythonProject/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (3)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bitd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bots-in-the-dark" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bots-in-the-dark/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (4)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bitd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/botsinthedark" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/botsinthedark/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="bitd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\gomes\anaconda3\envs\k39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sorcerous burst" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bitd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/botsinthedark" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/botsinthedark/sorcerous burst.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.sorcerous burst" />
+      <item itemvalue="Python.main (4)" />
+      <item itemvalue="Python.main (3)" />
+      <item itemvalue="Python.main (2)" />
+      <item itemvalue="Python.main (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main (4)" />
+        <item itemvalue="Python.sorcerous burst" />
+        <item itemvalue="Python.main (3)" />
+        <item itemvalue="Python.main (2)" />
+        <item itemvalue="Python.main (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4efb7188-bb4e-4330-8e1a-ef4532271c83" name="Default Changelist" comment="" />
+      <created>1600026280847</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600026280847</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Update:&#10;- Fixed rare professions not being selected for =g people">
+      <created>1615304525035</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1615304525035</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Update:&#10;- Fixed rare professions not being selected for =g people">
+      <created>1615304895621</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1615304895621</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Update:&#10;- Fixed =h g tip">
+      <created>1615304995239</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1615304995239</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Update:&#10;- Added special thanks to the Dogs in the Bark creator">
+      <created>1615305215550</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1615305215550</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Update:&#10;- Added special thanks to the Leviathan Song creator">
+      <created>1615305654416</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1615305654416</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Update:&#10;- Rewrote the =info Patreon related sentence">
+      <created>1615305758964</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1615305758964</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Update:&#10;- Fixed a type in =g dog thanks">
+      <created>1615305851353</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1615305851353</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Update:&#10;- Added clocks to the Bot.">
+      <created>1615505859075</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1615505859075</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Update:&#10;- Added clocks to the Bot.">
+      <created>1615506068983</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1615506068983</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Update:&#10;- small bugfix">
+      <created>1615512790160</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1615512790160</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Update:&#10;- small bugfix">
+      <created>1615521979880</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1615521979880</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Update:&#10;- Updated clockfaces for all clocks.">
+      <created>1615772839619</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1615772839619</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Update:&#10;- Updated clockfaces for all clocks.">
+      <created>1615773053558</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1615773053558</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Update:&#10;- Updated clockfaces for all clocks.">
+      <created>1615847591170</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1615847591170</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Update:&#10;- Updated clockfaces for all clocks another time.">
+      <created>1616041416722</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1616041416722</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Update:&#10;- Declared intents as required by Discord.">
+      <created>1635792521583</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1635792521583</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Update:&#10;- Declared intents as required by Discord.">
+      <created>1635792682207</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1635792682207</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Update:&#10;- Updated Python version requirements and added intents as required by Discord.">
+      <created>1635793081201</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1635793081201</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651258129150</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1651258129150</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651258443514</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1651258443515</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651259158519</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1651259158519</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651259448500</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1651259448500</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651263074509</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1651263074509</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651263352200</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1651263352200</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651266984373</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1651266984373</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651267934922</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1651267934922</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651268116872</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1651268116872</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651268431661</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1651268431661</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651268581552</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1651268581552</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651269379522</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1651269379522</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651277785200</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1651277785201</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651278449661</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1651278449661</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651278742465</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1651278742465</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651279169037</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1651279169037</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Update:&#10;- Updated with DnD NPC creator.">
+      <created>1651280218389</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1651280218389</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Update:&#10;- Removed clocks feature temporarily.">
+      <created>1655739310440</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1655739310441</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Update:&#10;- Changed intents">
+      <created>1655743758537</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1655743758537</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Update:&#10;- Updated to python 3.10.5">
+      <created>1655744679982</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1655744679982</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Update:&#10;- Updated to python 3.10.5">
+      <created>1655745779444</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1655745779445</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Update:&#10;- Updated to python 3.10.5">
+      <created>1655748378068</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1655748378068</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Update:&#10;- Updated to python 3.10.5">
+      <created>1657112143462</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1657112143462</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Update:&#10;- Updated to python 3.10.5">
+      <created>1657112365963</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1657112365963</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Update:&#10;- Updated to python 3.10.5">
+      <created>1657112478663</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1657112478663</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Update:&#10;- Updated to python 3.10.5">
+      <created>1657112997057</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1657112997057</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Update:&#10;- Updated to python 3.10.5">
+      <created>1657114841320</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1657114841320</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Update:&#10;- Downgraded to python 3.7 to make the code work.">
+      <created>1681829759791</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1681829759791</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Update:&#10;- Downgraded to python 3.7 to make the code work.">
+      <created>1681830048388</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1681830048388</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Update:&#10;- Downgraded to python 3.7 to make the code work.">
+      <created>1681830121675</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1681830121675</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Update:&#10;- Downgraded to python 3.7 to make the code work.">
+      <created>1681830235321</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1681830235321</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update:&#10;- Added =f/=faction to display faction sheets information" />
+    <MESSAGE value="Update:&#10;- Added =f/=find to display several kinds of information" />
+    <MESSAGE value="Update:&#10;- Added leviathan to the random generated things." />
+    <MESSAGE value="Update:&#10;- Added help tip for new added characteristics" />
+    <MESSAGE value="Update:&#10;- Fixed restart message." />
+    <MESSAGE value="Update:&#10;- Added Iruvian names, family names, styles and more." />
+    <MESSAGE value="Update:&#10;- Added several more Devil's Bargains" />
+    <MESSAGE value="Update:&#10;- Added Dogs generation" />
+    <MESSAGE value="Update:&#10;- Fixed rare professions not being selected for =g people" />
+    <MESSAGE value="Update:&#10;- Fixed =h g tip" />
+    <MESSAGE value="Update:&#10;- Added special thanks to the Dogs in the Bark creator" />
+    <MESSAGE value="Update:&#10;- Added special thanks to the Leviathan Song creator" />
+    <MESSAGE value="Update:&#10;- Rewrote the =info Patreon related sentence" />
+    <MESSAGE value="Update:&#10;- Fixed a type in =g dog thanks" />
+    <MESSAGE value="Update:&#10;- Added clocks to the Bot." />
+    <MESSAGE value="Update:&#10;- small bugfix" />
+    <MESSAGE value="Update:&#10;- Updated clockfaces for all clocks." />
+    <MESSAGE value="Update:&#10;- Updated clockfaces for all clocks another time." />
+    <MESSAGE value="Update:&#10;- Declared intents as required by Discord." />
+    <MESSAGE value="Update:&#10;- Updated Python version requirements and added intents as required by Discord." />
+    <MESSAGE value="Update:&#10;- Updated with DnD NPC creator." />
+    <MESSAGE value="Update:&#10;- Removed clocks feature temporarily." />
+    <MESSAGE value="Update:&#10;- Changed intents" />
+    <MESSAGE value="Update:&#10;- Updated to python 3.10.5" />
+    <MESSAGE value="Update:&#10;- Downgraded to python 3.7 to make the code work." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update:&#10;- Downgraded to python 3.7 to make the code work." />
+  </component>
+</project>
