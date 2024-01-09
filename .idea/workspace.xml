@@ -8,7 +8,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4efb7188-bb4e-4330-8e1a-ef4532271c83" name="Default Changelist" comment="Update:&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements)." />
+    <list default="true" id="4efb7188-bb4e-4330-8e1a-ef4532271c83" name="Default Changelist" comment="Update:&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements).">
+      <change beforePath="$PROJECT_DIR$/botsinthedark/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -210,13 +212,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600026280847</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Update:&#10;- Fixed =h g tip">
-      <created>1615304995239</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1615304995239</updated>
     </task>
     <task id="LOCAL-00035" summary="Update:&#10;- Added special thanks to the Dogs in the Bark creator">
       <created>1615305215550</created>
@@ -554,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704831318568</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Update:&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements).">
+      <created>1704831494699</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1704831494699</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
