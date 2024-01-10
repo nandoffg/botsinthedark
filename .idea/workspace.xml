@@ -8,7 +8,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4efb7188-bb4e-4330-8e1a-ef4532271c83" name="Default Changelist" comment="Update:&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements)." />
+    <list default="true" id="4efb7188-bb4e-4330-8e1a-ef4532271c83" name="Default Changelist" comment="Update:&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements).">
+      <change beforePath="$PROJECT_DIR$/.idea/bitd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bitd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/unused code.py" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/unused code.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,7 +62,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "last_opened_file_path": "C:/code/bots-in-the-dark/main.py",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RunManager" selected="Python.main (4)">
@@ -128,9 +136,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\gomes\anaconda3\envs\bitd\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/botsinthedark" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/botsinthedark/main.py" />
@@ -210,13 +218,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600026280847</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Update:&#10;- Added clocks to the Bot.">
-      <created>1615505859075</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1615505859075</updated>
     </task>
     <task id="LOCAL-00040" summary="Update:&#10;- Added clocks to the Bot.">
       <created>1615506068983</created>
@@ -554,7 +555,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704832583589</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Update:&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements).">
+      <created>1704832754418</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1704832754418</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -586,6 +594,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/bots-in-the-dark" />
+    </ignored-roots>
     <MESSAGE value="Update:&#10;- Added =f/=find to display several kinds of information" />
     <MESSAGE value="Update:&#10;- Added leviathan to the random generated things." />
     <MESSAGE value="Update:&#10;- Added help tip for new added characteristics" />
