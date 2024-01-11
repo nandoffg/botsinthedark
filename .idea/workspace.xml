@@ -8,9 +8,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4efb7188-bb4e-4330-8e1a-ef4532271c83" name="Default Changelist" comment="Update:&#10;- Deprecated discord_slash&#10;- Updated to discord.py 2.3.2&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements).&#10;&#10;- Missing the Help command">
+    <list default="true" id="4efb7188-bb4e-4330-8e1a-ef4532271c83" name="Default Changelist" comment="Update:&#10;- Tried implementation of /help.&#10;- Added help, brief and aliases to all of the commands.">
+      <change afterPath="$PROJECT_DIR$/botsinthedark/help_comm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/botsinthedark/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/botsinthedark/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/botsinthedark/unused code.py" beforeDir="false" afterPath="$PROJECT_DIR$/botsinthedark/unused code.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,13 +216,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600026280847</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Update:&#10;- small bugfix">
-      <created>1615512790160</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1615512790160</updated>
     </task>
     <task id="LOCAL-00042" summary="Update:&#10;- small bugfix">
       <created>1615521979880</created>
@@ -558,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704851742586</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Update:&#10;- Tried implementation of /help.&#10;- Added help, brief and aliases to all of the commands.">
+      <created>1704893471262</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1704893471263</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -593,7 +595,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/bots-in-the-dark" />
     </ignored-roots>
-    <MESSAGE value="Update:&#10;- Added leviathan to the random generated things." />
     <MESSAGE value="Update:&#10;- Added help tip for new added characteristics" />
     <MESSAGE value="Update:&#10;- Fixed restart message." />
     <MESSAGE value="Update:&#10;- Added Iruvian names, family names, styles and more." />
@@ -618,6 +619,7 @@
     <MESSAGE value="Update:&#10;- Downgraded to python 3.7 to make the code work." />
     <MESSAGE value="Update:&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements)." />
     <MESSAGE value="Update:&#10;- Deprecated discord_slash&#10;- Updated to discord.py 2.3.2&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements).&#10;&#10;- Missing the Help command" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update:&#10;- Deprecated discord_slash&#10;- Updated to discord.py 2.3.2&#10;- Revamped the whole bot, fixed all commands and added a new feature (Entanglements).&#10;&#10;- Missing the Help command" />
+    <MESSAGE value="Update:&#10;- Tried implementation of /help.&#10;- Added help, brief and aliases to all of the commands." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update:&#10;- Tried implementation of /help.&#10;- Added help, brief and aliases to all of the commands." />
   </component>
 </project>
